@@ -2,3 +2,5 @@
 /.release/
 .timestamps
 .htaccess
+jodd-site.sublime-project
+jodd-site.sublime-workspace
