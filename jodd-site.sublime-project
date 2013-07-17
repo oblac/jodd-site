@@ -1,0 +1,10 @@
+{
+ "folders": [
+  {
+   "folder_exclude_patterns": [
+    ".out"
+   ], 
+   "path": "/Users/igor/prj/oblac/site"
+  }
+ ]
+}

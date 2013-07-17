@@ -1,0 +1,4 @@
+-rs_labs/
+-rs_api/
+-rs_test/
+-rs_sphider/

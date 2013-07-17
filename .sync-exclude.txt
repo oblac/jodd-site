@@ -1,0 +1,4 @@
+.etc
+.release*
+.gen*
+jodd-site.sublime*

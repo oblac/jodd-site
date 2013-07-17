@@ -1,0 +1,329 @@
+# Props ![jodd props](/gfx/props.png "BeanUtil")
+
+*Props* is super `properties`; containing all what is missing in JDK:
+UTF8 support, macros, sections, profiles, fully configurable... and
+more! Properties are stored in one or more `*.props` files, but its
+architecture is open for any type of source. Moreover, *Props* is
+compatible with Java properties.
+
+## Basic rules
+
+Bellow is set of basic rules for `props` file format. Some of them are
+shown in the following example:
+
+![props example](props-example.png)
+{: style="text-align:center;"}
+
+### UTF8 encoding
+
+By default, `props` files are UTF8 encoded, but can be encoded in any
+encoding. Whatever encoding is used, *Props* will still load Java
+properties using ISO 8859-1.
+
+### Trimming whitespaces
+
+Leading and trailing spaces will be trimmed from section names and
+property names. Leading and/or trailing spaces may be trimmed from
+property values.
+
+### Assignment property values
+
+Either equal sign (`=`) or colon (`:`) are used to assign property
+values.
+
+### Comments
+
+Comments begin with either a semicolon (`;`), or a sharp sign (`#`) and
+extend to the end of line. It doesn't have to be the first character.
+
+### Escaping
+
+A backslash (`\`) escapes the next character (e.g., `\#` is a literal
+`#`, `\\` is a literal `\`).
+
+### Multi-line values
+
+If the last character of a line is backslash (`\`), the value is
+continued on the next line with new line character included.
+
+### Special characters
+
+`\\uXXXX` is encoded as character. Also `\t`, `\r` and `\f` are encoded
+as characters.
+
+### Multiline values
+
+Use triple-quote to define multi-line values in convenient way.
+
+## Basic usage
+
+Using *Props* is very easy. In a nutshell, properties are managed by
+`Props` class.
+
+~~~~~ java
+    Props p = new Props();
+    p.load(new File("example.props"));
+    ...
+    String story = p.getValue("story");
+~~~~~
+
+Properties can be loaded by `Props` in many different ways: from a
+`File`, `InputStream`, `String` or `Properties`. Then props are ready
+for usage and values can be looked up using `getValue()` method. This
+method always returns a String value.
+
+## Sections
+
+Sections looks very much like Windows INI file sections. In *Props*,
+section simply represents the keys prefix for following keys, until the
+section end or end of file.
+
+Section names are enclosed between `[` and `]`. Properties following a
+section header belong to that section. Section name is added as a prefix
+to section properties. Section ends with empty section definition `[]`
+or with new section start or end of file.
+
+The following example:
+
+~~~~~
+    [users.data]
+    weight = 49.5
+    height = 87.7
+    age = 63
+    []
+    comment=this is base property
+~~~~~
+
+is identical to:
+
+~~~~~
+    users.data.weight = 49.5
+    users.data.height = 87.7
+    users.data.age = 63
+    comment=this is base property
+~~~~~
+
+Sections, therefore, can shorten the file and make it more readable.
+
+## Profiles
+
+Often an application works in different environments and, therefore,
+require different set of (some) properties; for example: the development
+mode and deployment mode of a web application. One way how to organize
+properties is to define different profiles where the same key name takes
+different values.
+
+*Props* supports property profiles. Profiles are defined within key
+name: profile names are enclosed between `<` and `>`. One key may
+contain one or more profile definitions. Also, profile definition can be
+anywhere in the key name, even in the middle of the word; however, it is
+a good practice to put them at the end.
+
+Properties without a profile are base properties. If look up for a
+property of some profile fails, *Props* will examine the base
+properties. So profiles can be considered as a 'different views' or
+'snapshots' of the same property set.
+
+Example:
+
+~~~~~
+    db.port=3086
+
+    db.url<develop>=localhost
+    db.username<develop>=root
+
+    db.url<deploy>=192.168.1.101
+    db.username<deploy>=app2499
+~~~~~
+
+In this example 3 keys are defined; two keys have different values in
+two profiles (`develop` and `deploy`) and no base value.
+
+Since sections are just a prefix definition and since profile can be
+anywhere in the key name, therefore section name can contain profile
+definition as well. Above example can be written as:
+
+~~~~~
+    db.port=3086
+
+    [db<develop>]
+    url=localhost
+    username=root
+
+    [db<deploy>]
+    url=192.168.1.101
+    username=app2499
+~~~~~
+
+When looking up for a value, it is possible to specify which profiles
+are active:
+
+~~~~~ java
+    String url = props.getValue("db.url", "develop");
+    String user = props.getValue("db.username", "develop");
+~~~~~
+
+It is also possible to lookup only for base properties - using`
+getBaseValue()` method. Base properties are those that don't belong to
+any profile.
+
+### Default active profiles
+
+Usually, only one set of profiles is active for the application
+lifetime. Instead of passing active profiles to `getValues()` methods
+each and every time, *Props* allows to define so called active profiles
+externally, in the same `props` files used for loading properties.
+
+Active profiles are default profiles when looking for a property using
+method `getValue(String)`.
+
+Active profiles can be set in the `props` files - this way the
+configuration set can be changed (i.e. active profiles can be modified)
+without the need to recompile the code. Active profiles are defined
+under the special key named `@profiles`. Example:
+
+~~~~~
+    key1=hello
+    key1<one>=Hi!
+
+    @profiles=one
+~~~~~
+
+and the following Java code:
+
+~~~~~ java
+    String value = props.getValue("key1");
+~~~~~
+
+would return the value '`Hi!`', since active profile is '`one`'.
+
+Active profiles can be set from Java, too, using method:
+`setActiveProfiles()`.
+
+### Inner profiles
+
+There are situations where two ore more profiles share the most of the
+configuration and only few properties are different (or: specific) for
+one profile (i.e. configuration). To avoid repeating of all properties
+for each profile, it is possible to define properties assigned to inner
+profiles only for those differences. *Props* will first lookup keys in
+inner profiles, then go up to the base level. Example:
+
+~~~~~
+    key1<one>=Hi!
+    key2<one>=...
+    ....
+    key100<one>=...
+
+    key1<one.two>=Hola!
+~~~~~
+
+This example defines two profiles. First one is named '`one`' and
+contains 100 properties. Second profile is an inner property named
+'`one.two`'. It contains only 1 property (`key1`) - but all properties
+from its upper profile are available! So what happens when Java code
+calls the following: `props.getValue("key1", "one.two")`? *Props* will:
+* lookup for property in inner profile `one.two`
+* if value is not found, `Props` will check upper profile: `one`
+* if value is not found and there are no more upper profiles, *Props* will check base properties.
+
+There can be many levels of inner profiles.
+
+## Macros
+
+The biggest *Props* strength are macros. Macro is a reference to some
+keys value, used in value of other key. Macros are enclosed between `${`
+and `}`. Here is a simple example:
+
+~~~~~
+    key1=Something ${foo}
+    ...
+    foo=nice
+~~~~~
+
+Value of `key1` is '`Something nice`'. Macros can refer to any
+existing property key, no matter where it is defined.
+
+Nested macros are also supported. Example:
+
+~~~~~
+    key1=**${key${key3}}**
+    key3=2
+    key2=foo
+~~~~~
+
+Value of `key1` is \'`**foo**`\'.
+
+## Multiline values
+
+When enabled, multilines values may be defined with triple-quotes.
+Everything between is considered as a value. Example:
+
+~~~~~
+    email.body='''
+    	Hello $n,
+
+    	welcome!
+    '''
+~~~~~
+
+Note that multiline values are **NOT** trimmed! Therefore, the value
+from the example will consist of 5 rows.
+
+## Configuration
+
+*Props* behavior can be fine-tuned using several configuration settings:
+
+### escapeNewLineValue
+
+Specifies the new line string when EOL is escaped. Default value is an
+empty string, so multi-line values will be joined in single-line value.
+If this value is set to, e.g., `"\n"`, multi-line values will be
+persisted as multi-lines.
+
+### valueTrimLeft
+
+Specifies if values should be trimmed from the left.
+
+### valueTrimRight
+
+Specifies if values shoould be trimmed from the right.
+
+### ignorePrefixWhitespacesOnNewLine
+
+Defines if the leading whitespaces should be ignored when value is split
+into the lines (by escaping EOL). By default it is set to `true`, so the
+following multi-line props:
+
+~~~~~
+    key1=line1\
+         line2\
+    line3
+~~~~~
+
+will be read as `"line1line2line3"` (joined).
+
+### skipEmptyProps
+
+Flag for skipping empty properties.
+
+### appendDuplicateProps
+
+When set, duplicate props key will not override existing one, but will
+be appended and separated by comma.
+
+### multilineValues
+
+When enabled (default), multi-line values may be written in more
+convenient way using triple-quote (as in python). Everything between
+triple-quotes is considered as a value, so new line does not need to be
+escaped.
+
+## IntelliJ IDEA plugin
+
+There is [IntelliJ IDEA plugin][1] that provides support
+for *Props* files. For now, this support is very basic, but it will be
+enhanced in time.
+
+
+[1]: http://plugins.intellij.net/plugin/?idea&id=5984

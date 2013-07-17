@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jodd | open-source java utility library and web application frameworks</title>
+<meta name="keywords" content="java, jodd, util, tools, framework, performance, optimized, open-source, beans, julian date, time, ioc, container, dependency, injection, mvc, web, actions, aspects, proxy, database, thin, jdbc, beanutil, madvoc, petite, proxetta, dboom, jdatetime, parser, html, decorator, decora, lagarto" />
+<meta name="description" content="Jodd is generic purpose open-source Java utility library and bundle of lightweight application frameworks. Jodd includes BeanUtil for bean manipulation, JDateTime for date-time works; Petite as IoC container, Madvoc for web, Proxetta for dynamic proxies and thin DB layer." />
+<meta name="ROBOTS" content="ALL" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://jodd.org/feed.xml" />
+<link href="/reset.css" rel="stylesheet" type="text/css" />
+<link href="/jodd.css" rel="stylesheet" type="text/css" />
+<style>
+#simpleTooltip { padding: 7px; border: 1px solid #A6A7AB; background: #F2F3F5; }
+#eq {margin-top:20px;font-weight:bold;color:#777;font-size:1.5em; }
+#eq span {display:none; }
+</style>
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript" src="/jquery.tooltip.js"></script>
+<script type="text/javascript">
+function fade(i) {
+	if (i == 11) {
+		return;
+	}
+	$('span#eq' + i).fadeIn(500, function() {
+		fade(i + 1);
+	});
+}
+$(function() {
+	$('div.ben').simpletooltip();
+	fade(1);
+	setInterval(function() {
+		$("#eq span").hide();
+		fade(1);
+	}, 10000);
+});
+</script>
+
+</head>
+<body class="bgcol">
+<div id="container" style="width:100em">
+	@@include(headbar)
+	<div id="column3">
+	<div id="column2">
+		<div id="content-main">
+
+			<div class="social_bookmark">
+			<!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style ">
+			<a class="addthis_counter addthis_pill_style" addthis:url="http://jodd.org"></a>
+			</div>
+			<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=najgor"></script>
+			<!-- AddThis Button END -->
+			</div>
+
+			@@body@@
+			<div id="content-related">
+				@@include(overview)
+			</div>
+		</div>
+		<div id="content-extra" class="rightbar">
+			<h2 id="duo" style="margin-bottom:0;">Download</h2>
+			<p style="font-size:9px;">Think Lightweight, Be Awesome, Get Things Done!</p>
+			<div id="dlbtn" style="margin-bottom:20px;"><a href="/download/index.html" class="round">
+			latest version: <span class="dlhi">@@{VERSION}</span><br />
+			released on: <span class="dldate">@@{RELEASE-DATE}</span></a>
+			</div>
+
+			<div id="dlbtn2"><a href="/download/index.html#beta" class="round">latest beta: <span class="dldate">@@{BETA}</span></a></div>
+
+			<div class="quick-link" style="margin-left: 10px;">
+			<a href="http://groups.google.com/forum/#!forum/jodders" target="_blank">
+			<img src="/gfx/forum.png"/>
+			<span>Discuss and join Jodders</span>
+			</a>
+			</div>
+
+			<div class="quick-link">
+			<a href="/source.html">
+			<img src="/gfx/github_32.png"/>
+			<span>Source code and Git repo</span>
+			</a>
+			</div>
+
+			<div class="quick-link">
+			<a href="http://feeds.feedburner.com/jodd">
+			<img src="/gfx/rss32.png"/>
+			<span>Follow Jodd news</span>
+			</a>
+			</div>
+
+			<div style="clear:both; margin-top: 120px; margin-left:30px;">
+				<div class="quick-link" style="width:190px;text-align:right;">
+				<a href="/using.html">
+				<img src="/gfx/heart.png" width="40" height="40" align="left" style="margin-right: 4px;"/>
+				<span style="font-size:14px;">Who in the<br>World is using Jodd and how?</span></a>
+				</div>
+			</div>
+
+			<h2 style="margin-top:200px; margin-bottom:10px;">Search</h2>
+				<div id="search-main" style="float:left;">
+				<form action="http://jodd.org/sphider/search.php" method="get">
+					<input type="text" name="query" style="width: 170px" value=""/>
+					<input type="hidden" name="search" value="1"/>
+					<input type="submit" value="Go!"/>
+				</form>
+				</div>
+
+			<div style="font-family:Georgia, 'Times New Roman', Times, serif; font-style:italic; font-size:2em; padding: 60px 0; line-height:24px; text-align:left;">
+			...we developed Jodd to help people reach their project goals in pragmatic way...</div>
+		</div>
+	</div>
+	<div id="content-addon" class="rightbar">
+		@@include(docs)
+	</div>
+	</div>
+
+	@@include(footer)
+</div>
+@@include(google-analytics)
+</body>
+</html>
