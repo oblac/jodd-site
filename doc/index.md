@@ -3,16 +3,32 @@ doc:true
 -----
 # Documentation
 
-*Jodd* documentation covers yet small part of existing functionality.
-Please browse API for more information and examine test-cases for more
-examples. Do not hesitate to [contact support](../contact.html) for
-[more documentation](needmore.html) on specific subject!
+Welcome to *Jodd* documentation! *Jodd* project goes to much effort
+to produce the best documentation possible. Documentation consist of
+core concepts explained in depth, but also with simple examples or overview
+of existing tools. It also examples on performing common tasks, such
+setting up frameworks, build project etc.
+
+Documentation is written in **kramdown** (excellent markdown extension).
+You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site).
+Feel free to contribute!
+
+Please browse [API](/api/index.html) for more information and examine
+test-cases for more examples. Do not hesitate to [contact support](../contact.html)
+for [more documentation](needmore.html) on specific subject!
+
+We are trying hard keep documentation to up to date with current code;
+still be aware that there may be some differences between how code works
+and whats described here. If you notice such flaws, please let us know;
+we will fix it for you!
+{: .attn}
 
 Need more documentation on certain topics? [Ask for it!](needmore.html)
 
+
 ## Search
 
-A lot of documentation is stored in JavaDoc. Since there are large
+Some documentation is stored in [JavaDoc](/api/index.html). Since there are large
 number of utilities and tools in *Jodd*, the best way to find something
 is to search the API for it. Just enter below what you are looking for:
 

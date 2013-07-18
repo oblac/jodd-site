@@ -177,7 +177,7 @@ Easy peasy!
 
 To demonstrate the power of *Jerry*, we created a little Facebook bot
 just for fun:) The task was to create a bot that will login to Facebook
-account, list friends proposals and send a few '*Add friend*\
+account, list friends proposals and send a few "Add friend"
 requests. To see how, [read it here.](facebook-bot.html)
 
 
