@@ -40,20 +40,23 @@ Clone **jodd-quickstart** project:
 [https://github.com/oblac/jodd-quickstart](https://github.com/oblac/jodd-quickstart)
 {: .download}
 
-## 2. Create project in your IDE
+## 2. Follow instructions in README
 
-Create a new project in your IDE and import existing sources to match
-the following structure (the real content may vary):
+All *Jodd* QuickStart projects are **gradle** project. You can easily build them.
+Each QuickStart project is also configured to be easily run from command line.
 
-![quickstart](quickstart-project.png){: .b}
-{: style="text-align:center"}
+Please follow step-by-step instructions on the GitHub for each project.
 
-Each quickstart example is put in its own module. Libraries are shared,
-just for the sake of simplicity.
+Please note that some projects require database access, so you will need
+MySql and to change configuration parameters prior starting.
+
 
 ## 3. Steady, ready... Code!
 
-And you are ready to experience *Jodd*:)
+Simply open QuickStart project in your IDE. As a gradle project, everything
+will be set up for you, so you can start exploring it right away.
+
+You are now ready to experience *Jodd*:)
 
 ### Add service
 
