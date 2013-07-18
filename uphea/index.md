@@ -3,8 +3,8 @@
 *Uphea* is an open-source real-world web application example built on
 *Jodd* frameworks. It presents many best-practices of using *Jodd*.
 Moreover, *Uphea* gives an excellent overview of key points and main
-strengths of *Jodd* framework; you will be able to feel the \'unbearable
-lightness\' of Java web development. We decided to give you a chance to
+strengths of *Jodd* framework; you will be able to feel the 'unbearable
+lightness' of Java web development. We decided to give you a chance to
 examine the real web application, and not only some half-baked pet-store
 example. *Uphea* will also be upgraded and enhanced in time, showing
 more and more *Jodd*s features.
@@ -233,7 +233,7 @@ actions.
 
 ## Optimize HTML and resources
 
-*HTML stapler* is a great tool to optimize multiple HTML resources into
+*HTMLStapler* is a great tool to optimize multiple HTML resources into
 one big resource file, **transparently**! As result, instead of
 downloading several CSS and JS files, only two resource bundles will be
 downloaded. Moreover, *Lagarto* parser can optimize the HTML page and
