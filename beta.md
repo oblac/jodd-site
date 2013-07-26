@@ -1,15 +1,11 @@
 -----
 make-toc:no
 -----
-# What's comming next?
+# What's coming next?
 
 ## Next Release
 
-We continue to improve things... 3.4.5 comes with some important fixes and improvements.
-
-We are also updating our documentation... so please be patient :)
-
-Stay tuned!
+We are already making plans for **v3.4.6**. Just hope this all make sense:) Stay tuned!
 
 
 ## Code coverage increase

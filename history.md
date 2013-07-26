@@ -8,6 +8,34 @@ Recent history, release notes and previous releases.
 @@import(release)
 
 
+## [2013-05-17] Release v3.4.4
+
+Wow, and we thought this is gonna be an easy release.
+There are plenty of new changes under the hub, so keep an eye on this release
+
+NEW
+: *DbOom* introduces '_entity aware_' mode, with even better entity handling (read soon about it)
+
+CHANGED
+: *DbOom* removed all `*One` methods from `DbOomQuery`! They are obsolete and can be simply replaced with regular methods.
+
+FIXED
+: Fixed issue with `parseCCEnd` method in *Lagarto*.
+
+FIXED
+: Fixed provided dependency for Servlet API in generated POM files.
+
+FIXED
+: Fixed encoding problem with `TextResult` in *Madvoc*.
+
+FIXED
+: Fixed encoding problem with `TextResult` in *Madvoc*.
+
+CHANGED
+: *Lagarto* lexer performances boosted! Significantly!
+{: .release}
+
+
 ## [2013-04-17] Release v3.4.3
 
 After some time, we bring you one awesome release packed with many small, but powerful and exciting new features! Most important improvements are in *Petite* container and *HTTP* tool. Enjoy!
@@ -615,7 +643,7 @@ FIXED
 ## [2011-04-05] Release v3.2.6
 
 Besides bug fixing and minor updates, this release brings major enhancement in *Petite* IOC container. We put a lot of heart into this release!
-		
+
 
 NEW
 : *VTor* `EqualToDeclaredField` constraint added.
@@ -705,7 +733,7 @@ NEW
 
 ## [2011-01-10] Release v3.2
 
-A new year and a new release, with some great new features!		
+A new year and a new release, with some great new features!
 
 NEW
 : *Props* - super Properties replacement tool added.
@@ -801,7 +829,7 @@ NEW
 
 ## [2010-05-10] Release v3.0.9
 
-Mainly bugfixes. Few days after *Jodd*s 3.x first birthday... a new release! Can't imagine a better present;) Moreover, *Jodd* has been used in couple of projects meanwhile, and it is fast, stable and good-looking:) And soon, we will give YOU a present for our birthday... just stay tuned;) 
+Mainly bugfixes. Few days after *Jodd*s 3.x first birthday... a new release! Can't imagine a better present;) Moreover, *Jodd* has been used in couple of projects meanwhile, and it is fast, stable and good-looking:) And soon, we will give YOU a present for our birthday... just stay tuned;)
 
 NEW
 : `replyTo` property added for `Email`.
@@ -837,7 +865,7 @@ NEW
 This is one of the most important releases, since all *Jodd* frameworks have been used in production together.
 As a result, we have several bug fixed, some important changes and more power inside the framework.
 Voila! Starting from this release, we will post some photos and stories related to the release;) So... today, we have a lot of snow, although it is March. Cold, white Friday is perfect for releasing a new version, with hot cup of green tea.
-        
+
 
 CHANGED
 : `HtmlEncoder` now uses `<br/>` instead of `<br>`.

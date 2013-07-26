@@ -21,7 +21,8 @@ methods.
 ## HTML content and DOM Builder
 
 `LagartoDOMBuilder` does not validate or modify HTML content. What you
-put to parse is what you get.
+put to parse is what you get. HTML rules for closing _tag soups_ are NOT
+implemented.
 {: .attn}
 
 This is very important to know: `LagartoDOMBuilder` will build the tree
@@ -32,8 +33,8 @@ parsing will continue.
 Therefore, `LagartoDOMBuilder` is not picky about it content. It will
 try to process anything you give to it;)
 
-Note: we are working on *strict* version of `LagartoDOMBuilder`, but
-it's not high priority at the moment.
+We are working on *strict* version of `LagartoDOMBuilder`.
+{: .example}
 
 ## Custom DOM Builder
 

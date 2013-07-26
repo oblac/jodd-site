@@ -134,6 +134,8 @@ class="lib">servlet-api</var> <var class="lib">jsp-api</var>
 class="dep">jodd-bean</var>
 
 
+{::comment}beta{:/comment}
+
 ## Beta version (SNAPSHOT)
 
 See [what's coming](/beta.html) in this beta.
@@ -145,6 +147,10 @@ See [what's coming](/beta.html) in this beta.
 ### Bundle
 
 [![download](/gfx/dl.gif) jodd-@@{BETA}.zip](jodd-@@{BETA}.zip){: .dl}
+
+{::comment}beta{:/comment}
+
+
 
 ## Misc
 
