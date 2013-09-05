@@ -56,9 +56,9 @@ self-closed or if it should have the standard end tag.
 ### impliedEndTags
 
 Enables rules for implicit end tags. There are a number of tags that do
-not requre the use of a closing tag for valid HTML (`body`, `li`, `dd`,
+not require the use of a closing tag for valid HTML (`body`, `li`, `dd`,
 `dt`, `p`, `td`, `tr`,...). When this flag is on, these tags are
-implicitly closed if needed and no error/warning is outputed.
+implicitly closed if needed and no error/warning is output.
 
 This feature somewhat slows down the parsing. If you are closing all
 your tags, consider switching this feature off, to improve performances.
@@ -81,11 +81,19 @@ By default, it is `"if !IE"`, meaning the HTML code will be treated as
 non-IE browser. If set to `null`, all conditional comments will be part
 of the DOM tree.
 
+### renderer
+
+Holds an instance of `LagartoNodeHtmlRenderer` that builds the HTML string
+from DOM tree. You can tweak renderer more or add your own implementation.
+For example, you can set the case of tags and attribute names, or
+modify how some attributes are render.
+
 ## Predefined parsing modes
 
 There are 3 predefined parsing modes: HTML, XHTML and XML. They can be
 easily set by calling `enableXxxMode()` on `LagartoDOMBuilder`. These
 methods will configure the builder to work with HTML, XHTML or XML code.
+Besides these 3 modes, there some additional modes that can be turned on.
 Here are the details.
 
 ### HTML mode (default)
@@ -130,6 +138,23 @@ Here are the details.
 User can further change these predefined modes by setting individual
 flags.
 {: .example}
+
+### HTML-Plus mode
+
+Default HTML mode does not change the order of the nodes. However, HTML5
+specification has some rules where nodes are moved around the DOM. For
+example, all tags written beyond table tags in a table are moved
+before table definition. Then, there are some special rules on which
+orphan tags may be closed and the scope in which they can be closed.
+
+`LagartoDOMBuilder` offers HTML-Plus mode for building the tree, with
+some additional rules turned on. These rules require some additional
+processing.
+
+### Debug mode
+
+You can easily turn on or off debugging with `enableDebug()` and `disableDebug()`.
+Debugging means that errors are collected and position is calculated.
 
 ## Void and self-closing elements
 

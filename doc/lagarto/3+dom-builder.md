@@ -5,36 +5,32 @@ and low memory consumption, sometimes it is more convenient to build a
 DOM tree first and then to manage it later. Of course, creating DOM
 requires more memory and more processing time.
 
-*Lagarto* provides `DOMBuilderTagVisitor` for building DOM trees from
-HTML content. It can be easily used through `LagartoDOMBuilder`, like
-this:
+*Lagarto* introduces `DOMBuilder` interface, for various implementations of
+DOM builders. Default implementation, `LagartoDOMBuilder` uses tag visitor
+to build a DOM from HTML content. It may be used like this:
 
 ~~~~~ java
 	LagartoDOMBuilder domBuilder = new LagartoDOMBuilder();
 	Document doc = domBuilder.parse(content);
 ~~~~~
 
-`LagartoDOMBuilder` always returns a `Document` - the root DOM tree
+`DOMBuilder` instance always returns a `Document` - the root DOM tree
 node. From there you can work on the DOM tree using common `Node`
 methods.
 
 ## HTML content and DOM Builder
 
-`LagartoDOMBuilder` does not validate or modify HTML content. What you
-put to parse is what you get. HTML rules for closing _tag soups_ are NOT
-implemented.
+`LagartoDOMBuilder` process successfully most common HTMLs. If you
+follow common HTML5 formatting rules, this DOM builder implementation
+will give you beautiful DOM tree.
+
+However (and that is very important) `LagartoDOMBuilder` does not implement
+all HTML5 rules out there. It can NOT be used for validating HTML5 code, for
+example. We have a plan to build strict DOM Builder implementation, but
+currently we are out of resources at the moment, so we can't promise when :)
+
+`LagartoDOMBuilder` is NOT a strict implementation of HTML5 rules!
 {: .attn}
-
-This is very important to know: `LagartoDOMBuilder` will build the tree
-from any (valid or invalid) HTML content. For example, if you put `tr`
-tag inside `select` tag, `LagartoDOMBuilder` will not warn you; and
-parsing will continue.
-
-Therefore, `LagartoDOMBuilder` is not picky about it content. It will
-try to process anything you give to it;)
-
-We are working on *strict* version of `LagartoDOMBuilder`.
-{: .example}
 
 ## Custom DOM Builder
 

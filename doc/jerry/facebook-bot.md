@@ -38,6 +38,10 @@ This is just a warmup. Next, check if Firefox and Firebug plugin are
 installed and working. We will need Firebug later to analyze HTML
 content and sniff the requests.
 
+This examples uses 3rd party lib (HttpClient). See
+[similar example](facebook.html) build only with *Jerry* and *Http*.
+{: .example}
+
 ## 0:11 - 0:55 HTTP connection tools
 
 Lets create few simple HTTP-related utility methods over HttpClient.
@@ -70,7 +74,8 @@ perfect one, but it works:
     	/**
     	 * Sends GET request.
     	 */
-    	public static Response get(String url, CookieStore cookieStore) throws IOException {
+    	public static Response get(
+                String url, CookieStore cookieStore) throws IOException {
     		...
     	}
 
@@ -151,6 +156,10 @@ request. Let's see how to collect form parameters:
     	}
 ~~~~~
 
+This method is trivial and not complete. You should use `form()` method from
+*Jerry*; that one returns all parameters including value of select boxes,
+checkboxes, textareas etc.
+
 ## 1:16 - 1:20 Find friends
 
 This one is simple: just load the 'find friends' page on facebook. Of
@@ -175,7 +184,8 @@ id, the form id (used as CSRF shield) and the facebook id of each
 friend. Thanx to *Jerry*, this is easy:)
 
 ~~~~~ java
-	static void listAndAddFriends(final Response response, final MutableInteger numberOfFriendsToInvite) {
+	static void listAndAddFriends(
+            final Response response, final MutableInteger numberOfFriendsToInvite) {
 		Jerry doc = Jerry.jerry(response.getHtml());
 
 		// find user id

@@ -23,7 +23,7 @@ HTML content.
 
 We tried to keep *Jerry* API identical to jQuery as much as possible; in
 some cases you can simply copy some jQuery code and paste it in Java! Of
-course, there are some differences due to different environments code is
+course, some differences exist due to environments variation the code is
 executed in.
 
 ### Creating document
@@ -33,12 +33,15 @@ javascript, so we need to create one first. To do that, simply pass HTML
 content to *Jerry* static factory method. That will create a root
 *Jerry* set, containing a `Document` root node of the parsed DOM tree.
 
-What happens in the background is that *Lagarto* parser is invoked to
-build a DOM tree.
+What happens in the background is that *Lagarto* parser (default implementation:
+`LagartoDOMBuilder`) is invoked to build a DOM tree.
 
-*Jerry* uses *Lagarto DOM* parser for parsing the content and building
-the DOM tree.
+*Jerry* uses *Lagarto DOM* parser for parsing the content and building the DOM tree.
 {: .example}
+
+It is possible to set different implementation of DOM builder. *Jerry* itself
+is not responsible for parsing HTML and building the tree, it takes any DOM
+tree that is created by a DOM Builder.
 
 ### Using CSS selectors
 
@@ -73,8 +76,25 @@ fluent as in javascript;):
 
 As *Jerry* is all about **static** manipulation of HTML content, all
 jQuery methods and selectors that are related to any dynamic activity
-are not supported. This includes animations, ajax calls, selectors that
+are not supported. This includes animations, Ajax calls, selectors that
 depends on CSS definitions...
+
+### Add-ons
+
+*Jerry* provides some add-ons that does not exist in jQuery. First, there are
+few methods that return `Node` of given DOM tree (similar to javascript).
+Then there are some new methods that have more meaning in Java world. One of the
+functional new methods is the `form()` method. It collects all parameters for
+given form, allowing easy form handling. Here is an example:
+
+~~~~~ java
+    doc.form("#myform", new JerryFormHandler() {
+        public void onForm(Jerry form, Map<String, String[]> parameters) {
+            // process form and parameters
+        }
+    });
+~~~~~
+
 
 ## Configuration
 
@@ -86,19 +106,18 @@ By default, *Jerry* uses the builder in HTML parsing mode. Here is an
 example how to change the predefined parsing mode:
 
 ~~~~~ java
-    Jerry jerry = jerry().enableHtmlMode().parse(html);
-~~~~~
-
-To configure it more, we can use the following snippet:
-
-~~~~~ java
     JerryParser jerryParser = Jerry.jerry();
-    jerryParser.getDOMBuilder().setIgnoreComments(true);
-    Jerry jerry = jerryParser.parse(xhtml);
+    LagartoDOMBuilder domBuilder = (LagartoDOMBuilder) jerryParser.getDOMBuilder();
+    domBuilder.enableHtmlMode();
+    // more configuration...
+    Jerry jerry = jerryParser.parse(html);
 ~~~~~
+
+All configuration and *Lagarto DOM* builder fine-tuning must be done before
+the parsing is executed.
 
 Check all details about [configuration and parsing modes](/doc/lagarto/lagarto-properties.html) for *Lagarto*,
-parser used by *Jerry*.
+parser and DOM builder used by *Jerry*.
 
 ## Examples
 
@@ -179,6 +198,10 @@ To demonstrate the power of *Jerry*, we created a little Facebook bot
 just for fun:) The task was to create a bot that will login to Facebook
 account, list friends proposals and send a few "Add friend"
 requests. To see how, [read it here.](facebook-bot.html)
+
+Next example is similar, it uses *Jerry* and *Http* to login to facebook.
+This time everything is done with *Jodd*, no need for 3rd party libs.
+[Take a look.](facebook.html)
 
 
 ### Jerry parses POM XML (too)!

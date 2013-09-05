@@ -157,6 +157,8 @@ CSS3 selectors parser.
 
 ### Jerry
 
+jQuery in Java.
+
 @@doc(jerry)
 
 

@@ -3,9 +3,17 @@ make-toc:no
 -----
 # What's coming next?
 
-## Next Release
+## Release v3.4.6
 
-We are already making plans for **v3.4.6**. Just hope this all make sense:) Stay tuned!
+We worked on *Lagarto* parser.
+
+NEW
+: Added 'html plus' parsing mode that can handle malformed HTMLs better.
+
+CHANGED
+: *LagartoDOM* architecture improved, allowing custom DOM builder implementations.
+
+{.release}
 
 
 ## Code coverage increase

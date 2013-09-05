@@ -60,17 +60,18 @@ You can use `query()` for each parameter, or pass many arguments in one
 call (varargs). You can also provide `Map<String, String>` as a
 parameter too.
 
-Note: if one query parameter is set more then once, it will not be
-replaced, but converted into an `String[]` array. Use method
-`removeQuery` to remove some parameter.
+Note: query parameters (as well as headers and form parameters) can be
+duplicated. Therefore, they are stored in an array internally. Use method
+`removeQuery` to remove some parameter, or overloaded method to
+replace parameter.
 {: .attn}
 
 Finally, you can reach internal query map, that actually holds all
 parameters:
 
 ~~~~~ java
-    Map<String, Object> httpParams = request.query();
-    httpParams.put("userId", "10194");
+    Map<String, Object[]> httpParams = request.query();
+    httpParams.put("userId", new String[] {"10194"});
 ~~~~~
 
 ## Basic Authentication
@@ -198,6 +199,37 @@ Both `HttpRequest` and `HttpResponse` have a method
 `readFrom(InputStream)`. Basically, you can parse input stream with
 these methods. This is, for example, how you can read request on server
 side.
+
+## HttpBrowser
+
+Sending simple requests and receiving response is not enough for situation
+when you have to emulate some 'walking' scenario through a target site. For
+example, you might need to login, like you would do that in the browser and
+than to continue browsing withing current session.
+
+`HttpBrowser` is a tool just for that. It sends requests for you; handles
+301 and 302 redirections automatically, reads cookies from the response
+and stores into the new request and so on. Usage is simple:
+
+~~~~~ java
+	HttpBrowser browser = new HttpBrowser();
+
+	HttpRequest request = HttpRequest.get("www.facebook.com");
+	browser.sendRequest(request);
+
+	// request is sent and response is received
+
+	// process the page:
+	String page = browser.getPage();
+
+	// create new request
+	HttpRequest newRequest = HttpRequest.post(formAction);
+
+	browser.sendRequest(newRequest);
+~~~~~
+
+Browser instance handles all the cookies, allowing session to be tracked while
+browsing using HTTP.
 
 ## HttpTunnel
 

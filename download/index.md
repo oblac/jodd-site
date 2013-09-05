@@ -137,6 +137,7 @@ class="dep">jodd-bean</var>
 {::comment}beta{:/comment}
 
 ## Beta version (SNAPSHOT)
+{: #beta}
 
 See [what's coming](/beta.html) in this beta.
 
