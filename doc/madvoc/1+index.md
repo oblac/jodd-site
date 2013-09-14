@@ -1,6 +1,6 @@
 # Madvoc ![madvoc logo](madvoc.png "Madvoc!")
 
-@@javadoc-p(madvoc)
+<js>javadoc('madvoc')</js>
 
 *Madvoc* is MVC framework that uses CoC and annotations in a pragmatic
 way to simplify web application development. It is easy to use, learning

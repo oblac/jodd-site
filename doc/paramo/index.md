@@ -1,6 +1,6 @@
 # Paramo ![paramo](paramo.png)
 
-@@javadoc-p(paramo)
+<js>javadoc('paramo')</js>
 
 Java compiler doesn't store method parameter names in class file and we
 can't retrieve them using reflection. Actually, the names are stored in

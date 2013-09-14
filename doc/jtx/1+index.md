@@ -1,6 +1,6 @@
 # JTX ![JTX](jtx.png)
 
-@@javadoc-p(jtx)
+<js>javadoc('jtx')</js>
 
 *Jodd* provides great, little, stand-alone transaction manager, *JTX*.
 It is a significant change in traditional thinking, since no (j2ee)

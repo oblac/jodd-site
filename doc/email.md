@@ -1,7 +1,7 @@
 # Sending and Receiving Emails ![email](/gfx/email-tool.png "Email")
 
-Sending emails in Java should be easier. *Jodd* provides several classes
-for sending emails in an easier way.
+Sending emails in Java should be easier. *Jodd* provides some nice classes
+for sending emails in an easier, practical way.
 
 ## E-mail definition
 
@@ -10,7 +10,7 @@ e-mail message can be set separately. Moreover, `Email` supports fluent
 interface, so even definition of an e-mail message would look natural.
 
 `Email` supports plain text, HTML messages and any combination of both.
-When only text or html message is set, simple e-mail will be sent. When
+When only text or HTML message is set, simple e-mail will be sent. When
 both text and HTML message is set, or when attachments are added,
 multipart e-mail will be sent. Actually, `Email` supports any number of
 separate messages to be sent as an email. Here are some examples using

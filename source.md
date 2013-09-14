@@ -41,19 +41,23 @@ every modern Java IDE (**IntelliJ IDEA**, **Eclipse**, **Netbeans**).
 
 ### IntellJ IDEA
 
-IntelliJ IDEA can open *Jodd* project very nicely. First, make sure you have
-installed **Gradle** and that you have enabled **Gradle plugin** in IDEA.
-Then just follow the simple steps:
+IntelliJ IDEA can open *Jodd* project very nicely. Just follow the simple steps:
 
-**1) Open project**
+**1) Install Gradle**
+
+You must first install the Gradle: simply download the distribution archive
+and unpack it somewhere. Then enable IntelliJ IDEA **Gradle plugin** and set
+the path to the Gradle installation.
+
+**2) Open project**
 
 ![open project](gfx/source-1-open-project.png)
 
-**2) Wait until Gradle project is build**
+**3) Wait until Gradle project is build**
 
 ![build source](gfx/source-2-building.png)
 
-**3) Import Gradle project**
+**4) Import Gradle project**
 
 ![import project](gfx/source-3-import-project.png)
 

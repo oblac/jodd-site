@@ -1,5 +1,4 @@
 -----
-release:on
 make-toc:no
 -----
 # Release Notes

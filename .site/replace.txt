@@ -1,0 +1,94 @@
+
+# fix title
+
+<title>Jodd | </title>
+<title>Jodd</title>
+
+
+
+# fix error color in syntax highlighter
+<span style="color:#F00;background-color:#FAA">$</span>
+<span style="color:#F00;background-color:#FEE">$</span>
+
+
+
+
+# releases
+<dt>NEW</dt>
+<dt class="tag-new">NEW</dt>
+
+<dt>CHANGED</dt>
+<dt class="tag-changed">CHANGED</dt>
+
+<dt>FIXED</dt>
+<dt class="tag-fixed">FIXED</dt>
+
+
+
+
+# add class names for Jodd names
+<em>Jodd</em>
+<em class="jodd">Jodd</em>
+
+<em>Madvoc</em>
+<em class="jodd">Madvoc</em>
+
+<em>Petite</em>
+<em class="jodd">Petite</em>
+
+<em>Jerry</em>
+<em class="jodd">Jerry</em>
+
+<em>CSSelly</em>
+<em class="jodd">CSSelly</em>
+
+<em>Db</em>
+<em class="jodd">DbOom</em>
+
+<em>Decora</em>
+<em class="jodd">Decora</em>
+
+<em>Lagarto</em>
+<em class="jodd">Lagarto</em>
+
+<em>HTTP</em>
+<em class="jodd">HTTP</em>
+
+<em>BeanUtil</em>
+<em class="jodd">BeanUtil</em>
+
+<em>Joy</em>
+<em class="jodd">Joy</em>
+
+<em>Props</em>
+<em class="jodd">Props</em>
+
+<em>HtmlStapler</em>
+<em class="jodd">HtmlStapler</em>
+
+<em>VTor</em>
+<em class="jodd">VTor</em>
+
+<em>JTX</em>
+<em class="jodd">JTX</em>
+
+<em>Proxetta</em>
+<em class="jodd">Proxetta</em>
+
+<em>Paramo</em>
+<em class="jodd">Paramo</em>
+
+<em>Lagarto DOM</em>
+<em class="jodd">Lagarto DOM</em>
+
+<em>Mathref</em>
+<em class="jodd">Mathref</em>
+
+<em>Joy</em>
+<em class="jodd">Joy</em>
+
+<em>StripHtml</em>
+<em class="jodd">StripHtml</em>
+
+<em>Uphea</em>
+<em class="jodd">Uphea</em>

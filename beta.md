@@ -1,6 +1,5 @@
 -----
 make-toc:no
-release:on
 -----
 # What's coming next?
 

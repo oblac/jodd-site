@@ -9,47 +9,6 @@
 <link type="text/css" rel="stylesheet" href="/jodd.css" />
 <script type="text/javascript" src="/jquery.js"></script>
 <script type="text/javascript">
-function navigation() {
-	var nav = $('div.nav');
-	if (!nav) {
-		return;
-	}
-	var title = $('div#content-doc h1').html();
-	var markIndex = title.indexOf('<');
-	if (markIndex != -1) {
-		title = title.substr(0, markIndex);
-		title = title.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-	}
-	if (document.location.toString().indexOf('/index.html') != -1) {
-		title = 'Introduction';
-	}
-	var prev, next;
-	var found = 0;
-	$('ul._nav li').each(function(ndx, item){
-		var itemName = $('a', item).html();
-		if (found == 0) {
-			if (itemName === title) {
-				found = 1;
-			} else {
-				prev = item;
-			}
-		} else if (found == 1) {
-			next = item;
-			found = 2;
-		}
-	});
-	if (found != 0) {
-		var html = '';
-		if (prev) {
-			html = $(prev).html().replace('>', 'class="p">prev:&nbsp;');
-		}
-		if (next) {
-			html = html + $(next).html().replace('>', 'class="n">next:&nbsp;');
-		}
-		nav.html(html);
-		$('div.nav2').addClass('nav').html(html);
-	}
-}
 </script>
 </head>
 <body class="bgcol">
@@ -63,7 +22,7 @@ function navigation() {
 		<!-- body end -->
 	</div>
 	<div id="content-addon" class="rightbar">
-		@@{TOC}
+		<js>toc()</js>
 		@@include(docs)
 	</div>
 	</div>

@@ -1,6 +1,6 @@
 # Db & DbOom ![db logo](db.png "Db!")
 
-@@javadoc-p(db)
+<js>javadoc('db')</js>
 
 *Db* is an efficient, powerful and thin layer over JDBC that
 significantly simplifies writing of database code. Using pure JDBC api

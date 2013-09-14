@@ -1,6 +1,6 @@
 # Proxetta ![proxetta](proxetta.png "Proxetta!")
 
-@@javadoc-p(proxetta)
+<js>javadoc('proxetta')</js>
 
 *Proxetta* creates dynamic proxies in run-time, providing efficient
 support for aspects.

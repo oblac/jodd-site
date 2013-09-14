@@ -1,6 +1,6 @@
 # Jerry ![jerry](jerry-big.png){: .float-left}
 
-@@javadoc-p(jerry)
+<js>javadoc('jerry')</js>
 
 *Jerry* is a [jQuery][1] in Java. *Jerry* is a fast and
 concise Java Library that simplifies HTML document parsing, traversing

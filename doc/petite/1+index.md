@@ -1,6 +1,6 @@
 # Petite ![Petite](petite.png "Petite!")
 
-@@javadoc-p(petite)
+<js>javadoc('petite')</js>
 
 *Petite* is a **IoC** container. (oh-yes-another-one). Then again, it
 is easy to use since it requires no external configuration; it is

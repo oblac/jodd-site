@@ -1,6 +1,3 @@
------
-release:on
------
 # History
 
 Recent history, release notes and previous releases.
