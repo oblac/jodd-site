@@ -1,60 +1,40 @@
-## [2013-07-26] Release v3.4.5
+## [2013-09-17] Release v3.4.7
 
-Wow, still alive. Another set of improvements and some new features.
-Also, the documentation was converted to markdown.
-Hope you gonna enjoy this.
-
-NEW
-: Added `ExtendedURLClassLoader`.
+Many new awesome things:) Just look at the change list!
 
 CHANGED
-: Methods `merge` removed from `ArrayUtil` in favor of `join`.
+: `URLCoder` upgraded to work better for each part of the URL.
+
+NEW
+: Added `form()` method for *Jerry*.
+
+NEW
+: Added methods for parsing EML files.
+
+NEW
+: Added support for attached emails (EMLs)
+
+NEW
+: Added support for IMAP servers.
+
+NEW
+: Added `+=` assignment operator for *Props*.
+
+NEW
+: Added `HttpBrowser` class for easier *HTTP* usage and session tracking.
 
 FIXED
-: Getting generic raw type information significantly improved.
-
-CHANGED
-: Another change with `FindFile` towards unified usage regardless the implementation.
-
-NEW
-: *LagartoDOM* introduce renderer for customized HTML output.
-
-CHANGED
-: Each node in *LagartoDOM* has a reference to DOM builder instance.
-
-CHANGED
-: Improved and simplified way how *LagartoDOM* was fixing unclosed tags.
+: Allow duplicate *HTTP* headers.
 
 FIXED
-: `BeanUtil` uses more generic raw types information.
+: Fixed resize issue in `ArraysUtil`.
 
 CHANGED
-: All introspectors have gone through refactoring and optimization.
+: All parameters (query, form and header) in *HTTP* now allow duplicate entries.
 
 NEW
-: Add new property `ignoreMacros` to *Props*.
-
-NEW
-: *Madvoc* allows multiple roots to be mapped to different paths.
+: Added 'HTML plus' parsing mode that can handle malformed HTMLs better.
 
 CHANGED
-: *Proxetta* now uses `$$` in class names as a marker.
-
-FIXED
-: Several issues have been fixed with *Proxetta*
-
-NEW
-: Added delegating wrapper to *Proxetta* for dynamically loaded classes.
-
-NEW
-: Added JRE detection to `SystemUtil`.
-
-FIXED
-: Fixed issue with flushing streams in `ObjectUtil`.
-
-FIXED
-: *Props* was not initialized in certain use cases.
-
-CHANGED
-: Migrated to Gradle 1.6. All QuickStart projects migrated to Gradle.
+: *Lagarto DOM* architecture improved, allowing custom DOM builder implementations.
 {: .release}

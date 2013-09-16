@@ -162,7 +162,7 @@ Emails are sent using `SendMailSession`. Mail session encapsulates
 process of preparing emails, opening and closing transport connection
 and sending emails. Mail sessions should be created by some
 `SendMailSessionProvider`. One such provider already exist:
-`SmtpServer`. It encapsulates smtp server that might use simple
+`SmtpServer`. It encapsulates SMTP server that might use simple
 authentication.
 
 With send mail session it is possible to send several emails at once,
@@ -189,7 +189,7 @@ session in the `finally` block.
 ## Sending using SSL
 
 Preferred way for sending e-mails is using SSL protocol. *Jodd* supports
-secure e-mail sending with `SmtpSslServer`, subclass of `SmtpServer`.
+secure e-mail sending with `SmtpSslServer`, a subclass of `SmtpServer`.
 Here is an example of sending e-mail via [Gmail](http://gmail.com) (port
 465 is set by default):
 
@@ -207,8 +207,42 @@ Everything is the same, just different session provider is used.
 
 ## Receiving emails
 
-Receiving emails is similar to sending: `Pop3Server` creates
-`ReceiveMailSession` that retrieves `ReceivedEmails`.
+Receiving emails is similar to sending: there are classes that encapsulates
+POP3 and IMAP connections, i.e. servers. Both creates the same receiving
+session - `ReceiveMailSession` - that fetches emails and return them as
+an array of `ReceivedEmails`. This way you work with both POP3 and IMAP
+servers in the very same way.
+
+Even the instance of the same class `ReceiveMailSession` is created by both
+POP3 and IMAP servers implementations, **not all** methods work in the same
+way! This difference depends on server type. Commonly, POP3 has less features
+(e.g. not being able to fetch all folder names for GMail account), while IMAP
+server is reacher (e.g. it supports server-side search).
+{: .attn}
+
+During receiving, all emails are fetched and returned as an array of
+`ReceivedEmail` objects. This is a POJO object, so its very easy to work with.
+It provides many helpful methods, too. Each `ReceivedEmail` also contains a
+list of all messages, attachments and attached messages (EMLs).
+
+There are several methods for fetching emails:
+
++ `receiveEmail()` - returns all emails, but don't change the 'seen' flag.
++ `receiveEmailAndMarkSeen()` - returns all emails and marked all messages as 'seen'.
++ `receiveEmailAndDelete()` - returns all emails and mark them as 'seen' and 'deleted'.
+
+The first method does a little trick: since `javax.mail` always set a 'seen'
+flag when new message is downloaded, we do set it back on 'unseen' (if it was
+like that before fetching). This way `receiveEmail()` should not change the
+state of your inbox.
+
+Most probably you will need `receiveEmailAndMarkSeen()` or `receiveEmailAndDelete()`.
+{: .example}
+
+
+### POP3
+
+For POP3 connection, use `Pop3Server`:
 
 ~~~~~ java
     Pop3Server popServer = new Pop3Server("pop3.jodd.org",
@@ -216,7 +250,7 @@ Receiving emails is similar to sending: `Pop3Server` creates
     ReceiveMailSession session = popServer.createSession();
     session.open();
     System.out.println(session.getMessageCount());
-    ReceivedEmail[] emails = session.receiveEmail(false);
+    ReceivedEmail[] emails = session.receiveEmailAndMarkSeen();
     if (emails != null) {
         for (ReceivedEmail email : emails) {
             System.out.println("\n\n===[" + email.getMessageNumber() + "]===");
@@ -255,7 +289,7 @@ Receiving emails is similar to sending: `Pop3Server` creates
     session.close();
 ~~~~~
 
-## Receiving emails using SSL
+### Receiving emails using SSL
 
 Again, very simply: use `Pop3SslServer` implementation. Here is how it can be used to fetch email from Google:
 
@@ -267,6 +301,102 @@ Again, very simply: use `Pop3SslServer` implementation. Here is how it can be us
     session.close();
 ~~~~~
 
+### IMAP
+
+Above example can be converted to IMAP usage very easily:
+
+~~~~~ java
+    ImapServer imapServer = new ImapSslServer("imap.gmail.com", "username", "password");
+    ReceiveMailSession session = imapServer.createSession();
+    session.open();
+    ...
+    session.close();
+~~~~~
+
+Can't be easier:)
+
+As said above, when working with IMAP server, many methods of `ReceiveMailSession` works better
+or... simply, just works. For example, you should be able to use following methods:
+
++ `getUnreadMessageCount()` - to get number of un-seen messages.
++ `getAllFolders()` - to receive all folders names
++ server-side filtering - read next chapter
+
+
+## Filtering emails
+
+IMAP server also knows about server-side filtering of emails. There are two
+ways how to construct email filter, and both can be used in the same time.
+
+The first approach is by grouping terms:
+
+~~~~~ java
+    filter()
+        .or(
+            filter().and(
+                filter().from("from"),
+                filter().to("to")
+            ),
+            filter().not(filter().subject("subject")),
+            filter().from("from2")
+        );
+~~~~~
+
+Static method `filter()` is a factory of `EmailFilter` instances. Above filter
+defines the following query expressions:
+
+~~~~~
+    (from:"from" AND to:"to") OR not(subject:"subject") OR from:"from"
+~~~~~
+
+With this approach you can define boolean queries of any complexity. But there
+is a more fluent way to write the same query:
+
+~~~~~ java
+    filter()
+        .from("from")
+        .to("to")
+        .or()
+        .not()
+        .subject("subject")
+        .from("from2");
+~~~~~
+
+Here we use non-argument methods to define _current_ boolean operator: `and()` and `or()`.
+All terms defined _after_ the boolean marker method uses that boolean operator. Method
+`not()` works only for the very _next_ term definition. This way you probably can not
+defined some complex queries, but it should be just fine for the real life usages.
+
+Here is how we can use simple filter when fetching emails:
+
+~~~~~ java
+    ReceivedEmail[] emails = session.receiveEmail(filter()
+            .flag(Flags.Flag.SEEN, false)
+            .subject("Hello")
+    );
+~~~~~
+
+This would return all unread messages with subject equals to "Hello".
+
+Note that for IMAP server, the search is executed by the IMAP server.
+This significantly speeds up the fetching process as not all messages
+are downloaded. Note that searching capabilities of IMAP servers may vary.
+
+You can use the same filters on POP3 server, but keep in mind that
+the search is performed on the client-side, so still all messages
+have to be downloaded before the search is thrown.
+
+
+## Parsing EML files
+
+What if you have your emails stored in EML files. Not a problem, just use
+`EmailUtil.parseEML()`. It accepts both file or files content as an input and
+returns `ReceivedEmail` of parsed EML message.
+
+
 ## Gmail and new message count
 
-Gmail does not support the Recent flags on messages. Since the `getNewMessageCount()` method counts messages with the RECENT flags, *Jodd* will not (yet) find any such messages on Gmail servers (hence always returning value 0).
+Gmail does not support the Recent flags on messages. Since the
+`getNewMessageCount()` method counts messages with the RECENT flags, *Jodd*
+will not (yet) find any such messages on Gmail servers (hence always returning
+value 0).

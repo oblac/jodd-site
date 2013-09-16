@@ -3,25 +3,9 @@ make-toc:no
 -----
 # What's coming next?
 
-## Release v3.4.6
+## Release v3.4.8
 
-We worked on *Lagarto* parser.
-
-NEW
-: Added `+=` assignment operator for *Props*.
-
-NEW
-: Added `HttpBrowser` class for easier *HTTP* usage and session tracking.
-
-CHANGED
-: All parameters (query, form and header) in *HTTP* now allow duplicate entries.
-
-NEW
-: Added 'HTML plus' parsing mode that can handle malformed HTMLs better.
-
-CHANGED
-: *Lagarto DOM* architecture improved, allowing custom DOM builder implementations.
-{: .release}
+Who knows? :)
 
 
 ## Code coverage increase

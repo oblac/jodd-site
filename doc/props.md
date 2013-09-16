@@ -31,6 +31,11 @@ property values.
 Either equal sign (`=`) or colon (`:`) are used to assign property
 values.
 
+### Quick append values
+
+Use `+=` to append values (separated with comma) of properties with
+the same name.
+
 ### Comments
 
 Comments begin with either a semicolon (`;`), or a sharp sign (`#`) and
