@@ -1,17 +1,19 @@
 # Report Bugs
 
 <div style="background:url(/gfx/buggers.png) -50px 0; height:172px; border-top: 2px solid #999;border-bottom: 2px solid #999; margin-bottom:20px;"></div>
-		
+
 ## On GitHub
 
 Report issues here: [github.com/oblac/jodd/issues](https://github.com/oblac/jodd/issues?state=open)
-(**GitHub** account required).		
+(**GitHub** account required).
 
-## On Google code
 
-Alternatively, you can report issues on old [Google code project](http://code.google.com/p/jodd/issues)
-(<b>Google account</b> required).
-		
+## By Email
+
+bug ![at](/gfx/at_sign.png) jodd&#46;org
+{: .email}
+
+
 ## Directly
 
 <div style="margin-left: 50px;">
@@ -23,7 +25,9 @@ Alternatively, you can report issues on old [Google code project](http://code.go
 	<input type="submit" value="Submit issue"/>
 </form>
 </div>
-		
-## By Email
-		
-<div class="email">bug <img src="/gfx/at_sign.gif" width="23" height="25" style="position:relative;top:4px;" /> jodd&#46;org</div>
+
+
+## On Google code
+
+Alternatively, you can report issues on old [Google code project](http://code.google.com/p/jodd/issues)
+(<b>Google account</b> required). However, keep in mind that this project is deprecated.

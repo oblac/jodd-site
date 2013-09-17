@@ -2,8 +2,7 @@
 
 *HTTP* is tiny, raw HTTP client - and yet simple and convenient. It
 offers a simple way to send requests and read responses. The goal is to
-make things simple for everyday use; it probably can't replace
-[HttpCommons][1], but can make developers happy :)
+make things simple for everyday use; this can make developers happy :)
 
 The best way to learn about *HTTP* is through examples.
 
@@ -239,9 +238,8 @@ small proxy between you and destination. We even give you a base class:
 socket on one port and tunnels the whole HTTP traffic to some target
 address.
 
-[TinyTunnel][2] is one implementation that simply prints
+[TinyTunnel][1] is one implementation that simply prints
 out the whole communication to the console.
 
 
-[1]: http://hc.apache.org/
-[2]: https://github.com/oblac/tools/blob/master/src/jodd/tools/http/TinyTunnel.java
+[1]: https://github.com/oblac/tools/blob/master/src/jodd/tools/http/TinyTunnel.java

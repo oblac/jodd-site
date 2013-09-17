@@ -24,16 +24,13 @@ NEW
 : Added `HttpBrowser` class for easier *HTTP* usage and session tracking.
 
 FIXED
-: Allow duplicate *HTTP* headers.
-
-FIXED
 : Fixed resize issue in `ArraysUtil`.
 
 CHANGED
 : All parameters (query, form and header) in *HTTP* now allow duplicate entries.
 
 NEW
-: Added 'HTML plus' parsing mode that can handle malformed HTMLs better.
+: Added 'HTML plus', *Lagarto DOM* parsing mode that can handle malformed HTMLs better.
 
 CHANGED
 : *Lagarto DOM* architecture improved, allowing custom DOM builder implementations.

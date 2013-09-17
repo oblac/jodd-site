@@ -1,4 +1,8 @@
 
+# stop script if anything fails!
+
+set -e
+
 # prepare artifacts
 
 echo artifacts
@@ -12,6 +16,7 @@ echo api doc
 
 if [ ! -f .release/api.zip ]; then
 	echo build api archive
+	mkdir api
 	cd api
 	cp -pR ~/prj/oblac/jodd/build/reports/javadoc/* .
 	zip -9 -r -m -q api.zip * .[^.]*
@@ -27,6 +32,7 @@ echo test doc
 
 if [ ! -f .release/test.zip ]; then
 	echo build test archive
+	mkdir test
 	cd test
 	cp -pR ~/prj/oblac/jodd/build/reports/tests/* .
 	mkdir coverage-report
