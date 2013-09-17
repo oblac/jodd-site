@@ -44,7 +44,7 @@ width: 550px; margin-left: 50px;"> <input type="hidden" name="search" value="1" 
 ![jodd in action](jodd-in-action.png){: width="478" height="600" .b}
 {: style="text-align:center"}
 
-<div markdown="1" style="padding-left:100px;">
+<div markdown="1" style="padding-left:120px;" id="doc">
 ## Table of Contents
 
 About Jodd.
