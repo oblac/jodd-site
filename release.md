@@ -1,5 +1,5 @@
 -----
-make-toc:no
+make-toc:false
 -----
 # Release Notes
 
