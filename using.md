@@ -23,6 +23,14 @@ extractors implementation.
 
 [jmeter.apache.org](http://jmeter.apache.org/)
 
+
+## Webit Script
+
+Template-like script and engine, with grammar similar to JavaScript and JSP; and with great performances.
+
+[zqq90.github.io/webit-script](http://zqq90.github.io/webit-script/)
+
+
 ## eComm
 
 Set of government intranet applications for electronic communication with
