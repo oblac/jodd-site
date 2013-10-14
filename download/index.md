@@ -54,9 +54,9 @@ height="16"} [What\'s comming](/beta.html)
 ## Jodd Bundle
 
 *Jodd* Bundle is one jar with most modules bundled together.
-Distribution archive contains bundle jar and jars of remaining modules.
+Distribution archive contains bundle jar (with sources jar) and jars of remaining modules.
 
-<div class="download"><a href="jodd-@@{VERSION}.zip"><span>jodd-@@{VERSION}.zip</span> (1.5 MB)</a></div>
+<div class="download"><a href="jodd-@@{VERSION}.zip"><span>jodd-@@{VERSION}.zip</span> (2.4 MB)</a></div>
 
 ### Mobile version
 
@@ -64,7 +64,7 @@ Single jar that contains selected utilities and tools from modules
 <var>jodd-core</var>, <var>jodd-bean</var> and <var>jodd-props</var>;
 small in size.
 
-[![download](/gfx/dl.gif) jodd-mobile-@@{VERSION}.jar](jodd-mobile-@@{VERSION}.jar){: .dl} (303 KB)
+[![download](/gfx/dl.gif) jodd-mobile-@@{VERSION}.jar](jodd-mobile-@@{VERSION}.jar){: .dl} (330 KB)
 
 ## Maven
 
