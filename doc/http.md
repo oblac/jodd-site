@@ -35,6 +35,22 @@ You can build the request step by step:
 		.path("/api/jsonws/user/get-user-by-id");
 ~~~~~
 
+
+## Reading response
+
+When HTTP request is sent, the whole response is stored in `HttpResponse` instance.
+You can use response for various stuff. You can get the `statusCode()` or
+`statusPhrase()`; or any header attribute.
+
+Most important thing is how to read received response body. You may use one
+of the following methods:
+
++ `body()` - raw body content, always in ISO-8859-1 encoding.
++ `bodyText()` - body text, ie string encoded as specified by "Content-Type" header.
++ `bodyBytes()` - returns raw body as byte array, so e.g. downloaded file
+can be saved.
+
+
 ## Query parameters
 
 Query parameters may be specified in the URL line (but then they have to
