@@ -106,8 +106,67 @@ supported by *CSSelly*:
 
 *CSSelly* allows user to create custom pseudo classes and functions.
 
+### Custom pseudo class
+
+For custom pseudo classes extend the `PseudoClass` and implement method `match(Node node)`. This method should return `true` if a node is matched. You may also override method `getPseudoClassName()` if you don't want to auto-generate pseudo class name from class name. For example:
+
+~~~~~ java
+    public static class MyPseudoClass extends PseudoClass {
+        @Override
+        public boolean match(Node node) {
+          return node.hasAttribute("jodd-attr");
+        }
+
+        @Override
+        public String getPseudoClassName() {
+          return "some-cool-name";
+        }
+    }
+~~~~~
+
+Then register your pseudo class with:
+
+~~~~~ java
+    PseudoClassSelector.registerPseudoClass(MyPseudoClass.class);
+~~~~~
+
+From that moment you will be able to find all nodes with the attribute `jodd-attr` using the `:some-cool-name` pseudo class.
+
+### Custom pseudo function
+
+Similar to pseudo classes, for custom pseudo function implement the `PseudoFunction` class. This time, however, you need to also implement a method
+that parses input expression. This expression is later passed to the matching method. Here is an example, lets make a function that matches all nodes with certain name length:
+
+~~~~~ java
+    public static class MyPseudoFunction extends PseudoFunction {
+        @Override
+        public Object parseExpression(String expression) {
+            return Integer.valueOf(expression);
+        }
+
+        @Override
+        public boolean match(Node node, Object expression) {
+            Integer size = (Integer) expression;
+            return node.getNodeName().length() == size.intValue();
+        }
+
+        @Override
+        public String getPseudoFunctionName() {
+            return "super-fn";
+        }
+    }
+~~~~~
+
+Register this function with:
+
+~~~~~ java
+    PseudoFunctionSelector.registerPseudoFunction(MyPseudoFunction.class);
+~~~~~
+
+You can use it like this: `:super-fn(3)` to match all nodes with names size equal to 3.
+
 ## Escaping
 
-CSSelly supports escaping characters using backslash, e.g.: "`nspace\:name`" refers to the tag name
+*CSSelly* supports escaping characters using backslash, e.g.: "`nspace\:name`" refers to the tag name
 "`nspace:name`" (that uses namespaces) and not for pseudo class "`name`".
 

@@ -168,6 +168,11 @@ are active:
     String user = props.getValue("db.username", "develop");
 ~~~~~
 
+More then one profile can be specified at a time. The order
+of specified profiles is important in cases when one key
+has been defined in many selected profiles.
+{: .attn}
+
 It is also possible to lookup only for base properties - using`
 getBaseValue()` method. Base properties are those that don't belong to
 any profile.
@@ -228,6 +233,7 @@ contains 100 properties. Second profile is an inner property named
 '`one.two`'. It contains only 1 property (`key1`) - but all properties
 from its upper profile are available! So what happens when Java code
 calls the following: `props.getValue("key1", "one.two")`? *Props* will:
+
 * lookup for property in inner profile `one.two`
 * if value is not found, `Props` will check upper profile: `one`
 * if value is not found and there are no more upper profiles, *Props* will check base properties.
