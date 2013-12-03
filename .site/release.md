@@ -1,37 +1,51 @@
-## [2013-10-14] Release v3.4.8
+## [2013-12-03] Release v3.4.9
 
-Many fixes. Sad day for bugs, great day for us :)
-
-FIXED
-: Added fallback logic for `renameTo` usage in `FileUtil`.
+If we have to choose one word to describe this release, that would be **optimization**. We did many changes under the hood, to optimize
+performances and reduce memory usage.
 
 NEW
-: Added offset to every `Node` in *Lagarto DOM*.
+: Added new flag to `LagartoDOMBuilder` for log level of parsing errors.
 
 CHANGED
-: Added `LagartoParserContext` for `start()` method in `TagVisitor` in *Lagarto*.
+: The whole **interceptor** API has been revamped. Now data is stored
+in significantly less space. `BeanUtil` modified to use changed code.
 
 CHANGED
-: `TypeConverter#convert` does not throw `ClassCastException` anymore, but `TypeConversionException`.
+: `AccessibleIntrospector` renamed to `CachedInterceptor` that now can be configured instead.
 
 FIXED
-: All array converters have been upgraded.
+: Added content length detection for **Http**.
 
 NEW
-: Added `resultTypePrefix` for all *Madvoc* results.
-
-CHANGED
-: Migrated to Gradle v1.8.
+: Added `changeTimeZone` to `JDateTime` for convenient time zone traveling.
 
 FIXED
-: Fixed a bug in *Props* with preset default profiles before loading.
+: Test have been fixed to work in different eniroments, like Travis.
 
 FIXED
-: Fixed NPEs on missing email attachment name, or FROM field.
+: `CSSelly` definition of CSS pseudo functions fixed to match standards.
+
+NEW
+: Added `select` method to `NodeSelector` that accept pre-compiled CSS selectors.
+
+NEW
+: Added `JoddArrayList`, better `ArrayList` that can grow in both directions (but not circular).
 
 FIXED
-: Added support for non-english emial attachment names.
+: `URLDecoder` now has two methods for decoding query and the rest of the URI.
 
 FIXED
-: Add default email attachment encoding if not specified.
+: Fixed `FileUploadHeader.getFileName()` to return correct name.
+
+NEW
+: **Props** keys are now ordered! Added powerful iterator to **Props**.
+
+FIXED
+: **Email** fields for FROM, TO, CC etc supports I18N names.
+
+FIXED
+: Characters in **Props** keys now can be escaped, too.
+
+NEW
+: `HttpBrowser` now detects status codes 303 and 307.
 {: .release}

@@ -3,9 +3,9 @@ make-toc:no
 -----
 # What's coming next?
 
-## Release v3.4.9
+## Release v3.4.10
 
-Who knows? :)
+Plan for the next release is to fix all bugs, add some more tests and improve few things... as usual :)
 
 
 ## Code coverage increase
