@@ -1,5 +1,6 @@
 # Injection
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Injection** is the process of setting action object properties from
 various scopes. Similarly, **outjection** is the process of setting
 attributes of various scopes with values of action object properties.

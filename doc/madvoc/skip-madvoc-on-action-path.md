@@ -1,5 +1,6 @@
 # Skip action paths
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 Usually, *Madvoc* is configured to interpret all action requests with
 the same extension (`.html` by default). But sometimes we need to
 prevent some action paths to be \'caught\' by *Madvoc*. For example,

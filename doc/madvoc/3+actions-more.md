@@ -1,5 +1,6 @@
 # Actions (cont.)
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 This page describes some more action-related features.
 
 ## Custom action method annotations

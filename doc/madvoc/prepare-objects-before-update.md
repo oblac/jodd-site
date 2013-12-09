@@ -1,5 +1,6 @@
 # Prepare objects before update
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 Typical problem with web applications is update of (domain) objects. It
 is done in two steps: the first is presenting HTML form with only
 editable properties of an object, and, the second, is the actual update

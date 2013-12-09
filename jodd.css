@@ -113,7 +113,7 @@ img.margin {border: none; padding:0; margin:4px;}
 img.letter{border: none; padding:0; margin:0 8px 0 0; float:left;}
 img.b {border: 1px solid #666666;padding:0; margin:5px;}
 ul li img {position:relative; top: 6px;}
-h1 img {position:relative; top:10px;}
+h1 img {position:relative; top:1px;}
 
 /* table */
 table {border: 2px solid #D5DCE8; margin: 10px 0 10px 20px;}
@@ -276,3 +276,14 @@ div#doc p {margin-left:40px;}
 
 div#users p {margin: 0 100px; }
 div#users h2 {font-size: 16px; margin: 20px 80px 10px 80px; color: #c33618;}
+
+div.doc1 { background-color: #F6F7FA;float: right; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; margin-right: 10px; padding: 10px 0; margin-left: 10px;}
+div.doc1 ul {margin: 0 10px;}
+div.doc1 li {margin:0; padding: 0; line-height: 12px;}
+div.doc1 li.doc-this {font-weight: bold;}
+div.doc1 li a {font-size: 10px; text-decoration: none}
+ul.doc-all li.doc-more {margin-top: 4px;}
+ul.doc-all li {list-style-type: none;}
+
+div#doc ul.doc-all li {margin-bottom: 10px;}
+div#doc ul.doc-all li.doc-more {margin-top: 16px;}

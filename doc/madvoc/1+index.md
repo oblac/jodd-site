@@ -1,7 +1,8 @@
-# Madvoc ![madvoc logo](madvoc.png "Madvoc!")
-
 <js>javadoc('madvoc')</js>
 
+# Madvoc ![madvoc logo](madvoc.png "Madvoc!")
+
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 *Madvoc* is MVC framework that uses CoC and annotations in a pragmatic
 way to simplify web application development. It is easy to use, learning
 curve is small and it is easy to extend. There are no external (xml)
@@ -46,7 +47,7 @@ configured in many, many ways.
 
 <div style="padding: 70px 0 0 0; margin: 0; float:left"><img src="/gfx/go-next.png" /></div>
 
-<div style="width:120px; background:#eee; padding: 50px 10px; margin: 20px 10px 10px 10px; text-align:center; float:left;border: 1px solid #999">MadvocController</div>
+<div style="width:120px; background:#eee; padding: 50px 10px; margin: 20px 10px 10px 10px; text-align:center; float:left;border: 1px solid #999"><b>MadvocController</b></div>
 
 <div style="padding: 70px 0 0 0; margin: 0; float:left"><img src="/gfx/go-next.png" /></div>
 

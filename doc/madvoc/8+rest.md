@@ -1,5 +1,6 @@
 # REST urls
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 *Madvoc* supports REST-alike URLs. Parts of mapped action path may
 contain **macros** - text chunk surrounded with **$\{** and **}** signs.
 Macros are used to resolve values from request action path. Values are

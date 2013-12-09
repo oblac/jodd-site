@@ -1,5 +1,6 @@
 # Results (cont.)
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 More features and topics about Results.
 
 ## Aliases

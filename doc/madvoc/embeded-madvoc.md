@@ -1,5 +1,6 @@
 # Embedded Madvoc
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 *Madvoc* web applications can run in embedded servlet containers, too. Here are few examples.
 
 ## Embedded Tomcat

@@ -1,5 +1,6 @@
 # Miscellaneous
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 Various *Madvoc* topics.
 
 ## Upload

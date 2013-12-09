@@ -1,5 +1,6 @@
 # AOP aware Madvoc action requests
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 This is a story from *Madvoc*-Spring-Hibernate real-world project. In
 this project, on some *Madvoc* actions Spring applied one or more
 aspects, using CGLIB. Therefore, when *Madvoc* creates `ActionRequest`,

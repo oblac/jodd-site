@@ -1,5 +1,6 @@
 # Actions
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Action** is action method defined in action class, mapped to some URL
 - **action path**. *Madvoc* uses naming convention (CoC) and annotations
 to define action path from action method. By default, action path is

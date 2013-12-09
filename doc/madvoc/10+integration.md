@@ -1,5 +1,6 @@
 # Integration
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 By default, *Madvoc* action objects are created by `MadvocController`
 and they are not aware of anything else then *Madvoc* and servlet
 context. However, for any web application actions must somehow reference

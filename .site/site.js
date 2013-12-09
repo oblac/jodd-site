@@ -24,3 +24,65 @@ function toc() {
 
 	return str;
 }
+
+/* Generates chapter list */
+function doc1(name, maxlen, all) {
+	try {
+		eval("var _d = " + _doc)
+	} catch(e) {
+		return e;
+	}
+	eval("var _f = " + _file);
+
+	all = all || -1;
+	maxlen = maxlen || -1;
+
+	var str = "";
+	var chapters = _d[name];
+
+	if (!chapters) {
+		return str;
+	}
+
+	var first = true;
+
+	str = str + "<ul class=\"doc-all\">";
+	chapters.forEach(function(chap) {
+		if (all != -1) {
+			if (all == 0 && chap.ndx != 0) {
+				return;
+			}
+			if (all == 1 && chap.ndx == 0) {
+				return;
+			}
+		}
+
+		str = str + "<li class=\"doc-item";
+		if (_f.path == chap.source) {
+			str = str + " doc-this";
+		}
+		if (all == -1) {
+			if (chap.ndx == 0 && first == true) {
+				first = false;
+				str = str + " doc-more";
+			}
+		}
+		str = str + "\"><a href=\"" + chap.path + "\"";
+		str = str + " title=\"" + chap.title + "\">";
+		if (chap.ndx != 0) {
+			str = str + "<span>" + chap.ndx + ". </span>";
+		}
+
+		var title = chap.title;
+		if (maxlen != -1) {
+			if (title.length > maxlen) {
+				title = title.substring(0, maxlen) + "...";
+			}
+		}
+		str = str + title;
+		str = str + "</a>";
+	});
+	str = str + "</ul>";
+
+	return str;
+}

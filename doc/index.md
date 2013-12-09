@@ -1,6 +1,3 @@
------
-doc:true
------
 # Documentation
 
 Welcome to *Jodd* documentation! *Jodd* project goes to much effort
@@ -36,7 +33,7 @@ is to search the API for it. Just enter below what you are looking for:
 <input type="text" name="query" value="" style="border: 1px solid #888;
 font-size:1.6em; padding:4px; background-color:#F0F0F0; color: #555;
 width: 550px; margin-left: 50px;"> <input type="hidden" name="search" value="1" />
-<input type="submit" value="Search!" style="border: 2px solid #666; padding:4px;"/>
+<input type="submit" value="Search!" style="border: 2px solid #666; padding:8px;"/>
 </form>
 
 ## Jodd in Action
@@ -93,73 +90,73 @@ Cache - set of common cache implementation.
 
 Elegant web MVC framework that uses CoC in a pragmatic way to simplify web application development.
 
-@@doc(madvoc)
+<js>doc1('madvoc')</js>
 
 ### Petite
 
 Slick and lightweight DI container that supports sufficient most of features offered by other containers.
 
-@@doc(petite)
+<js>doc1('petite')</js>
 
 ### Proxetta
 
 The fastest proxy creator with unique approach for defying pointcuts and advices.
 
-@@doc(proxetta)
+<js>doc1('proxetta')</js>
 
 ### DbOom
 
 Efficient and thin layers that significantly simplifies writing of database code.
 
-@@doc(db)
+<js>doc1('db')</js>
 
 ### JTX
 
 Enjoyable transaction manager.
 
-@@doc(jtx)
+<js>doc1('jtx')</js>
 
 ### Paramo
 
 Extracts method and constructor parameter names.
 
-@@doc(paramo)
+<js>doc1('paramo')</js>
 
 ### VTor
 
 Validation framework.
 
-@@doc(vtor)
+<js>doc1('vtor')</js>
 
 ### Lagarto
 
 HTML parser.
 
-@@doc(lagarto)
+<js>doc1('lagarto')</js>
 
 ### HtmlStapler
 
 Transparent HTML resource bundles.
 
-@@doc(htmlstapler)
+<js>doc1('htmlstapler')</js>
 
 ### Decora
 
 Web decorator framework.
 
-@@doc(decora)
+<js>doc1('decora')</js>
 
 ### CSSelly
 
 CSS3 selectors parser.
 
-@@doc(csselly)
+<js>doc1('csselly')</js>
 
 ### Jerry
 
 jQuery in Java.
 
-@@doc(jerry)
+<js>doc1('jerry')</js>
 
 
 ### Misc

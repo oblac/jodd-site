@@ -1,5 +1,6 @@
 # Results
 
+<div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Action Result** is returning value (also known as **result object**)
 of an action method. Result object provides **result string**; that is
 it's `toString()` value. Result string is formed in the following way:
