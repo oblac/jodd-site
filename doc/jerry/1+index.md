@@ -1,6 +1,6 @@
-# Jerry ![jerry](jerry-big.png){: .float-left}
-
 <js>javadoc('jerry')</js>
+
+# Jerry ![jerry](jerry-big.png){: .float-left}
 
 <div class="doc1"><js>doc1('jerry',22)</js></div>
 *Jerry* is a [jQuery][1] in Java. *Jerry* is a fast and
