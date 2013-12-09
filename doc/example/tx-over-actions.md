@@ -1,5 +1,6 @@
 # Tx over actions
 
+<div class="doc1"><js>doc1('example',22)</js></div>
 Up to now we have used something what is consider as \'default\' layout
 for three-tier web application. Actions uses services, transaction is
 started, services uses DAOs, result is returned.

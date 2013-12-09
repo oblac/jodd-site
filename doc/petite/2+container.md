@@ -1,5 +1,6 @@
 # Container
 
+<div class="doc1"><js>doc1('petite',20)</js></div>
 *Petite* container manages registered beans: it takes care about
 lifecycle and **scope** of **registered** beans and resolves their
 references, i.e. **wires** them. These are the three aspects of

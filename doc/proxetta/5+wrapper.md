@@ -1,5 +1,6 @@
 # WrapperProxetta
 
+<div class="doc1"><js>doc1('proxetta',24)</js></div>
 `WrapperProxetta` works differently than `ProxyProxetta`\: instead of
 extending the target class, it creates new class that delegates call to
 target instance.

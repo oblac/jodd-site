@@ -1,5 +1,6 @@
 # JTX example
 
+<div class="doc1"><js>doc1('jtx',20)</js></div>
 To understand the concepts of *JTX* its best to see an example. To make
 things simpler, our transactional resource will be a simple `String`
 value. Let's create one such class:

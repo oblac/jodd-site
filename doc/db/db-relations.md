@@ -1,5 +1,6 @@
 # DB Relations
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 *DbOom* does not provide relations mapping out-of-box. Instead, developer
 is able to use relations whenever he needs them. And it is not so
 complicated as it sounds.

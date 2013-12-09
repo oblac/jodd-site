@@ -1,5 +1,6 @@
 # ProxyProxetta
 
+<div class="doc1"><js>doc1('proxetta',24)</js></div>
 Once when pointcuts and advices are defined, it is easy to define a
 proxy aspect itself:
 

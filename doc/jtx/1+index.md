@@ -1,7 +1,8 @@
-# JTX ![JTX](jtx.png)
-
 <js>javadoc('jtx')</js>
 
+# JTX ![JTX](jtx.png)
+
+<div class="doc1"><js>doc1('jtx',20)</js></div>
 *Jodd* provides great, little, stand-alone transaction manager, *JTX*.
 It is a significant change in traditional thinking, since no (j2ee)
 application server is required; *JTX* may be used in any Java code.

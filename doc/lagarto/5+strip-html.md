@@ -1,5 +1,6 @@
 # StripHtml ![StripHtml](striphtml.png)
 
+<div class="doc1"><js>doc1('lagarto',20)</js></div>
 `StripHtmlTagAdapter` is *Lagarto* tag adapter that can used for
 reducing the size of HTML pages by removing all unnecessary characters.
 

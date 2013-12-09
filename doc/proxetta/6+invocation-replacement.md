@@ -1,5 +1,6 @@
 # Invocation replacement
 
+<div class="doc1"><js>doc1('proxetta',24)</js></div>
 And now, something completely different:) *Proxetta* provides proxy
 mechanism that may **replace** almost any method invocation, including
 object creation (i.e. constructors) with custom method call. For

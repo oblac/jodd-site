@@ -1,5 +1,6 @@
 # Ignoring resources
 
+<div class="doc1"><js>doc1('htmlstapler',22)</js></div>
 Sometimes, not all resources should be stapled, i.e. bundled with
 *HtmlStapler*.
 

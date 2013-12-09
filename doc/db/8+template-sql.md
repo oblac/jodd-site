@@ -1,5 +1,6 @@
 # Template SQL
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 Native SQL contains table and column names. As *DbOom* is an object
 mapper, it would be more natural to use entity and property names
 instead. In previous topic we have introduced sql generators and

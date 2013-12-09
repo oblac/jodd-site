@@ -1,5 +1,6 @@
 # Lagarto properties
 
+<div class="doc1"><js>doc1('lagarto',20)</js></div>
 There are two sets of *Lagarto* configuration: for `LagartoParser` and
 `LagartoDOMBuilder`.
 

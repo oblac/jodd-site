@@ -1,5 +1,6 @@
 # Auth with interceptors
 
+<div class="doc1"><js>doc1('example',22)</js></div>
 Lets control page access using *Madvoc* interceptors. If user is not yet
 authenticated, it will be redirected to the login page. After the
 successful login, user continues with the requested page.

@@ -1,5 +1,6 @@
 # Relations & Hints
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 We have already seen how to use *hints* to inject values into resulting
 objects. Lets analyze this topic more and see how to deal with the
 **one-to-one** and **one-to-many** relations efficiently.

@@ -1,5 +1,6 @@
 # Setup
 
+<div class="doc1"><js>doc1('htmlstapler',22)</js></div>
 It's quite easy to setup *HtmlStapler*, easy like 1-2-3. Well, it's only 1-2 :)
 
 ### Step #1

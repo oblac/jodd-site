@@ -1,7 +1,8 @@
-# Proxetta ![proxetta](proxetta.png "Proxetta!")
-
 <js>javadoc('proxetta')</js>
 
+# Proxetta ![proxetta](proxetta.png "Proxetta!")
+
+<div class="doc1"><js>doc1('proxetta',24)</js></div>
 *Proxetta* creates dynamic proxies in run-time, providing efficient
 support for aspects.
 

@@ -1,5 +1,6 @@
 # Mapping
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 When it comes to mapping, *DbOom* tries to do it best to match
 destination type of POJO properties. By default, *DbOom* will now to
 convert between various database (aka sql) types and java types. That

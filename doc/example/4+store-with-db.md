@@ -1,5 +1,6 @@
 # Store with Db
 
+<div class="doc1"><js>doc1('example',22)</js></div>
 After setting the presentation layer and the service layer, we are now
 ready to dive into the database. The first thing is to connect to one.
 As expected, we will initialize database connection in `AppCore`. But

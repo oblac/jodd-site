@@ -1,5 +1,6 @@
 # JTX concepts
 
+<div class="doc1"><js>doc1('jtx',20)</js></div>
 *JTX* is all about: resources, resource managers, transactions and
 transaction managers.
 

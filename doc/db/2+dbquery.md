@@ -1,5 +1,6 @@
 # DbQuery
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 `DbQuery` is an enhanced wrapper for prepared and regular JDBC
 statements. In the base scenario, it can be used anywhere where JDBC
 statements would be used. Nevertheless, `DbQuery` provides some

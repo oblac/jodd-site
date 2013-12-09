@@ -1,5 +1,6 @@
 # Db configuration
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 Configuration of *Db* and *DbOom* frameworks is set in `DbManager` and
 `DbOomManager`. Both classes are singleton beans.
 

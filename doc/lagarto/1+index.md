@@ -1,7 +1,8 @@
-# Lagarto ![Lagarto!](lagarto.png)
-
 <js>javadoc('lagarto')</js>
 
+# Lagarto ![Lagarto!](lagarto.png)
+
+<div class="doc1"><js>doc1('lagarto',20)</js></div>
 *Lagarto* is an all purpose fast and versatile **event**-based HTML
 parser. It can be used to modify or analyze some markup content,
 allowing to easily assemble custom complex transformations and code

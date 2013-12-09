@@ -1,5 +1,6 @@
 # Advices
 
+<div class="doc1"><js>doc1('proxetta',24)</js></div>
 *Proxetta* defines advices in a unique way: they are written in the same
 way as one will write overridden method in a subclass.
 

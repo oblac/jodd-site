@@ -1,5 +1,6 @@
 # DOM Builder
 
+<div class="doc1"><js>doc1('lagarto',20)</js></div>
 *Lagarto* is an event-base parser. While this gives great performances
 and low memory consumption, sometimes it is more convenient to build a
 DOM tree first and then to manage it later. Of course, creating DOM

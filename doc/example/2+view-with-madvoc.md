@@ -1,5 +1,6 @@
 # View with Madvoc
 
+<div class="doc1"><js>doc1('example',22)</js></div>
 In the first step we will just enable *Madvoc* and prepare it for future
 enhancements.
 

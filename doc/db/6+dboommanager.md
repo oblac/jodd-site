@@ -1,5 +1,6 @@
 # DbOomManager
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 `DbOomManager` is a manager responsible for registering entity types and
 holding various configuration information. It is used by various parts
 of *Db* and *DbOom*, therefore it is created as singleton pattern.

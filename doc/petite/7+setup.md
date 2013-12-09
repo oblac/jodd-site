@@ -1,5 +1,6 @@
 # Setup
 
+<div class="doc1"><js>doc1('petite',20)</js></div>
 Petite* uses annotation based configuration to make setup and
 configuration simple as possible. It doesn't depend on any external
 (XML) files; by default all configuration is done automagically, from

@@ -1,5 +1,6 @@
 # Sql Generator
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 Sql generator just helps in building *native* SQL queries: using entity
 and property names in the query or just using one-liner method calls.
 Sql generator *is not* db independent adapter to various database.

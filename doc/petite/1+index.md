@@ -1,7 +1,9 @@
-# Petite ![Petite](petite.png "Petite!")
-
 <js>javadoc('petite')</js>
 
+# Petite ![Petite](petite.png "Petite!")
+
+
+<div class="doc1"><js>doc1('petite',20)</js></div>
 *Petite* is a **IoC** container. (oh-yes-another-one). Then again, it
 is easy to use since it requires no external configuration; it is
 incredibly fast; it is lightweight and small so anyone can understand

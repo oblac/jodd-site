@@ -1,5 +1,6 @@
 # Db and annotations
 
+<div class="doc1"><js>doc1('jtx',20)</js></div>
 *JTX* supports multiple resource types, but its most efficient with
 single resource type, such as relational database. Therefore, there is
 whole layer build on top of generic *JTX* classes that serves just to

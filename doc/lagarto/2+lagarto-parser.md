@@ -1,5 +1,6 @@
 # Lagarto Parser
 
+<div class="doc1"><js>doc1('lagarto',20)</js></div>
 To parse HTML/XML content with *Lagarto* you must do just two steps:
 
 1.  create a *Lagarto* parser instance providing content; and then

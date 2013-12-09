@@ -1,5 +1,6 @@
 # DbSession
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 `DbSession` encapsulates database connection. It also plays nicely with
 `DbQuery`ies and has some convenient features.
 

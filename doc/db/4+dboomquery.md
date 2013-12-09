@@ -1,5 +1,6 @@
 # DbOomQuery
 
+<div class="doc1"><js>doc1('db',20)</js></div>
 **DbOomQuery** is all about convenient mapping of result set to target
 classes.
 {: .important}

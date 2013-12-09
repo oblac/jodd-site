@@ -1,5 +1,6 @@
 # How HtmlStapler works?
 
+<div class="doc1"><js>doc1('htmlstapler',22)</js></div>
 Each HTML page is parsed (using **fast** *Lagarto* parser) and all
 javascript and CSS links are collected. The first resource link of the
 same type (javascript/css) is replaced with a link to

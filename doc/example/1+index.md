@@ -14,6 +14,7 @@ For complete, up-to-date, real-world example, with documented source, please che
 [uphea](/uphea/index.html).
 {: style="font-size:22px; color:#336; line-height: 26px; border: 2px solid #ccf; padding: 12px; font-weight:bold; margin: 36px;"}
 
+<div class="doc1"><js>doc1('example',22)</js></div>
 This tutorial gives step-by-step instructions how to build web
 application using *Jodd*. Along it also provides some best-practices
 using *Jodd* frameworks.
