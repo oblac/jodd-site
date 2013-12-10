@@ -134,17 +134,18 @@ class="lib">servlet-api</var> <var class="lib">jsp-api</var>
 class="dep">jodd-bean</var>
 
 
-{::comment}+BETA{:/comment}
-
 ## Beta version (SNAPSHOT)
 {: #beta}
 
-See [what's coming](/beta.html) in this beta.
+Please note that beta version is not always available. 
+See [what's coming](/beta.html) in the next release (the list might
+not be complete).
 
 ### Snapshot Repo
 
 [![download](/gfx/dl.gif) oss.sonatype.org/content/repositories/snapshots/org/jodd][1]{: .dl}
 
+{::comment}+BETA{:/comment}
 ### Bundle
 
 [![download](/gfx/dl.gif) jodd-@@{BETA}.zip](jodd-@@{BETA}.zip){: .dl}

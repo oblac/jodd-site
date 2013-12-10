@@ -16,7 +16,7 @@ We put a lot into creating awesome code and still keeping it small, under **1.3 
 
 <div id="eq">
 	<span id="eq1">Jodd</span>
-	<span id="eq2">=</span>
+	<span id="eq2"> = </span>
 	<span id="eq3">tools</span>
 	<span id="eq4"> + ioc</span>
 	<span id="eq5"> + mvc</span>

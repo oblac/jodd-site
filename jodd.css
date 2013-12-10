@@ -287,3 +287,9 @@ ul.doc-all li {list-style-type: none;}
 
 div#doc ul.doc-all li {margin-bottom: 10px;}
 div#doc ul.doc-all li.doc-more {margin-top: 16px;}
+
+div.sponsor {margin: 10px 20px;}
+div.sponsor a {margin-left: 40px;}
+#content-extra div.sponsor a:hover {background-color: #7E8AA2; !important}
+div.sponsor div.ad {font-size: 9px; line-height: 10px; margin-top: 4px; text-align: center;}
+
