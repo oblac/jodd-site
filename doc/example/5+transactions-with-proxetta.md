@@ -1,27 +1,28 @@
 # Tx with Proxetta
 
 <div class="doc1"><js>doc1('example',22)</js></div>
-Up to now, all database statements were executed in auto-commit mode.
+Up to now, all database statements were executed in auto-commit mode
+(inside `DbSession`).
 This is not how it should be in practice. Services must ensure atomicity
 of the operation, so it anything breaks during the execution, complete
-operation has to be rolledback.
+operation has to be rolled back.
 
 Obviously, we are talking about the transactions here. *Jodd* provides
-its custom simplified transaction support. Transactions in *Jodd* are
+custom simplified transaction support. Transactions in *Jodd* are
 done across several transactional resources (one of them may be a
 database). *Jodd* transactions does **not** support distributed
 transactions, two-phase commits and all those features that are part of
 large, huge, enterprise systems. Instead, it offers what you really need
 in most cases: pragmatic transactions layer that works without J2EE
-container without much trouble.
+container and without much trouble.
 
-Naturally, we do not want to manually manage transactions. Instead, we
-will use aspects to describe where transactions should be managed and
-which type of transaction is in use. *Proxetta* will find all annotated
+Naturally, we do not want to manually manage transactions, like in the last example.
+Instead, we will use aspects to describe where transactions should be managed
+and which type of transaction is in use. *Proxetta* will find all annotated
 service methods and manage transactions around.
 
-There are not much code in this step, but it is a hard-core one. Stay
-with us!
+There are not a lot of code in this step, but it is a hard-core one.
+Be patient and stay with us!
 
 ## Initializing Proxetta
 
@@ -36,15 +37,15 @@ container. Since we have to integrate *Proxetta* with the *Petite*,
     public class AppCore {
     	...
     	public synchronized void start() {
-    		AppUtil.resolvePaths()
-    		initLogger();
+    		//AppUtil.resolvePaths()
+    		//initLogger();
     		initProxetta();
     		initPetite();
     		initDb();
     		...				// init everything else
     	}
 
-    	Proxetta proxetta;
+    	ProxyProxetta proxetta;
 
     	void initProxetta() {
     		ProxyAspect txServiceProxy = new ProxyAspect(AnnotationTxAdvice.class,
@@ -57,22 +58,21 @@ container. Since we have to integrate *Proxetta* with the *Petite*,
     							super.apply(mi);
     				}
     			});
-    		proxetta = Proxetta
-                    .withAspects(txServiceProxy)
-                    .loadsWith(this.getClass().getClassLoader());
+    		proxetta = ProxyProxetta.withAspects(txServiceProxy);
+            proxetta.setClassLoader(this.getClass().getClassLoader());
     	}
     	...
     }
 ~~~~~
 
-We defined here our transactional proxy by setting the advice and
-pointcut on all method annotated with `@Transaction`. Pointcut is
-defined also on public, top level methods, of all classes which name
-ends with \'`Service`\'.
+This code defines transactional proxy by setting the advice and
+pointcut on all method annotated with `@Transaction` annotation. Pointcut is
+defined on public, top-level methods, of all classes which name
+ends with `Service`.
 
 Once when *Proxetta* is ready, it has to be use during bean registration
 in *Petite* container. Like many things in *Jodd*, this is done by
-extending - or use provided solution: `ProxettaAwarePetiteContainer`\:
+extending - or using provided solution: `ProxettaAwarePetiteContainer`\:
 
 ~~~~~ java
     public class AppCore {
@@ -85,12 +85,14 @@ extending - or use provided solution: `ProxettaAwarePetiteContainer`\:
     }
 ~~~~~
 
+And that is all :)
+
 ## Transaction Manager
 
 `JtxTransactionManager` is transaction manager responsible for
 transactions propagation and resource managers. In general, it works
 across several transaction resource types. However, if we are sure that
-we gonna use just one transactional resource and that is a database
+we gonna use just one transactional resource and that resouce is database
 (that is often true) we can use the simplified version of transaction
 manager: `DbJtxTransactionManager`. It is simplified just in sense of
 usage, all underlying mechanisms are the same. For example, it is easier
@@ -110,13 +112,13 @@ some global static field. This is how we will set the instance of
 
 Third and the last thing is the change of used session provider.
 Sessions now doesn't have to be stored in thread storage since they are
-transactional resource and managed by transactional manager. So we will
+transactional resource and managed by transactional manager. We will
 use `DbJtxSessionProvider` to provide sessions when needed. We will use
-the default version that expect that transaction exist and will throw an
+the default version that expect transaction to exist or it will throw an
 exception if not. In practice this means that database access must
-occurs behind the `@Transaction` methods.
+happens during the execution of `@Transaction` method.
 
-Here are described changes applied on `initDb()`\:
+Here are described changes applied on `initDb()`:
 
 ~~~~~ java
     public class AppCore {
@@ -125,7 +127,7 @@ Here are described changes applied on `initDb()`\:
     	ConnectionProvider connectionProvider;
 
     	void initDb() {
-    		petite.registerBean("dbpool", CoreConnectionPool.class);
+    		petite.registerPetiteBean(CoreConnectionPool.class, "dbpool", null, null, false);
     		connectionProvider = (ConnectionProvider) petite.getBean("dbpool");
     		connectionProvider.init();
 
@@ -137,9 +139,10 @@ Here are described changes applied on `initDb()`\:
     		DbSessionProvider sessionProvider = new DbJtxSessionProvider(jtxManager);
 
     		// global settings
-    		DbDefault.debug = true;
-    		DbDefault.connectionProvider = connectionProvider;
-    		DbDefault.sessionProvider = sessionProvider;
+            DbManager dbManager = DbManager.getInstance();
+            dbManager.setDebug(true);
+            dbManager.setConnectionProvider(connectionProvider);
+            dbManager.setSessionProvider(sessionProvider);
 
     		...
     	}
@@ -150,21 +153,21 @@ Here are described changes applied on `initDb()`\:
     	}
 ~~~~~
 
-So everything what is said above is set just in few lines. Lets cover
-some more details. In line #13, we ask transaction manager to validates
+As you can see, everything said above is set just in few lines. Lets cover
+some more details. We ask transaction manager to validates
 existing transactions before participating in them. This is not
-necessary, but it makes us declaring transactions more precisely.
-`AnnotationTxAdviceManager`, as said, is used by advice. It reads
+necessary, but it makes declaration of transactions more precisely.
+`AnnotationTxAdviceManager`, as said, is used by the advice. It reads
 annotations, holds configuration and offers way to handle transactions.
-Second` `argument specifies what will be the transaction context (i.e.
+Second argument specifies what will be the transaction context (i.e.
 tx owner) using simple patterns. Second requests for transactions inside
 the same transaction context is ignored. Practically this means that if
-class is set as transactional context (`"$class"`), first method call
+class is set as transactional context (`$class`), the first method call
 will create the transaction and all nested calls of other transactional
 methods of the same class will not request new transactions.
-Alternatively, we could use method context (`"$class#$method"`), or just
+Alternatively, we could use method context (`$class#$method`), or just
 public context where there are no nested transactions (any constant
-string, e.g. "`tx`").
+string, e.g. `tx`).
 
 Once again, this is just one way how *Jodd* can be configured...
 
@@ -192,6 +195,8 @@ Service methods has to be annotated to declare transactions on them:
     	}
     }
 ~~~~~
+
+Restart Tomcat and head to the index page. Again, new user is successfully stored. Yeah!
 
 ## Recapitulation
 

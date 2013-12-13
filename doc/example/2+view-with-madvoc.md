@@ -1,8 +1,7 @@
 # View with Madvoc
 
 <div class="doc1"><js>doc1('example',22)</js></div>
-In the first step we will just enable *Madvoc* and prepare it for future
-enhancements.
+The first step of this example will be to just enable *Madvoc* and prepare it for future enhancements.
 
 ## web.xml
 
@@ -23,7 +22,8 @@ Lets register *Madvoc* in `web.xml`.
 	...
 ~~~~~
 
-This is the minimum *Madvoc* configuration.
+This is the minimal *Madvoc* configuration. Remember that *Madvoc*
+may be also registered using servlet context listeners.
 
 ## Index action
 
@@ -76,7 +76,7 @@ INFO jodd.madvoc.Madvoc - Madvoc is up and running.
 ~~~~~
 
 This means everything is just fine. Open your browser and go to
-`http://localhost:8080/index.html`. You should see your text:)
+`http://localhost:8080/index.html`. You should see your text from JSP:)
 
 ## Madvoc action as welcome file
 
@@ -128,9 +128,9 @@ Now we are ready to continue.
 ## Custom web application
 
 Minimal *Madvoc* configuration is often not enough. We will immediately
-extend it; doing this early is consider as good practice. Note that in
+extend it; doing this early is consider as a good practice. Note that in
 *Jodd*, all customization is done using pure Java, usually by extending
-some classes. The same is here - we will add our `AppWebApplication` by
+some classes. The same applies here - we will add our `AppWebApplication` by
 extending the `WebApplication` and register it in `web.xml`.
 
 ~~~~~ java
@@ -140,11 +140,10 @@ extending the `WebApplication` and register it in `web.xml`.
      * Web application.
      */
     public class AppWebApplication extends WebApplication {
-
     }
 ~~~~~
 
-web.xml changes:
+Registerd new web appication class in `web.xml`:
 
 ~~~~~ xml
     ...
@@ -159,7 +158,7 @@ web.xml changes:
     ...
 ~~~~~
 
-Now we are ready for *Madvoc* extensions and customization.
+Now we are ready to extend and customize the *Madvoc*.
 
 ## Parameters
 
@@ -184,8 +183,8 @@ enable *Madvoc* file parameters, just in case we need them later.
     ...
 ~~~~~
 
-Add an empty `madvoc.props` file to classpath root, where we gonna put
-some *Madvoc* parameters later. Note that we are here using *Props*, our
+Add an empty `madvoc.props` file to classpath or resource root. We gonna put
+some *Madvoc* parameters in there later. Note that we are using *Props*, our
 own solution for super-properties. For now just treat it as a regular
 properties file, except it is UTF-8 encoded.
 
@@ -238,8 +237,7 @@ Yeah!
 
 ## Recapitulation
 
-We have configured one *Madvoc* action, for the index page. Also, we set
-some common Tomcat stuff for sane development. Finally, we extended
+We have configured one *Madvoc* action, for the index page. We also set
+some common Tomcat stuff for development. Finally, we extended
 *Madvoc* and enabled props file, in order to be able to configure it
 later easily.
-

@@ -65,5 +65,5 @@ pass the user id, then find it in the database, and print it in the jsp.
 
 ## Final words
 
-This example ends here, but it is just a beginning for your quest
-through *Jodd*!
+This tutorial ends here, but it is just a beginning for your quest
+through *Jodd*! Enjoy!

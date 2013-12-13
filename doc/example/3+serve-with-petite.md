@@ -1,13 +1,13 @@
 # Serve with Petite
 
 <div class="doc1"><js>doc1('example',22)</js></div>
-We have two goals here: to build service layer within *Petite* container
+We have two goals in this chapter: to build service layer with *Petite* container
 and to merge it with the our *Madvoc* web application. Of course, it is
-vital to have Petite completely decoupled from web layer.
+important to have Petite completely decoupled from the web layer.
 
 ## Plain Old Service Core
 
-Now, let's forget we are building a web application. We want to build a
+Let's forget for a moment that we are building a web application. We want to build a
 business core of the application that can be started from the command
 line (and tests cases). Lets encapsulate the application core in
 `AppCore` class, that will be responsible for application lifecycle and
@@ -18,10 +18,10 @@ the *Petite* container. One possible implementation may look like this:
     public class AppCore {
 
     	public void start() {
-    		AppUtil.resolveDirs();
-    		initLogger();
+    		//AppUtil.resolveDirs();
+    		//initLogger();
     		initPetite();
-    		initDb();
+    		//initDb();
     		// init everything else
     	}
 
@@ -38,9 +38,6 @@ the *Petite* container. One possible implementation may look like this:
     		pcfg.configure(petite);
     	}
 
-    	/**
-    	 * Returns application container (Petite).
-    	 */
     	public PetiteContainer getPetite() {
     		return petite;
     	}
@@ -48,27 +45,26 @@ the *Petite* container. One possible implementation may look like this:
     }
 ~~~~~
 
-Let's analyze `AppCore`. Upon application start, it resolve various
-paths so we learn where the log folder is, where are properties etc. We
-will not use this and will hardcore all the paths needed. Next thing,
+Let's analyze `AppCore`. On `start()`, it resolve various
+paths, to determine where the log folder is, where are the properties etc.
+In this example we will not use this kind of magic, instead we will
+hardcore all the paths needed to keep things simple. Next,
 various frameworks are going to be initialized as well. Usually the
 logger is initialized first, so we can track what is going on as soon as
 possible. As this is not part of the *Jodd*, we will skip any further
-explanation and go to *Petite* initialization.
+explanation and go to the *Petite* initialization.
 
-Finally, *Petite* container is created (method `initPetite()`).
+*Petite* container is created (method `initPetite()`).
 Immediately after creation, *Petite* container is auto-configured using
-`AutomagicPetiteConfigurator`. This
-configuration scans the class path for all classes that are annotated
-with `PetiteBean` annotation. Since classpath of web application may
+`AutomagicPetiteConfigurator`. This configurator implementation
+scans the class path for all classes that are annotated
+with `@PetiteBean` annotation. Since classpath of web application may
 contain many jars, we can speed up the scanning process by narrowing the
 search only to certain packages. In our example, the configurator simply
-scans for all packages that are bellow the package of `AppCore` - we
+scans for all packages that belong to the package of `AppCore` - we
 assume that services are somewhere bellow.
 
-This is just one way of doing things; what matters here is the
-**concept** and not the concrete values, structure or configuration used
-in example.
+This is just one way how you can register your bean.
 {: .example}
 
 That is all, *Petite* is ready for use and upon start it will find all
@@ -85,10 +81,10 @@ Let's integrate *Madvoc* and *Petite* application context.
 `PetiteWebApplication`, a *Petite*-ready web application class. As you
 remember, we already made `AppWebApplication` for our custom needs. So
 now we need to make it *Petite*-aware, i.e. to extends
-`PetiteWebApplication` instead of just `WebApplication`.
+`PetiteWebApplication` instead of `WebApplication`.
 
 By default, `PetiteWebApplication` creates it's own *Petite* container
-instance that will be used as application context. Sine we have our
+instance that will be used as application context. Sine we already have our
 container instance in `AppCore`, we need to change default behavior of
 `PetiteWebApplication` and use existing container from `AppCore`. It is
 nothing hard, just a matter of overriding `providePetiteContainer()`.
@@ -158,12 +154,12 @@ in the previously created `IndexAction` in this way:
 
 Injection is done just by using the `@PetiteInject` annotation on a
 field! Of course, you can add setter/getter for the service field, but
-usually we don\'t: we like to have our actions smaller as possible.
+usually we don't: we like to have our actions smaller as possible.
 
 Note: by default, field name must match lowercased bean class name.
 
-Hey, hurrey, it\'s starting time again! Run the Tomcat. You will notice
-in the log that *Petite* bean is also registered:
+Hey, hurrey, it's run-time again! Run the Tomcat. You will notice
+in the log that *Petite* bean is also being registered:
 
 ~~~~~
 INFO jodd.petite.config.AutomagicPetiteConfigurator - Petite configured in 47 ms. Total beans: 1
@@ -218,7 +214,6 @@ method:
     public class AppCore {
     	...
     	void initPetite() {
-    		log.info("petite initialization");
     		petite = new PetiteContainer();
 
     		// automatic configuration
@@ -241,7 +236,7 @@ method:
     }
 ~~~~~
 
-Here we do many things. We first load system and environment variables
+Here we have many things. We first load system and environment variables
 into props. The we load all `/app*.prop*` files from the classpath. This
 includes both *Jodd* props and Java properties! All this properties will
 be loaded from the files and injected into the beans!
@@ -256,7 +251,7 @@ output folder!
 
 ## Enable session scope beans
 
-Even if not yet sure if we gonna needed, we can enable*Petite* to use
+Even if not yet sure if we gonna needed, we can enable *Petite* to use
 session scoped beans. The following listeners have to be registered in
 `web.xml`\:
 
@@ -277,7 +272,7 @@ to run application outside of servlet container (as we don't have
 session in the command line). To solve this problem, we need first to
 detect if we are running under the servlet container. There are many
 ways to do so, one is to detect if there is a WEB-INF string in the file
-path of some file on the classpath. Next step os to replace tje session
+path of some file on the classpath. Next step is to replace the session
 scope with, e.g. prototype scope:
 
 ~~~~~ java
@@ -286,7 +281,6 @@ scope with, e.g. prototype scope:
     	protected boolean isWebApplication;
 
     	void initPetite() {
-    		log.info("petite initialization");
     		petite = new PetiteContainer();
     		if (isWebApplication == false) {
     			petite.getManager().registerScope(SessionScope.class, new ProtoScope());
@@ -299,9 +293,9 @@ scope with, e.g. prototype scope:
 
 ## Recapitulation
 
-We learned here how it is easy to create *Petite* container and register
-beans. For web applications, such one we are building in this example,
-there is a simple way how to integrated *Petite* container with
+We learned how it is easy to create *Petite* container and register
+beans. For web applications, such one we have in this example,
+there is a simple way to integrated *Petite* container with
 *Madvoc*. Once integrated, injection of container services into web
 actions is just mater of declaration. Finally, we have learned how to
 load *Petite* properties and how to enable configuration for session
