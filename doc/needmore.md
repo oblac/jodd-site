@@ -19,3 +19,6 @@ and upgrading, trying to cover as much as possible.
 Nevertheless, please do not hesitate to [ask support](/contact.html) for
 (more) details about some specific topic or feature. We will write it
 for you as soon as possible.
+
+Meanwhile, take a look at the _tests_ - they are always up-to-date with the
+syntax changes and may be a good starting point for your exploration.

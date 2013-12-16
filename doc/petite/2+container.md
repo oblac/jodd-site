@@ -3,36 +3,59 @@
 <div class="doc1"><js>doc1('petite',20)</js></div>
 *Petite* container manages registered beans: it takes care about
 lifecycle and **scope** of **registered** beans and resolves their
-references, i.e. **wires** them. These are the three aspects of
+dependences, i.e. **wires** them. These are the three key aspects of
 *Petite*: registration, wiring and scope. More details follows.
+
 
 ## Registration
 
-*Petite* must be aware of beans it should manage. Therefore, beans first
+*Petite* must be aware of beans it manages. Therefore, beans first
 have to be registered into *Petite* container.
 
-*Petite* defines beans with bean **name** and bean **type**. If name is
-omitted, it is resolved from beans class. There are two ways how
-*Petite* can resolve bean name from its type:
+`PetiteContainer` provides single method for registering beans:
+`registerPetiteBean()` that takes following arguments:
 
-* uncapitalized short class name (default); or
-* full class name
+* `type` - beans type, must be specified
+* `name` - beans name. If `null` the name will be resolved from the class.
+* `scopeType` - bean scope. If `null` will be resolved from the class.
+* `wiringMode` - defines wiring mode. Also may be omitted.
+* `define` - if set to true, injection points will be resolved
 
-This behavior is set in *Petite* configuration.
+At this moment that is too much, so just pay attention to first two arguments:
+`type` and `name` (and provide `null`s to all others).
+
+
+## User-friendly registration
+
+There is one more developer-friendly alternative for beans registration.
+Instead of using `registerPetiteBean()` you may use `PetiteRegistry` class
+that offers nice, fluent interface for easier registration. You will see
+this in next examples.
 
 ### Registration using short type name
 
-Here is an example of default usage:
+You may name your beans any way you like it. However, there are two common
+scenarios, i.e. naming convention that frees you from writing
+bean names explicitly. The first scenario is to use uncapitalized short name of
+bean type, which is default *Petite* naming convention:
 
 ~~~~~ java
-
     PetiteContainer petite = new PetiteContainer();
-    // same as: petite.registerBean("foo", Foo.class);
-    petite.registerBean(Foo.class);
-    petite.registerBean(Boo.class);
+    petite.registerPetiteBean(Foo.class, null, null, null, false);
+    petite.registerPetiteBean(Boo.class, null, null, null, false);
 ~~~~~
 
-In this example, two beans are registered into the container. Beans are
+or, alternatively:
+
+~~~~~ java
+    PetiteContainer petite = new PetiteContainer();
+    PetiteRegistry registry = new PetiteRegistry(petite);
+    
+    registry.bean(Foo.class).register();
+    registry.bean(Bar.class).register();
+~~~~~
+
+Either way, two beans are registered into the container. Beans are
 just simple POJOs:
 
 ~~~~~ java
@@ -57,34 +80,40 @@ Registered beans can be lookuped by their names from container:
     Foo foo = (Foo) petite.getBean("foo");
 ~~~~~
 
+Simple as that ;)
+
 ### Registration using full type name
 
-The same example, but using full type name:
+The second common scenario, i.e. naming convention, is to use
+full name of bean type when bean name is not provided.
 
 ~~~~~ java
     PetiteContainer petite = new PetiteContainer();
     pc.getConfig().setUseFullTypeNames(true);
-    // same as: petite.registerBean("org.jodd.Foo", Foo.class);
-    petite.registerBean(Foo.class);
-    petite.registerBean(Boo.class);
+
+    petite.registerPetiteBean(Foo.class, null, null, null, false);
+    petite.registerPetiteBean(Boo.class, null, null, null, false);
 ~~~~~
 
-and:
+As you see, the registration part didn't change - we just configured
+*Petite* to use full types names. Lookup is changed:
 
 ~~~~~ java
     Foo foo = (Foo) petite.getBean("org.jodd.Foo");
 ~~~~~
 
 Good practice is not to mix these two ways of registering beans. Decide
-which one to use before start developing your application. Generally,
-you can use short names for \'closed\' application; use full names for
-bigger application, especially if it is open for enhancements by its
-users.
+which one to use before start developing your application.
 {: .attn}
+
+Generally, you can use short names for \'closed\' application; use full names
+for bigger application, especially if it is open for enhancements by its users.
+Of course, nothing stops you to use your own naming convention :)
+
 
 ## Wiring properties
 
-When bean is created for the first time, *Petite* wires it with other
+When bean instance is created for the first time, *Petite* wires it with other
 registered beans. Process of wiring is injection of requested references
 into defined **injection points**.
 
@@ -111,14 +140,15 @@ injection point. If annotation doesn't specify the bean name, it will
 be resolved.
 
 Using setter methods for property injection points is not necessary,
-although it may be used if desired. If exist, *Petite* will inject
-required reference using setter method.
+although it may be used if desired. If setter exist, *Petite* will inject
+required reference using a setter method, even if annotation is
+on defined on property field.
 
-*Petite* knows how to handle circular dependencies during wiring.
+*Petite* knows how to handle circular dependencies during the wiring.
 
 ## Resolving bean references
 
-If bean name is not explicitly set on annotated injection point, *Petite*
+If bean name is not explicitly set by annotation on injection point, *Petite*
 will try to resolve the name. By default, bean name is resolved using
 the following values in given order:
 
@@ -126,12 +156,12 @@ the following values in given order:
 2.  uncaptialized short field type name
 3.  long type name
 
-This order and used values are fully configurable in *Petite*
+This order and values are fully configurable in *Petite*
 configuration. For example, it is possible to use only property name
 when resolving beans, or type full name; or to change above order.
 
-In previous example, *Petite* will lookup for beans named: \'`boo`\' and
-\'`org.jodd.Boo`\' (\'`boo`\' is not searched twice, since it is the
+In previous example, *Petite* will lookup for beans named: `boo` and
+`org.jodd.Boo` (`boo` is not searched twice, since steps #1 and #2 have the
 same name). The first bean found will be injected into the marked
 injection point.
 
@@ -154,7 +184,8 @@ References will be injected through any number of method arguments:
 ~~~~~
 
 By default, reference names are resolved in the same way as for
-properties. Note that argument names are available using *Paramo*, but
+properties. Note that argument names are available using *Paramo*
+(another *Jodd* tool for resolving method argument names from bytecode), but
 only if classes are compiled in debug mode. To inject differently named
 references, they have to be specified in value element of
 `@PetiteInject` annotation, separated by comma.
@@ -224,8 +255,15 @@ Scope is defined during bean registration:
 
 ~~~~~ java
     PetiteContainer petite = new PetiteContainer();
-    petite.registerBean(Foo.class, ProtoScope.class);
-    petite.registerBean(Boo.class);
+    petite.registerBean(Foo.class, null, ProtoScope.class, null, false);
+    petite.registerBean(Boo.class, null, null, null, false);
+~~~~~
+
+or alternatively:
+
+~~~~~ java
+    registry.bean(Foo.class).scope(ProtoScope.class).register();
+    registry.bean(Boo.class).register();
 ~~~~~
 
 Now, each time when `foo` is lookuped from the container, a new
@@ -360,7 +398,7 @@ applied on *Petite* context:
 
 ~~~~~ java
 	PetiteContainer pc = new PetiteContainer();
-	pc.registerBean("pojo", PojoBean.class);
+	pc.registerBean(PojoBean.class, "pojo", null, null, false);
 
 	pc.setBeanProperty("pojo.foo1", "value");
 	pc.getBeanProperty("pojo.foo2");
@@ -369,5 +407,4 @@ applied on *Petite* context:
 ~~~~~
 
 The only difference from `BeanUtil` is that first part of the property
-path (`**pojo**.bean2.foo3`) is actually the name of some registered
-bean.
+path (`pojo`) is actually the name of a registered bean.

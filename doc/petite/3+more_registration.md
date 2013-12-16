@@ -6,7 +6,7 @@ More registration topics.
 ## Registering implementations
 
 *Petite* register beans by names. When working with simple POJOs, it is
-convenient to have bean names automatically generated from bean\'s class
+convenient to have bean names automatically generated from bean's class
 name. However, when there is an interface or abstract class to implement
 or extend with custom implementation, it is wise to name implementing
 bean with the interface name (if not with some non-related name).
@@ -189,8 +189,8 @@ be invoked:
 
 ~~~~~ java
 	PetiteContainer pc = new PetiteContainer();
-	pc.registerBean(Foo.class);
-	pc.registerBean(Zoo.class);
+	pc.registerBean(Foo.class, null, null, null, false);
+	pc.registerBean(Zoo.class, null, null, null, false);
 	Boo boo = new Boo();
 	pc.addBean("boo", boo).wire(boo, true);
 	...

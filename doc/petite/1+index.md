@@ -4,15 +4,14 @@
 
 
 <div class="doc1"><js>doc1('petite',20)</js></div>
-*Petite* is a **IoC** container. (oh-yes-another-one). Then again, it
-is easy to use since it requires no external configuration; it is
-incredibly fast; it is lightweight and small so anyone can understand
-how it works just from examining the code; it is extensible and open for
-customization; and, finally, it is non-invasive.
+*Petite* is one great, little **IoC** container. It is easy to use since it requires no
+external configuration; it is incredibly fast; it is lightweight and small so
+anyone can understand how it works just from examining the code; it is
+extensible and open for customization; and, finally, it is non-invasive.
 
 ## Petite Overview
 
-The following bean shows basic *Petite* usage:
+The following bean shows some basic *Petite* usage:
 
 ~~~~~ java
     @PetiteBean
@@ -35,8 +34,8 @@ The following bean shows basic *Petite* usage:
     }
 ~~~~~
 
-In this example, `Foo` is *Petite* bean that defines several injection
-points, for different services from the container.
+`Foo` is *Petite* bean that defines several _injection points_,
+for different services from the container.
 
 Above example uses only defaults; however, `Petite` can be configured in
 many ways.
@@ -46,7 +45,7 @@ many ways.
 *Petite* is one of the lightest Java DI container around. Still, it
 supports sufficient most of features offered by other containers. To
 some it may resemble to [Guice][1]{: .external} (due to annotations
-usage): and yes it does, but *Petite* was developed first and it still
+usage): and yes it does, but *Petite* was developed way before and it still
 has some conceptual differences.
 
 Here are the key features:
