@@ -346,7 +346,7 @@ path.
 | action path (no extension) | result value    | result path             |
 |----------------------------|-----------------|-------------------------|
 | *                          | /foo            | /foo                    |
-| *                          | /foo.ext        | /foo.ex                 |
+| *                          | /foo.ext        | /foo.ext                |
 | /zoo/boo.foo               | ok              | /zoo/boo.foo.ok         |
 | /zoo/boo.foo               | doo.ok          | /zoo/boo.foo.doo.ok     |
 | /zoo/boo.foo               | #               | /zoo/boo                |
