@@ -297,7 +297,8 @@ the current time in Japan:
 ~~~~~
 
 Furthermore, it is possible just to set the timezone, without changing
-the time.
+the time. And, something useful - to change timezone, using method
+`changeTimeZone()`.
 
 DST is supported only partially, for now. By default, DST tracking is
 off (flag: `trackDST`). When DST tracking is on, JDateTime will track

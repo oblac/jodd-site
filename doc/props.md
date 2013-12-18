@@ -281,6 +281,48 @@ Everything between is considered as a value. Example:
 Note that multiline values are **NOT** trimmed! Therefore, the value
 from the example will consist of 5 rows.
 
+## Iteration and keys order
+
+*Props* keeps your keys in order! It is possible to iterate all *Props*
+keys in the same order as they are listed in the props file(s).
+So instead doing this:
+
+~~~~~
+    foo.1=value1
+    foo.2=value2
+    ...
+~~~~~
+
+you can simply iterate props using:
+
+~~~~~ java
+    Props props = ....
+    Iterator<PropsEntry> it = p.iterator();
+~~~~~
+
+The order of iteration is the same as the order of props definitions!
+
+But there is more - it is possible to furthermore tune the iterator, by
+adding a filter for profiles to look and/or sections to iterate.
+So you can write something like this:
+
+~~~~~ java
+    Iterator<PropsEntry> it = p.entries()
+            .section("one.two")
+            .profile("prof1", "prof2")
+            .iterator();
+~~~~~
+
+to iterate only props in given section and for given profiles.
+
+Due to profiles usage, one key may be defined on many places in
+props file. For example, you can specify value for two profiles.
+In this case, it is not clear what is the 'correct' order of the
+keys: should it be the first appearance of the key, or the place
+where it gets its value? Either way, you can control this behavior
+using `skipDuplicatesByValue()` and `skipDuplicatesByPosition()`
+during iterator building.
+
 ## Configuration
 
 *Props* behavior can be fine-tuned using several configuration settings:
