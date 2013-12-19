@@ -1,7 +1,7 @@
 # Jodd Joy
 
 Are you building your web application with *Jodd* and want some more
-*Joy* in your development? You are on the right place! *Jodd Joy* is an
+*Joy* in your development? You are on the right place! *Jodd* *Joy* is an
 application template built on *Jodd* that combines the best *Jodd*
 practices with pragmatic approach, assuming requirements that, as we
 think, match the most web applications out there.
