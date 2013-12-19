@@ -1,6 +1,6 @@
 # Serve with Petite
 
-<div class="doc1"><js>doc1('example',22)</js></div>
+<div class="doc1"><js>doc1('example',25)</js></div>
 We have two goals in this chapter: to build service layer with *Petite* container
 and to merge it with the our *Madvoc* web application. Of course, it is
 important to have Petite completely decoupled from the web layer.

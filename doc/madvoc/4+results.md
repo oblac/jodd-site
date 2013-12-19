@@ -209,7 +209,7 @@ action: one that uses \'redirect\' result, and the second that uses
     	@Action
     	public String execute() {
     		value = "173";
-    		return "redirect:/%two%?value=${value}";
+    		return "redirect:/<two>?value=${value}";
     	}
     }
 ~~~~~
@@ -225,7 +225,7 @@ action: one that uses \'redirect\' result, and the second that uses
     	@Action
     	public String execute() {
     		value = "173";
-    		return "move:/%two%";
+    		return "move:/<two>";
     	}
     }
 ~~~~~

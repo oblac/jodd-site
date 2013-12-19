@@ -1,6 +1,6 @@
 # Tx with Proxetta
 
-<div class="doc1"><js>doc1('example',22)</js></div>
+<div class="doc1"><js>doc1('example',25)</js></div>
 Up to now, all database statements were executed in auto-commit mode
 (inside `DbSession`).
 This is not how it should be in practice. Services must ensure atomicity
