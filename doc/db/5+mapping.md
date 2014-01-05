@@ -1,15 +1,71 @@
 # Mapping
 
 <div class="doc1"><js>doc1('db',20)</js></div>
-When it comes to mapping, *DbOom* tries to do it best to match
-destination type of POJO properties. By default, *DbOom* will now to
-convert between various database (aka sql) types and java types. That
-also includes basic `enum` support and so on.
+When it comes to mapping, *DbOom* tries its best to match database types
+with Java types of POJO properties (i.e. mapped columns). *DbOom*
+knows how to convert between various SQL types and common Java types, including `enums`. SQL types in *DbOom* are actually implementations of
+`SqlType`, that defines how to convert values between SQL and Java types.
 
-Moreover, it is possible to give additional hints for mapping
-conversion, by specifying `sqlType` annotation element of `@DbColumn`.
-Sql type is actually one of `SqlType` classes that defines how results
-are read from database and stored to bean and vice-versa.
+## Custom Mapping
+
+It is possible to define custom SQL types, i.e. custom type mappings. They can be defined in two ways:
+
++ _globally_: when custom `SqlType` implementations are registered in
+`SqlTypeManager`. These SQL types are then available for all Java
+properties of the same type across the application.
+
++ _locally_: defined in `@DbColumn` annotation by setting `sqlType` element,
+then this custom type applies only on annotated property.
+
+SQL types defined in annotation are always used, even if java type of a property has its own SQL type already registered.
+
+## Naming strategies
+
+For successful mapping and *DbOom* functionality, table and column naming
+strategies must match how JDBC driver of destination database works.
+{: .attn}
+
+This is very important to understand! *DbOom* has table and column name
+naming strategies that define how entity/column names are converted
+_to_ and _from_ the mapped class/property names. Notice that these
+naming strategies are used in **both** directions: when converting from
+table/column name to class/property and vice-versa (i.e. _mapping_);
+and when converting from class/property to table/column name (i.e._resolving_).
+
+For example, if you have a table `JJ_FOO_BAR` (prefix and uppercase) and
+column `value_data` (lowercase), it may be mapped to class
+`FooBar` (camel-case strategy) and property `valueData` (again, camel-case).
+The opposite mapping also has to match: class `UserData` may be resolved to
+e.g. table `EX_USER_DATA_N` (uppercase with both prefix and suffix);
+property `valueData` may be resolved to column `value_date` (lowercase).
+
+Here are the possible naming strategies options (defined in `DbOomManager`):
+
++ `splitCamelCase` - if camel case words should be split with `separatorChar`.
++ `separatorChar` - simple char used when `splitCamelCase` is `true`, by default its `_`
++ `changeCase` - when `true` (default) table or column names will be changed to upper or lowercase.
++ `uppercase` or `lowercase` - defines it table or column name should be converted to upper case or lowercase.
++ `prefix` and `suffix` - table names may have prefix and/or a suffix.
+
+Why is this important? Naming strategies are important since JDBC drivers works differently then you expect.
+{: .example}
+
+For example, you may define your database using uppercases name,
+but JDBC driver simply returns lowercase values. Therefore, by setting
+correct naming strategy you match how JDBC driver works and *DbOom*
+will work flawlessly.
+
+Wrong naming strategy is the most common configuration mistake when
+using *DbOom*!
+{: .warn}
+
+Therefore, when working with *DbOom*, please use uniform naming convention
+across the whole database and please match it with how JDBC drivers work!
+One thing that can help is to enable logging. If you see WARN message like this:
+
+     [WARN] Column SQL type not available: DbEntity: TESTER2.TIME
+
+then it is a sign that mapping or naming conventions might be wrong.
 
 ## Example
 
@@ -70,6 +126,7 @@ public class Foo {
 create table FOO (
 
 
+
     ID          integer     not null,
 
 
@@ -117,25 +174,26 @@ create table FOO (
 </td></tr>
 </table>
 
-First two properties are straightforward. Next two properties (lines #11
-and #14) are identical: they are `String`s mapped to integer columns.
-The first one just shows how to explicitly specify the destination
-`SqlType`. Of course, for basic types it is not necessary to specify the
-sql type.
+Most of above mappings are straightforward: number fields are mapped to
+number java types, varchars to strings, etc. There are some useful
+additional mappings, like mapping `String` values to integer columns -
+of course, it is assumed that string contains only digits. In this example
+you can see two explicit local mapping, when SQL type is defined
+in `@DbColumn` annotation.
 
 ### Custom mappings
 
-Now something interesting: line #17 shows how some custom type, `Boo`,
-is mapped to database. Of course, this can't be done automatically. One
-solution is to specify the sql type in annotation. However, this is not
-the only way. Instead, it is possible to register sql type in the
-following way:
+Now something interesting: property `boo` has a custom type `Boo`, and
+it is also mapped to database. Of course, this mapping can't be
+done automatically. We must provide custom `SqlType` that explains
+how to convert database value to and from `Boo` type. Since we want
+to use this mapping everywhere, we might register it globally:
 
 ~~~~~ java
     SqlTypeManager.register(Boo.class, BooSqlType.class);
 ~~~~~
 
-where `BooSqlType` may look like:
+and `BooSqlType` may look like:
 
 ~~~~~ java
     public class BooSqlType extends SqlType<Boo> {
@@ -154,13 +212,17 @@ where `BooSqlType` may look like:
     }
 ~~~~~
 
+In this simple example, `Boo` is stored as an integer in database; however,
+you can create a more complex SQL type and conversion.
+
 ### Enum mappings
 
-Line #20 shows how simple enumeration (`FooColor`) can be stored to
+Lets see how simple enumeration (`FooColor`) can be stored to
 database. Enumerations, by default, are stored as strings (varchars...).
 
-Now, enumeration may be stored as other sql type, but it is necessary to
-define `SqlType` for mapping conversion. One such may look like:
+Now, enumeration may be stored as other SQL type, but it is necessary to
+define custom `SqlType` for mapping conversion. One such implementation
+may look like:
 
 ~~~~~ java
     public class FooWeigthSqlType extends SqlType<FooWeight> {
@@ -178,8 +240,43 @@ define `SqlType` for mapping conversion. One such may look like:
     }
 ~~~~~
 
+If you have enumerations that are mapped to an integer, you don't even have to
+write custom SQL types! So above `SqlType` is NOT needed if you design your
+enumeration like this:
+
+~~~~~ java
+    public enum Status {
+        PENDING(0),
+        ACTIVE(1),
+        COMPLETED(99);
+
+        final int status;
+        final String statusString;
+
+        private Status(int status) {
+            this.status = status;
+            this.statusString = String.valueOf(status);
+        }
+
+        public int value() {
+            return status;
+        }
+
+        @Override
+        public String toString() {
+            return statusString;
+        }
+    }
+~~~~~
+
+The key thing here is `toString()` that returns int value as a `String`.
+When you map such enum to a column of some int type, everything will work
+out of box! This is because of behavior of *BeanUtil* tool. Note that
+we have cached int value for better performances, to avoid string
+conversion on every access.
+
 ### Other mappings
 
-Other mappings from the example are also straightforward. Maybe it is
-important to notice that `JDateTime` is stored as number of milliseconds
+Other mappings from the example are also straightforward. It is
+interesting to notice that `JDateTime` is stored as number of milliseconds
 (compatible with `System.currentTimeMillis()`).
