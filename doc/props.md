@@ -169,12 +169,14 @@ are active:
 ~~~~~
 
 More then one profile can be specified at a time. The order
-of specified profiles is important in cases when one key
-has been defined in many selected profiles.
+of specified profiles is important! When one key
+is defined in more then one active profile, the FIRST
+value (of first matched profile) is returned.
 {: .attn}
 
-It is also possible to lookup only for base properties - using`
-getBaseValue()` method. Base properties are those that don't belong to
+It is also possible to lookup only for base properties
+(ignoring the profiles) - using `getBaseValue()` method.
+Base properties are those that don't belong to
 any profile.
 
 ### Default active profiles
@@ -190,7 +192,7 @@ method `getValue(String)`.
 Active profiles can be set in the `props` files - this way the
 configuration set can be changed (i.e. active profiles can be modified)
 without the need to recompile the code. Active profiles are defined
-under the special key named `@profiles`. Example:
+under the special base key named `@profiles`. Example:
 
 ~~~~~
     key1=hello
@@ -205,7 +207,7 @@ and the following Java code:
     String value = props.getValue("key1");
 ~~~~~
 
-would return the value '`Hi!`', since active profile is '`one`'.
+would return the value `Hi!`, since active profile is `one`.
 
 Active profiles can be set from Java, too, using method:
 `setActiveProfiles()`.
@@ -228,9 +230,9 @@ inner profiles, then go up to the base level. Example:
     key1<one.two>=Hola!
 ~~~~~
 
-This example defines two profiles. First one is named '`one`' and
+This example defines two profiles. First one is named `one` and
 contains 100 properties. Second profile is an inner property named
-'`one.two`'. It contains only 1 property (`key1`) - but all properties
+`one.two`. It contains only 1 property (`key1`) - but all properties
 from its upper profile are available! So what happens when Java code
 calls the following: `props.getValue("key1", "one.two")`? *Props* will:
 
@@ -252,7 +254,7 @@ and `}`. Here is a simple example:
     foo=nice
 ~~~~~
 
-Value of `key1` is '`Something nice`'. Macros can refer to any
+Value of `key1` is `Something nice`. Macros can refer to any
 existing property key, no matter where it is defined.
 
 Nested macros are also supported. Example:
@@ -263,7 +265,30 @@ Nested macros are also supported. Example:
     key2=foo
 ~~~~~
 
-Value of `key1` is \'`**foo**`\'.
+Value of `key1` is `**foo**`.
+
+### Macros and profiles
+
+There are two ways how macros are resolved in respect to active profiles:
+
++ using active profiles (default) - when macro value is resolved using active profiles, no matter in what profile is the target key;
++ using profile of the target key - ignoring the active profiles.
+
+This behavior is controlled with flag: `useActiveProfilesWhenResolvingMacros`.
+Here is an example:
+
+~~~~~
+    root=/app
+    root<foo>=/foo
+    data.path=${root}/data
+~~~~~
+
+What is the value of `data.path` when `foo` profile is set as active? The two possible values are:
+
++ by default, its: `/foo/data`, as `foo` profile is enabled and `${root}`
+is resolved to value `/foo`.
++ in other case, its: `/app/data`, as `data.path` is base property
+and the base value of `root` is `/foo`.
 
 ## Multiline values
 
@@ -323,6 +348,55 @@ where it gets its value? Either way, you can control this behavior
 using `skipDuplicatesByValue()` and `skipDuplicatesByPosition()`
 during iterator building.
 
+## Copy operator
+
+Imagine you have certain number of properties that is, by default,
+the same for some number of different categories. For example:
+
+~~~~~
+    com.jodd.action1=value1
+    com.jodd.action2=value2
+    ...
+    org.jodd.action1=value1
+    org.jodd.action2=value2
+    ...
+    net.jodd.... # etc
+~~~~~
+
+*Props* allows you to use _copy operator_: `<=` to minimize the duplicate
+props. Above props can be written as:
+
+~~~~~
+    [actions]
+    action1=value1
+    action2=value2
+    ...
+
+    []
+    org.jodd <= actions
+
+    [com]
+    jodd <= actions
+
+    [net.jodd]
+    <= actions
+~~~~~
+
+This example shows three different ways how to use copy operator, without
+sections, with partial section or with full section. All three ways
+are identical and it's up to you which one you gonna use.
+
+Remember that copied values are set as macros, so all above
+copied properties are identical to:
+
+~~~~~
+    org.jodd.action1=${actions.action1}
+    com.jodd.action1=${actions.action1}
+    ....
+~~~~~
+
+All rules for resolving macros applies.
+
 ## Configuration
 
 *Props* behavior can be fine-tuned using several configuration settings:
@@ -331,7 +405,7 @@ during iterator building.
 
 Specifies the new line string when EOL is escaped. Default value is an
 empty string, so multi-line values will be joined in single-line value.
-If this value is set to, e.g., `"\n"`, multi-line values will be
+If this value is set to, e.g., `\n`, multi-line values will be
 persisted as multi-lines.
 
 ### valueTrimLeft
@@ -354,7 +428,7 @@ following multi-line props:
     line3
 ~~~~~
 
-will be read as `"line1line2line3"` (joined).
+will be read as `line1line2line3` (joined).
 
 ### skipEmptyProps
 
@@ -371,6 +445,11 @@ When enabled (default), multi-line values may be written in more
 convenient way using triple-quote (as in python). Everything between
 triple-quotes is considered as a value, so new line does not need to be
 escaped.
+
+### useActiveProfilesWhenResolvingMacros
+
+Defines if active profiles should be used when resolving macros (default)
+or if macros should be resolved using profile of a target key.
 
 ## IntelliJ IDEA plugin
 
