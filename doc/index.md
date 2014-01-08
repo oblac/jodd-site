@@ -36,14 +36,9 @@ width: 550px; margin-left: 50px;"> <input type="hidden" name="search" value="1" 
 <input type="submit" value="Search!" style="border: 2px solid #666; padding:8px;"/>
 </form>
 
-## Jodd in Action
-
-![jodd in action](jodd-in-action.png){: width="478" height="600" .b}
-{: style="text-align:center"}
-
-<div markdown="1" style="padding-left:120px;" id="doc">
 ## Table of Contents
 
+<div markdown="1" style="padding-left:40px; padding-right:40px;" id="doc">
 About Jodd.
 
 ### Jodd utilities
@@ -172,7 +167,7 @@ jQuery in Java.
 [Quickstart](/doc/quickstart/index.html) - start experiencing *Jodd* right away.
 
 [Build web applications with Jodd](example/index.html)
-- an old tutorial that gives step-by-step instructions how to build web
+- tutorial that gives step-by-step instructions how to build web
 application using *Jodd*. Along it also provides some best-practices
 using *Jodd* frameworks.
 
