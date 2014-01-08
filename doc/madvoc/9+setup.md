@@ -239,8 +239,7 @@ Following components are available:
   builds action path from various read elements. Reads interceptor
   information as well. Creates `ActionConfig` as a result.
 * `ActionPathMapper` - lookups `ActionConfig` from action path and
-  request method. It also deals with supplement actions and reverse
-  action mapping.
+  request method. It also deals with reverse action mapping.
 * `ActionPathRewriter` - allows action path (i.e. url) rewriting.
   Invoked before action lookup.
 * `ActionsManager` - manager for all actions. Used for actions
@@ -302,7 +301,6 @@ Here is the default *Madvoc* configuration:
 * `defaultActionMethodNames` - methods names that doesn't appears in
   action path. Default value: **\{"view","execute"}**.
 * `defaultExtension` - extension, default value: \'**html**\'.
-* `supplementAction` - supplement action, default value: `null`.
 * `createDefaultAliases` - should *Madvoc* create default aliases.
 * `rootPackage` - root package, default value: `null`.
 * `detectDuplicatePathsEnabled` - if set it would be not possible to

@@ -77,7 +77,7 @@ more hard-coded in the action string:
     }
 ~~~~~
 
-In this action path value, extension \'`[ext]`\' will be replaced with
+In this action path value, extension `[ext]` will be replaced with
 default *Madvoc* extension. The following replacements are available:
 
 * `[package]` - replaces default package name in package-level
@@ -86,60 +86,6 @@ default *Madvoc* extension. The following replacements are available:
 * `[method]` - replaces default method name in method-level annotations;
 * `[ext]` - replaces default extension in \'extension\' and \'value\'
   elements of method-level annotations.
-
-## Supplement actions
-
-By default, when some non-registered action path is requested, *Madvoc*
-returns error 404. All pages, including the static ones, must have
-registered its own action method. This is especially repetitive for
-static pages, such as for documentation and so on: each page would
-require an action class with one default action method that returns
-`void`.
-
-*Madvoc* provides so called \'supplement actions\' for this situations.
-Supplement action is an action class with default action method that
-will be registered as action handler for each requested non-registered
-action path that ends with default extension. First time when
-non-registered action path is requested, *Madvoc* will register
-supplement action for that action path.
-
-This feature is by default turned off. It can be turned on in the
-`Madvoc` configuration:
-
-~~~~~ java
-    public class MyMadvocConfig extends MadvocConfig {
-
-    	public MyMadvocConfig() {
-    		supplementAction = DefaultActionSupplement.class;
-    	}
-    }
-~~~~~
-
-
-For every non-registered action path, such as `/foo.html`, *Madvoc* will
-register supplement action (here that is `DefaultActionSupplement`) as its action
-handler. Since default supplement action returns `void`, in practice
-that means that requesting `/foo.html` will automatically redirect to
-`/foo.jsp`.
-
-Using supplement actions is a potential critical **memory-leak** issue!
-*Madvoc* will add and keep registration info for every requested
-previously non-registered action path. Malicious user may request
-infinite number of previously non-registered pages and for each *Madvoc*
-will add new registration info. This would constantly increase used
-memory by some small value, eventually ending with out of memory
-exception.
-{: .warn}
-
-Because of this issue, supplement actions should be used with care.
-Furthermore, similar effect can be achieved with *Madvoc* using other
-techniques, such as url rewriting etc.
-
-Note that supplement actions are only required if there is a need to
-render JSP page via *Madvoc*. But there is an alternative, when just
-static pages are used - simply do nothing and use HTML pages. When an
-action request is not processed by *Madvoc*, then request will be simply
-passed to servlet container.
 
 ## Reverse action path mapping
 
