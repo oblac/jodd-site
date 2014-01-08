@@ -309,14 +309,13 @@ after the first ones (marked with positive order number) and the last
 ones (marked with negative order).
 
 There are three different invocation strategies, that defines when init
-methods will be actually invoked: 2.  `POST_CONSTRUCT` - invoked just
-after bean is created, before wiring
-    and parameters injection.
- 4.  `POST_DEFINED` - invoked after bean has been wired with other
-beans,
-    but before parameters injection
- 6.  `POST_INITALIZED` - invoked after bean has been completely
-    initialized, after the [parameters injection](/doc/petite/parameters.html). This is default.
+methods will be actually invoked:
+
++ `POST_CONSTRUCT` - invoked just after bean is created, before wiring and parameters injection.
++ `POST_DEFINED` - invoked after bean has been wired with other beans,
+but before parameters injection
++ `POST_INITALIZED` - invoked after bean has been completely initialized, after the [parameters injection](/doc/petite/parameters.html).
+This is the default strategy.
 
 ## Automatic registration
 
