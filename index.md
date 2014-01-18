@@ -4,13 +4,10 @@ template:jodd
 # Welcome to Jodd
 
 *Jodd* is an **open-source** Java utility library and set of micro frameworks.
-*Jodd* tools enriches JDK with many powerful and feature rich utilities. It helps with everyday task,
-makes code more robust and reliable. *Jodd* frameworks is set of lightweight application
-frameworks, compact yet powerful. Designed following the [CoC](http://en.wikipedia.org/wiki/Convention_over_configuration),
-[DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and [SCS](principle.html) principles,
-it makes development simple, but not simpler; you get 90% of the features with 10% of usual effort.
+*Jodd* tools enriches JDK with many powerful and feature rich utilities. It helps with everyday task, makes code more robust and reliable. *Jodd* frameworks is set of lightweight application frameworks, compact yet powerful. Designed following the [CoC](http://en.wikipedia.org/wiki/Convention_over_configuration),
+[DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and [SCS](principle.html) principles, it makes development simple, but not simpler; you get 90% of the features with 10% of usual effort.
 
-We put a lot into creating awesome code and still keeping it small, under **1.3 MB**.
+We put a lot into creating awesome code and still keeping it small, under **1.4 MB**.
 
 *Jodd* is **free** software, released under the terms of the [BSD license](license.html).
 
@@ -24,7 +21,7 @@ We put a lot into creating awesome code and still keeping it small, under **1.3 
 	<span id="eq7"> + aop</span>
 	<span id="eq8"> + tx</span>
 	<span id="eq9"> + html</span>
-	<span id="eq10"> &lt; 1.3M</span>
+	<span id="eq10"> &lt; 1.4M</span>
 </div>
 
 <div id="carousel" style="margin-bottom:10px;">
