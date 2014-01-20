@@ -34,6 +34,10 @@ javascript, so we need to create one first. To do that, simply pass HTML
 content to *Jerry* static factory method. That will create a root
 *Jerry* set, containing a `Document` root node of the parsed DOM tree.
 
+`Jerry.jerry(html)` contains a set with just **one** node - root `Document`
+node of parsed HTML content. This is a starting point for *Jerry* usage.
+{: .attn}
+
 What happens in the background is that *Lagarto* parser (default implementation:
 `LagartoDOMBuilder`) is invoked to build a DOM tree.
 
