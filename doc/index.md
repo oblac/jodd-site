@@ -174,7 +174,7 @@ using *Jodd* frameworks.
 
 ### Tips, Tricks & Best practice
 
-[Logging](/doc/logging-jodd.html), make *Jodd* logs to your logging framework over SLF4J.
+[Logging](/doc/logging-jodd.html), make *Jodd* logs to your logging framework.
 
 [Add to classpath](/doc/add-classpath-in-runtime.html) with `ClassLoaderUtil` in runtime.
 
