@@ -262,6 +262,33 @@ If you want your connection provider to be default one for all your communicatio
 just assign it to the `JoddHttp.httpConnectionProvider` and you can avoid
 the explicit `open()` usage.
 
+## Keep-Alive
+
+*HTTP* allows usage of permanent connections through 'keep-alive' mode.
+The `HttpConnection` is opened on the first request and then re-used
+in communication session; the socked is not opened again if not needed
+and therefore it is reused for several requests.
+
+Again, there are several ways how to do this. The easiest way is the following:
+
+~~~~~~ java
+        HttpRequest request = HttpRequest.get("http://jodd.org");
+        HttpResponse response = request.connectionKeepAlive(true).send();
+
+        request = HttpRequest.get("http://jodd.org/jodd.css");
+        response = request.keepAliveContinue(response).send();
+
+        response.close();
+~~~~~~
+
+This example fires two requests over the same `HttpConnection`
+(i.e. the same socket). When in 'keep-alive' mode, *HTTP* keeps
+tracking of the 'max' counter, and when it reaches 0 existing
+connection is closed and the new connection is opened. You just need
+to call `keepAliveCountinue()` and it will magically do everything
+for you in the background. If new connection has to be opened
+(when e.g. keep-alive max counter is dropped to 0) the same
+connection provider will be used as for the initial connection.
 
 ## Proxy
 
@@ -308,7 +335,7 @@ and stores into the new request and so on. Usage is simple:
 ~~~~~
 
 Browser instance handles all the cookies, allowing session to be tracked while
-browsing using HTTP.
+browsing using HTTP and supports keep-alive persistent connections.
 
 ## HttpTunnel
 
