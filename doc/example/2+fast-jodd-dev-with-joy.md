@@ -9,7 +9,19 @@ practices combined with pragmatic approach in development.
 
 ## Init project and IDE
 
-Create common Maven folder structure for web projects. Add the following gradle file (please install [Gradle](http://www.gradle.org/) first):
+Create common Maven folder structure for web projects:
+
+~~~~~
+    /root
+        /src
+            /main
+                /java
+                /resources
+                /webapp
+            /test
+~~~~~
+
+Add the following gradle file in the project root (please install [Gradle](http://www.gradle.org/) first):
 
 ~~~~~ groovy
     apply plugin: 'java'
@@ -21,20 +33,20 @@ Create common Maven folder structure for web projects. Add the following gradle 
     }
 
     dependencies {
-        compile 'org.jodd:jodd-joy:3.4.10'
+        compile 'org.jodd:jodd-joy:3.5.0'
         runtime 'mysql:mysql-connector-java:5.1.26'
         runtime 'ch.qos.logback:logback-core:1.0.13'
         runtime 'ch.qos.logback:logback-classic:1.0.13'
     }
 ~~~~~
 
-Go to project root and execute:
+Execute the following command in project root:
 
 ~~~~~
     gradle wrapper
 ~~~~~
 
-to initialize gradle project. Use your IDE (e.g. IntelliJ IDEA) to open the empty Gradle project.
+to initialize gradle project. Use your IDE (e.g. IntelliJ IDEA) to open/import the empty Gradle project.
 
 ### Database
 
@@ -121,7 +133,7 @@ We need to load *Jodd* in the `web.xml`. One way of doing this is:
             <listener-class>jodd.servlet.RequestContextListener</listener-class>
         </listener>
         <listener>
-            <listener-class>jodd.servlet.HttpSessionListenerBroadcaster</listener-class>
+            <listener-class>jodd.servlet.SessionMonitor</listener-class>
         </listener>
 
         <!-- madvoc -->
@@ -144,9 +156,10 @@ We need to load *Jodd* in the `web.xml`. One way of doing this is:
     </web-app>
 ~~~~~
 
-We have added here somewhat more stuff in `web.xml` than actually needed
-(like listeners). The important part is registration of `MadvocContextListener`
-and `AppWebAplication`. Anyway, other stuff will be needed later.
+We have added more stuff in `web.xml` than we gonna actually use in
+this example, like listeners (they are required for request and session
+scoped beans). The important part here is the registration
+of `MadvocContextListener` and `AppWebAplication`.
 
 ### app.props
 
@@ -172,7 +185,7 @@ the database connection data :
 
 ### Run!
 
-That is all - you have just built the simples *Jodd* application using *Joy*. Yes, you can start Tomcat if you want, to check that everything works. There is nothing to see at this moment, so just pay attention to the
+That is all - you have just built the simplest *Jodd* application using *Joy*. Yes, you can start Tomcat if you want, to check that everything works. There is nothing to see at this moment, so just pay attention to the
 Tomcats log. Now we are ready to go further.
 
 
@@ -216,9 +229,10 @@ These two will be mapped to database tables.
     }
 ~~~~~
 
-Note that using `IdEntity` (and not just `Entity`) uses reflection in
-`hashCode()` and `equals()`, in case that every becomes a problem.
-Until then we can continue this way, its more convenient.
+Note that `IdEntity` (and not just `Entity`) uses reflection for retrieving
+value of ID field in `hashCode()` and `equals()` methods, in case
+that ever becomes a problem. It's a reasonable trade-off for
+convenient code.
 
 An addition is also required in application properties: `app.props`:
 
@@ -313,7 +327,7 @@ And here is the resulting `index.jsp` page:
 
 ### Run
 
-Start Tomcat and go to `http://localhost;8080/index.html`. If you have
+Start Tomcat and go to `http://localhost:8080/index.html`. If you have
 some data in the database, you will see last 10 messages!
 
 Sweet!
@@ -485,20 +499,20 @@ the real path action is mapped to. There is even an option so all *Madvoc*
 actions gets aliases, or we can do this manually:
 
 ~~~~~ java
-@MadvocAction
-public class IndexAction {
-    @Action(alias = "index")
-    public void view() {
-        ....
+    @MadvocAction
+    public class IndexAction {
+        @Action(alias = "index")
+        public void view() {
+            ....
+        }
     }
-}
 ~~~~~
 
 Now the index action is named with a name that is used for redirection.
 
 ### Run
 
-It's running time again! Go to `http://localhost;8080/message.html` and
+It's running time again! Go to `http://localhost:8080/message.html` and
 add new messages. It's fun! :)
 
 

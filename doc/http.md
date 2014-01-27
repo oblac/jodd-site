@@ -264,31 +264,48 @@ the explicit `open()` usage.
 
 ## Keep-Alive
 
+By default, all connections are marked as _closed_, to keep servers happy.
 *HTTP* allows usage of permanent connections through 'keep-alive' mode.
 The `HttpConnection` is opened on the first request and then re-used
 in communication session; the socked is not opened again if not needed
 and therefore it is reused for several requests.
 
-Again, there are several ways how to do this. The easiest way is the following:
+There are several ways how to do this. The easiest way is the following:
 
 ~~~~~~ java
         HttpRequest request = HttpRequest.get("http://jodd.org");
         HttpResponse response = request.connectionKeepAlive(true).send();
 
+        // next request
         request = HttpRequest.get("http://jodd.org/jodd.css");
-        response = request.keepAliveContinue(response).send();
+        response = request.keepAlive(response, true).send();
 
-        response.close();
+        ...
+
+        // last request
+        request = HttpRequest.get("http://jodd.org/jodd.png");
+        response = request.keepAlive(response, false).send();
+
+        // optionally
+        //response.close();
 ~~~~~~
 
-This example fires two requests over the same `HttpConnection`
-(i.e. the same socket). When in 'keep-alive' mode, *HTTP* keeps
-tracking of the 'max' counter, and when it reaches 0 existing
-connection is closed and the new connection is opened. You just need
-to call `keepAliveCountinue()` and it will magically do everything
-for you in the background. If new connection has to be opened
-(when e.g. keep-alive max counter is dropped to 0) the same
-connection provider will be used as for the initial connection.
+This example fires several requests over the same `HttpConnection`
+(i.e. the same socket). When in 'keep-alive' mode, *HTTP* continues
+using the existing connection, while paying attention on servers
+responses. If server explicitly requires connection to be closed, 
+*HTTP* will close it and then it will open a new connection to
+continue your session. You don't have to worry about this, just
+keep calling `keepAlive()` and it will magically do everything
+for you in the background. Just don't forget to pass `false` argument
+to the last call to indicate server that is the last connection and that
+we want to close after receiving the last response. (if for some reasons
+the server does not responds correctly, you may close communication
+on client side with an explicit call to `response.close()`).
+One more thing - if a new connection has to be opened during this
+persistent session (when e.g. keep-alive max counter is finished or timeout
+expired) the same connection provider will be used as for the initial,
+first connection.
 
 ## Proxy
 
