@@ -39,7 +39,8 @@ width: 550px; margin-left: 50px;"> <input type="hidden" name="search" value="1" 
 ## Table of Contents
 
 <div markdown="1" style="padding-left:40px; padding-right:40px;" id="doc">
-About Jodd.
+
+[About Jodd](/about) - an effective one-page you will love :)
 
 ### Jodd utilities
 

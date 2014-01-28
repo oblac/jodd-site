@@ -84,8 +84,8 @@
 <em>Lagarto DOM</em>
 <em class="jodd">Lagarto DOM</em>
 
-<em>Mathref</em>
-<em class="jodd">Mathref</em>
+<em>Methref</em>
+<em class="jodd">Methref</em>
 
 <em>Joy</em>
 <em class="jodd">Joy</em>
