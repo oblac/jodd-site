@@ -407,37 +407,3 @@ Example:
 
 This is just one way of using it, mime types can be automatically detected
 when download file name is specified and so on.
-
-## Result path cheat-sheet
-
-Following table summarize default behavior of `ResultMapper` - *Madvoc*
-component dedicated for building result paths from results and action
-path.
-
-| action path (no extension) | result value    | result path             |
-|----------------------------|-----------------|-------------------------|
-| *                          | /foo            | /foo                    |
-| *                          | /foo.ext        | /foo.ext                |
-| /zoo/boo.foo               | ok              | /zoo/boo.foo.ok         |
-| /zoo/boo.foo               | doo.ok          | /zoo/boo.foo.doo.ok     |
-| /zoo/boo.foo               | #               | /zoo/boo                |
-| /zoo/boo.foo               | #ok             | /zoo/boo.ok             |
-| /zoo/boo.foo               | #doo.ok         | /zoo/boo.doo.ok         |
-| /zoo/boo.foo               | (void) or (null)| /zoo/boo.foo            |
-| /zoo/boo.foo               | ##ok            | /zoo/ok                 |
-
-Following table summarize default behavior of `ResultMapper` when action
-path extension should not be stripped from the result path (see next
-page).
-
-| action path with extension | result value    | result path             |
-|----------------------------|-----------------|-------------------------|
-| /zoo/boo.foo.ext           | ok              | /zoo/boo.foo.ok         |
-| /zoo/boo.foo.ext           | .ok             | /zoo/boo.foo.ext.ok     |
-| /zoo/boo.foo.ext           | .               | /zoo/boo.foo.ext        |
-| /zoo/boo.foo               | ok              | /zoo/boo.ok             |
-| /zoo/boo.foo               | .ok             | /zoo/boo.foo.ok         |
-| /zoo/boo.foo               | .               | /zoo/boo.foo            |
-| /zoo/boo                   | ok              | /zoo/boo.ok             |
-| /zoo/boo                   | .ok             | /zoo/boo.ok             |
-

@@ -5,20 +5,24 @@ More features and topics about Results.
 
 ## Aliases
 
-Hard-coding URLs is not considered as good practice. *Madvoc* offers way
-to define path aliases to prevent URL hard-coding. Aliases can be
-defined in following ways: in action annotation or in *Madvoc*
-configuration.
+Hard-coding URLs and method names in result values is not considered
+as a good practice. *Madvoc* offers way to define path _aliases_ to
+prevent hard-coding. Aliases can be defined in following ways:
+in action annotation or manually in *Madvoc* configuration.
 
-Either way defined, aliases are used in result value, surrounded by
-\'`<`\' and \'`>`\' signs.
+Either way defined, aliases may be used in result value, surrounded by
+`<` and `>` signs.
+
+Aliases are also useful for marking 'open' points for integration
+with 3rd party code. You may mark some important action method
+with alias name and then allow 3rd party code to use it.
 
 ### Aliases defined in annotation
 
-Aliases may be defined using `@Action`\'s element \'`alias`\' on target
+Aliases may be defined using `@Action`\'s element `alias` on target
 action.
 
-The previous example can be re-written in the following way:
+One of the previous examples can be re-written in the following way:
 
 ~~~~~ java
     // Target action (/index.html)
@@ -46,59 +50,39 @@ The previous example can be re-written in the following way:
     }
 ~~~~~
 
-Alias is defined in the `IndexAction` class: alias name is \'`index`\'
-and value equals to the full action path, including the extension:
-\'`/index.html`\'. Therefore, behavior of the `OneAction#execute` action
-remains identical.
+Alias is defined in the `IndexAction` class: alias name is `index`
+and value equals to the action path: `/index.html`.
+Therefore, behavior of the `OneAction#execute` action remains identical.
 
-Aliases defined in annotations are convenient for `redirect:` results.
+Aliases are convenient for `redirect:` results.
 {: .example}
 
 ### Default aliases
 
-Above concept can be simplified by enabling default path aliases in
-`MadvocConfig`. If this option is enabled then every action by default
-will have an generated alias. Default alias is generated like this:
+Besides explicit aliases, every *Madvoc* action has it's default
+alias. Default alias is named from actions class and method name:
 
 `default_alias = <action class name> + '#' + <action method name>`
+
+This way you can reach to any action method in your application.
 
 ### Aliases defined by ActionsManager
 
 Aliases also may be registered manually by using `ActionsManager`
 component:
 
-This gives even more flexibility, since this way makes possible to
-register alias values without extensions, or with just half of the path
-etc. For example, it is possible to define whole result path as an
-alias, what is virtually equal to specifying result path from the
-outside of method! For example:
-
 ~~~~~ java
-    @MadvocAction
-    public class HelloAction {
-
-    	@Action
-    	public void all() {
-    	}
-    }
+    actionsManager.registerPathAlias("/hello.all.html", "/hi-all");
 ~~~~~
 
-Action is mapped to `/hello.all.html` and result path of this action is
-`/hello.all`. (this is just a result path; appropriate result type
-handler adds the extension). Since result path is previously defined as
-an alias, this action will return the replaced result path, i.e. the
-alias value: that dispatcher will here forward to: `/hi-all.jsp`.
+This gives even more flexibility! You can rewrite the whole result path
+and make action go to totally different target JSP.
 
-Aliases defined by `ActionManager` are convenient for `dispatch`\:
-results.
-{: .example}
+## Overriding action path within result path
 
-## Overriding result path
-
-By default, result value is added to action path (without extension) to
-form the result path. Very often is necessary for an action to return to
-result path of another action, defined in the same action class.
-Following action illustrates this:
+By default, result path consist of action path and result value.
+Often is necessary for an action to return to result path of another
+action, defined in the same action class. Following action illustrates this:
 
 ~~~~~ java
     @MadvocAction
@@ -108,7 +92,7 @@ Following action illustrates this:
     	public void view() {
     	}
 
-    	@Action
+    	@Action(extension = NONE)
     	public String post() {
     		return "#";
     	}
@@ -117,18 +101,15 @@ Following action illustrates this:
 
 This is a common case in web applications. Some form is mapped to action
 path: `/form.html`. This action (method: `view()`) just prepares form
-for presentation. Second action is mapped to `/form.post.html` and
-serves as form handler that will be invoked when user submits a form.
-What is different now is that this action doesn\'t forward to new page
-(e.g. `/form.post.ok.jsp`). Because of special character used
-(\'**#**\') it strips a word from action path starting from its end. So,
-the result path is just: `/form`. Since default result type is
-\'dispatch\', only the following page will be taken in account:
-`/form.jsp`. And those are the very same result paths and pages as for
-the first action.
+for presentation. Second action is mapped to `/form.post` (no extension)
+and serves as form handler that will be invoked when user submits a form.
+What is different now is that this action doesn't forward to new page
+(e.g. `/form.post.jsp`). Because of special prefix characters used
+(`#`) it strips a word from _action path_ starting from its end. So,
+the result path is just: `/form`. And this means that the both actions
+will share the same resulting page, e.g. `/form.jsp`.
 
-Good practice is to introduce string constant with name \'**BACK**\' and
-value "**#**".
+Think about `#` as a 'BACK' command for actions path.
 {: .example}
 
 Another example:
@@ -144,73 +125,73 @@ Another example:
 
     	@Action
     	public String add() {
-    		return "#list.ok";
+    		return "##list.ok";
     	}
     }
 ~~~~~
 
 Similarly, first action (`/foo.list.html`) prepares some data for
 listing and dispatches to result page: `/foo.list.ok.jsp`. Now, the
-second action (`/foo.add.html`) adds new element in used collection but
+second action (`/foo.add.html`) adds new element in this collection, but
 should return to the same page. Therefore, result path is changed from
-`/foo.add.ok` to `/foo.list.ok`, so *Madvoc* will dispatch to the very
+`/foo.add.html.ok` to `/foo.list.ok`. *Madvoc* will dispatch to the very
 same page, showing all elements from collection, including the new one.
 
-Using one prefix \'**#**\' character allows to remove method name from
-action path when building the result path. Speaking more generic,
-\'**#**\' prefix removes one word from action path. Having more
-\'**#**\' characters in the front will continue with the practice,
-allowing to overwrite class name as well:
+Note that we had to use two `#` signs to move two segments back in action path.
+We had to skip both extension (`html`) and method name (`add`) in action path
+to get to the same root: `/foo`.
+
+When using `#` there is one more thing to know. As we explained, result path
+consist of action path and result value. Dispatcher result uses both to
+find matching JSP. For dispatcher it is important to know which part is
+action part (and that can be reduced) and which part is result value
+(that can be appended during finding matched JSP). When you return `#`
+to override the action path, everything after that sign is considered
+to be the action path! Consider the following hello-world example:
 
 ~~~~~ java
     @MadvocAction
-    public class FooAction {
-
-    	@Action
-    	public String hello() {
-    		return "##boo.list.ok";
-    	}
+    public class HelloAction {
+        @Action
+        public String world() {
+            return ...;
+        }
     }
 ~~~~~
 
-This action is mapped to `/foo.hello.html`, but the result will be
-forwarded to `/boo.list.ok.jsp`.
+What we have here is an action mapped to: `/hello.world.html`. If we return
+`"ok"`, that string will be result value. Dispatcher would try to match following JSPs: `/hello.world.html.ok.jsp`, `/hello.world.html.jsp`,
+`/html.world.ok.jsp`, `/hello.world.jsp`... In other words, result value
+remains the same while action path is getting shorten.
 
-While using one \'**#**\' character to override method name make sense
-since all logic stays in one action class, using double \'**#**\' is not
-consider as good practice and should be avoided if possible.
+But if we return `#ok` then only action path is going to be modified and 
+result value would be `null`. Dispatcher would just try to match following:
+`/hello.world.ok.jsp`, `/hello.world.jsp`... That might be different
+from what expected. In order to specify the result value while using
+the `#` you need to add additional dot to separated value from path.
+So if we return `#.ok` the action path will be reduced but result value
+would be `"ok"`. Dispatcher would try to match following JSPs:
+`/html.world.ok.jsp`, `/hello.world.jsp`...
 
-Overriding result path functionality is part of *Madvoc* core, not
-result type handlers.
-{: .attn}
+## Result path cheat-sheet
 
-## Full action path in result path
+Following table summarize default behavior of `ResultMapper` - *Madvoc*
+component dedicated for building result paths from results and action
+path.
 
-By default, *Madvoc* results manager is friendly with action paths that
-contains extension (e.g. .html, .json, .do ...). As said, while the
-result path is built, the extension is stripped from the action path.
-
-Of course, actions can be mapped to action paths without any particular
-extension, e.g. `/user.save`. Here *Madvoc*does not know if action path
-has an extension or not, therefore it will strip everything after last
-dot. In most cases when action path does not have an extension, we do
-not want to strip anything while building result path.
-
-For example, action path might be `/user.save `(resolved from action
-`UserAction#save()`). As said, *Madvoc* would consider \'`.save`\' as
-the extension and would strip it before result path creation.
-
-To prevent action path extension stripping, action should return a
-string that starts with a dot (**.**). That indicates *Madvoc* not to
-strip the extension when building the result path. In above example if
-action method return `".ok"` (note the starting dot), the result path
-will be `/user.save.ok` (instead of just `/user.ok`). By returning just
-a dot `"."`, result path will be the same as action path: `/user.save`.
-
-If extension for an action method is explicitly set to `Action.NONE`,
-*Madvoc* will consider that and will not peform the extension stripping.
-Moreover, there is a `MadvocConfig` flag that indicates *Madvoc* to
-strip only if extension is equal to defined one.
+| action path                | result value    | result path             |
+|----------------------------|-----------------|-------------------------|
+| *                          | /foo            | /foo                    |
+| *                          | /foo.ext        | /foo.ext                |
+| /zoo/boo.foo               | ok              | /zoo/boo.foo.ok         |
+| /zoo/boo.foo               | doo.ok          | /zoo/boo.foo.doo.ok     |
+| /zoo/boo.foo               | #               | /zoo/boo                |
+| /zoo/boo.foo               | #ok             | /zoo/boo.ok             |
+| /zoo/boo.foo               | #.ok            | /zoo/boo.ok [^1]        |
+| /zoo/boo.foo               | #doo.ok         | /zoo/boo.doo.ok         |
+| /zoo/boo.foo               | #doo..ok        | /zoo/boo.doo.ok [^1]    |
+| /zoo/boo.foo               | (void) or (null)| /zoo/boo.foo            |
+| /zoo/boo.foo               | ##ok            | /zoo/ok                 |
 
 ## Custom result types
 
@@ -223,16 +204,15 @@ some object values has to be omitted, or objects come from ORM mapper
 that uses lazy initialization, so using reflection and deep-scanning is
 not enough or may produce unexpected results. Idea is to manually
 control what to serialize in action method. So, this example will use
-result objects, similar to \'raw\' result types.
+result objects, similar to 'raw' result types.
 
 First thing is to create `JsonData`, wrapper for
-`flexjson.JSONSerializer, `or any other JSON serializer (simplified
+e.g. `flexjson.JSONSerializer` or any other JSON serializer (simplified
 version):
 
 ~~~~~ java
+    @RenderWith(JsonResult.class)
     public class JsonData {
-
-    	private static final String RESULT = JsonResult.NAME + ':';
     	private static final String[] DEFAULT_JSON_EXCLUDES
                 = new String[] {"class", "*.class"};
 
@@ -264,32 +244,17 @@ version):
     	public String toJsonString() {
     		return jsonSerializer.serialize(target);
     	}
-
-    	@Override
-    	public String toString() {
-    		return RESULT;
-    	}
     }
 ~~~~~
 
 Here is the `JsonResult` result type handler (simplified version):
 
 ~~~~~ java
-    public class JsonResult extends ActionResult {
-
-    	public static final String NAME = "json";
-    	public JsonResult() {
-    		super(NAME);
-    	}
+    public class JsonResult extends BaseActionResult<JsonData> {
 
     	@Override
     	public void render(
-    			ActionRequest request, Object resultObject,
-    			String resultValue, String resultPath) throws Exception {
-
-    		if (resultObject instanceof JsonData == false) {
-    			return;
-    		}
+                ActionRequest request, JsonData jsonData) throws Exception {
 
     		// write output
     		HttpServletResponse response = request.getHttpServletResponse();
@@ -297,7 +262,7 @@ Here is the `JsonResult` result type handler (simplified version):
     		PrintWriter writer = null;
     		try {
     			writer = response.getWriter();
-    			writer.println(((JsonData) resultObject).toJsonString());
+    			writer.println(jsonData.toJsonString());
     		} finally {
     			StreamUtil.close(writer);
     		}
@@ -319,7 +284,13 @@ And the usage:
     }
 ~~~~~
 
+This example covers usage of custom result types, so we can add `@RenderWith`
+annotation. Of course, we can make custom result types when actions
+returns strings. See the code of *Madvoc* results, it is very similar
+to above, just string prefix has to be defined.
 
 [1]: http://www.json.org/
 
 *[JSON]: JSON (JavaScript Object Notation) is a lightweight data-interchange format.
+
+[^1]: new result value is: `ok`
