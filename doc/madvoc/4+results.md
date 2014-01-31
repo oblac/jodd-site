@@ -2,48 +2,155 @@
 
 <div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Action Result** is returning value (also known as **result object**)
-of an action method. Result object provides **result string**; that is
-it's `toString()` value. Result string is formed in the following way:
+of an action method. Action result can be of any type and for any purpose;
+and *Madvoc* must to know how to render it. Results handlers are defined
+as implementations of `ActionResult`.
+
+There are 3 different ways how to deal with results:
+
+1. return object annotated with `@RenderWith` annotation;
+2. return a String with result name prefix
+3. use `Result` helper object
+
+Let's see each of these in action.
+
+## @RenderWith
+
+This is the simplest and most basic way how to deal with the results.
+Action result object annotated with `@RenderWith` defines `ActionResult`
+class that is going to be used for rendering the result.
+This `ActionResult` class is also registered on first use,
+so you don't need to specially register them (although that
+would not make any difference).
+
+Example is quite simple:
+
+~~~~~ java    
+    @Action
+    public RawDownload hello() {
+        return new RawDownload(new File(..), mimeType);
+    }
+~~~~~
+
+Few *Madvoc* results are defined like this (`RawResult` etc).
+While this is a basic way dealing with the results, it's works
+only for types we have control on. Therefore, you can not
+use this approach when you e.g. return a `String`; you
+would need to wrap it in your class that can be annotated.
+In most cases in web application, we actually need to return strings
+for various paths (redirect, forward...) so wrapping them
+(although possible) is not so user-friendly.
+
+## Result type, value and path
+
+Most common action result type is `String` that defines where action
+should forward or redirect to. Actions that return `String`
+(or any non-annotated object)
+are treated in a special way. Returned result string consist of the
+result _type_ (or result name) and result value:
 
 `result string = <result_type>:<result_value>`
 
-* `result_type` - optional result type id;
+* `result_type` - optional result type identification i.e. unique name;
 * `result_value` - result value, used for building result path.
 
-Result type defines which **result type handler** will process the
-result. When result type is omitted, the default one is used (defined in
-global *Madvoc* configuration).
+Result type defines which `ActionResult` instance will be used to
+render the result. When result type is missing, the default one
+is used (defined in global *Madvoc* configuration). Result value
+is used to build the **result path**. Result path is then usually
+used to build a path that will be used for forwarding, redirecting etc.
 
-Result value is used to build the **result path**. Result path is formed
-in the following way:
+### Result path
 
-`result path = <action_path_no_ext>.<result_value>`
+_Result path_ is path definition created from action path and
+result value, in the following way:
 
-* `action_path_no_ext` - action path with *stripped* extension;
-* `result_value` - part of `toString()` result value.
+`result path = <action_path>.<result_value>`
 
+This value can be used by some `ActionResult` to perform rendering.
+Although result path can be represented as a one string, it is actually
+a join (or tuple) of two strings: action path and result value,
+both strings are stored separately.
+This is important as some `ActionResult` may combine different versions
+of action path with result value, or to resolve aliases just in result
+value etc.
 
-Result type handler may use single value or any combination of these
-values to process the action result: result object, result value and/or
-result path. This makes *Madvoc* very flexible in processing the
-results.
+Example:
 
-Actions may return result object of **any type**, not only `String`.
-{: .attn}
+~~~~~ java
+    public class FooAction {
+        @Action
+        public String hello() {
+            return "ok";
+        }
+    }
+~~~~~
 
-Actions may also return `void`, what will trigger the default result
+In above example, the action path for `hello()` method (if using defaults)
+is: `/foo.hello.html`. Result type is not specified. Result value is `ok`.
+So the result path is: `/foo.hello.html.ok`.
+
+Actions may also return `void` to trigger the default result
 type handler with empty result value. Returning `null` has the same
 effect.
 
-## Full result path
+### Full result path
 
-When result value starts with the \'**/**\' sign, *Madvoc* will take it
+When result value starts with the '**/**' sign, *Madvoc* will take it
 as a full result path. In that case result path is equal to result
-value.
+value and action path is ignored.
 
-## Dispatcher result (\'dispatch\')
+## Result object
 
-Servlet dispatching is the default result type. This result type handler
+As said above, most *Madvoc* actions in web app return strings to define paths
+where to forward (or move, chain, see later). Common thing is to
+jump to the result of other action: for example, one action may deal with
+some form post and then to redirect to a view action.
+
+While *Madvoc* gives you a way to manipulate result path with returned result
+value (by using special chars, see next page), you are still writing names
+in strings. If target action name is changed, your compiler would not
+see the change and the wrong value would stay in the string.
+
+`Result` object is cool, little tool that can significantly help you
+with specifying result paths. All you have to do is to put a field
+of type `Result` (or any your subclass!) and use it in your actions:
+
+~~~~ java
+    @MadvocAction
+    public class MyAction {
+
+        Result result = new Result();
+
+        @Action
+        public void hello() {
+            result.forwardTo("ok");     // == return "ok"
+        }
+
+        @Action
+        public void save() {
+            result.redirectTo(this).hello();
+        }
+    }
+~~~~~
+
+Since action objects are created on each request, you are safe to use
+result object between the actions. In the first action we just
+define result value `ok`. However, pay attention to second action.
+It uses this instance (or any other action class) and allows you to
+actually define target method by invoking it! Of course, the real
+method is not being called; you are playing here with proxified
+instances. Underneath we are using [*Methref*](../methref.html)
+super-tool for this, so your project must include <var>jodd-proxetta</var>
+optional dependency.
+
+## Madvoc Action results
+
+Here goes the list of all *Madvoc* Action results.
+
+### Dispatcher result ('dispatch')
+
+Servlet dispatched is the default result type. This result type handler
 appends \'jsp\' extension to result path to build the page name.
 
 If this page is not found, dispatcher result type handler will start
@@ -68,9 +175,9 @@ results: since there is no explicit result type id, \'dispatch\' is
 assumed. Result value is \'ok\', so *Madvoc* will try to dispatch to
 following pages, in given order:
 
-* /`hello.world.ok.jsp`
-* ` /hello.world.jsp`
-* ` /hello.jsp `
+* `/hello.world.ok.jsp`
+* `/hello.world.jsp`
+* `/hello.jsp`
 
 Dispatcher result type handler will dispatch to the first founded page
 of above. If no pages is found, error 404 occurs.
@@ -78,7 +185,7 @@ of above. If no pages is found, error 404 occurs.
 Dispatcher detects if founded page is included, so finally it performs
 either `include` or straight `forward` to the target page.
 
-## Redirect result (\'redirect\')
+### Redirect result ('redirect')
 
 Servlet redirection is simple: result value specifies the redirection
 URL. Usually, result value specifies full result path (starts with
@@ -119,11 +226,11 @@ url:
 Invocation of action path: `/one.html` will perform the redirection to:
 `/index.html?value=173`.
 
-## Url Redirect (\'url\')
+### Redirect Permanently('url')
 
-This result redirects to an external url.
+This result redirects permanently (301) to an external url.
 
-## Chain result (\'chain\')
+### Chain result ('chain')
 
 Chaining actions is similar to forwarding, except it is done by `Madvoc`
 and not by servlet container. Chain result type handler takes result
@@ -156,7 +263,7 @@ one.
 When chaining, first action may send custom data to the next action by
 setting values in various scopes (request, session, etc).
 
-## Move result (\'move\')
+### Move result (\'move\')
 
 Main problem with the redirection is the necessity of sending parameters
 through the URL as GET parameters. This means that it is needed to write
@@ -241,7 +348,7 @@ parameter. Also, if there is some part of code that explicitly depends
 on request parameters it will not work if it is executed during
 invocation of second, target action.
 
-## No results (\'none\')
+### No results (\'none\')
 
 There are situations when data needs to be sent directly to the output
 stream of HTTP response. In that case, action method is responsible for
