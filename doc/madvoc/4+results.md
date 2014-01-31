@@ -150,14 +150,17 @@ Here goes the list of all *Madvoc* Action results.
 
 ### Dispatcher result ('dispatch')
 
-Servlet dispatched is the default result type. This result type handler
-appends \'jsp\' extension to result path to build the page name.
+Servlet dispatched is the default result type. In short, this result
+finds the closest JSP that match result path and then forwards to it.
 
-If this page is not found, dispatcher result type handler will start
-removing one word from the result path starting from the end (that is
-not including the extension), until the page is found.
+Remember when we said that result path is not just a simple string,
+but it always has two parts: action path and result value? Dispatcher
+result uses this to find matching JSP. It first start with full
+action path with or without result path. If JSP page is not found,
+the action path is shorten (by removing word after the last dot)
+and the same check goes on again.
 
-The hello world example:
+It will be much clearer when you see the following example:
 
 ~~~~~ java
     @MadvocAction
@@ -170,26 +173,34 @@ The hello world example:
     }
 ~~~~~
 
-This action is mapped to action path: `/hello.world.html`. Now, the
-results: since there is no explicit result type id, \'dispatch\' is
-assumed. Result value is \'ok\', so *Madvoc* will try to dispatch to
-following pages, in given order:
+This action is mapped to action path: `/hello.world.html`.
+Result value is `ok`. The following list of JSPs are checked,
+in given order:
 
+* `/hello.world.html.ok.jsp`
+* `/hello.world.html.jsp`
 * `/hello.world.ok.jsp`
 * `/hello.world.jsp`
+* `/hello.ok.jsp`
 * `/hello.jsp`
+* `ok.jsp`
 
-Dispatcher result type handler will dispatch to the first founded page
-of above. If no pages is found, error 404 occurs.
+Dispatcher finds the first matching JSP. If no pages is found, error
+404 is returned.
 
-Dispatcher detects if founded page is included, so finally it performs
-either `include` or straight `forward` to the target page.
+Dispatcher caches results, so scanning for each result value is done
+only once!
+{: .attn}
+
+Finally, when target JSP is found, dispatcher detects if
+current request is included, so to performs either `include`
+or straight `forward` to the target page.
 
 ### Redirect result ('redirect')
 
 Servlet redirection is simple: result value specifies the redirection
 URL. Usually, result value specifies full result path (starts with
-\'**/**\'):
+'**/**'):
 
 ~~~~~ java
     @MadvocAction
@@ -203,7 +214,7 @@ URL. Usually, result value specifies full result path (starts with
 ~~~~~
 
 Redirection URL may contain all necessary parameters within it. Speaking
-of which, *Jodd* provides nice utility for building url\'s and encoding
+of which, *Jodd* provides nice utility for building url's and encoding
 parameters: `UrlEncoder`.
 
 Moreover, it is possible to inject action properties into the resulting
@@ -228,15 +239,16 @@ Invocation of action path: `/one.html` will perform the redirection to:
 
 ### Redirect Permanently('url')
 
-This result redirects permanently (301) to an external url.
+This result redirects permanently (301) to an external URL. For the other
+things, it works just like redirect result.
 
 ### Chain result ('chain')
 
 Chaining actions is similar to forwarding, except it is done by `Madvoc`
 and not by servlet container. Chain result type handler takes result
 value as the next action path. Chaining to the next action happens after
-the complete execution of first action, including all interceptors. The
-following example illustrates this result type:
+the complete execution of first action, including all interceptors 
+(but not filters!). The following example illustrates this result type:
 
 ~~~~~ java
     @MadvocAction
@@ -263,11 +275,11 @@ one.
 When chaining, first action may send custom data to the next action by
 setting values in various scopes (request, session, etc).
 
-### Move result (\'move\')
+### Move result ('move')
 
 Main problem with the redirection is the necessity of sending parameters
-through the URL as GET parameters. This means that it is needed to write
-the complete and properly formed url string. Although there are some
+through the URL as GET parameters. This means that you have to write
+the complete and properly formed url string as result. Although there are some
 helpers in *Jodd* for this, it is still not very maintainable and visual
 solution.
 
@@ -283,9 +295,9 @@ Not only that no parameter is passed in query, **move** result
 implicitly support passing complex types with redirection!
 {: .example}
 
-The best way to understand \'moving\' is to compare it with the
-\'redirect\'. The target action is a simple and has one input value
-(property \'`value`\' annotated with `@In`):
+The best way to understand 'moving' is to compare it with the
+'redirect'. The target action is a simple and has one input value
+(property `value` annotated with `@In`):
 
 ~~~~~ java
 	// Target action
@@ -303,8 +315,8 @@ The best way to understand \'moving\' is to compare it with the
 ~~~~~
 
 Now, the caller action. This example will show two versions of an
-action: one that uses \'redirect\' result, and the second that uses
-\'move\' result:
+action: one that uses 'redirect' result, and the second that uses
+'move' result:
 
 ~~~~~ java
 	// Version #1: action that uses redirection to target
@@ -340,7 +352,7 @@ action: one that uses \'redirect\' result, and the second that uses
 Both actions work exactly the same. The difference is obvious: second
 example doesn't prepare url string and parameters, but just data.
 
-As everything, this approach has its cons: there are no actual request
+As everything, this approach has one downside: there are no actual request
 parameters available for target action! After moving to the requested
 target page, stored action is immediately removed from the session.
 Therefore, any further target page reload will not have any available
@@ -348,101 +360,53 @@ parameter. Also, if there is some part of code that explicitly depends
 on request parameters it will not work if it is executed during
 invocation of second, target action.
 
-### No results (\'none\')
+### No results ('none')
 
 There are situations when data needs to be sent directly to the output
 stream of HTTP response. In that case, action method is responsible for
-sending the full response. Action also has to return \'`none:`\', the
+sending the full response. Action also has to return `none:`, the
 result type that will not perform any additional result processing,
 since action is responsible for sending the result data back. This
 result type handler doesn't takes any result value and result value in
 result string may be omitted.
 
-## Using result objects
+### TextResult ('text')
 
-When working with direct responses, action needs direct access to the
-http request and response. Although they can be easily injected in
-action class instance, such class becomes \'hard-wired\' with servlets
-interfaces: it can't be initialized easily outside the container,
-therefore it is less testable, and so on...
-
-The purpose of result type handlers is to divide this process into two
-parts: preparing of data (in action class, by action method) and actual
-data transfer (in result type handler), leaving the action class
-\'clean\' of HTTP servlets.
-
-Sending some raw results (image, file download...) is common example.
-Although raw content can be sent directly to the output using \'none\'
-result type handler, it is not considered as a good practice. Action
-instead can just prepare the resulting byte array (raw data) that will
-be transferred back to the client by (custom) result type handler.
-
-Now, *Madvoc* offers two approaches how to achieve this. The first one
-is quite obvious: action method may prepare byte array (or whatever the
-result is) and store it somewhere in its object. Action then returns
-result value that indicates somehow what field(s) contain prepared
-result data, so result type handler may use it for transferring back to
-the client. Something like an example of custom result type and raw access:
+Allows you to simply define text that has to be written back to the
+output stream:
 
 ~~~~~ java
-    @MadvocAction
-    public class RawAction {
-
-    	byte[] bytes;
-
-    	@Action
-    	public RawResultData view() {
-    		bytes = ...		// create byte array somehow
-    		return "foo:bytes";
-    	}
+    @Action
+    public String hello() {
+        return "text:Jodd is awesome!";
     }
 ~~~~~
 
-Here some result type handler (\'foo\' in this example) may process the
-action object using reflection and reads all fields marked as holders of
-returned data (\'bytes\' in this example) and then transfer this data
-back. Of course, this is just one scenario; many variations are
-available, such as using annotations instead of result value etc.
+String is encoded using *Madvoc* encoding.
 
-*Madvoc* offers one more convenient solution. Instead of returning a
-string, action may return result object of any type! It is on result
-type handler to process result value, result path and/or result object
-how it likes. Until now, all result type handlers just used the result
-value (`toString()` of result object) or result path. But result type
-handler may go further and consider whole result object to prepare the
-result. The best way to understand this is to refactor the previous
-example using this approach.
 
-Instead of storing byte array in the field of the action class, byte
-array can be wrapped into some custom data holder that will be returned
-from the action as result object. This data holder must have
-`toString()` overridden so *Madvoc* will invoke corresponding result
-type handler that knows how to deal with this data holder. Simple as
-this:
+### RawResult
+
+`RawResult` is a result that renders any subclass of
+`RawResultData` returned from action method. This result does
+not need result path for rendering; obviously we are using
+here the `@RenderWith` annotation.
+
+There are two types (but you can add more): `RawData` for returning
+`byte[]` and `RawDownload` for returning `File`, `InputStream`
+or `byte[]` as downloaded file.
+
+Example:
 
 ~~~~~ java
-    @MadvocAction
-    public class RawAction {
-
-    	@Action
-    	public RawResultData view() {
-    		byte[] bytes = ... 	// create byte array somehow
-    		return new RawResultData(bytes);
-    	}
+    @Action
+    public RawData image() {
+        return new RawData(SMALLEST_GIF, MimeTypes.lookupMimeType("gif"));
     }
 ~~~~~
 
-## RawResultData (\'raw\')
-
-`RawResultData` is just a simple wrapper for byte arrays that has to be
-sent back to the client. It works together with \'raw\' type handler,
-that recognizes and works with this type. `RawResultData` has overrided
-`toString()` method and returns just \'raw:\'. All what action method
-has to do is to prepare byte array and return it as `RawResultData`.
-
-Returning just string \'raw:...\' will send result value string back to
-the client. This is especially useful for non-html text responses, like
-from JSON.
+This is just one way of using it, mime types can be automatically detected
+when download file name is specified and so on.
 
 ## Result path cheat-sheet
 
