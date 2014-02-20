@@ -51,14 +51,17 @@ configured in many, many ways.
 
 <div style="padding: 70px 0 0 0; margin: 0; float:left"><img src="/gfx/go-next.png" /></div>
 
-<div style="width:130px; background:#ccf; padding: 10px ; margin: 20px 10px 10px 10px; float:left; border: 1px solid #999"><b>Interceptors</b>
+<div style="width:370px; background:#ddf; padding: 10px ; margin: 20px 10px 10px 10px; float:left; border: 1px solid #999"><div><b>Filters</b></div>
 
-    <div style="width:90px; background:#ffc; padding: 21px 10px; margin: 10px; text-align:center; border: 1px solid #999"><b>Action</b></div>
+    <div style="width:130px; background:#ccf; padding: 10px ; margin: 20px 10px 10px 10px; float:left; border: 1px solid #999"><b>Interceptors</b>
+
+        <div style="width:90px; background:#ffc; padding: 21px 10px; margin: 10px; text-align:center; border: 1px solid #999"><b>Action</b></div>
+    </div>
+
+    <div style="padding: 70px 0 0 0; margin: 0; float:left"><img src="/gfx/go-next.png" /></div>
+
+    <div style="width:120px; background:#cfc; padding: 50px 10px; margin: 20px 10px 10px 10px; text-align:center; float:left;border: 1px solid #999"><b>Result</b></div>
 </div>
-
-<div style="padding: 70px 0 0 0; margin: 0; float:left"><img src="/gfx/go-next.png" /></div>
-
-<div style="width:120px; background:#cfc; padding: 50px 10px; margin: 20px 10px 10px 10px; text-align:center; float:left;border: 1px solid #999"><b>Result</b></div>
 
 `MadvocController` receives HTTP request and lookup for `ActionConfig`
 (action configuration) for requested action path. If action path is
@@ -68,6 +71,8 @@ encapsulation of action request and action method proxy.
 Interceptors intercept the request being sent to and returning from the
 action. In some cases, interceptor might keep an action from executing.
 Interceptors can also change the state of an action before it executes.
+
+Filters wraps interceptors, actions and results, similar to servlet filters.
 
 Once execution of the action and all interceptors is complete, the
 action request is sent to result to render the results.

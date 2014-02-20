@@ -3,9 +3,11 @@ make-toc:no
 -----
 # What's coming next?
 
-## Release v3.4.11
+## Release v3.5.1
 
-Some more tweaking and tuning, cleaning and fixing... towards v3.5.
+After so many exiting changes in 3.5, the next release will be all about
+issues fixing and small changes.
+
 
 ## Code coverage increase
 

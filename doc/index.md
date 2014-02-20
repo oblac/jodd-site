@@ -74,8 +74,6 @@ Cache - set of common cache implementation.
 
 [Form tag](/doc/formtag.html) - automagically populates forms.
 
-[Reference Map and Set](/doc/reference-map-set.html) - reference aware map and set.
-
 [Class loading in Jodd](/doc/class-loading-in-jodd.html) - great ways for loading classes.
 
 [Fast buffers](/doc/fast-buffers.html) - really fast appendable storage.

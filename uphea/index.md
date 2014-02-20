@@ -17,7 +17,7 @@ more and more *Jodd*s features.
 
 Hey, you can try *Uphea*! Just download prepared Tomcat 7 bundle:
 
-[uphea.zip - Tomcat 7 bundle (10 MB)](uphea.zip)
+[uphea.zip - Tomcat 7 bundle (12 MB)](uphea.zip)
 {: .download}
 
 Unpack the bundle somewhere and execute `run-uphea.bat` or

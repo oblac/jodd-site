@@ -9,8 +9,8 @@ annotations, using the following convention:
 
 `action path = /<action_package>/<action_class>.<action_method>.<extension>`
 
-* `extension` - default extension value (equals to "html"),
-  part of global *Madvoc* configuration;
+* `extension` - extension value (default: "html"),
+  defined by *Madvoc* configuration or specified in the annotation;
 * `action_method` - part of the action path that comes from action
   method, by default it is method name;
 * `action_class` - part of the action path that comes from action class,
@@ -19,13 +19,13 @@ annotations, using the following convention:
 * `action_package` - optional part of the action path that comes from
   action's package.
 
-By default, each part of path is defined from method/class/package name.
-Still, each can be explicitly defined by setting corresponding
-annotation value.
+By default, each part of action path is defined from method/class/package name
+so you don't have to explicitly specify anything.
+Still, each part of action path can be explicitly defined by corresponding annotation value, so you can easily override defaults.
 
 ## Action class & action method
 
-Bare minimum for creating an action is to put annotations on POJO class
+Bare minimum for creating an action is putting annotations on POJO class
 and one of its methods:
 
 ~~~~~ java
@@ -52,9 +52,9 @@ explicitly in annotations, so the following action:
     }
 ~~~~~
 
-is mapped to `/holla.mundo.html`. Moreover, since action action paths
-built by simple string concatenation, it is possible to set more complex
-paths using annotations:
+is mapped to `/holla.mundo.html`. Moreover, action paths are
+built by simple string concatenation, so it is possible to set more
+complex paths using annotations:
 
 ~~~~~ java
     @MadvocAction("foo/boo")
@@ -68,13 +68,13 @@ paths using annotations:
 
 This action is mapped to: `/foo/boo.zoo/hello.exec.html`.
 
-One side-note: one action class may defined more then one actions
+One side-note: one action class may contain more then one actions
 (action methods).
 
 ## Custom extension
 
 It sounds reasonable that most of the website's action paths end with
-the same extension. Therefore, the default extension is defined once in
+the same extension. Therefore, the default extension is defined in
 global *Madvoc* configuration. However, it is still possible to set
 custom extension using `@Action` annotation's element `extension`:
 
@@ -100,13 +100,13 @@ element `extension`.
 
 Since *Madvoc* is very extensible, it is also possible to extend its
 component dedicated for action path registration and to implement custom
-behavior. For example, it is easy to make that any method that starts
-with `store...` has extension `.do` instead of default one.
+behavior. For example, it is easy to develop such feature where any method that starts with `store...` has extension `.do` instead of the default one.
 
 ## Full action path
 
-To override *Madvoc* action naming convention, it is possible to specify
-full action path in the annotation by using the prefix \'**/**\':
+To override *Madvoc* action naming conventions without coding, 
+just specify the full action path in the annotation by using
+the prefix '**/**':
 
 ~~~~~ java
     @MadvocAction
@@ -119,25 +119,24 @@ full action path in the annotation by using the prefix \'**/**\':
 ~~~~~
 
 Obviously, this action is mapped to `/bonjour-monde.html`. When action
-path defined in `@Action` starts with \'**/**\' it is considered as
+path defined in `@Action` starts with '**/**' it is considered as
 **full** action path and all other names (class name, extension) are
 ignored.
 
 When full action path is specified, *Madvoc* will **not** append default
-extension nor the custom one (defined by `@Action`s element
-`'extension`\').
+extension nor the custom one (defined by `@Action`s element `extension`).
 {: .attn}
 
 ## Action packages
 
-By default, packages are ignored and not used for building action paths.
+By default, packages are ignored and not used when building action paths.
 Nevertheless, it make sense to group several action paths (i.e. action
 classes) in one folder (i.e. package). *Madvoc* provides way how to
-consider packages when building action paths.
+include packages when building action paths.
 
 First, this feature must be turned on by setting the root package, one
 that will be mapped to the web root. This can be set during *Madvoc*
-initialization, one way of doing this is:
+initialization. One way of doing this is:
 
 ~~~~~ java
     public class MyWebApplication extends WebApplication {
@@ -153,11 +152,10 @@ Root package is defined by a package name and a path that package is mapped
 to. For web root you may omit the path. Also, the package name can be defined
 by passing the action class, like in above example. Therefore, above
 configuration snippet defines one root package (package where `IndexAction`
-is) mapped to web root (`/`).
+class belongs to) mapped to the web root (`/`).
 
-When root packages are defined, *Madvoc* will consider packages of action
-classes: the offset from root package will be used as action path prefix. So,
-packages will be mapped as folders. The following action:
+When root packages are defined, *Madvoc* will use package name of action classes relative to the build action path. The package name is relative
+from the root package. The following action:
 
 ~~~~~ java
     package org.jodd.madvoc.doc;
@@ -171,7 +169,7 @@ packages will be mapped as folders. The following action:
     }
 ~~~~~
 
-is mapped to `/doc/hello.world.html`, if root package is set to:
+is mapped to `/doc/hello.world.html`, if the root package is set to:
 `org.jodd.madvoc`.
 
 You can specify more then one root package. Be careful not to overlap mapping
@@ -182,11 +180,11 @@ Root packages may be defined by putting an empty class named
 `@MadvocAction`. This class serves just as an marker for root packages.
 
 Finally, it is possible to specify custom action package using
-`@MadvocAction` annotation on package (`in package-info.java`).
+`@MadvocAction` annotation on package (in `package-info.java`).
 
 It is also possible to override package annotation value with
 `@MadvocAction` annotation of action class: if its value starts with
-\'**/**\' then package value is ignored.
+'**/**' then package value is ignored.
 
 Sometimes developer wants to group some action classes in separate
 subpackage, but doesn't want to change the action path (e.g. the root
@@ -247,7 +245,7 @@ GET to all others; if it is not explicitly set different.
 As seen, *Madvoc* uses action method name (or annotation value) for
 creating action path. Moreover, it is possible to have action path that
 doesn't include action method name - what is often needed for
-'common' pages (such as index.html, about.html, error.html). By
+'common' pages (such as `index.html`, `about.html`, `error.html`). By
 default, *Madvoc* will ignore action method name for methods named as
 `execute` and `view`. Such action methods are so-called the **default**
 ones. So, the following action:

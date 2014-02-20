@@ -28,7 +28,7 @@ Usage is quite simple:
 ~~~~~
 
 `StringTemplateParser` is very configurable. User can set the escape
-character, or starting and ending strings (by default: `\${` and `}`).
+character, or starting and ending strings (by default: `${` and `}`).
 There is an option if missing keys should be resolved, and the
 replacement value for missing keys. Good practice is to create and
 configure one `StringTemplateparser` instance that will be used in your

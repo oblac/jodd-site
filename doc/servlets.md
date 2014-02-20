@@ -42,17 +42,6 @@ tags, setting and reading variables etc.
 
 Read more about *Jodd* [JSP tag library](taglibrary.html).
 
-## JSP functions
-
-*Jodd* also offers few JSP functions for most common usage. They are
-mostly wrappers over existing utils, but there are few servlets related
-functions that might come handy.
-
-We didn't want to expose too many of our util functions as JSP
-functions. We just wanted to keep and maintain the minimal set of
-functions needed. On the other hand, JSP functions are so easy to add in
-your own projects.
-
 ## CSRF shield 
 
 *Jodd* provides simple and efficient CSRF ([Cross-site request forgery][1] protection.

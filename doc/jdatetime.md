@@ -297,17 +297,12 @@ the current time in Japan:
 ~~~~~
 
 Furthermore, it is possible just to set the timezone, without changing
-the time. And, something useful - to change timezone, using method
+the time. And something useful - to change timezone, using method
 `changeTimeZone()`.
 
 DST is supported only partially, for now. By default, DST tracking is
 off (flag: `trackDST`). When DST tracking is on, JDateTime will track
 DST only during adding/subtracting the time. What remains is that it is
 still possible to set invalid time (that, for example, doesn't exist).
-
-## Performance
-
-According to some light micro-tests, JDateTime is about 40% faster then
-JDK5 Calendar.
 
 ![jdatetime performace test](jdate-benchmark.png)

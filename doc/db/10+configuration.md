@@ -45,8 +45,6 @@ First, there are properties regarding naming conventions:
 * `tableNames` - set of table naming strategy properties, like:
   uppercase, splitCamelCase, prefix, suffix...
 * `columnNames` - set of column naming strategy properties.
-* `strictCompare` - when set to false, letter case of table and column
-  names will be ignored.
 
 There are properties about column alias:
 

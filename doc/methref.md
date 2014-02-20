@@ -13,7 +13,7 @@ references to method names. Here is how it works.
 Here are two examples how *Methref* can be used:
 
 ~~~~~ java
-    Methref<Str> m = Methref.on(Str.class);     // create Methref tool
+    Methref<Str> m = Methref.on(Str.class);  // create Methref tool
     
     // example #1
     m.to().boo();
@@ -65,21 +65,11 @@ is not invoked, any method argument value may be used until syntax is
 correct:
 
 ~~~~~~ java
-    Methref.sref(Str.class).foo2(null, 0);
+    Methref.onto(Str.class).foo2(null, 0);
 ~~~~~~
 
 If method is overloaded, use some constants for your arguments to distinguish
 between methods.
-
-## Void methods
-
-When method returns a `void`, *Methref* has to be used in two steps:
-
-~~~~~ java
-    Methref m = Methref.on(Str.class);
-    m.method().voo();
-    m.ref();				// returns String 'voo'
-~~~~~
 
 Enjoy!
 
