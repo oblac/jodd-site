@@ -3,9 +3,8 @@
 <div class="doc1"><js>doc1('db',20)</js></div>
 SQL generator just helps in building *native* SQL queries: using entity
 and property names in the query or just using one-liner method calls.
-However, there is more developer friendly way for: using Template-SQL
-i.e. TSQL (see next chapter). Still, its important to understand
-the engine behind it.
+
+There is more convenient way for writing queries: using Template-SQL i.e. TSQL (see next chapter).
 {: .important}
 
 Until now, all queries used by *Db* and *DbOom* were just plain old

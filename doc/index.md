@@ -3,12 +3,11 @@
 Welcome to *Jodd* documentation! *Jodd* project goes to much effort
 to produce the best documentation possible. Documentation consist of
 core concepts explained in depth, but also with simple examples or overview
-of existing tools. It also examples on performing common tasks, such
-setting up frameworks, build project etc.
+of some tools. It also gives examples on performing common tasks, such
+setting up frameworks, building the project etc.
 
 Documentation is written in **kramdown** (excellent markdown extension).
-You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site).
-Feel free to contribute!
+You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site) too. Feel free to contribute!
 
 Please browse [API](/api/index.html) for more information and examine
 test-cases for more examples. Do not hesitate to [contact support](../contact.html)
@@ -41,6 +40,10 @@ width: 550px; margin-left: 50px;"> <input type="hidden" name="search" value="1" 
 <div markdown="1" style="padding-left:40px; padding-right:40px;" id="doc">
 
 [About Jodd](/about) - an effective one-page you will love :)
+
+[Jodd in 10 minutes](http://oblac.github.io/jodd) - Jodd frameworks overview in 10 minutes.
+
+[Jodd in 30 minutes](http://joddframework.org) - example of Jodd micro-frameworks.
 
 ### Jodd utilities
 

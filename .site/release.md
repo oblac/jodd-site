@@ -2,7 +2,7 @@
 
 After two months of heavy work, sweat and tears, we
 released a new, shiny version of Jodd. It's hard
-to summarize all the effort in just few words; we
+to summarize all the effort in just few words; so let's say we
 hope new Jodd works more beautiful then ever before.
 We would also love to thank all our contributors -
 without them Jodd would not be this good.
@@ -24,6 +24,11 @@ CHANGED
 
 NEW
 : Added JSPP - JSP pre-processor (incubation feature).
+
+CHANGED
+: Result paths now include the path as well! ATTENTION: your app
+may break if you were using `#` in your results - try to put one
+more `#`, since there is one more path chunk to skip.
 
 CHANGED
 : Removed default aliases in *Madvoc*.
@@ -48,7 +53,7 @@ NEW
 now can specify result class.
 
 CHANGED
-: In *Madvoc*, `ActionResult` is not interface.
+: In *Madvoc*, `ActionResult` is not interface any more.
 
 FIXED
 : Fixed some encoding-related issues with email addresses.
