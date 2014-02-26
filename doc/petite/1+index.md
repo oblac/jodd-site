@@ -1,9 +1,7 @@
 <js>javadoc('petite')</js>
 
-# Petite ![Petite](petite.png "Petite!")
+# Petite
 
-
-<div class="doc1"><js>doc1('petite',20)</js></div>
 *Petite* is one great, little **IoC** container. It is easy to use since it requires no
 external configuration; it is incredibly fast; it is lightweight and small so
 anyone can understand how it works just from examining the code; it is
@@ -62,5 +60,6 @@ Here are the key features:
 * HTTP session scope for session singletons.
 * Designed to be extended.
 
+<js>docnav('petite')</js>
 
 [1]: http://code.google.com/p/google-guice/

@@ -1,7 +1,6 @@
 # Setup
 
-<div class="doc1"><js>doc1('petite',20)</js></div>
-Petite* uses annotation based configuration to make setup and
+*Petite* uses annotation based configuration to make setup and
 configuration simple as possible. It doesn't depend on any external
 (XML) files; by default all configuration is done automagically, from
 Java. Nevertheless, it is easy to configure and extend *Petite* to match
@@ -19,13 +18,11 @@ following listeners has to be added to the `web.xml`\:
 ~~~~~ xml
     <?xml version="1.0" encoding="UTF-8"?>
     <web-app ...>
-
     	...
     	<listener>
-    		<listener-class>jodd.servlet.RequestContextListener</listener-class>
-    	</listener>
-    	<listener>
-    		<listener-class>jodd.servlet.HttpSessionListenerBroadcaster</listener-class>
+    		<listener-class>
+                jodd.servlet.RequestContextListener
+            </listener-class>
     	</listener>
     	...
     </web-app>
@@ -124,3 +121,5 @@ constructor and method argument names - this information is not provided
 by java reflection API and must be read from debug information in
 bytecode. If set to `false`, injection by name will not be available
 for constructor and method arguments.
+
+<js>docnav('petite')</js>

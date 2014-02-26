@@ -289,7 +289,6 @@ with annotation `@PetiteInitMethod`. Example:
 ~~~~~ java
     public class Boo {
     	...
-
     	@PetiteInitMethod
     	void init() {}
     }
@@ -332,7 +331,6 @@ and so on. Example:
     @PetiteBean
     public class Foo {
     ...
-
     @PetiteBean
     public class Boo {
     ...
@@ -342,7 +340,8 @@ Petite automagic:
 
 ~~~~~ java
     PetiteContainer petite = new PetiteContainer();
-    AutomagicPetiteConfigurator petiteConfigurator = new AutomagicPetiteConfigurator();
+    AutomagicPetiteConfigurator petiteConfigurator =
+        new AutomagicPetiteConfigurator();
     petite.configure(petiteConfigurator);
 ~~~~~
 
@@ -407,3 +406,5 @@ applied on *Petite* context:
 
 The only difference from `BeanUtil` is that first part of the property
 path (`pojo`) is actually the name of a registered bean.
+
+<js>docnav('petite')</js>

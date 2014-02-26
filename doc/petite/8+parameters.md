@@ -1,6 +1,5 @@
 # Parameters
 
-<div class="doc1"><js>doc1('petite',20)</js></div>
 It is possible to define container parameters that will be injected into
 its beans after the wiring and before the init method invocation.
 Parameter is defined with the `String` name and value of any type.
@@ -62,3 +61,4 @@ References are resolved late, on their first injection.
 It is possible to load parameters from any `Map` implementation, such as
 `Properties`.
 
+<js>docnav('petite')</js>

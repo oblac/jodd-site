@@ -1,6 +1,5 @@
 # More registration
 
-<div class="doc1"><js>doc1('petite',20)</js></div>
 More registration topics.
 
 ## Registering implementations
@@ -205,3 +204,4 @@ Furthermore, *Petite* performs injection into `boo` instance.
 It is possible to registers *Petite* container instance into itself,
 simply by using `addSelf()` method.
 
+<js>docnav('petite')</js>

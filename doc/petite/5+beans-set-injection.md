@@ -1,6 +1,5 @@
 # Beans set injection
 
-<div class="doc1"><js>doc1('petite',20)</js></div>
 There is one great (and new) feature of *Petite* container: it is
 possible to inject set of beans that are of the same type. All beans
 registered in the *Petite* container that implements some interface can
@@ -180,3 +179,5 @@ concept.
 
 Please feel free to contact us with your ideas about this interesting
 subject;)
+
+<js>docnav('petite')</js>

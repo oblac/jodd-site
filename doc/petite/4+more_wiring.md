@@ -1,6 +1,5 @@
 # More wiring
 
-<div class="doc1"><js>doc1('petite',20)</js></div>
 More wiring topics.
 
 ## Wiring external beans with container
@@ -109,3 +108,5 @@ in current session.
 Note that scoped bean proxy is created only when mixed scopes are
 detected. In above example, if `ItemManager` is used injected into
 \'shorter\' scoped bean, no scoped proxy is created.
+
+<js>docnav('petite')</js>

@@ -1,6 +1,5 @@
 # Petite Provider
 
-<div class="doc1"><js>doc1('petite',20)</js></div>
 *Petite* providers are methods that provide bean instances for injection
 into targets when needed. Providers are defined by their name, that can
 be used on injection points.
@@ -64,3 +63,5 @@ the place of injection *Petite* will lookup first for the bean that
 defines provider method! This way, for example, you can make providers
 that are different for each HTTP session, just by specifying that scope
 in provider method class.
+
+<js>docnav('petite')</js>
