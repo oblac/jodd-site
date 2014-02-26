@@ -16,4 +16,4 @@ Instead, *Jodd* provides solutions remaining **open** for easy extension and acc
 Under the hood, everything should look natural to those familiar with Java, OOP, and, of course, common sense.
 
 ![braincode](gfx/braindecoding.jpg 'Braincode')
-{: style="text-align:center;"}
+{: .text-center}

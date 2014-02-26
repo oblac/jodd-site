@@ -5,9 +5,7 @@ make-toc:no
 
 **Awesome** people loves *Jodd* :) Share your success stories with us and other community members!
 
-Bellow is just a short list of some BIG and small projects that officially uses *Jodd* in some way.
-
-<div id="users" markdown="1">
+Bellow is just a short list of some big and small projects that officially uses *Jodd* in some way.
 
 ## Liferay Portal
 
@@ -51,7 +49,6 @@ Web site for food and restaurant lovers; uses *Madvoc* for web layer.
 
 [klopaj.com](http://klopaj.com)
 
-</div>
 
 ## Submit your project!
 

@@ -1,11 +1,12 @@
 -----
 make-toc:false
 -----
-# Jodd license
+# Jodd License
 
 *Jodd* software is released under **Revised BSD License**.
 
-~~~~~
+---
+
 Copyright (c) 2003-@@{YEAR}, Jodd Team
 All rights reserved.
 
@@ -37,4 +38,5 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-~~~~~
+
+---
