@@ -18,7 +18,7 @@ and whats described.
 Need more documentation on certain topics? Don't hesitate to ask for it!
 
 
-## Table of Contents
+## About
 
 [About Jodd](/about) - an effective one-page you will love :)
 
@@ -26,7 +26,7 @@ Need more documentation on certain topics? Don't hesitate to ask for it!
 
 [Jodd in 30 minutes](http://joddframework.org) - example of Jodd micro-frameworks.
 
-### Jodd utilities
+## Jodd utilities
 
 [BeanUtil](/doc/beanutil.html) - fastest bean manipulation library around.
 
@@ -58,7 +58,7 @@ Cache - set of common cache implementation.
 
 [Fast buffers](/doc/fast-buffers.html) - really fast appendable storage.
 
-### Jodd tools
+## Jodd tools
 
 [Email](/doc/email.html) - sending and receiving emails.
 
@@ -69,6 +69,8 @@ Cache - set of common cache implementation.
 [Methref](/doc/methref.html) - strongly-typed method name references.
 
 [SwingSpy](/doc/swingspy.html) - inspection of swing component hierarchy.
+
+## Jodd micro-frameworks
 
 ### Madvoc
 
@@ -141,6 +143,13 @@ CSS3 selectors parser.
 jQuery in Java.
 
 <js>doc1('jerry')</js>
+
+
+## Jodd Labs
+
+[Jodd Joy](joy) - Start coding your web applications right away, using best Jodd practices integrated into thin application layer.
+
+## Misc
 
 ### Examples
 

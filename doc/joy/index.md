@@ -1,4 +1,4 @@
-# Jodd Joy ![joy](joy.png "Joy")
+# Jodd Joy
 
 Are you building your web application with *Jodd* and want some more
 *Joy* in your development? You are on the right place! *Jodd* *Joy* is an
@@ -11,7 +11,11 @@ transactions, that can be run out of web container, that needs I18N
 support, has some resources protected, uses Ajax and JSON, and
 validation; consider using *Joy* application template.
 
-## Inside Joy
+Parts of *Joy* code might migrate to the main libraries once
+they become mature.
+{: .attn}
+
+## With Joy...
 
 ### AppCore
 
@@ -56,6 +60,3 @@ Just put `jodd-joy.jar` on the classpath or as the dependency.
 
 See [uphea](/uphea/index.html) - it is built with help of *Joy*.
 
-## Note
-
-In time, some *Joy* code might migrate to the main libraries.
