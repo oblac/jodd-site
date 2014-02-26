@@ -36,10 +36,6 @@ Cache - set of common cache implementation.
 
 [JDateTime](/doc/jdatetime.html) - elegant usage and astronomical precision in one time-manipulation class.
 
-[Email](/doc/email.html) - sending and receiving emails.
-
-[Props](/doc/props.html) - enhanced `Properties` replacement.
-
 [Type Converter](/doc/typeconverter.html) - converting types.
 
 [StringUtil](/doc/stringutil.html) - more then 100 of additional String utilities.
@@ -62,7 +58,17 @@ Cache - set of common cache implementation.
 
 [Fast buffers](/doc/fast-buffers.html) - really fast appendable storage.
 
+### Jodd tools
+
+[Email](/doc/email.html) - sending and receiving emails.
+
+[Props](/doc/props.html) - enhanced `Properties` replacement.
+
 [HTTP](/doc/http.html) - tiny, raw HTTP client.
+
+[Methref](/doc/methref.html) - strongly-typed method name references.
+
+[SwingSpy](/doc/swingspy.html) - inspection of swing component hierarchy.
 
 ### Madvoc
 
@@ -136,13 +142,6 @@ jQuery in Java.
 
 <js>doc1('jerry')</js>
 
-
-### Misc
-
-[Methref](/doc/methref.html) - strongly-typed method name references.
-
-[SwingSpy](/doc/swingspy.html) - inspection of swing component hierarchy.
-
 ### Examples
 
 [Uphea](/uphea/index.html) - real-world web application example built on *Jodd* framework.
@@ -171,6 +170,10 @@ Learn how to [remove session id](/doc/remove-session-id.html) from URL for more 
 [Benchmarks](performance.html) - overview of all available performance tests.
 
 
-### API
+### Reports
 
 [Jodd API](/api/index.html) javadoc.
+
+[Test results](/test/index.html).
+
+[Coverage reports](/test/coverage-report/index.html).

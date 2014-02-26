@@ -1,6 +1,5 @@
 # Lagarto Parser
 
-<div class="doc1"><js>doc1('lagarto',20)</js></div>
 To parse HTML/XML content with *Lagarto* you must do just two steps:
 
 1.  create a *Lagarto* parser instance providing content; and then
@@ -134,3 +133,5 @@ processors (i.e. tag adapters) that execute during the same **single**
 parsing operation. In other words, HTML content is parser only once, but
 the content is modified by two different processors. In some cases this
 may save time and prevent from double parsing!
+
+<js>docnav('lagarto')</js>

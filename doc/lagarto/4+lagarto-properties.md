@@ -1,6 +1,5 @@
 # Lagarto properties
 
-<div class="doc1"><js>doc1('lagarto',20)</js></div>
 There are two sets of *Lagarto* configuration: for `LagartoParser` and
 `LagartoDOMBuilder`.
 
@@ -100,45 +99,45 @@ Here are the details.
 ### HTML mode (default)
 
 ~~~~~ java
-    ignoreWhitespacesBetweenTags = false;           // collect all whitespaces
-    caseSensitive = false;                          // HTML is case insensitive
-    parseSpecialTagsAsCdata = true;                 // script and style tags are CDATA
-    voidTags = HTML5_VOID_TAGS;                     // list of void tags
-    selfCloseVoidTags = false;                      // don't self close void tags
-    impliedEndTags = true;                          // some tags end is implied
-    enableConditionalComments = true;               // enable IE conditional comments
-    conditionalCommentExpression = "if !IE";        // treat HTML as non-IE browser
+    ignoreWhitespacesBetweenTags = false;       // collect all whitespaces
+    caseSensitive = false;                      // HTML is case insensitive
+    parseSpecialTagsAsCdata = true;             // script and style tags are CDATA
+    voidTags = HTML5_VOID_TAGS;                 // list of void tags
+    selfCloseVoidTags = false;                  // don't self close void tags
+    impliedEndTags = true;                      // some tags end is implied
+    enableConditionalComments = true;           // enable IE conditional comments
+    conditionalCommentExpression = "if !IE";    // treat HTML as non-IE browser
 ~~~~~
 
 ### XHTML mode
 
 ~~~~~ java
-    ignoreWhitespacesBetweenTags = false;           // collect all whitespaces
-    caseSensitive = true;                           // XHTML is case sensitive
-    parseSpecialTagsAsCdata = false;                // all tags are parsed the same
-    voidTags = HTML5_VOID_TAGS;                     // list of void tags
-    impliedEndTags = false;                         // no implied tag ends
-    selfCloseVoidTags = true;                       // self close void tags
-    enableConditionalComments = true;               // enable IE conditional comments
-    conditionalCommentExpression = "if !IE";        // treat XHTML as non-IE browser
+    ignoreWhitespacesBetweenTags = false;       // collect all whitespaces
+    caseSensitive = true;                       // XHTML is case sensitive
+    parseSpecialTagsAsCdata = false;            // all tags are parsed the same
+    voidTags = HTML5_VOID_TAGS;                 // list of void tags
+    impliedEndTags = false;                     // no implied tag ends
+    selfCloseVoidTags = true;                   // self close void tags
+    enableConditionalComments = true;           // enable IE conditional comments
+    conditionalCommentExpression = "if !IE";    // treat XHTML as non-IE browser
 ~~~~~
 
 ### XML mode
 
 ~~~~~ java
-    ignoreWhitespacesBetweenTags = true;            // ignore whitespaces that are no content
-    caseSensitive = true;                           // XML is case sensitive
-    parseSpecialTagsAsCdata = false;                // all tags are parsed the same
-    voidTags = null;                                // there are no void tags
-    selfCloseVoidTags = false;                      // don't self close empty tags (can be changed!)
-    impliedEndTags = false;                         // no implied tag ends
-    enableConditionalComments = false;              // disable IE conditional comments
-    conditionalCommentExpression = null;            // don't use
+    ignoreWhitespacesBetweenTags = true;        // ignore whitespaces that are no content
+    caseSensitive = true;                       // XML is case sensitive
+    parseSpecialTagsAsCdata = false;            // all tags are parsed the same
+    voidTags = null;                            // there are no void tags
+    selfCloseVoidTags = false;                  // don't self close empty tags (can be changed!)
+    impliedEndTags = false;                     // no implied tag ends
+    enableConditionalComments = false;          // disable IE conditional comments
+    conditionalCommentExpression = null;        // don't use
 ~~~~~
 
 User can further change these predefined modes by setting individual
 flags.
-{: .example}
+{: .attn}
 
 ### HTML-Plus mode
 
@@ -190,3 +189,5 @@ Here is how predefined parsing modes can be used.
 ~~~~~
 
 [1]: http://dev.w3.org/html5/spec/Overview.html#void-elements
+
+<js>docnav('lagarto')</js>

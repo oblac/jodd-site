@@ -1,4 +1,4 @@
-# VTor ![VTor](vtor.png)
+# VTor
 
 *VTor* is a pragmatic validation framework for any kind of Java objects.
 *VTor* is fast, small and focused on validation. Constraints can be

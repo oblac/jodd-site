@@ -1,6 +1,5 @@
-# StripHtml ![StripHtml](striphtml.png)
+# StripHtml
 
-<div class="doc1"><js>doc1('lagarto',20)</js></div>
 `StripHtmlTagAdapter` is *Lagarto* tag adapter that can used for
 reducing the size of HTML pages by removing all unnecessary characters.
 
@@ -12,6 +11,8 @@ reducing the size of HTML pages by removing all unnecessary characters.
 Note that javascript blocks are not stripped by this tag adapter.
 
 ## Using StipHtml
+
+There are several way how to use `StripHtml`.
 
 ### With HtmlStapler
 
@@ -41,3 +42,5 @@ Here is an example:
 
     System.out.println(out.toString());
 ~~~~~
+
+<js>docnav('lagarto')</js>
