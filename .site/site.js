@@ -22,13 +22,51 @@ function toc() {
 		str = str + t[2] + "</a></li>\n";
 	}
 
+	str += "</ul>";
 	return str;
+}
+
+function docnav(name) {
+	try {
+		eval("var _d = " + _doc);
+		eval("var _n = " + _docnav);
+	} catch(e) {
+		return e;
+	}
+
+	var chapters = _d[name];
+	var str = "<div class='nav'>";
+
+	var prev = _n[0];
+	if (prev != 0) {
+		var element = chapters[prev - 1];
+		str = str + "<a class='nav-prev' href='" + element.path + "'>";
+		str = str + "<i class='fa fa-toggle-left'></i>&nbsp;Previous: " + element.title;
+		str = str + "</a>";
+	}
+	var next = _n[2];
+	if (next != 0) {
+		var element = chapters[next - 1];
+		str = str + "<a class='nav-next' href='" + element.path + "'>";
+		str = str + "Next: " + element.title + "&nbsp;<i class='fa fa-toggle-right'></i>";
+		str = str + "</a>";
+	}
+	return str + "</div>";
+}
+
+function docopt(name, folder, title) {
+	eval("var _f = " + _file);
+	if (_f['folder'] !== folder) {
+		return "";
+	}
+	var str = "<h2 class='doc'>" + title + "</h2>";
+	return str + doc1(name);
 }
 
 /* Generates chapter list */
 function doc1(name, maxlen, all) {
 	try {
-		eval("var _d = " + _doc)
+		eval("var _d = " + _doc);
 	} catch(e) {
 		return e;
 	}

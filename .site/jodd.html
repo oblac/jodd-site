@@ -1,137 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jodd | open-source java utility library and web application frameworks</title>
-<meta name="keywords" content="java, jodd, util, tools, framework, performance, optimized, open-source, beans, julian date, time, ioc, container, dependency, injection, mvc, web, actions, aspects, proxy, database, thin, jdbc, beanutil, madvoc, petite, proxetta, dboom, jdatetime, parser, html, decorator, decora, lagarto" />
-<meta name="description" content="Jodd is generic purpose open-source Java utility library and bundle of lightweight application frameworks. Jodd includes BeanUtil for bean manipulation, JDateTime for date-time works; Petite as IoC container, Madvoc for web, Proxetta for dynamic proxies and thin DB layer." />
-<meta name="ROBOTS" content="ALL" />
-<link rel="alternate" type="application/rss+xml" title="RSS" href="http://jodd.org/feed.xml" />
-<link href="/reset.css" rel="stylesheet" type="text/css" />
-<link href="/jodd.css" rel="stylesheet" type="text/css" />
-<style>
-#simpleTooltip { padding: 7px; border: 1px solid #A6A7AB; background: #F2F3F5; }
-#eq {margin-top:20px;font-weight:bold;color:#777;font-size:1.5em; }
-#eq span {display:none; }
-</style>
-<script type="text/javascript" src="/jquery.js"></script>
-<script type="text/javascript" src="/jquery.tooltip.js"></script>
-<script type="text/javascript">
-function fade(i) {
-	if (i == 11) {
-		return;
-	}
-	$('span#eq' + i).fadeIn(500, function() {
-		fade(i + 1);
-	});
-}
-$(function() {
-	$('div.ben').simpletooltip();
-	fade(1);
-	setInterval(function() {
-		$("#eq span").hide();
-		fade(1);
-	}, 10000);
-});
-</script>
-
+	<title>Jodd</title>
+	@@include(head)
 </head>
-<body class="bgcol">
-<div id="container" style="width:100em">
-	@@include(headbar)
-	<div id="column3">
-	<div id="column2">
-		<div id="content-main">
+<body>
+	<section id="intro">
+	
+		@@include(header)
+	
+		<div class="inner">
+			<div id="button-jodd"><a href="/download">
+				Jodd v3.5
+				<div class="sub">Released: Feb. 25. 2012</div>
+			</a></div>
+			<div id="title">
+				<h1>Jodd</h1>
+				<h2>The Unbearable Lightness of Java</h2>
 
-			<div class="social_bookmark">
-			<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style ">
-			<a class="addthis_counter addthis_pill_style" addthis:url="http://jodd.org"></a>
-			</div>
-			<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=najgor"></script>
-			<!-- AddThis Button END -->
-			</div>
+				<nav id="social">
+					<a href="http://github.com/oblac/jodd" class="fa fa-github"><span>Github</span></a>
+					<a href="http://stackoverflow.com/tags/jodd" class="fa fa-stack-overflow"><span>Stack Overflow</span></a>
+					<a href="http://groups.google.com/group/jodders?hl=en" class="fa fa-envelope-o"><span>Mailing list</span></a>
+					<a href="https://twitter.com/joddorg" class="fa fa-twitter"><span>Twitter</span></a>
+					<a href="/love.html" class="fa fa-heart-o"><span>Users</span></a>
+				</nav>
 
+			</div>			
+		</div>
+	</section>
+
+	<section id="shout">
+		<div class="inner" >
 			@@body@@
-			<div id="content-related">
-				@@include(overview)
-			</div>
 		</div>
-		<div id="content-extra" class="rightbar">
-			<h2 id="duo" style="margin-bottom:0;">Download</h2>
-			<p style="font-size:9px;">Think Lightweight, Be Awesome, Get Things Done!</p>
-			<div id="dlbtn" style="margin-bottom:20px;"><a href="/download/index.html" class="round">
-			latest version: <span class="dlhi">@@{VERSION}</span><br />
-			released on: <span class="dldate">@@{RELEASE-DATE}</span></a>
-			</div>
+	</section>
+	
+	<section id="main">
+		<div class="inner">
+		
+			<h2>What's inside Jodd?</h2>
+			
+			<div id="badges">
 
-			<!-- +BETA -->
-			<div id="dlbtn2"><a href="/download/index.html#beta" class="round">latest beta: <span class="dldate">@@{BETA}</span></a></div>
-			<!-- +BETA -->
-
-			<div class="quick-link" style="margin-left: 10px;">
-			<a href="http://groups.google.com/forum/#!forum/jodders" target="_blank">
-			<img src="/gfx/forum.png"/>
-			<span>Discuss and join Jodders</span>
-			</a>
-			</div>
-
-			<div class="quick-link">
-			<a href="/source.html">
-			<img src="/gfx/github_32.png"/>
-			<span>Source code and Git repo</span>
-			</a>
-			</div>
-
-			<div class="quick-link">
-			<a href="http://feeds.feedburner.com/jodd">
-			<img src="/gfx/rss32.png"/>
-			<span>Follow Jodd news</span>
-			</a>
-			</div>
-
-			<div style="clear:both; margin-top: 120px; margin-left:30px;">
-				<div class="quick-link" style="width:190px;text-align:right;">
-				<a href="/using.html">
-				<img src="/gfx/heart.png" width="40" height="40" align="left" style="margin-right: 4px;"/>
-				<span style="font-size:14px;">Who in the<br>World is using Jodd and how?</span></a>
+				<div class="badge">
+					<a href="/doc/beanutil.html" class="circle">B</a>
+					<span>BeanUtil</span> - fast bean library, type introspection
+					and type conversion tools with unique features.
 				</div>
-			</div>
-
-			<h2 style="margin-top:200px; margin-bottom:10px;">Search</h2>
-				<div id="search-main" style="float:left;">
-				<form action="http://jodd.org/sphider/search.php" method="get">
-					<input type="text" name="query" style="width: 170px" value=""/>
-					<input type="hidden" name="search" value="1"/>
-					<input type="submit" value="Go!"/>
-				</form>
+	
+				<div class="badge bad1">
+					<a href="/doc/jdatetime.html" class="hexagon">T</a>
+					<span>JDateTime</span> - elegant usage and astronomical
+					precision in single time-manipulation class. 
+				</div>
+	
+				<div class="badge">
+					<a href="/doc/props.html" class="circle bg-col1">R</a>
+					<span>Props</span> - super properties replacement,
+					featuring: UTF8, sections, profiles, macros and more.
 				</div>
 
-			<h2 style="margin-top:60px; margin-bottom:20px;">Sponsors</h2>
+				<div class="badge">
+					<a href="/doc/db/" class="circle bg-col4">D</a>
+					<span>DbOom</span> - efficient and thin DB layers and
+					object mapper that simplify database code.
+				</div>
 
-			<div class="sponsor">
-			<a href="http://www.jetbrains.com/idea/" style="position: relative;display:block; width:127px; height:37px; border:0; padding:0;text-decoration:none;text-indent:0;"><span style="margin: 0;padding: 0;position: absolute;top: 0;left: 33px;font-size: 10px;cursor:pointer;  background-image:none;border:0;color: #acc4f9; font-family: trebuchet ms,arial,sans-serif;font-weight: normal;text-align:left;">Developed with </span><img src="http://www.jetbrains.com/idea/opensource/img/all/banners/idea125x37_blue.gif" alt="The best Java IDE" border="0"/></a>
-			<div class="ad">Jodd is developed on IntelliJ IDEA:<br>Java IDE that work miracles in Java and beyond!</div>
+				<div class="badge">
+					<a href="/doc/madvoc/" class="hexagon">M</a>
+					<span>Madvoc</span> - elegant web MVC framework based on
+					CoC and annotations offers pragmatic approach to
+					web development.
+				</div>
+	
+				<div class="badge">
+					<a href="/doc/petite/" class="square bg-col3">P</a>
+					<span>Petite</span> - slick and lightweight DI container
+					supports sufficient most of features offered by other containers.
+				</div>
+	
+				<div class="badge">
+					<a href="/doc/proxetta/" class="circle">X</a>
+					<span>Proxetta</span> - the fastest proxy creator with new, unique
+					approach for making pointcuts and different type of advices.
+				</div>
+
+				<div class="badge">
+					<a href="/doc/lagarto/" class="square bg-col4">L</a>
+					<span>Lagarto</span> - super fast and versatile all-purpose HTML parser
+					and DOM builder.
+					<br><br><br>
+				</div>
+
+				<div class="badge">
+					<a href="/doc/jerry/" class="circle">J</a>
+					<span>Jerry</span> - jQuery-friendly HTML parser with CSS3 selectors support.
+					<br><br><br>
+				</div>
+				
+				<div class="badge">
+					<a href="/doc/http.html" class="square bg-col1">H</a>
+					<span>HTTP</span> - Tiny and raw HTTP client, helps talking to servers.
+					<br><br>
+				</div>
+	
+				<div class="badge bad1">
+					<a href="/doc/email.html" class="circle">E</a>
+					<span>Email</span> - sending and receiving emails for busy developers.
+					<br><br>
+				</div>
+				<div class="badge bad1">
+					<a href="/doc/decora/" class="hexagon">C</a>
+					<span>Decora</span> - powerful decoration framework for web pages based on templates.
+					<br><br>
+				</div>	
+			
 			</div>
 
-			<div class="sponsor">
-				<a href="http://www.yourkit.com/java/profiler/index.jsp"><img src="gfx/yourkit.png"/></a>
-				<div class="ad">YourKit is kindly supporting Jodd with its full-featured, innovative and intelligent Java Profiler.</div>
-			</div>
-
-
-			<div style="font-family:Georgia, 'Times New Roman', Times, serif; font-style:italic; font-size:2em; padding: 60px 0; line-height:24px; text-align:left;">
-			...we developed Jodd to help people reach their project goals in pragmatic way...</div>
 		</div>
-	</div>
-	<div id="content-addon" class="rightbar">
-		@@include(docs)
-	</div>
-	</div>
+	</section>
 
 	@@include(footer)
-</div>
-@@include(google-analytics)
+	@@include(google-analytics)
+
 </body>
 </html>

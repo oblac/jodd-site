@@ -1,0 +1,33 @@
+	<meta name="description" content="">
+	<meta name="author" content="Jodd">
+	<meta name="ROBOTS" content="ALL" />
+
+	<link href="http://fonts.googleapis.com/css?family=Fjalla+One|Lato:300|Open+Sans+Condensed:300|Source+Sans+Pro:700,300|Inconsolata:300" rel="stylesheet" type="text/css">
+	<link href="/css/font-awesome.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="/css/style.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+	<!--[if IE]>
+		<link href="/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	<script src="/js/jquery-2.1.0.min.js"></script>
+	<script>
+$(function() {
+	fix();
+});
+$(window).on('resize', fix);
+
+function fix() {
+	var $article = $('#content article');
+	var $aside = $('#content aside');
+
+	if ($article) {
+		if ($aside.css('position') !== 'static') {
+			var h1 = $article.height();
+			var h2 = $aside.height();
+			if (h2 > h1) {
+				$article.height(h2);
+			}
+		}
+	}	
+}
+	</script>

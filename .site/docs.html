@@ -1,9 +1,32 @@
-		<h2 class="menu">Documentation</h2>
-		<ul class="menu">
+		<js>toc()</js>
+
+		<form id="search" method="get" action="http://www.google.com/search">
+        	<input type="search" name="q" placeholder="Search Jodd docs" results="10">
+        	<input type="hidden" name="sitesearch" value="http://jodd.org">
+        	<button type="submit">Search</button>
+    	</form>
+
+		<h2>Documentation</h2>
+		<ul>
 			<li><a href="/doc/index.html">Jodd in action</a></li>
+			<li><a href="http://oblac.github.io/jodd/">Jodd in 5 minutes</a></li>
+			<li><a href="http://joddframework.org">Jodd in 30 minutes</a></li>
 		</ul>
-		<h3>Jodd</h3>
-		<ul class="menu">
+		<js>docopt('madvoc','/doc/madvoc/', "Madvoc")</js>
+		<js>docopt('petite','/doc/petite/', "Petite")</js>
+		<js>docopt('proxetta','/doc/proxetta/', "Proxetta")</js>
+		<js>docopt('db','/doc/db/', "DbOom")</js>
+		<js>docopt('jtx','/doc/jtx/', "JTX")</js>
+		<js>docopt('paramo','/doc/paramo/', "Paramo")</js>
+		<js>docopt('vtor','/doc/vtor/', "VTor")</js>
+		<js>docopt('lagarto','/doc/lagarto/', "Lagarto")</js>
+		<js>docopt('htmlstapler','/doc/htmlstapler/', "HtmlStapler")</js>
+		<js>docopt('decora','/doc/decora/', "Decora")</js>
+		<js>docopt('csselly','/doc/csselly/', "CSSelly")</js>
+		<js>docopt('jerry','/doc/jerry/', "Jerry")</js>
+		<js>docopt('example','/doc/example/', "Example")</js>
+		<h3>Jodd tools and utils</h3>
+		<ul>
 			<li><a href="/doc/beanutil.html">BeanUtil &middot; the fastest bean tool</a></li>
 			<li><a href="/doc/jdatetime.html">JDateTime &middot; accurate and elegant</a></li>
 			<li><a href="/doc/props.html">Props &middot; super properties</a></li>
@@ -11,8 +34,8 @@
 			<li><a href="/doc/http.html">HTTP &middot; easy http client</a></li>
 			<li><a href="/doc/index.html">and more...</a></li>
 		</ul>
-		<h3>Jodd frameworks</h3>
-		<ul class="menu">
+		<h3>Jodd micro-frameworks</h3>
+		<ul>
 			<li><a href="/doc/madvoc/index.html">Madvoc &middot; slick MVC framework</a></li>
 			<li><a href="/doc/petite/index.html">Petite &middot; pragmatic DI container</a></li>
 			<li><a href="/doc/proxetta/index.html">Proxetta &middot; dynamic proxy</a></li>
@@ -26,21 +49,16 @@
 
 		</ul>
 		<h3>Examples</h3>
-		<ul class="menu">
+		<ul>
 			<li><a href="/doc/quickstart/index.html">Quickstart &raquo; instant run</a></li>
 			<li><a href="/doc/example/index.html">Web app example &raquo; step-by-step</a></li>
 			<li><a href="/uphea/index.html">Uphea &raquo; real world app</a></li>
 		</ul>
 		<h3>Reports</h3>
-		<ul class="menu2">
+		<ul>
 			<li><a href="/api/index.html">Javadoc API</a></li>
 			<li><a href="/test/index.html">Test results</a></li>
 			<li><a href="/test/coverage-report/index.html">Coverage report</a></li>
 		</ul>
-		<ul class="menu2">
-			<li><a href="http://joddframework.org">http://joddframework.org</a></li>
-		</ul>
-		<div style="margin-top:30px;">
-			<img src="/jodd_library.png" alt="Jodd Library"/> &nbsp;<img src="/jodd_framework.png" alt="Jodd Framework"/>
-		</div>
+		
 		@@include(ohloh)

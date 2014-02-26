@@ -7,11 +7,13 @@
 
 
 # fix error color in syntax highlighter
-<span style="color:#F00;background-color:#FAA">$</span>
+<span class="error">$</span>
 <span style="color:#F00;background-color:#FEE">$</span>
 
 
-
+# coderay
+<div><div class="CodeRay">
+<div class="pre"><div class="CodeRay">
 
 # releases
 <dt>NEW</dt>

@@ -1,34 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>@@{TITLE}</title>
-<meta name="ROBOTS" content="ALL" />
-<link rel="alternate" type="application/rss+xml" title="RSS" href="http://jodd.org/feed.xml" />
-<link type="text/css" rel="stylesheet" href="/reset.css" />
-<link type="text/css" rel="stylesheet" href="/jodd.css" />
-<script type="text/javascript" src="/jquery.js"></script>
-<script type="text/javascript">
-</script>
+	<title>@@{TITLE}</title>
+	@@include(head)
 </head>
-<body class="bgcol">
-<div id="container">
-	@@include(headbar)
-	<div id="column3">
-	<div id="content-doc">
-		@@include(addthis)
-		<!-- body start -->
-		@@body@@
-		<!-- body end -->
-	</div>
-	<div id="content-addon" class="rightbar">
-		<js>toc()</js>
-		@@include(docs)
-	</div>
-	</div>
+<body>
+	<section id="intro">	
+		@@include(header)
+		<div id="blank">&nbsp;</div>
+	</section>
+
+	<section id="content"><div class="inner">
+		<article>
+			@@body@@
+		</article>
+		<aside>
+			@@include(docs)
+		</aside>
+	</div></section>
 
 	@@include(footer)
-</div>
-@@include(google-analytics)
+	@@include(google-analytics)
 </body>
 </html>

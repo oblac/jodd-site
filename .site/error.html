@@ -1,25 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jodd | Error</title>
-<meta name="ROBOTS" content="ALL" />
-<link type="text/css" rel="stylesheet" href="/reset.css" />
-<link type="text/css" rel="stylesheet" href="/jodd.css" />
-<style>
-#content-err {width:100%; float:left; padding-top: 20px; padding-bottom:20px; min-height:250px;}
-#content-err h1 {background-color:#7E8AA2; padding:30px; margin-bottom:30px;}
-#content-err p {padding: 0 0 0 20px; font-size: 1.5em; font-weight:bold;}
-</style>
+	<title>Jodd | Error</title>
+	@@include(head)
 </head>
-<body class="bgcol">
-<div id="container">
-	<div id="column3">
-		<div id="content-err">
-			@@body@@
-		</div>
-	</div>
-	@@include(headbar)
-</div>
+<body>
+	<section id="error"><div class="inner">
+		<h1>Error</h1>
+
+		@@body@@
+	</div></section>
+
 </body>
 </html>
