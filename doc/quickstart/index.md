@@ -29,7 +29,7 @@ frameworks. MySql database required for this example (SQL script
 provided). Application reads users from database (using **DbOom**) and
 displays them on the page (using **Madvoc**), decorated by**Decora**.
 Services and actions are wired with **Petite**. This example also uses
-benefits of *Jodd Joy*!
+benefits of *Jodd* *Joy*!
 
 Here is how to try quickstart projects.
 
@@ -37,8 +37,8 @@ Here is how to try quickstart projects.
 
 Clone **jodd-quickstart** project:
 
-[https://github.com/oblac/jodd-quickstart](https://github.com/oblac/jodd-quickstart)
-{: .download}
+<div class="button button-long"><a href="https://github.com/oblac/jodd-quickstart">https://github.com/oblac/jodd-quickstart</a>
+</div>
 
 ## 2. Follow instructions in README
 

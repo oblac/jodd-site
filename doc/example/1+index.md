@@ -1,6 +1,5 @@
 # Build web apps with Jodd
 
-<div class="doc1"><js>doc1('example',25)</js></div>
 Welcome to *Jodd*! The best way to learn something is to start playing with it.
 As every beginning may be hard, here is a nice way how to start with
 *Jodd* micro frameworks, in an easy-to-follow, step-by-step tutorials. In the
@@ -42,3 +41,5 @@ some or all *Jodd* micro-frameworks.
 If you want more complex, real-world example, you might
 check [Uphea](/uphea/index.html). It's an example of real web application,
 so you can see all kind of different *Jodd* usages in action.
+
+<js>docnav('example')</js>

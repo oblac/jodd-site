@@ -1,6 +1,5 @@
 # Jodd development in details
 
-<div class="doc1"><js>doc1('example',25)</js></div>
 Next pages will describe development of web applications in more details.
 Here we will not use *Jodd* *Joy* application template. Instead, we will
 build it from the scratch.
@@ -64,7 +63,7 @@ using *Db* and *DbOom*.
 
 Wrap services with transactions handling code using *Proxetta*.
 
-## Bonuses
+## Bonus
 
 ### [Auth with interceptors](/doc/example/auth-with-interceptors.html) (10 min)
 
@@ -79,3 +78,5 @@ Different architecture approach, just for fun... or real!?
 [3]: http://www.h2database.com
 [4]: http://www.oracle.com/technology/products/database/xe/index.html
 [5]: http://hsqldb.org/
+
+<js>docnav('example')</js>

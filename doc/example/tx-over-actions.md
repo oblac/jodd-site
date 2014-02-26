@@ -1,6 +1,5 @@
 # Tx over actions
 
-<div class="doc1"><js>doc1('example',22)</js></div>
 Up to now we have used something what is consider as \'default\' layout
 for three-tier web application. Actions uses services, transaction is
 started, services uses DAOs, result is returned.
@@ -76,11 +75,13 @@ like this:
     	}
 
     	@Override
-    	protected synchronized void registerAction(Class actionClass, Method actionMethod, String actionPath) {
+    	protected synchronized void registerAction(
+                Class actionClass, Method actionMethod, String actionPath) {
     		if (proxetta != null) {
     			// create action path from existing class (if not already exist)
     			if (actionPath == null) {
-    				ActionConfig cfg = actionMethodParser.parse(actionClass, actionMethod, actionPath);
+    				ActionConfig cfg = actionMethodParser.parse(
+                            actionClass, actionMethod, actionPath);
     				actionPath = cfg.actionPath;
     			}
     			// create proxy for action class if not already created

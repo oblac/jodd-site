@@ -1,4 +1,6 @@
-# Methref: method name references
+# Methref
+
+*Methref* is a tool that gives you strong-type references to method names.
 
 Sometimes you need to refer to a method in our code using their
 names. Usually in this cases, method names are stored as strings

@@ -1,6 +1,5 @@
 # Tx with Proxetta
 
-<div class="doc1"><js>doc1('example',25)</js></div>
 Up to now, all database statements were executed in auto-commit mode
 (inside `DbSession`).
 This is not how it should be in practice. Services must ensure atomicity
@@ -127,7 +126,8 @@ Here are described changes applied on `initDb()`:
     	ConnectionProvider connectionProvider;
 
     	void initDb() {
-    		petite.registerPetiteBean(CoreConnectionPool.class, "dbpool", null, null, false);
+    		petite.registerPetiteBean(
+                CoreConnectionPool.class, "dbpool", null, null, false);
     		connectionProvider = (ConnectionProvider) petite.getBean("dbpool");
     		connectionProvider.init();
 
@@ -136,7 +136,8 @@ Here are described changes applied on `initDb()`:
     		jtxManager.setValidateExistingTransaction(true);
     		AnnotationTxAdviceSupport.manager
                     = new AnnotationTxAdviceManager(jtxManager, "$class");
-    		DbSessionProvider sessionProvider = new DbJtxSessionProvider(jtxManager);
+    		DbSessionProvider sessionProvider =
+                new DbJtxSessionProvider(jtxManager);
 
     		// global settings
             DbManager dbManager = DbManager.getInstance();
@@ -203,3 +204,4 @@ Restart Tomcat and head to the index page. Again, new user is successfully store
 We learned here how to configure JTX and how to declaratively set
 transaction using annotations.
 
+<js>docnav('example')</js>

@@ -33,7 +33,9 @@ You can register this filter in a common way and map it to all patterns:
     	...
     	<filter>
     		<filter-name>RemoveSessionFromUrl</filter-name>
-    		<filter-class>jodd.servlet.filter.RemoveSessionFromUrlFilter</filter-class>
+    		<filter-class>
+                jodd.servlet.filter.RemoveSessionFromUrlFilter
+            </filter-class>
     	</filter>
     	<filter-mapping>
     		<filter-name>RemoveSessionFromUrl</filter-name>

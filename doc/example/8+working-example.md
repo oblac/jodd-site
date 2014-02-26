@@ -1,6 +1,5 @@
 # Working example
 
-<div class="doc1"><js>doc1('example',25)</js></div>
 Let's modify our webapp example. Instead of passing the name, we will
 pass the user id, then find it in the database, and print it in the jsp.
 
@@ -67,3 +66,5 @@ pass the user id, then find it in the database, and print it in the jsp.
 
 This tutorial ends here, but it is just a beginning for your quest
 through *Jodd*! Enjoy!
+
+<js>docnav('example')</js>

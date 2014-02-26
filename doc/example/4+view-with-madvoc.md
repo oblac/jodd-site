@@ -1,6 +1,5 @@
 # View with Madvoc
 
-<div class="doc1"><js>doc1('example',25)</js></div>
 The first step of this example will be to just enable *Madvoc* and prepare it for future enhancements.
 
 ## web.xml
@@ -241,3 +240,5 @@ We have configured one *Madvoc* action, for the index page. We also set
 some common Tomcat stuff for development. Finally, we extended
 *Madvoc* and enabled props file, in order to be able to configure it
 later easily.
+
+<js>docnav('example')</js>

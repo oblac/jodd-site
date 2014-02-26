@@ -1,6 +1,5 @@
 # Auth with interceptors
 
-<div class="doc1"><js>doc1('example',22)</js></div>
 Lets control page access using *Madvoc* interceptors. If user is not yet
 authenticated, it will be redirected to the login page. After the
 successful login, user continues with the requested page.
@@ -19,7 +18,8 @@ Interceptor is quite simple:
     		if (AuthUtil.isSessionActive(session)) {
     			return request.invoke();
     		}
-    		servletRequest.setAttribute("path", DispatcherUtil.getActionPath(servletRequest));
+    		servletRequest.setAttribute(
+                "path", DispatcherUtil.getActionPath(servletRequest));
     		return "chain:/%login%";
     	}
     }
@@ -44,7 +44,10 @@ those that require authorization.
     public class PublicInterceptorStack extends ActionInterceptorStack {
 
     	public PublicInterceptorStack() {
-    		super(IdRequestInjectorInterceptor.class, PrepareInterceptor.class, ServletConfigInterceptor.class);
+    		super(
+                IdRequestInjectorInterceptor.class,
+                PrepareInterceptor.class,
+                ServletConfigInterceptor.class);
     	}
     }
 ~~~~~
@@ -67,7 +70,9 @@ we will set `defaultInterceptors` parameter that belongs to component
 parameter in `madvoc.properties`\:
 
 ~~~~~
-    madvocConfig.defaultInterceptors=jodd.madvoc.interceptor.EchoInterceptor, jodd.joy.madvoc.AuthInterceptorStack
+    madvocConfig.defaultInterceptors=\
+        jodd.madvoc.interceptor.EchoInterceptor, \
+        jodd.joy.madvoc.AuthInterceptorStack
 ~~~~~
 
 Now, all actions with intercepted with default interceptors will be
@@ -141,4 +146,3 @@ visits login page and enters wrong data, above code will terminate his
 session (because of outjection of `userSession` that is `null`). This
 can be fixed by injecting existing user session in the `userSession`
 field, using annotation: `@InOut`.
-

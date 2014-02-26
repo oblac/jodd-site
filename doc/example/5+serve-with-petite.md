@@ -1,6 +1,5 @@
 # Serve with Petite
 
-<div class="doc1"><js>doc1('example',25)</js></div>
 We have two goals in this chapter: to build service layer with *Petite* container
 and to merge it with the our *Madvoc* web application. Of course, it is
 important to have Petite completely decoupled from the web layer.
@@ -261,9 +260,6 @@ session scoped beans. The following listeners have to be registered in
     <listener>
     	<listener-class>jodd.servlet.RequestContextListener</listener-class>
     </listener>
-    <listener>
-    	<listener-class>jodd.servlet.HttpSessionListenerBroadcaster</listener-class>
-    </listener>
     ...
 ~~~~~
 
@@ -283,7 +279,8 @@ scope with, e.g. prototype scope:
     	void initPetite() {
     		petite = new PetiteContainer();
     		if (isWebApplication == false) {
-    			petite.getManager().registerScope(SessionScope.class, new ProtoScope());
+    			petite.getManager()
+                    .registerScope(SessionScope.class, new ProtoScope());
     		}
     		...
     	}
@@ -300,3 +297,5 @@ there is a simple way to integrated *Petite* container with
 actions is just mater of declaration. Finally, we have learned how to
 load *Petite* properties and how to enable configuration for session
 scoped beans.
+
+<js>docnav('example')</js>

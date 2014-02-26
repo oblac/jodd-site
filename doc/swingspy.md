@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/jquery.lightbox.css"/>
-<script type="text/javascript" src="/jquery.lightbox.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox.css"/>
+<script type="text/javascript" src="/js/jquery.lightbox.js"></script>
 <script type="text/javascript">
 $(function() {
 	$('a.lightbox').lightBox({
