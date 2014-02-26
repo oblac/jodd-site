@@ -1,8 +1,7 @@
 <js>javadoc('proxetta')</js>
 
-# Proxetta ![proxetta](proxetta.png "Proxetta!")
+# Proxetta
 
-<div class="doc1"><js>doc1('proxetta',24)</js></div>
 *Proxetta* creates dynamic proxies in run-time, providing efficient
 support for aspects.
 
@@ -80,5 +79,6 @@ significantly faster.
 
 ![Proxetta performance test](proxetta-benchmark.png)
 
+<js>docnav('proxetta')</js>
 
 [1]: http://cglib.sourceforge.net/

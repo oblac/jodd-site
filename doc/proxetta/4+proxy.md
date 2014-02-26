@@ -1,6 +1,5 @@
 # ProxyProxetta
 
-<div class="doc1"><js>doc1('proxetta',24)</js></div>
 Once when pointcuts and advices are defined, it is easy to define a
 proxy aspect itself:
 
@@ -189,3 +188,5 @@ defined on the type.
 
 Here *Proxetta* instance as well as advices and pointcuts are created
 outside the container.
+
+<js>docnav('proxetta')</js>

@@ -1,6 +1,5 @@
 # Invocation replacement
 
-<div class="doc1"><js>doc1('proxetta',24)</js></div>
 And now, something completely different:) *Proxetta* provides proxy
 mechanism that may **replace** almost any method invocation, including
 object creation (i.e. constructors) with custom method call. For
@@ -218,3 +217,5 @@ Since subclass copies constructors too, they will be executed as well as
 the target class constructors. So all initialization will be executed
 twice, once for proxified class, then for the target class. Therefore,
 do not put heavy-duty initialization in constructor.
+
+<js>docnav('proxetta')</js>

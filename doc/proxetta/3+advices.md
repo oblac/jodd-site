@@ -1,8 +1,7 @@
 # Advices
 
-<div class="doc1"><js>doc1('proxetta',24)</js></div>
 *Proxetta* defines advices in a unique way: they are written in the same
-way as one will write overridden method in a subclass.
+way as one would write overridden method in a subclass.
 
 Advices implement the `ProxyAdvice` interface that has just one method:
 `execute()`. Now, the question is how *Proxetta* references the proxy
@@ -73,7 +72,7 @@ bytecode manipulation.
 
 It is advisible to use `ProxyTarget` macro-methods just in simple
 assignment expressions.
-{: .example}
+{: .attn}
 
 During creation of proxy class and methods, *Proxetta* also copies
 advice's constructors, static initialization blocks, fields, etc.
@@ -88,4 +87,6 @@ classes. This can be solved by using some external class that will hold
 this static attribute.
 
 Using inner classes as advices is not supported.
-{: .warn}
+{: .attn}
+
+<js>docnav('proxetta')</js>

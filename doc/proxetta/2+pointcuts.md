@@ -1,6 +1,5 @@
 # Pointcuts
 
-<div class="doc1"><js>doc1('proxetta',24)</js></div>
 *Proxetta* pointcuts are defined in pure Java. Pointcut is simple
 interface: `ProxyPointcut` with just one method: `apply()` that should
 return `true` if target method is a pointcut and if proxy should wraps
@@ -47,3 +46,4 @@ Additionally, some common pointcuts are already defined: for all setters
 methods (`AllMethodsPointcut`); as well as for all methods annotated with
 some annotation (`MethodAnnotationPointcut`).
 
+<js>docnav('proxetta')</js>
