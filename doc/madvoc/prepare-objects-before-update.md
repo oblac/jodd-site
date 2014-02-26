@@ -1,6 +1,5 @@
 # Prepare objects before update
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 Typical problem with web applications is update of (domain) objects. It
 is done in two steps: the first is presenting HTML form with only
 editable properties of an object, and, the second, is the actual update
@@ -73,12 +72,13 @@ uses *Madvoc*, [Spring][1] and [Hibernate][2].
     	@Inject
     	BankService bankService;
 
-    	@In	@Out
+    	@In @Out
     	Bank bank;
 
     	@Override
     	public void prepare() {
-    		bank = bankService.findBankById(bank);	// returns null if entity is null
+            // returns null if entity is null
+    		bank = bankService.findBankById(bank);
     	}
 
     	@Action
@@ -135,7 +135,6 @@ employee belongs.
     	}
     }
 ~~~~~
-
 
 [1]: http://www.springsource.org/
 [2]: https://www.hibernate.org/

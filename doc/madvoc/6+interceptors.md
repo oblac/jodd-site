@@ -1,6 +1,5 @@
 # Interceptors
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Action interceptor** executes some code _before_ and _after_ an action
 method is invoked. Interceptors encapsulates common concerns of actions.
 One action method may be intercepted by many interceptors. Some core
@@ -264,3 +263,5 @@ interceptors by extending them:
     	}
     }
 ~~~~~
+
+<js>docnav('madvoc')</js>

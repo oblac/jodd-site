@@ -1,6 +1,5 @@
 # Results (cont.)
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 More features and topics about Results.
 
 ## Aliases
@@ -288,6 +287,8 @@ This example covers usage of custom result types, so we can add `@RenderWith`
 annotation. Of course, we can make custom result types when actions
 returns strings. See the code of *Madvoc* results, it is very similar
 to above, just string prefix has to be defined.
+
+<js>docnav('madvoc')</js>
 
 [1]: http://www.json.org/
 

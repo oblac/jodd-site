@@ -1,6 +1,5 @@
 # Actions (cont.)
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 This page describes some more action-related features.
 
 ## Custom action method annotations
@@ -86,3 +85,5 @@ default *Madvoc* extension. The following replacements are available:
 * `[method]` - replaces default method name in method-level annotations;
 * `[ext]` - replaces default extension in \'extension\' and \'value\'
   elements of method-level annotations.
+
+<js>docnav('madvoc')</js>

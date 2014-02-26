@@ -1,6 +1,5 @@
 # Setup
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 *Madvoc* uses convention over configuration to make setup and
 configuration simple as possible. It doesn't depend on any external
 (XML) files; by default all configuration is done in plain Java.
@@ -231,8 +230,6 @@ container. Components are registered during initialization phase of
 
 Following components are available:
 
-![Petite components](components.png)
-
 * `ActionMethodParser` - creates action configurations from action
   method and action class. Used during action method registration,
   parses action classes and scan for *Madvoc* annotations. At the end,
@@ -351,3 +348,5 @@ name:
 ~~~~~
     jodd.madvoc.interceptor.EchoInterceptor.enabled=false
 ~~~~~
+
+<js>docnav('madvoc')</js>

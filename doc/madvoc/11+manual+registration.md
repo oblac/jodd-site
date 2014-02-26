@@ -1,6 +1,5 @@
 # Manual registration
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 By default, *Madvoc* registers all actions by scanning the classpath
 and looking for the appropriate annotations. On the one hand, 
 this is very developer friendly, but on the other hand, user may get
@@ -37,3 +36,5 @@ builder for easier, fluent registration in pure Java. Here is an example:
 
 It's easy as that :) Also, don't forget NOT to create more interceptor
 instances then needed, as they can be shared among the actions!
+
+<js>docnav('madvoc')</js>

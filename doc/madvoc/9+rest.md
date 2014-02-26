@@ -1,6 +1,5 @@
 # REST urls
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 *Madvoc* supports REST-alike URLs. Parts of mapped action path may
 contain **macros** - text chunk surrounded with **$\{** and **}** signs.
 Macros are used to resolve values from request action path. Values are
@@ -140,8 +139,10 @@ in the result, as in following example:
     	}
 ~~~~~
 
-Let's analyze the result value. First character is \'`#`\', that means
+Let's analyze the result value. First character is `#`, that means
 \'go back\', i.e. strip action method part from the end. Then we are
-adding a replacement \'`[method]`\', that will be replaced with the real
+adding a replacement `[method]`, that will be replaced with the real
 method name. So, the result path of the above action method is:
-\'`/user/viewUser.ok`\'.
+`/user/viewUser.ok`.
+
+<js>docnav('madvoc')</js>

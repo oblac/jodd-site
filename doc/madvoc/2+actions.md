@@ -1,13 +1,14 @@
 # Actions
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Action** is action method defined in action class, mapped to some URL
 - **action path**. *Madvoc* uses naming convention (CoC) and annotations
 to define action path from action method. By default, action path is
 built from package, class and method name of an action or its
 annotations, using the following convention:
 
-`action path = /<action_package>/<action_class>.<action_method>.<extension>`
+~~~~~
+    action path = /<action_package>/<action_class>.<action_method>.<extension>
+~~~~~
 
 * `extension` - extension value (default: "html"),
   defined by *Madvoc* configuration or specified in the annotation;
@@ -295,3 +296,5 @@ actions.
 | (none)  | boo     | foo           | /boo.foo.html     |
 | (none)  | boo     | view/execute  | /boo.html         |
 | /zoo    | boo     | foo           | /zoo/boo.foo.html |
+
+<js>docnav('madvoc')</js>

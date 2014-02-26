@@ -1,6 +1,5 @@
 # Results
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Action Result** is returning value (also known as **result object**)
 of an action method. Action result can be of any type and for any purpose;
 and *Madvoc* must to know how to render it. Results handlers are defined
@@ -49,7 +48,9 @@ should forward or redirect to. Actions that return `String`
 are treated in a special way. Returned result string consist of the
 result _type_ (or result name) and result value:
 
-`result string = <result_type>:<result_value>`
+~~~~~
+result string = <result_type>:<result_value>
+~~~~~
 
 * `result_type` - optional result type identification i.e. unique name;
 * `result_value` - result value, used for building result path.
@@ -65,7 +66,9 @@ used to build a path that will be used for forwarding, redirecting etc.
 _Result path_ is path definition created from action path and
 result value, in the following way:
 
-`result path = <action_path>.<result_value>`
+~~~~~
+    result path = <action_path>.<result_value>
+~~~~~
 
 This value can be used by some `ActionResult` to perform rendering.
 Although result path can be represented as a one string, it is actually
@@ -183,7 +186,7 @@ in given order:
 * `/hello.world.jsp`
 * `/hello.ok.jsp`
 * `/hello.jsp`
-* `ok.jsp`
+* `/ok.jsp`
 
 Dispatcher finds the first matching JSP. If no pages is found, error
 404 is returned.
@@ -407,3 +410,5 @@ Example:
 
 This is just one way of using it, mime types can be automatically detected
 when download file name is specified and so on.
+
+<js>docnav('madvoc')</js>

@@ -1,6 +1,5 @@
 # Filters
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 **Action Filters** are similar to action interceptors: they run before action
 method and after the result is rendered! That is a main difference:
 interceptors are executed before rendering result.
@@ -26,3 +25,5 @@ in the very same way as interceptors. For example:
 
 This action class defines one filter and one interceptor (on all its action
 methods). Note that filters are always executed _first_, before interceptors.
+
+<js>docnav('madvoc')</js>

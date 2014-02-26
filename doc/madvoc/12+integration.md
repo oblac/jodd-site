@@ -1,6 +1,5 @@
 # Integration
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 By default, *Madvoc* action objects are created by `MadvocController`
 and they are not aware of anything else then *Madvoc* and servlet
 context. However, for any web application actions must somehow reference
@@ -68,26 +67,24 @@ container.
 ## Petite and session scope
 
 To enable session scoped *Petite* beans, it is required to register
-following listeners:
+the following listener:
 
 ~~~~~ xml
     <web-app ...>
     	...
     	<listener>
-    		<listener-class>jodd.servlet.RequestContextListener</listener-class>
-    	</listener>
-    	<listener>
-    		<listener-class>jodd.servlet.HttpSessionListenerBroadcaster</listener-class>
+    		<listener-class>
+                jodd.servlet.RequestContextListener
+            </listener-class>
     	</listener>
     	...
     </web-app>
 ~~~~~
 
 `RequestContextListener` store request in the current thread and all
-child threads, so it can be easily accessible.
-`HttpSessionListenerBroadcaster` broadcasts session listener event to
-all listeners registered at run-time.
+child threads, so it can be easily accessible. It also keep
+track of sessions.
 
-
+<js>docnav('madvoc')</js>
 
 [1]: http://www.springsource.org/

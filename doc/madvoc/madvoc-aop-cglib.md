@@ -1,6 +1,5 @@
 # AOP aware Madvoc action requests
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 This is a story from *Madvoc*-Spring-Hibernate real-world project. In
 this project, on some *Madvoc* actions Spring applied one or more
 aspects, using CGLIB. Therefore, when *Madvoc* creates `ActionRequest`,
@@ -31,9 +30,11 @@ This one is trivial: `MadvocController` has method
     	@Override
     	protected ActionRequest createActionRequest(
                 ActionConfig actionConfig, Object action,
-                HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
+                HttpServletRequest servletRequest,
+                HttpServletResponse servletResponse) {
 
-    		return new FooActionRequest(actionConfig, action, servletRequest, servletResponse);
+    		return new FooActionRequest(
+                actionConfig, action, servletRequest, servletResponse);
     	}
     }
 ~~~~~
@@ -54,15 +55,20 @@ solution:
     	Object target;
 
     	/**
-    	 * Detects CGLIB proxy created by Spring. Stores proxy instance and replace advised target
+    	 * Detects CGLIB proxy created by Spring.
+         * Stores proxy instance and replace advised target
     	 * before interceptors are invoked.
     	 */
-    	public PectopahActionRequest(ActionConfig config, Object action, HttpServletRequest serlvetRequest, HttpServletResponse servletResponse) {
+    	public PectopahActionRequest(
+                ActionConfig config, Object action,
+                HttpServletRequest serlvetRequest,
+                HttpServletResponse servletResponse) {
     		super(config, action, serlvetRequest, servletResponse);
     		if (AopUtils.isCglibProxy(action)) {
     			proxy = action;
     			try {
-    				this.target = this.action = ((Advised) action).getTargetSource().getTarget();
+    				this.target = this.action =
+                        ((Advised) action).getTargetSource().getTarget();
     			} catch (Exception ex) {
     				throw new PectopahException("Invalid proxy.");
     			}

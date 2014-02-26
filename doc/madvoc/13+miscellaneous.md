@@ -1,6 +1,5 @@
 # Miscellaneous
 
-<div class="doc1"><js>doc1('madvoc',20)</js></div>
 Various *Madvoc* topics.
 
 ## Upload
@@ -99,11 +98,9 @@ except it print outs all results to the system output.
 
 ## Configure Logger
 
-Since LogBack logger can use system properties in its XML file, it is
-possible to set some before `Madvoc` starts to log out. This can be done
-in constructor of `WebApplication`, since logger is not yet initialized.
-
-Alternatively, logger parameters may be set in command line.
+Logger should be set before `Madvoc` starts up, to capture all logs.
+You can enable your logger implementation in the constructor of
+`WebApplication`, since logger is not yet initialized.
 
 ## Validation
 
@@ -115,5 +112,7 @@ framework should not be tight so single validation framework.
 
 Nevertheless, it is easy to integrate any existing validation solution
 in *Madvoc*, such as [Oval][1].
+
+<js>docnav('madvoc')</js>
 
 [1]: http://oval.sourceforge.net/
