@@ -1,6 +1,5 @@
 # Db and annotations
 
-<div class="doc1"><js>doc1('jtx',20)</js></div>
 *JTX* supports multiple resource types, but its most efficient with
 single resource type, such as relational database. Therefore, there is
 whole layer build on top of generic *JTX* classes that serves just to
@@ -23,3 +22,5 @@ this with annotation elements.
 
 To reduce this boilerplate code, it is possible to define custom
 annotation that takes different default values.
+
+<js>docnav('jtx')</js>

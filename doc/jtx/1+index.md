@@ -1,8 +1,7 @@
 <js>javadoc('jtx')</js>
 
-# JTX ![JTX](jtx.png)
+# JTX
 
-<div class="doc1"><js>doc1('jtx',20)</js></div>
 *Jodd* provides great, little, stand-alone transaction manager, *JTX*.
 It is a significant change in traditional thinking, since no (j2ee)
 application server is required; *JTX* may be used in any Java code.
@@ -37,7 +36,7 @@ Here is one real-life example how *JTX* is used declaratively.
 		// save data to db
 	}
 
-	@Transaction(propagation = PROPAGATION_REQUIRED, readOnly = false, timeout = 100)
+	@Transaction(propagation=PROPAGATION_REQUIRED, readOnly=false, timeout=100)
 	public void update(int id) {
 		// save data to db
 	}
@@ -50,3 +49,5 @@ like using custom annotations, but its definitely not the only way how
 
 Following *JTX* pages explains the concept behind the framework and its
 usage.
+
+<js>docnav('jtx')</js>
