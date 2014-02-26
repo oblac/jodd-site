@@ -1,6 +1,5 @@
 # Ignoring resources
 
-<div class="doc1"><js>doc1('htmlstapler',22)</js></div>
 Sometimes, not all resources should be stapled, i.e. bundled with
 *HtmlStapler*.
 
@@ -42,7 +41,8 @@ would be like this:
 ~~~~~ html
     <html>
     	<head>HtmlStapler + TinyMCE</head>
-    	<script type="text/javascript" src="/tiny_mce/tiny_mce.js"></script>
+    	<script type="text/javascript" 
+            src="/tiny_mce/tiny_mce.js"></script>
     	<script type="text/javascript">
     		tinyMCE.init({
     			...
@@ -63,7 +63,8 @@ adding the `jodd-unstaple` parameter:
 ~~~~~ html
     <html>
     	<head>HtmlStapler + TinyMCE</head>
-    	<script type="text/javascript" src="/tiny_mce/tiny_mce.js?jodd-unstaple"></script>
+    	<script type="text/javascript"
+            src="/tiny_mce/tiny_mce.js?jodd-unstaple"></script>
     	<script type="text/javascript">
     		tinyMCE.init({
     			...
@@ -82,3 +83,5 @@ The same applies to any other JavaScript libraries, like [CKEditor][2], etc.
 
 [1]: http://www.tinymce.com
 [2]: http://ckeditor.com/
+
+<js>docnav('htmlstapler')</js>

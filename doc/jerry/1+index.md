@@ -1,8 +1,7 @@
 <js>javadoc('jerry')</js>
 
-# Jerry ![jerry](jerry-big.png){: .float-left}
+# Jerry
 
-<div class="doc1"><js>doc1('jerry',22)</js></div>
 *Jerry* is a [jQuery][1] in Java. *Jerry* is a fast and
 concise Java Library that simplifies HTML document parsing, traversing
 and manipulating. *Jerry* is designed to change the way that you parse
@@ -41,7 +40,7 @@ What happens in the background is that *Lagarto* parser (default implementation:
 `LagartoDOMBuilder`) is invoked to build a DOM tree.
 
 *Jerry* uses *Lagarto DOM* parser for parsing the content and building the DOM tree.
-{: .example}
+{: .attn}
 
 It is possible to set different implementation of DOM builder. *Jerry* itself
 is not responsible for parsing HTML and building the tree, it takes any DOM
@@ -49,7 +48,6 @@ tree that is created by a DOM Builder.
 
 ### Using CSS selectors
 
-![csselly](../csselly/csselly.png){: align="left" style="margin-right:10px;"}
 You can use most of standard CSS selectors
 and also most of the jQuery CSS selectors extensions. CSS selectors are
 supported by [*CSSelly*](/doc/csselly).
@@ -61,7 +59,8 @@ As *Jerry* speaks Java, there are some differences in API made to make
 array of property/values, and not a single string.
 
 ~~~~~ java
-    jerry(html).$("tr:last").css("background-color", "yellow", "fontWeight", "bolder");
+    jerry(html).
+        $("tr:last").css("background-color", "yellow", "fontWeight", "bolder");
 ~~~~~
 
 Similarly, `each()` method receives a callback instance and it is not so
@@ -123,5 +122,6 @@ the parsing is executed.
 Check all details about [configuration and parsing modes](/doc/lagarto/lagarto-properties.html) for *Lagarto*,
 parser and DOM builder used by *Jerry*.
 
+<js>docnav('jerry')</js>
 
 [1]: http://jquery.com/

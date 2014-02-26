@@ -1,6 +1,5 @@
-# HtmlStapler ![stapler](stapler.png)
+# HtmlStapler
 
-<div class="doc1"><js>doc1('htmlstapler',22)</js></div>
 *HtmlStapler* is a nice tool for automatic packaging of web resources
 included by HTML page: javascript and CSS files. Just by **enabling**
 *HtmlStapler* in your web application, all multiple resource (javascript
@@ -17,3 +16,5 @@ the same, since resource bundle management happens in the runtime,
 ![htmlstapler](htmlstapler.png){: .b}
 
 Ain't that cool? :)
+
+<js>docnav('htmlstapler')</js>

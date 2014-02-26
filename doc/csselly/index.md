@@ -1,4 +1,4 @@
-# CSSelly ![csselly](csselly-big.png){: .float-left}
+# CSSelly
 
 *CSSelly* is a Java implementation of the W3C Selectors Level 3
 specification.

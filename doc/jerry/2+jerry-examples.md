@@ -1,7 +1,5 @@
 # Jerry Examples
 
-<div class="doc1"><js>doc1('jerry',22)</js></div>
-
 Here are some examples of *Jerry* usages on some live pages.
 
 Following examples depend on content of live web pages. At some point in
@@ -147,3 +145,5 @@ For more details, check unit tests in [grails-joda-time][5].
 [3]: http://github.com/oblac/tools/blob/master/src/jodd/tools/modlist/PomList.java
 [4]: http://freeside.co/
 [5]: https://github.com/gpc/grails-joda-time
+
+<js>docnav('jerry')</js>

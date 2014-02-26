@@ -1,6 +1,5 @@
-# Facebook browser with just Jerry & Http
+# Facebook browser with Jerry & Http
 
-<div class="doc1"><js>doc1('jerry',22)</js></div>
 In one of our [examples](facebook-bot.html) we used Commons library for all
 HTTP connection. Here is the example how to browse the same, facebook site
 using just *Jerry* and *Http* libraries, keeping everything small, fast and

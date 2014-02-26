@@ -1,6 +1,5 @@
 # Enabling GZip
 
-<div class="doc1"><js>doc1('htmlstapler',22)</js></div>
 Using GZIP response is a common tool for reducing the number of bytes
 sent over the \'wire\', to gain better performances. Using GZIP filter
 with *HtmlStapler* will work, of course, but there is room for more
@@ -46,7 +45,7 @@ We assume that *HtmlStapler* filter is configured to use default
 
 ## HtmlStaplerFilter
 
-Now, let's turn on the gzip feature for *HtmlStaplerFilter*.
+Now, let's turn on the gzip feature for `HtmlStaplerFilter`.
 
 ~~~~~ xml
     	<filter>
@@ -65,3 +64,5 @@ Now, let's turn on the gzip feature for *HtmlStaplerFilter*.
 ~~~~~
 
 Enjoy extra speed!
+
+<js>docnav('htmlstapler')</js>

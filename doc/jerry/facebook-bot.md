@@ -1,6 +1,5 @@
 # Build Facebook bot in 2 easy hours
 
-<div class="doc1"><js>doc1('jerry',22)</js></div>
 To demonstrate the power of [*Jerry*](index.html) (*jQuery in Java*), we
 created a little Facebook bot, just in two hours, and just for fun:) The
 task was to create a bot that will:

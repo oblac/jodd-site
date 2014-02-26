@@ -46,6 +46,6 @@ Lagarto is just a HTML/XML content parser, but many other cool things in
 * [*StripHtml*](strip-html.html) - compress HTML page,
 * [*Decora*](/doc/decora) - web decoration framework,
 * [*CSSelly*](/doc/csselly) - CSS3 selectors parser,
-*  [*Jerry*](/doc/jerry) - JQuery in Java.
+* [*Jerry*](/doc/jerry) - JQuery in Java.
 
 <js>docnav('lagarto')</js>

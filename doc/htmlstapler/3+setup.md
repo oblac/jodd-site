@@ -1,7 +1,6 @@
 # Setup
 
-<div class="doc1"><js>doc1('htmlstapler',22)</js></div>
-It's quite easy to setup *HtmlStapler*, easy like 1-2-3. Well, it's only 1-2 :)
+It's quite easy to setup *HtmlStapler*, easy like 1-2-3. Actually, it's only 1-2 :)
 
 ### Step #1
 
@@ -89,3 +88,4 @@ use your own.
 If you are not sure which strategy to use, go with pragmatic
 `RESOURCE_ONLY`.
 
+<js>docnav('htmlstapler')</js>

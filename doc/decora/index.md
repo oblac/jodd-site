@@ -1,4 +1,4 @@
-# Decora ![decora logo](decora.png "Decora!")
+# Decora
 
 *Decora* is web decoration framework to help in creating sites
 consisting of pages based on *templates*. This gives a consistent
@@ -59,7 +59,8 @@ paths:
     public class AppDecoraManager extends DecoraManager {
 
     	@Override
-    	public String resolveDecorator(HttpServletRequest request, String actionPath) {
+    	public String resolveDecorator(
+                HttpServletRequest request, String actionPath) {
     		if (actionPath.endsWith(".html")) {
     			return DEFAULT_DECORATOR;
     		}
