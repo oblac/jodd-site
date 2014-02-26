@@ -1,6 +1,5 @@
 # DbOomManager
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 `DbOomManager` is a manager responsible for registering entity types and
 holding various configuration information. It is used by various parts
 of *Db* and *DbOom*, therefore it is created as singleton pattern.
@@ -59,7 +58,8 @@ the result set will be mapped. Now it is possible to omit the list and
 let `DbOomQuery` resolve classes by itself:
 
 ~~~~~ java
-    DbOomQuery q = new DbOomQuery(session, "select * from GIRL join BOY on... where...");
+    DbOomQuery q = new DbOomQuery(session,
+        "select * from GIRL join BOY on... where...");
     Girl girl = q.findOne(Girl.class);  // ok
     Girl girl = (Girl) q.findOne();     // throws an exception
 
@@ -70,3 +70,4 @@ let `DbOomQuery` resolve classes by itself:
 To some this feature is useful, others doesn't use since it is not so
 visible what is the target entity.
 
+<js>docnav('db')</js>

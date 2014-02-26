@@ -1,6 +1,5 @@
 # DbOom: Mapping to a bean
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 There are cases when you have to write complex queries with some
 calculations, string manipulation, etc. when some result set columns are
 calculated and not simple table columns values. The question is how to
@@ -36,4 +35,3 @@ Then, you can write above query using the following template-sql:
 ~~~~~
 
 The key point here is to map columns using `$C` macro and the bean name.
-

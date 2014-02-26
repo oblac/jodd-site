@@ -1,6 +1,5 @@
 # DbSession
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 `DbSession` encapsulates database connection. It also plays nicely with
 `DbQuery`ies and has some convenient features.
 
@@ -31,7 +30,7 @@ connection back to `ConnectionProvider`. Here is an example of basic
     ...
     session.beginTransaction();
     DbQuery query = new DbQuery(session, "insert into...");
-    query.executeUpdate(true);      // 'true' means: query will be closed after execution
+    query.executeUpdate(true);      // 'true' -> query closes after execution
     session.commitTransaction();
     ....
     query2 = new DbQuery(session, "select * from... ");
@@ -121,7 +120,8 @@ closed manually after the usage.
 `DbSession` works with transactions in expected way.
 
 ~~~~~ java
-    session.beginTransaction(new DbTransactionMode().isolationNone().setReadOnly(true));
+    session.beginTransaction(
+        new DbTransactionMode().isolationNone().setReadOnly(true));
     try {
     	DbQuery query = new DbQuery(session, "insert into...");
         // 'true' means that query will be closed after execution
@@ -140,3 +140,5 @@ the auto-commit mode.
 
 This is just basic transaction usage, *Jodd* offers more complex
 transaction management, using also propagations.
+
+<js>docnav('db')</js>

@@ -1,6 +1,5 @@
 # Template SQL
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 Native SQL contains table and column names. As *DbOom* is an object
 mapper, it would be more natural to use entity and property names
 instead. In previous topic we have introduced sql generators and
@@ -15,13 +14,15 @@ columns.
 Example:
 
 ~~~~~ sql
-    select $C{bb.*}, $C{bg.+} from $T{BadGirl bg} join $T{Boy bb} on $bg.+=bb.girlId
+    select $C{bb.*}, $C{bg.+}
+        from $T{BadGirl bg} join $T{Boy bb} on $bg.+=bb.girlId
 ~~~~~
 
 Result:
 
 ~~~~~ sql
-    select bb.GIRL_ID, bb.ID, bb.NAME, bg.ID from GIRL bg join BOY bb on bg.ID=bb.GIRL_ID
+    select bb.GIRL_ID, bb.ID, bb.NAME, bg.ID
+        from GIRL bg join BOY bb on bg.ID=bb.GIRL_ID
 ~~~~~
 
 ## Table macro $T
@@ -192,7 +193,8 @@ done using method `use()`.
     Boy boy = new Boy();
     boy.id = 1;
     boy.girlId = 3;
-    DbSqlBuilder s = sql("select * from $T{boy} where $M{boy=boy}").use("boy", boy);
+    DbSqlBuilder s =
+        sql("select * from $T{boy} where $M{boy=boy}").use("boy", boy);
 ~~~~~
 
 Result:
@@ -218,9 +220,10 @@ With sql templates it is even more easier to specify joining hints:
 ~~~~~
 
 ~~~~~ java
-    // New way:
+    // Inline way:
     q = new DbOomQuery(sql(
-    	"select $C{boy.girl.*}, $C{boy.*} from $T{Girl girl} " +  // hint inside column name
+        // hint inside column name
+    	"select $C{boy.girl.*}, $C{boy.*} from $T{Girl girl} " +  
     	"join $T{Boy boy} on girl.id=$boy.girlId"));
     boy = (Boy) q.find(Girl.class, Boy.class);
 ~~~~~
@@ -246,15 +249,20 @@ that can simplify database usage. One such factory already exist:
 `DbEntitySql`. Here are some usage examples:
 
 ~~~~~ java
-    new DbOomQuery(session, DbEntitySql.insert(new Girl(...)).executeUpdateAndClose();
+    new DbOomQuery(session,
+        DbEntitySql.insert(new Girl(...)).executeUpdateAndClose();
     // more fluent
-    DbEntitySql.insert(new Girl(...)).query(session).executeUpdateAndClose();
+    DbEntitySql.insert(new Girl(...)).
+        query(session).executeUpdateAndClose();
 
     Girl girl = ...
     DbEntitySql.find(girl);
-    DbEntitySql.findById(girl);    // find entity only by id, other properties are ignored
+    DbEntitySql.findById(girl);    // find entity only by id, 
+                                   // other properties are ignored
     DbEntitySql.deleteById(girl);  // deletes by id
 ~~~~~
 
 Of course, it is possible to create even higher level of encapsulation,
 but this not something what library such this should provide.
+
+<js>docnav('db')</js>

@@ -1,6 +1,5 @@
 # Mapping
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 When it comes to mapping, *DbOom* tries its best to match database types
 with Java types of POJO properties (i.e. mapped columns). *DbOom*
 knows how to convert between various SQL types and common Java types, including `enums`. SQL types in *DbOom* are actually implementations of
@@ -83,7 +82,8 @@ public class Foo {
     @DbColumn
     public MutableInteger number;
 
-    @DbColumn(sqlType = IntegerSqlType.class)
+    @DbColumn(
+        sqlType = IntegerSqlType.class)
     public String string;
 
     @DbColumn
@@ -95,7 +95,8 @@ public class Foo {
     @DbColumn
     public FooColor color;
 
-    @DbColumn(sqlType = FooWeigthSqlType.class)
+    @DbColumn(
+        sqlType = FooWeigthSqlType.class)
     public FooWeight weight;
 
     @DbColumn
@@ -126,7 +127,6 @@ public class Foo {
 create table FOO (
 
 
-
     ID          integer     not null,
 
 
@@ -136,6 +136,7 @@ create table FOO (
     STRING      integer     not null,
 
 
+
     STRING2     integer     not null,
 
 
@@ -143,6 +144,7 @@ create table FOO (
 
 
     COLOR       varchar     not null,
+
 
 
     WEIGHT      integer     not null,
@@ -199,7 +201,8 @@ and `BooSqlType` may look like:
     public class BooSqlType extends SqlType<Boo> {
 
         @Override
-        public void set(PreparedStatement st, int index, Boo value) throws SQLException {
+        public void set(PreparedStatement st, int index, Boo value)
+                throws SQLException {
             st.setInt(index, value.value);
         }
 
@@ -280,3 +283,5 @@ conversion on every access.
 Other mappings from the example are also straightforward. It is
 interesting to notice that `JDateTime` is stored as number of milliseconds
 (compatible with `System.currentTimeMillis()`).
+
+<js>docnav('db')</js>

@@ -1,6 +1,4 @@
 # Relations & Hints
-
-<div class="doc1"><js>doc1('db',20)</js></div>
 We have already seen how to use *hints* to inject values into resulting
 objects. Lets analyze this topic more and see how to deal with the
 **one-to-one** and **one-to-many** relations efficiently.
@@ -108,12 +106,12 @@ This is nice case when we can use a *join* of three tables to fetch
 all data in one call. So the code may look like this:
 
 ~~~~~ java
-		DbOomQuery q = query(sql(
-				"select $C{t.*}, $C{tp.*}, $C{c.*} " +
-				"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
-				"join $T{Country c} using ($.countryId)"));
+	DbOomQuery q = query(sql(
+			"select $C{t.*}, $C{tp.*}, $C{c.*} " +
+			"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
+			"join $T{Country c} using ($.countryId)"));
 
-		telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
+	telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
 ~~~~~
 
 Here we create join of three tables. Each result set row is mapped to
@@ -132,12 +130,12 @@ objects within the single row. We want to use hints to inject e.g.
 Here is how to do so:
 
 ~~~~~ java
-		DbOomQuery q = query(sql(
-				"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
-				"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
-				"join $T{Country c} using ($.countryId)"));
+	DbOomQuery q = query(sql(
+			"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
+			"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
+			"join $T{Country c} using ($.countryId)"));
 
-		telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
+	telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
 ~~~~~
 
 The change is small, yet powerful! With hints we instruct to append
@@ -159,13 +157,13 @@ Fortunately, the problem is easy to solve: by enabling caching on
 query level (i.e. on result-set level). So this code:
 
 ~~~~~ java
-		DbOomQuery q = query(sql(
-				"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
-				"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
-				"join $T{Country c} using ($.countryId)"));
+	DbOomQuery q = query(sql(
+			"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
+			"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
+			"join $T{Country c} using ($.countryId)"));
 
-		q.cacheEntities(true);
-		telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
+	q.cacheEntities(true);
+	telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
 ~~~~~
 
 *DbOoom* now caches **all entities** during the execution of a query
@@ -182,13 +180,13 @@ contain duplicated records (hey, it's the same with Hibernate:) The
 trivial way to fix this is to use a `Set` instead of `List`\:
 
 ~~~~~ java
-		DbOomQuery q = query(sql(
-				"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
-				"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
-				"join $T{Country c} using ($.countryId)"));
+	DbOomQuery q = query(sql(
+			"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
+			"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
+			"join $T{Country c} using ($.countryId)"));
 
-		q.cacheEntities(true);
-		telecoms = q.listSet(Telecom.class, TelecomPrefix.class, Country.class);
+	q.cacheEntities(true);
+	telecoms = q.listSet(Telecom.class, TelecomPrefix.class, Country.class);
 ~~~~~
 
 What we have now is the set of unique entities, properly injected with
@@ -206,14 +204,16 @@ In entity aware mode, not only that objects are cached, but also they
 are compared to the previous result! The very same example from above:
 
 ~~~~~ java
-		DbOomQuery q = query(sql(
-				"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
-				"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
-				"join $T{Country c} using ($.countryId)"));
+	DbOomQuery q = query(sql(
+			"select $C{t.*}, $C{t.prefixes:tp.*}, $C{t.country:c.*} " +
+			"from $T{Telecom t} join $T{TelecomPrefix tp} using ($.telecomId) " +
+			"join $T{Country c} using ($.countryId)"));
 
-		q.entityAwareMode(true);
-		telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
+	q.entityAwareMode(true);
+	telecoms = q.list(Telecom.class, TelecomPrefix.class, Country.class);
 ~~~~~
 
 will now return `List` **without** the duplicates! Just a nice object
 tree, ready to be used :)
+
+<js>docnav('db')</js>

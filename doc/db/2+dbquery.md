@@ -1,6 +1,5 @@
 # DbQuery
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 `DbQuery` is an enhanced wrapper for prepared and regular JDBC
 statements. In the base scenario, it can be used anywhere where JDBC
 statements would be used. Nevertheless, `DbQuery` provides some
@@ -142,7 +141,8 @@ process of `DbQuery` creation, either manual or with aspects.
 
 ~~~~~ java
     // Example #1:
-    DbOomQuery q = new DbOomQuery(connection, "insert into FOO(Data) values('data')");
+    DbOomQuery q = new DbOomQuery(connection,
+            "insert into FOO(Data) values('data')");
     q.setGeneratedColumns();            // indicate some auto-generated columns
     q.executeUpdate();
 
@@ -153,7 +153,8 @@ process of `DbQuery` creation, either manual or with aspects.
 
 ~~~~~ java
     // Example #2:
-    DbOomQuery q = new DbOomQuery(connection, "insert into FOO(Data) values('data')");
+    DbOomQuery q = new DbOomQuery(connection,
+            "insert into FOO(Data) values('data')");
     q.setGeneratedColumns("ID");        // indicate auto-generated column
     q.executeUpdate();
     ResultSet rs = q.getGeneratedColumns();
@@ -166,3 +167,5 @@ You could also use `q.setGeneratedKey()` instead of
 `q.setGeneratedColumns()` in the first example, if that sounds better to
 you :) Please note that some old database drivers does not support this
 feature (like HSQLDB 1.x).
+
+<js>docnav('db')</js>

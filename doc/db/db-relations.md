@@ -1,6 +1,5 @@
 # DB Relations
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 *DbOom* does not provide relations mapping out-of-box. Instead, developer
 is able to use relations whenever he needs them. And it is not so
 complicated as it sounds.
@@ -39,16 +38,16 @@ full `Country` object in `Question`. For those situations we usually put
 the following set and get methods pair:
 
 ~~~~~ java
-    	Country country;
+	Country country;
 
-    	public Country getCountry() {
-    		return country;
-    	}
+	public Country getCountry() {
+		return country;
+	}
 
-    	public void setCountry(Country country) {
-    		countryId = country == null ? null : country.getId();
-    		this.country = country;
-    	}
+	public void setCountry(Country country) {
+		countryId = country == null ? null : country.getId();
+		this.country = country;
+	}
 ~~~~~
 
 How to populate the country? One solution is to simply execute

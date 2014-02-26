@@ -1,6 +1,5 @@
 # Db configuration
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 Configuration of *Db* and *DbOom* frameworks is set in `DbManager` and
 `DbOomManager`. Both classes are singleton beans.
 
@@ -77,3 +76,4 @@ Very often (at the beginning of the project), *DbOom* is not working
 because of wrong letter case and mismatched conventions. Just experiment
 a bit until you set it right:) Once set, everything goes smoothly:)
 
+<js>docnav('db')</js>

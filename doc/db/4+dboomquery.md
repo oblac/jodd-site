@@ -1,9 +1,7 @@
 # DbOomQuery
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 **DbOomQuery** is all about convenient mapping of result set to target
 classes.
-{: .important}
 
 `DbOomQuery` extends `DbQuery` by adding methods for mapping result sets
 to objects.
@@ -24,7 +22,8 @@ database, i.e. to find exactly one row and to map it to some set of
 objects.
 
 ~~~~~ java
-    DbOomQuery q = new DbOomQuery(session, "select * from GIRL join BOY on... where...");
+    DbOomQuery q = new DbOomQuery(session,
+            "select * from GIRL join BOY on... where...");
     Object[] girlAndBoy = (Object[]) q.find(Girl.class, Boy.class);
     Girl girl = (Girl) girlAndBoy[0];
     Boy boy = (Boy) girlAndBoy[1];
@@ -64,7 +63,8 @@ mapper recognizes Java and *Jodd* number classes (configurable) as well
 and they are mapped to one single column:
 
 ~~~~~ java
-    q.find(Integer.class, Girl.class, Long.class, Boy.class, Float.class, String.class);
+    q.find(Integer.class, Girl.class, Long.class,
+            Boy.class, Float.class, String.class);
 ~~~~~
 
 Mapping functionality of *DbOom* is modular and may be easily replaced
@@ -86,7 +86,8 @@ and not `Object` array. The following example has no casting at all:
 set. They are returned as list or set of object arrays.
 
 ~~~~~ java
-    DbOomQuery q = new DbOomQuery(session, "select * from GIRL join BOY on... where...");
+    DbOomQuery q = new DbOomQuery(session,
+            "select * from GIRL join BOY on... where...");
     List<Object[]> girlsAndBoys = q.list(Girl.class, Boy.class);
     Set<Object[]> girlsAndBoysSet = q.listSet(Girl.class, Boy.class);
     List<Girl> girls = q.list(Girl.class);
@@ -168,3 +169,5 @@ works for uni-directional relationships; bidirectional support should be
 developed in Java, in setter method.
 
 [1]: http://oracle.com/
+
+<js>docnav('db')</js>

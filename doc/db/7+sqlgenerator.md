@@ -1,11 +1,11 @@
 # Sql Generator
 
-<div class="doc1"><js>doc1('db',20)</js></div>
 SQL generator just helps in building *native* SQL queries: using entity
 and property names in the query or just using one-liner method calls.
 
-There is more convenient way for writing queries: using Template-SQL i.e. TSQL (see next chapter).
-{: .important}
+There is more convenient way for writing queries that you should use
+in practice: Template-SQL i.e. TSQL (see next chapter).
+{: .attn}
 
 Until now, all queries used by *Db* and *DbOom* were just plain old
 native SQL queries. *DbOom* goes further and allows SQL queries to be
@@ -302,3 +302,5 @@ for \'`select`\', \'`where`\', \'`and`\', \'`or`\' strings and so on.
 This is done to makes things simple, without the need to implement all
 kind of database keywords. However, it is possible to extend
 `DbSqlBuilder` to provide this functionality as well.
+
+<js>docnav('db')</js>
