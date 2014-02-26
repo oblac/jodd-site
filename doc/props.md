@@ -1,4 +1,4 @@
-# Props ![jodd props](/gfx/props.png "BeanUtil")
+# Props
 
 *Props* is super `properties`; containing all what is missing in JDK:
 UTF8 support, macros, sections, profiles, fully configurable... and
@@ -91,21 +91,21 @@ or with new section start or end of file.
 The following example:
 
 ~~~~~
-    [users.data]
-    weight = 49.5
-    height = 87.7
-    age = 63
-    []
-    comment=this is base property
+[users.data]
+weight = 49.5
+height = 87.7
+age = 63
+[]
+comment=this is base property
 ~~~~~
 
 is identical to:
 
 ~~~~~
-    users.data.weight = 49.5
-    users.data.height = 87.7
-    users.data.age = 63
-    comment=this is base property
+users.data.weight = 49.5
+users.data.height = 87.7
+users.data.age = 63
+comment=this is base property
 ~~~~~
 
 Sections, therefore, can shorten the file and make it more readable.
@@ -132,13 +132,13 @@ properties. So profiles can be considered as a 'different views' or
 Example:
 
 ~~~~~
-    db.port=3086
+db.port=3086
 
-    db.url<develop>=localhost
-    db.username<develop>=root
+db.url<develop>=localhost
+db.username<develop>=root
 
-    db.url<deploy>=192.168.1.101
-    db.username<deploy>=app2499
+db.url<deploy>=192.168.1.101
+db.username<deploy>=app2499
 ~~~~~
 
 In this example 3 keys are defined; two keys have different values in
@@ -149,15 +149,15 @@ anywhere in the key name, therefore section name can contain profile
 definition as well. Above example can be written as:
 
 ~~~~~
-    db.port=3086
+db.port=3086
 
-    [db<develop>]
-    url=localhost
-    username=root
+[db<develop>]
+url=localhost
+username=root
 
-    [db<deploy>]
-    url=192.168.1.101
-    username=app2499
+[db<deploy>]
+url=192.168.1.101
+username=app2499
 ~~~~~
 
 When looking up for a value, it is possible to specify which profiles
@@ -195,10 +195,10 @@ without the need to recompile the code. Active profiles are defined
 under the special base key named `@profiles`. Example:
 
 ~~~~~
-    key1=hello
-    key1<one>=Hi!
+key1=hello
+key1<one>=Hi!
 
-    @profiles=one
+@profiles=one
 ~~~~~
 
 and the following Java code:
@@ -222,12 +222,12 @@ profiles only for those differences. *Props* will first lookup keys in
 inner profiles, then go up to the base level. Example:
 
 ~~~~~
-    key1<one>=Hi!
-    key2<one>=...
-    ....
-    key100<one>=...
+key1<one>=Hi!
+key2<one>=...
+....
+key100<one>=...
 
-    key1<one.two>=Hola!
+key1<one.two>=Hola!
 ~~~~~
 
 This example defines two profiles. First one is named `one` and
@@ -249,9 +249,9 @@ keys value, used in value of other key. Macros are enclosed between `${`
 and `}`. Here is a simple example:
 
 ~~~~~
-    key1=Something ${foo}
-    ...
-    foo=nice
+key1=Something ${foo}
+...
+foo=nice
 ~~~~~
 
 Value of `key1` is `Something nice`. Macros can refer to any
@@ -260,9 +260,9 @@ existing property key, no matter where it is defined.
 Nested macros are also supported. Example:
 
 ~~~~~
-    key1=**${key${key3}}**
-    key3=2
-    key2=foo
+key1=**${key${key3}}**
+key3=2
+key2=foo
 ~~~~~
 
 Value of `key1` is `**foo**`.
@@ -278,9 +278,9 @@ This behavior is controlled with flag: `useActiveProfilesWhenResolvingMacros`.
 Here is an example:
 
 ~~~~~
-    root=/app
-    root<foo>=/foo
-    data.path=${root}/data
+root=/app
+root<foo>=/foo
+data.path=${root}/data
 ~~~~~
 
 What is the value of `data.path` when `foo` profile is set as active? The two possible values are:
@@ -296,11 +296,11 @@ When enabled, multilines values may be defined with triple-quotes.
 Everything between is considered as a value. Example:
 
 ~~~~~
-    email.body='''
-    	Hello $n,
+email.body='''
+	Hello $n,
 
-    	welcome!
-    '''
+	welcome!
+'''
 ~~~~~
 
 Note that multiline values are **NOT** trimmed! Therefore, the value
@@ -313,9 +313,9 @@ keys in the same order as they are listed in the props file(s).
 So instead doing this:
 
 ~~~~~
-    foo.1=value1
-    foo.2=value2
-    ...
+foo.1=value1
+foo.2=value2
+...
 ~~~~~
 
 you can simply iterate props using:
@@ -354,32 +354,32 @@ Imagine you have certain number of properties that is, by default,
 the same for some number of different categories. For example:
 
 ~~~~~
-    com.jodd.action1=value1
-    com.jodd.action2=value2
-    ...
-    org.jodd.action1=value1
-    org.jodd.action2=value2
-    ...
-    net.jodd.... # etc
+com.jodd.action1=value1
+com.jodd.action2=value2
+...
+org.jodd.action1=value1
+org.jodd.action2=value2
+...
+net.jodd.... # etc
 ~~~~~
 
 *Props* allows you to use _copy operator_: `<=` to minimize the duplicate
 props. Above props can be written as:
 
 ~~~~~
-    [actions]
-    action1=value1
-    action2=value2
-    ...
+[actions]
+action1=value1
+action2=value2
+...
 
-    []
-    org.jodd <= actions
+[]
+org.jodd <= actions
 
-    [com]
-    jodd <= actions
+[com]
+jodd <= actions
 
-    [net.jodd]
-    <= actions
+[net.jodd]
+<= actions
 ~~~~~
 
 This example shows three different ways how to use copy operator, without
@@ -390,9 +390,9 @@ Remember that copied values are set as macros, so all above
 copied properties are identical to:
 
 ~~~~~
-    org.jodd.action1=${actions.action1}
-    com.jodd.action1=${actions.action1}
-    ....
+org.jodd.action1=${actions.action1}
+com.jodd.action1=${actions.action1}
+....
 ~~~~~
 
 All rules for resolving macros applies.
@@ -423,9 +423,9 @@ into the lines (by escaping EOL). By default it is set to `true`, so the
 following multi-line props:
 
 ~~~~~
-    key1=line1\
-         line2\
-    line3
+key1=line1\
+     line2\
+line3
 ~~~~~
 
 will be read as `line1line2line3` (joined).

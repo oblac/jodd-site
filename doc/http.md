@@ -1,4 +1,4 @@
-# HTTP ![HTTP](/gfx/http.png)
+# HTTP
 
 *HTTP* is tiny, raw HTTP client - and yet simple and convenient. It
 offers a simple way to send requests and read responses. The goal is to
@@ -225,19 +225,22 @@ examples how you can do it with *HTTP*.
 Since we know the default type of `HttpConnection`, we can simply get the
 instance after explicitly calling the `open()` and cast it:
 
+~~~~~ java
     HttpRequest request = HttpRequest.get()...;
     request.open();
-    SocketHttpConnection httpConnection = (SocketHttpConnection) request.httpConnection();
+    SocketHttpConnection httpConnection =
+        (SocketHttpConnection) request.httpConnection();
     Socket socket = httpConnection.getSocket();
     socket.setSoTimeout(1000);
     ...
     HttpResponse response = request.send();
+~~~~~
 
 ### SocketHttpConnectionProvider
 
 The other way is to use custom `HttpConnectionProvider` based on `SocketHttpConnectionProvider`. So you may create your own provider like this:
 
-~~~~~
+~~~~~ java
     public class MyConnectionProvider extends SocketHttpConnectionProvider {
         protected Socket createSocket(
                 SocketFactory socketFactory, String host, int port)

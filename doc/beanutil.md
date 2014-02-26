@@ -1,4 +1,4 @@
-# BeanUtil ![beanutil](/gfx/beanutil.png "BeanUtil")
+# BeanUtil
 
 Bean utilities allow setting and reading bean properties. Several
 features make `BeanUtil` distinct from other similar libraries:
@@ -7,7 +7,7 @@ features make `BeanUtil` distinct from other similar libraries:
 * works with both *attributes* and *properties*
 * nested properties can be arrays, lists and maps
 * missing inner properties may be created
-* can work silently
+* may work silently (no exception is thrown)
 * offers few populate methods
 * has strong type conversion library
 
@@ -236,5 +236,3 @@ be injected. Usage is quite simple:
 However, the performance is not the only reason why `BeanUtil` is a good choice, as seen above.
 
 ![BeanUtil performance test](beanutil-benchmark.png)
-
-You can [download the performance test source](BeanUtilPerformanceTest.java).

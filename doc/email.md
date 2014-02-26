@@ -1,4 +1,4 @@
-# Sending and Receiving Emails ![email](/gfx/email-tool.png "Email")
+# Email
 
 Sending emails in Java should be easier. *Jodd* provides some nice classes
 for sending emails in an easier, practical way.

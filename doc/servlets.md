@@ -1,4 +1,4 @@
-# Jodd Servlets tools ![servlet](../gfx/servlet.png "JoddServlets")
+# Jodd Servlets tools
 
 *Jodd* provides many Servlet and JSP-related tools.
 
@@ -44,7 +44,7 @@ Read more about *Jodd* [JSP tag library](taglibrary.html).
 
 ## CSRF shield 
 
-*Jodd* provides simple and efficient CSRF ([Cross-site request forgery][1] protection.
+*Jodd* provides simple and efficient CSRF ([Cross-site request forgery][1]) protection.
 
 ## Filters
 

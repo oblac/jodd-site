@@ -36,4 +36,3 @@ code.
 
 `StringTemplateParser` by default detects inner macros in passed string.
 However, you can turn on parsing values as well.
-

@@ -1,4 +1,4 @@
-# JDateTime ![jdatetime](/gfx/jdatetime.png "JDateTime")
+# JDateTime
 
 `JDateTime` is an elegant, developer-friendly and yet very precise way
 to track dates and time. It uses well-defined and proven astronomical
@@ -56,7 +56,7 @@ Using constructor:
     JDateTime jdt = new JDateTime();            // current date and time
     jdt = new JDateTime(2012, 12, 21):          // 21st December 2012, midnight
     jdt = new JDateTime(System.currentTimeMillis());    // current date and time
-    jdt = new JDateTime(2012, 12, 21, 11, 54, 22, 124); // 21st Dec. 2012,11:54:22.124
+    jdt = new JDateTime(2012, 12, 21, 11, 54, 22, 124); // 21.Dec.2012,11:54:22.124
     jdt = new JDateTime("2012-12-21 11:54:22.124");     // -//-
     jdt = new JDateTime("12/21/2012", "MM/DD/YYYY");    // 21st Dec. 2012, midnight
 ~~~~~
@@ -152,8 +152,8 @@ date/time of existing instance, instead of creating new one.
     jdt.convertToGregorianCalendar();
     jdt.convertTo(GregorianCalendar.class);  // generic way of conversion
     jdt = new JDateTime(gregCalInstance);    // create from GregorianCalendar
-    jdt.loadFrom(gregCalInstance);           // loads time data from GregorianCalendar
-    jdt.storeTo(gregCalInstance);            // store time data to GregorianCalendar
+    jdt.loadFrom(gregCalInstance);       // load time data from GregorianCalendar
+    jdt.storeTo(gregCalInstance);        // store time data to GregorianCalendar
 ~~~~~
 
 Moreover, it is easy to add custom converters for any class needed.
@@ -188,7 +188,7 @@ enhanced patterns specified by [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)
 both for conversion and parsing - except parsing recognize less
 patterns.
 
-| pattern  | parsing? | Value                        |
+| Pattern  | Parsing? | Value                        |
 |:--------:|:--------:|:-----------------------------|
 | YYYY     | yes      | year                         |
 | MM       | yes      | month                        |

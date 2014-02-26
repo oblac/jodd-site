@@ -1,47 +1,28 @@
 # Documentation
 
-Welcome to *Jodd* documentation! *Jodd* project goes to much effort
-to produce the best documentation possible. Documentation consist of
-core concepts explained in depth, but also with simple examples or overview
-of some tools. It also gives examples on performing common tasks, such
-setting up frameworks, building the project etc.
+We put big effort to produce quality documentation.
+*Jodd* documentation covers core concepts of *Jodd* micro frameworks
+in depth, but also gives overview and examples for many tools.
 
 Documentation is written in **kramdown** (excellent markdown extension).
-You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site) too. Feel free to contribute!
+You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site), too. Feel free to contribute!
 
-Please browse [API](/api/index.html) for more information and examine
-test-cases for more examples. Do not hesitate to [contact support](../contact.html)
-for [more documentation](needmore.html) on specific subject!
+Browse [API](/api/index.html) for more information and
+examine test-cases for more examples.
 
-We are trying hard keep documentation to up to date with current code;
-still be aware that there may be some differences between how code works
-and whats described here. If you notice such flaws, please let us know;
-we will fix it for you!
+Although we are trying hard to keep documentation up to date with the
+code base, there may be differences between how code works
+and whats described.
 {: .attn}
 
-Need more documentation on certain topics? [Ask for it!](needmore.html)
+Need more documentation on certain topics? Don't hesitate to ask for it!
 
-
-## Search
-
-Some documentation is stored in [JavaDoc](/api/index.html). Since there are large
-number of utilities and tools in *Jodd*, the best way to find something
-is to search the API for it. Just enter below what you are looking for:
-
-<form action="http://jodd.org/sphider/search.php" method="GET" class="para">
-<input type="text" name="query" value="" style="border: 1px solid #888;
-font-size:1.6em; padding:4px; background-color:#F0F0F0; color: #555;
-width: 550px; margin-left: 50px;"> <input type="hidden" name="search" value="1" />
-<input type="submit" value="Search!" style="border: 2px solid #666; padding:8px;"/>
-</form>
 
 ## Table of Contents
 
-<div markdown="1" style="padding-left:40px; padding-right:40px;" id="doc">
-
 [About Jodd](/about) - an effective one-page you will love :)
 
-[Jodd in 10 minutes](http://oblac.github.io/jodd) - Jodd frameworks overview in 10 minutes.
+[Jodd in 5 minutes](http://oblac.github.io/jodd) - Jodd frameworks overview in 5 minutes.
 
 [Jodd in 30 minutes](http://joddframework.org) - example of Jodd micro-frameworks.
 
@@ -193,5 +174,3 @@ Learn how to [remove session id](/doc/remove-session-id.html) from URL for more 
 ### API
 
 [Jodd API](/api/index.html) javadoc.
-
-</div>
