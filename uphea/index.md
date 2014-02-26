@@ -1,4 +1,4 @@
-# Uphea ![uphea](uphea.png)
+# Uphea
 
 *Uphea* is an open-source real-world web application example built on
 *Jodd* frameworks. It presents many best-practices of using *Jodd*.
@@ -17,8 +17,10 @@ more and more *Jodd*s features.
 
 Hey, you can try *Uphea*! Just download prepared Tomcat 7 bundle:
 
-[uphea.zip - Tomcat 7 bundle (12 MB)](uphea.zip)
-{: .download}
+<div class="button"><a href="uphea.zip">
+    uphea.zip 
+    <div class="sub">Tomcat 7 bundle (12 MB)</div>
+</a></div>
 
 Unpack the bundle somewhere and execute `run-uphea.bat` or
 `run-uphea.sh` (`cmod +x` first!). And that's all! When *Uphea* web
@@ -30,14 +32,16 @@ Then open your favorite browser and enter the following URL:
 
 ### Source code
 
-Soruce code is available on **GitHub**\:
+Source code is available on **GitHub**:
 
-[https://github.com/oblac/uphea][3]
-{: .download}
+<div class="button button-long"><a href="https://github.com/oblac/uphea">
+    https://github.com/oblac/uphea
+</a></div>
+
 
 ## Key points
 
-<div class="cls">
+<div class="clearfix">
 <div style="width:40%; float:left;" markdown="1">
 * [Small project size](#small-project-size)
 * [Fast (re)start](#fast-restart)
@@ -65,8 +69,6 @@ Soruce code is available on **GitHub**\:
 
 </div>
 </div>
-
-More points and more details will be added...
 
 ## Small project size
 
@@ -233,7 +235,7 @@ actions.
 
 ## Optimize HTML and resources
 
-*HTMLStapler* is a great tool to optimize multiple HTML resources into
+*HtmlStapler* is a great tool to optimize multiple HTML resources into
 one big resource file, **transparently**! As result, instead of
 downloading several CSS and JS files, only two resource bundles will be
 downloaded. Moreover, *Lagarto* parser can optimize the HTML page and
@@ -244,7 +246,6 @@ strip all unnecessary whitespaces.
 
 [1]: http://uphea.com
 [2]: http://localhost:8080
-[3]: https://github.com/oblac/uphea
 [4]: http://code.google.com/p/uphea/source/browse/trunk/mod/web/src/com/uphea/WebRunner.java
 [5]: http://code.google.com/p/jodd/source/browse/trunk/mod/jodd-joy/www/reform.js
 [6]: http://code.google.com/p/uphea/source/browse/trunk/mod/web/src/com/uphea/AppActionPathRewriter.java
