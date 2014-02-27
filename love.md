@@ -3,9 +3,9 @@ make-toc:no
 -----
 # Who loves Jodd? ![heart](gfx/heart.png)
 
-**Awesome** people loves *Jodd* :) Share your success stories with us and other community members!
+**Awesome** people loves *Jodd* :) Share your success stories with us and the community!
 
-Bellow is just a short list of some big and small projects that officially uses *Jodd* in some way.
+Bellow is a short list of some big and small projects that officially uses *Jodd* in production.
 
 ## Liferay Portal
 

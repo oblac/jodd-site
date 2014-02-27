@@ -21,12 +21,13 @@ any issue you have.
 
 Stack Overflow is a Q&A site for programmers. Stack Overflow has a community
 of people asking and answering [questions about Jodd](http://stackoverflow.com/questions/tagged/jodd).
-Users can vote on each others' contributions and earn reputation points.
+Users can vote on each other's contributions and earn reputation points.
 
 ## Hack Jodd
 
 *Jodd*'s code and documentation is hosted on [Github](https://github.com/oblac/jodd).
-It's easy to set up *Jodd* project from the source and
+
+It's easy to [set up project](/code.html) from the source and
 start coding very quickly! Before you contribute, please
 let's discus the idea first, so we can work together smoothly.
 

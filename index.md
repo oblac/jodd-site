@@ -2,11 +2,12 @@
 template:jodd
 -----
 
-*Jodd* is set of Java micro frameworks, tools and utilities, under **1.4 MB**,
-that makes it easy to build applications.
-Designed following the [CoC](http://en.wikipedia.org/wiki/Convention_over_configuration),
-[DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and [SCS](principle.html) principles, it makes development simple, but not simpler.
+*Jodd* is set of Java **micro frameworks**, **tools** and **utilities**, under **1.4 MB**.
 
-*[CoC]: Convention over Configuration
-*[DRY]: Don't Repeat Yourself
+Designed with [common sense](principle.html) to make things simple, but not simpler. 
+
+Get things done. Build your beautiful ideas. Run your startup.
+
+And enjoy the coding.
+
 *[SCS]: Simple Common Sense

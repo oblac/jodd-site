@@ -71,16 +71,16 @@ body {
   margin: 0 auto;
 }
 
-.clearfix, #top, #main, #badges, .nav {
+.clearfix, #top, #badges, .nav {
   zoom: 1;
 }
-.clearfix:before, #top:before, #main:before, #badges:before, .nav:before, .clearfix:after, #top:after, #main:after, #badges:after, .nav:after {
+.clearfix:before, #top:before, #badges:before, .nav:before, .clearfix:after, #top:after, #badges:after, .nav:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden;
 }
-.clearfix:after, #top:after, #main:after, #badges:after, .nav:after {
+.clearfix:after, #top:after, #badges:after, .nav:after {
   clear: both;
 }
 
@@ -124,7 +124,7 @@ div.button a, #button-jodd a {
 }
 div.button a:hover, #button-jodd a:hover {
   color: #fff;
-  background-color: #f7931e;
+  background-color: #f9a748;
 }
 div.button a div.sub, #button-jodd a div.sub {
   font-family: "Open Sans Condensed", Helvetica, sans-serif;
@@ -145,12 +145,12 @@ div.button-long a {
 
 #social a {
   font-size: 25px;
-  color: #333;
+  color: #ecdcc4;
   margin-right: 10px;
   position: relative;
 }
 #social a:hover {
-  color: #ecdcc4;
+  color: #fff;
 }
 
 #social a span {
@@ -169,8 +169,7 @@ div.button-long a {
   font-size: 12px;
   font-family: "Open Sans Condensed", Helvetica, sans-serif;
   font-weight: bold;
-  font-stretch: condensed;
-  letter-spacing: -.03em;
+  letter-spacing: -1px;
   white-space: nowrap;
 }
 #social a span:after {
@@ -203,14 +202,25 @@ div.button-long a {
   text-align: center;
   color: #fff;
   background-color: #f16522;
-  padding: 20px;
+  padding: 16px 0 10px 0;
 }
 #shout strong {
   font-weight: bold;
 }
+#shout p {
+  margin-bottom: 2px;
+}
+#shout a {
+  color: #fff;
+  border-bottom: 1px dotted #fff;
+}
+#shout a:hover {
+  border-bottom: 1px solid #fff;
+}
 
 #top nav {
   float: right;
+  margin-right: 40px;
 }
 #top nav a {
   font-family: "Fjalla One", Helvetica, sans-serif;
@@ -262,6 +272,24 @@ div.button-long a {
 /* content */
 #main {
   margin: 40px 0;
+  color: #444444;
+}
+#main h2 {
+  text-align: center;
+  font-family: "Fjalla One", Helvetica, sans-serif;
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+#main .under {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+#main .under a {
+  border-bottom: 1px dotted black;
+}
+#main .under a:hover {
+  border-bottom: none;
 }
 
 #content article > * {
@@ -271,8 +299,15 @@ div.button-long a {
 
 #content {
   margin: 40px 0 0 0;
-  color: #444;
+  color: #444444;
   position: relative;
+}
+#content #social {
+  margin-top: -40px;
+  margin-right: 20px;
+}
+#content #social a {
+  color: #ecdcc4;
 }
 #content .inner, #content #top {
   background-color: #f9f9f9;
@@ -303,7 +338,7 @@ div.button-long a {
 }
 #content article a:hover {
   text-decoration: underline;
-  color: #f7931e;
+  color: #f9a748;
 }
 #content article a.javadoc {
   float: right;
@@ -398,7 +433,7 @@ div.button-long a {
 }
 #content aside a:hover {
   text-decoration: underline;
-  color: #f7931e;
+  color: #f9a748;
 }
 #content aside li.doc-this {
   background-color: #f0f0f0;
@@ -448,7 +483,7 @@ input[type="search"] {
   top: -500px;
 }
 
-#blank {
+#title-doc {
   padding: 100px 0;
 }
 
@@ -490,12 +525,8 @@ pre code {
 }
 
 #badges {
-  border: 1px solid blue;
   width: 820px;
   margin: 0 auto;
-}
-#badges .badge {
-  border: 1px solid red;
 }
 
 .badge {
@@ -735,18 +766,26 @@ tbody td:hover {
 
 footer {
   margin: 50px 0 0 0;
+  color: whitesmoke;
+  color: #444444;
 }
 
 #support {
-  color: #ddd;
   background-color: #454545;
-  padding: 40px 10px;
+  padding: 20px 10px;
+}
+#support a {
+  color: #888;
+  margin: 0 20px;
+  size: 14px;
 }
 
 #overview {
-  color: #ddd;
+  text-align: center;
+  color: #888;
   background-color: #343434;
   padding: 40px 10px;
+  size: 12px;
 }
 
 /* error */
@@ -779,7 +818,7 @@ footer {
     font-size: 25px;
   }
 
-  .bad1 {
+  .br1 {
     display: none;
   }
 
@@ -838,12 +877,34 @@ footer {
     float: none;
   }
 
+  #content #social {
+    display: none;
+  }
+
   #badges {
-    width: 200px;
+    width: inherit;
+  }
+
+  .br2 {
+    display: none;
   }
 
   .badge {
     float: none;
+    position: relative;
+    width: inherit;
+    margin-bottom: 30px;
+  }
+
+  .desc {
+    position: absolute;
+    left: 120px;
+    top: 20px;
+  }
+
+  .circle, .square, .hexagon {
+    margin-left: 0;
+    margin-bottom: 0;
   }
 
   #logo {
@@ -871,7 +932,7 @@ footer {
     background-color: #f0f0f0;
   }
 
-  #blank {
+  #title-doc {
     padding: 6px 0;
   }
 
@@ -881,9 +942,26 @@ footer {
     margin-top: 0;
   }
 
+  #shout {
+    font-size: 14px;
+  }
+
   #intro {
     background-image: none;
     background-color: #b6421a;
+  }
+
+  div.button-long a {
+    width: auto;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #main h2 {
+    font-size: 24px;
+  }
+  #main .under {
+    font-size: 14px;
   }
 }
 /* coderay */

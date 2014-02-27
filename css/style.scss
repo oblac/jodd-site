@@ -2,6 +2,7 @@
 @import "compass/utilities";
 @import "compass/reset";
 
+//$font-text: "Helvetica Neue","Helvetica",sans-serif;
 $font-text: "Source Sans Pro", Helvetica, sans-serif;
 $font-cond: "Open Sans Condensed", Helvetica, sans-serif;
 $font-head: "Lato", Helvetica, sans-serif;
@@ -14,12 +15,13 @@ $color-code: #444;
 $color-dark: #222;
 $color-orange: #f16522;
 $color-orange1: #ecdcc4;
-$color-orange2: #f7931e;
+$color-orange2: #f9a748;
 $color-footer1: #454545;
 $color-footer2: #343434;
 $color-attn: #fff7d6;
 $color-back: #f5f5f5;
 $color-red: #b6421a;
+$color-text: #444;
 
 body {
 	font-family: $font-text;
@@ -99,10 +101,10 @@ div.button-long {
 }
 #social a {
 	font-size: 25px;
-	color: #333;
+	color: $color-orange1;
 	margin-right: 10px;
 	position: relative;
-	&:hover {color: $color-orange1;}	
+	&:hover {color: #fff;}
 }
 #social a span {
 	@include border-radius(3px);
@@ -115,8 +117,7 @@ div.button-long {
 	font-size:12px;
 	font-family: $font-cond;
 	font-weight:bold;
-	font-stretch:condensed;
-	letter-spacing:-.03em;
+	letter-spacing:-1px;
 	white-space:nowrap;
 	&:after {
 		position:absolute;
@@ -148,15 +149,26 @@ div.button-long {
 	text-align: center;
 	color: #fff;
 	background-color: $color-orange;
-	padding: 20px;
+	padding: 16px 0 10px 0;
 	strong {
 		font-weight: bold;
+	}
+	p {
+		margin-bottom: 2px;
+	}
+	a {
+		color: #fff;
+		border-bottom: 1px dotted #fff;
+		&:hover {
+			border-bottom: 1px solid #fff;
+		}
 	}
 }
 
 #top {
 	nav {
-		float:right;		
+		float:right;
+		margin-right: 40px;	
 		a {
 			font-family: $font-bold;
 			display: block;
@@ -206,7 +218,24 @@ div.button-long {
 
 #main {
 	margin: 40px 0;
-	@extend .clearfix;
+	color: $color-text;
+	h2 {
+		text-align: center;
+		font-family: $font-bold;
+		font-size: 30px;
+		margin-bottom: 6px;
+	}
+	.under {
+		text-align: center;
+		font-size: 18px;
+		margin-bottom: 40px;
+		a {
+			border-bottom: 1px dotted black;
+			&:hover {
+				border-bottom: none;
+			}
+		}
+	}
 }
 #content article > * {
 	padding-left: 40px;
@@ -214,8 +243,16 @@ div.button-long {
 }
 #content {
 	margin: 40px 0 0 0;
-	color: #444;
+	color: $color-text;
 	position: relative;
+
+	#social {
+		margin-top: -40px;
+		margin-right: 20px;
+		a {
+			color: $color-orange1;
+		}
+	}
 	
 	.inner {
 		background-color: #f9f9f9;
@@ -296,7 +333,7 @@ div.button-long {
 				color: $color-orange1;
 				&:hover { color: #fff; text-decoration: none;}
 			}
-		}
+		}		
 	}
 	
 	aside {
@@ -377,7 +414,7 @@ input[type="search"] {
 }
 
 
-#blank {
+#title-doc {
 	padding: 100px 0;
 }
 
@@ -412,13 +449,9 @@ pre code {
 }
 
 #badges {
-	border: 1px solid blue;
 	@extend .clearfix;
 	width: 820px;
 	margin: 0 auto;
-	.badge {
-		border: 1px solid red;
-	}
 }
 .badge {
 	float: left;
@@ -624,17 +657,25 @@ tbody {
 
 footer {
 	margin: 50px 0 0 0;
+	color: $color-back;
+	color: $color-code;
 }
 
 #support {
-	color: #ddd;
 	background-color: $color-footer1;
-	padding: 40px 10px;
+	padding: 20px 10px;
+	a {
+		color: #888;
+		margin: 0 20px;
+		size: 14px;
+	}
 }
 #overview {
-	color: #ddd;
+	text-align: center;
+	color: #888;
 	background-color: $color-footer2;
 	padding: 40px 10px;
+	size: 12px;
 }
 
 /* error */
@@ -667,7 +708,7 @@ footer {
 #title h2 {
 	font-size: 25px;
 }
-.bad1 {
+.br1 {
 	display: none;
 }
 #badges {
@@ -720,12 +761,34 @@ footer {
 #social {
 	float:none;
 }
+#content #social {
+	display: none;
+}
 #badges {
-width: 200px;
+	//width: 200px;
+	width: inherit;
 }
+.br2 {
+	display: none;
+}
+
 .badge {
-	float:none;
+	float: none;
+	position: relative;
+	width: inherit;
+	margin-bottom: 30px;
 }
+.desc {
+	position: absolute;
+	left: 120px;
+	top: 20px;
+}
+
+.circle, .square, .hexagon {
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
 #logo {
 	float:none;
 	text-align: center;
@@ -749,7 +812,7 @@ width: 200px;
 		}
 	}
 }
-#blank {
+#title-doc {
 	padding: 6px 0;
 }
 #shout, #main, #content, #intro, footer {
@@ -759,10 +822,29 @@ width: 200px;
 		margin-top: 0;
 	}
 }
+#shout {
+	font-size: 14px;
+}
 #intro {
 	background-image: none;
 	background-color: $color-red;
 }
+div.button-long {
+	a {
+		width: auto;
+		font-size: 16px;
+		padding: 10px;
+	}
+}
+#main {
+	h2 {
+		font-size: 24px;
+	}
+	.under {
+		font-size: 14px;
+	}
+}
+
 
 }
 

@@ -1,6 +1,6 @@
 # Simple Common Sense principle
 		
-*Jodd* uses common sense: it tries to make things as simple as possible, but no simpler.
+*Jodd* uses common sense: tries to make things as simple as possible, but no simpler.
 
 Many programmers have a tendency to be _Too Smart_. Being _Smart_, they
 introduce various kinds of _Magic_ into their software. This will usually

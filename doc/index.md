@@ -1,30 +1,16 @@
 # Documentation
 
-We put big effort to produce quality documentation.
-*Jodd* documentation covers core concepts of *Jodd* micro frameworks
-in depth, but also gives overview and examples for many tools.
+## What can I expect from Jodd?
 
-Documentation is written in **kramdown** (excellent markdown extension).
-You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site), too. Feel free to contribute!
-
-Browse [API](/api/index.html) for more information and
-examine test-cases for more examples.
-
-Although we are trying hard to keep documentation up to date with the
-code base, there may be differences between how code works
-and whats described.
-{: .attn}
-
-Need more documentation on certain topics? Don't hesitate to ask for it!
-
+Developer-friendly experience &middot; Excellent performances &middot; Small memory footprint and code-base; under 1.5 MB &middot; Fast redeployments, matter of seconds &middot; Elegant web framework &middot; Slick and lightweight DI container &middot; The fastest and unique proxy creator &middot; Efficient and thin database layers &middot; Transactions manager &middot; Focused validation framework &middot; Fast and versatile HTML parser &middot; Decoration framework based on templates &middot; Fastest bean library &middot; Elegant and precise time class &middot; Powerful properties replacement &middot; Tiny and raw HTTP client &middot; Many carefully selected utilities... and more!
 
 ## About
 
 [About Jodd](/about) - an effective one-page you will love :)
 
-[Jodd in 5 minutes](http://oblac.github.io/jodd) - Jodd frameworks overview in 5 minutes.
+[Jodd overview in 5 minutes](http://oblac.github.io/jodd) - Jodd frameworks overview in 5 minutes.
 
-[Jodd in 30 minutes](http://joddframework.org) - example of Jodd micro-frameworks.
+[Jodd micro-frameworks in 30 minutes](http://joddframework.org) - example of using Jodd micro-frameworks.
 
 ## Jodd utilities
 
@@ -186,3 +172,22 @@ Learn how to [remove session id](/doc/remove-session-id.html) from URL for more 
 [Test results](/test/index.html).
 
 [Coverage reports](/test/coverage-report/index.html).
+
+
+## About Documentation
+
+We put big effort to produce quality documentation.
+*Jodd* documentation covers core concepts of *Jodd* micro frameworks
+in depth, but also gives overview and examples for many tools.
+
+Although we are trying hard to keep documentation up to date with the
+code base, there may be differences between how code works
+and whats described.
+{: .attn}
+
+Documentation is written in **kramdown** (excellent markdown extension).
+You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site), too. Feel free to contribute!
+
+Need more documentation on certain topics? Don't hesitate to ask for it!
+
+Thank you!
