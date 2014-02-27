@@ -6,7 +6,7 @@ complicated as it sounds.
 
 ## Example
 
-![db relations](db-relations.png){: .float-right}
+![db relations](db-relations.png){: .right}
 In our [Uphea](/uphea/index.html) example, there is a
 situation presented on UML model. `Question` may have many `Answer`s,
 but only one `Country`. Lets see how to model this relation in Java in

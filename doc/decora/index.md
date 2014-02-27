@@ -36,7 +36,7 @@ for all `*.html` action paths. Default decorator is
 
 *Decora* may be used offline, too. It is not required to use it in web
 environment.
-{: .example}
+{: .attn}
 
 ## DecoraManager
 

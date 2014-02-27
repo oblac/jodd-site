@@ -56,7 +56,7 @@ Please note that beta version is not always available.
 {::comment}+BETA{:/comment}
 ### Bundle
 
-[![download](/gfx/dl.gif) jodd-@@{BETA}.zip](jodd-@@{BETA}.zip)
+jodd-@@{BETA}.zip](jodd-@@{BETA}.zip)
 
 {::comment}+BETA{:/comment}
 

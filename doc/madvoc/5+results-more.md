@@ -54,7 +54,7 @@ and value equals to the action path: `/index.html`.
 Therefore, behavior of the `OneAction#execute` action remains identical.
 
 Aliases are convenient for `redirect:` results.
-{: .example}
+{: .attn}
 
 ### Default aliases
 
@@ -109,7 +109,7 @@ the result path is just: `/form`. And this means that the both actions
 will share the same resulting page, e.g. `/form.jsp`.
 
 Think about `#` as a 'BACK' command for actions path.
-{: .example}
+{: .attn}
 
 Another example:
 

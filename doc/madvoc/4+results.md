@@ -296,7 +296,7 @@ string.
 
 Not only that no parameter is passed in query, **move** result
 implicitly support passing complex types with redirection!
-{: .example}
+{: .attn}
 
 The best way to understand 'moving' is to compare it with the
 'redirect'. The target action is a simple and has one input value

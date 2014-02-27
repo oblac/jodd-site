@@ -12,7 +12,7 @@ creating `Proxetta` implementations.
 
 This page explains `ProxyProxetta`, but many things here are common for
 other *Proxetta* types as well.
-{: .example}
+{: .attn}
 
 ## Creating Proxetta
 

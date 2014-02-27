@@ -64,7 +64,7 @@ scans for all packages that belong to the package of `AppCore` - we
 assume that services are somewhere bellow.
 
 This is just one way how you can register your bean.
-{: .example}
+{: .attn}
 
 That is all, *Petite* is ready for use and upon start it will find all
 annotated services. Even if we don't have any service at the moment, we

@@ -116,7 +116,7 @@ months, minutes and seconds has to be added to current time, it would be
 faster to add them at once by invoking: `add(0, months, 0, 0, minutes,
 seconds, 0);` instead of calling three add methods for month, minutes
 and seconds respectively.
-{: .example}
+{: .attn}
 
 Adding months is dubious because of variable month length. There are two
 ways how months may be considered during adding, what will be shown in

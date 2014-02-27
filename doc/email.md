@@ -237,8 +237,7 @@ like that before fetching). This way `receiveEmail()` should not change the
 state of your inbox.
 
 Most probably you will need `receiveEmailAndMarkSeen()` or `receiveEmailAndDelete()`.
-{: .example}
-
+{: .attn}
 
 ### POP3
 

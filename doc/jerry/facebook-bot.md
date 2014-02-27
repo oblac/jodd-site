@@ -15,7 +15,7 @@ parse, parse, parse technique.
 
 Content of Facebook pages may change in future and example may stop
 working.
-{: .example}
+{: .attn}
 
 Note: the purpose of this practice is **PURELY EDUCATIONAL**. We do not
 want to make any harm, break a law, kill a puppy etc. If we do violate
@@ -40,7 +40,7 @@ content and sniff the requests.
 
 This examples uses 3rd party lib (HttpClient). See
 [similar example](facebook.html) build only with *Jerry* and *Http*.
-{: .example}
+{: .attn}
 
 ## 0:11 - 0:55 HTTP connection tools
 

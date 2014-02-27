@@ -82,7 +82,6 @@ This approach allows to perform HTML modifications during just **one**
 parsing! For example, if you have 3 different adapters that modifies
 HTML code in some way, they all can be applied during just single
 content parsing.
-{: .example}
 
 ## LagartoParserEngine
 

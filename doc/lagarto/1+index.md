@@ -35,7 +35,7 @@ This makes *Lagarto* very, very fast; in fact it is one of the fastest
 parsers out there.
 
 *Lagarto* is to HTML what **ASM** is to bytecode :)
-{: .example}
+{: .attn}
 
 ## Lagarto Family
 

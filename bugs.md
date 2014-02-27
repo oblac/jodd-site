@@ -11,7 +11,6 @@ Report issues here: [github.com/oblac/jodd/issues](https://github.com/oblac/jodd
 ## By Email
 
 bug ![at](/gfx/at_sign.png) jodd&#46;org
-{: .email}
 
 
 ## Directly

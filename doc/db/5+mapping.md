@@ -22,7 +22,6 @@ SQL types defined in annotation are always used, even if java type of a property
 
 For successful mapping and *DbOom* functionality, table and column naming
 strategies must match how JDBC driver of destination database works.
-{: .attn}
 
 This is very important to understand! *DbOom* has table and column name
 naming strategies that define how entity/column names are converted
@@ -47,7 +46,7 @@ Here are the possible naming strategies options (defined in `DbOomManager`):
 + `prefix` and `suffix` - table names may have prefix and/or a suffix.
 
 Why is this important? Naming strategies are important since JDBC drivers works differently then you expect.
-{: .example}
+{: .attn}
 
 For example, you may define your database using uppercases name,
 but JDBC driver simply returns lowercase values. Therefore, by setting
@@ -56,7 +55,7 @@ will work flawlessly.
 
 Wrong naming strategy is the most common configuration mistake when
 using *DbOom*!
-{: .warn}
+{: .attn}
 
 Therefore, when working with *DbOom*, please use uniform naming convention
 across the whole database and please match it with how JDBC drivers work!

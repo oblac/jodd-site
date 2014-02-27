@@ -41,10 +41,7 @@ many ways.
 ## Reasons why
 
 *Petite* is one of the lightest Java DI container around. Still, it
-supports sufficient most of features offered by other containers. To
-some it may resemble to [Guice][1]{: .external} (due to annotations
-usage): and yes it does, but *Petite* was developed way before and it still
-has some conceptual differences.
+supports sufficient most of features offered by other containers.
 
 Here are the key features:
 
@@ -61,5 +58,3 @@ Here are the key features:
 * Designed to be extended.
 
 <js>docnav('petite')</js>
-
-[1]: http://code.google.com/p/google-guice/

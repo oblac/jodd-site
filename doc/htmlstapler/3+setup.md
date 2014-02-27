@@ -25,7 +25,7 @@ Configure filter behavior either with filter init parameters or by
 extending the filter class and configure it manually in Java.
 
 `HtmlStaplerFilter` has one bonus feature included: HTML stripping!
-{: .example}
+{: .attn}
 
 And that is all!
 

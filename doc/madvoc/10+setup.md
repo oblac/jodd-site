@@ -141,7 +141,7 @@ method.
 Good practice is to always override `WebApplication` with custom
 implementation from very beginning, even if empty, since good chances
 are that *Madvoc* needs to be customized.
-{: .example}
+{: .attn}
 
 Here is how custom web application may looks like:
 

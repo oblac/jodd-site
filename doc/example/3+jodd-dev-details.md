@@ -26,11 +26,11 @@ Ok, here goes a short overview of each step.
 ## Preparation
 
 As for any web application, we need servlet container installed, such as
-[Apache Tomcat][1]{: .external}. We also assume that database server of
-choice is already installed (e.g. [MySql][2]{: .external} or [H2][3]{:
-.external} or [Oracle XE][4]{: .external} or ...) and ready to use. If
-not, than you can download [HSQLDB][5]{: .external} or [H2DB][3]{:
-.external}, embedded database that require no installation.
+[Apache Tomcat][1]. We also assume that database server of
+choice is already installed (e.g. [MySql][2] or [H2][3]
+or [Oracle XE][4] or ...) and ready to use. If
+not, than you can download [HSQLDB][5] or [H2DB][3],
+ embedded database that require no installation.
 
 This example needs just the following jars:
 

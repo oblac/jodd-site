@@ -30,9 +30,7 @@ string.
 The basic way of query generation (by joining chunks using java) is not
 used much in practice. Other ways (template sql) are much more
 convenient. However, since all other ways use this basic functionality
-internally, it is important to learn it and understand what is under the
-hood.
-{: .example}
+internally, let's learn and understand what is under the hood.
 
 ## DbSqlBuilder
 

@@ -5,7 +5,7 @@ is a common everyday task in life of Java developer. *Jodd* offers
 several solution for directory walking.
 
 For finding classes, see [Class Finder](class-finder.html).
-{: .example}
+{: .attn}
 
 ## FileFilterEx
 

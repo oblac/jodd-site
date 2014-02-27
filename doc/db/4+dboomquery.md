@@ -129,7 +129,7 @@ column names. Think of `@DbTable` like a set of resultset columns that
 applies to one bean.
 
 Using annotations is the preferred way for working with *DbOom*.
-{: .example}
+{: .attn}
 
 ## Join hints: 1-1 relations
 
@@ -162,7 +162,7 @@ property.
 Hint is the name/path of bean in the context of query result. When you
 map query result to several beans or instances, with hints you can
 organize them and inject one into another. Hints order is important!
-{: .example}
+{: .attn}
 
 With hints it is possible to easy solve 1-1 relationships. Obviously, it
 works for uni-directional relationships; bidirectional support should be

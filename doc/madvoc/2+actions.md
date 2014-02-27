@@ -239,7 +239,6 @@ Nice practice is to specify the extension such as 'do' using `@Action`
 annotation to all actions that are mapped to POST request (i.e. form
 submissions) and then to programatically set POST for those actions, and
 GET to all others; if it is not explicitly set different.
-{: .example}
 
 ## Default action methods
 

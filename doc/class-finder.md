@@ -13,7 +13,6 @@ When matched class or resource (i.e. entry) is found, callback method is
 invoked.
 
 For scanning files and folders, see [file finder](findfile.html).
-{: .example}
 
 `ClassFinder` contains can be fine tunes using following properties:
 

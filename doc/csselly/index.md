@@ -31,7 +31,7 @@ Resulting list is a set of nodes that matches selector.
 
 See [*Jerry*](/doc/jerry/index.html) for more convenient HTML
 manipulation, using JQuery-friendly API.
-{: .example}
+{: .attn}
 
 ## Supported selectors
 
