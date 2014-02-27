@@ -5,7 +5,7 @@ There are lots of ways you can contribute.
 
 ## Spread the word
 
-If you are a satisfied *Jodd* user, please, spread a word. Write a blog,
+If you are a satisfied *Jodd* user, please, spread the word. Write a blog,
 post a tweet, share a link, send us example of your usage,
 share the experience... This would help us grow the *Jodd* community.
 
