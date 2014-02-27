@@ -2,7 +2,7 @@
 
 ## What can I expect from Jodd?
 
-Developer-friendly experience &middot; Excellent performances &middot; Small memory footprint and code-base; under 1.5 MB &middot; Fast redeployments, matter of seconds &middot; Elegant web framework &middot; Slick and lightweight DI container &middot; The fastest and unique proxy creator &middot; Efficient and thin database layers &middot; Transactions manager &middot; Focused validation framework &middot; Fast and versatile HTML parser &middot; Decoration framework based on templates &middot; Fastest bean library &middot; Elegant and precise time class &middot; Powerful properties replacement &middot; Tiny and raw HTTP client &middot; Many carefully selected utilities... and more!
+Developer-friendly experience + Excellent performances + Small memory footprint and code-base; under 1.5 MB + Fast redeployments, matter of seconds + Elegant web framework + Slick and lightweight DI container + The fastest and unique proxy creator + Efficient and thin database layers + Transactions manager + Focused validation framework + Fast and versatile HTML parser + Decoration framework based on templates + Fastest bean library + Elegant and precise time class + Powerful properties replacement + Tiny and raw HTTP client + Many carefully selected utilities... and more!
 
 ## About
 
