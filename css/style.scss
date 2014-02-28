@@ -698,7 +698,7 @@ footer {
 
 /** MEDIUM **/
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
 #button-jodd {
 	margin-right: 10px;
 }
@@ -740,7 +740,7 @@ footer {
 
 /** SMALL**/
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 640px), only screen and (max-device-width: 640px)  {
 #button-jodd {
 	float:none;
 	margin:0;
