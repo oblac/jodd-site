@@ -243,6 +243,9 @@ div.button-long a {
   border-bottom-right-radius: 6px;
   display: block;
 }
+#logo i {
+  width: 20px;
+}
 
 #title {
   color: #fff;
@@ -804,8 +807,53 @@ footer {
   font-size: 20px;
 }
 
+@-webkit-keyframes rotateInUpRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInUpRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+.rotateInUpRight {
+  -webkit-animation: rotateInUpRight 1s;
+  animation: rotateInUpRight 1s;
+}
+
 /** MEDIUM **/
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
   #button-jodd {
     margin-right: 10px;
   }
@@ -853,7 +901,7 @@ footer {
   }
 }
 /** SMALL**/
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 640px), only screen and (max-device-width: 640px) {
   #button-jodd {
     float: none;
     margin: 0;
@@ -918,6 +966,7 @@ footer {
   }
   #top nav {
     float: none;
+    margin-right: 0;
   }
   #top nav a {
     text-align: center;

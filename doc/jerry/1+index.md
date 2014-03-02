@@ -7,7 +7,8 @@ concise Java Library that simplifies HTML document parsing, traversing
 and manipulating. *Jerry* is designed to change the way that you parse
 HTML content.
 
-*Jerry* belongs to <var>jodd-lagarto</var> module and has no dependencies.
+*Jerry* belongs to <var>jodd-lagarto</var> module and has no dependencies
+other then Jodd's.
 
 ## What does Jerry code look like?
 

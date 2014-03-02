@@ -187,6 +187,9 @@ div.button-long {
 	font-size: 20px;
 	@include border-bottom-radius(6px);
 	display: block;
+	i {
+		width:20px;
+	}
 }
 #title {
 	color: #fff;
@@ -695,6 +698,20 @@ footer {
 	}
 }
 
+@-webkit-keyframes rotateInUpRight {
+	0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}
+	100%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}
+}
+
+@keyframes rotateInUpRight {
+	0%{-webkit-transform-origin:right bottom;-ms-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}
+	100%{-webkit-transform-origin:right bottom;-ms-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);opacity:1}
+}
+
+.rotateInUpRight {
+	-webkit-animation: rotateInUpRight 1s;
+	animation: rotateInUpRight 1s;
+}
 
 /** MEDIUM **/
 
@@ -716,7 +733,7 @@ footer {
 }
 #top {
 	width: $width-page2;
-	max-width: $width-page2;		
+	max-width: $width-page2;
 }
 .inner {
 	width: $width-page2;
@@ -798,6 +815,7 @@ footer {
 	max-width: none;
 	nav {
 		float:none;
+		margin-right: 0;
 		a {
 			text-align: center;
 			float:none;
