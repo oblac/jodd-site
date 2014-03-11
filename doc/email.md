@@ -45,6 +45,16 @@ Text and HTML email, high priority:
         .priority(PRIORITY_HIGHEST);
 ~~~~~
 
+### Email Addresses
+
+All types of email addresses (from, to, cc...) may be specified in two ways:
+
++ only by email address, eg: `some.one@jodd.com`, or
++ by personal (display) name and email address, eg: `John <some.one@jodd.com>`
+
+In the second case, email address must be surrounded by angled brackets.
+Consider using it as it is less likely your message is going to be marked as spam ;)
+
 ## Attachments
 
 There are several attachment types that can be added:
