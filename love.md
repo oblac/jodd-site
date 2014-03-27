@@ -12,7 +12,7 @@ Bellow is a short list of some big and small projects that officially uses *Jodd
 The best Java open-source enterprise portal, Liferay Portal, uses few *Jodd*
 tools and utilities in it's core: *BeanUtil*, *Paramo* etc.
 
-[http://liferay.com](liferay.com)
+[liferay.com](http://liferay.com)
 
 ## Apache JMeter
 

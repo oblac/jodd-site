@@ -37,10 +37,6 @@ Properties annotated with `@In` annotation are marked as injection
 targets. This annotation has the following elements:
 
 * `value` - name of scope value, if different then property name;
-* `create` - specifies if fields should be created if not found (if they
-  are `null`);
-* `remove` - specifies if value should be removed from the scope, if
-  possible, after injection;
 * `scope` - indicates the scope, default is `ScopeType.REQUEST`.
 
 Example:
@@ -71,7 +67,7 @@ done using [`BeanUtil`](/doc/beanutil.html), Madvocs bean manipulator.
 Then, second property shows how its setter will be invoked during the
 injection and will change the injection value.
 
-## Entity mapping
+### Entity mapping
 
 Very often input forms matches entities (aka domain objects, dto
 objects, entity beans...). *Madvoc* offers easy way to map input
@@ -110,7 +106,7 @@ element of `@In` is `true` by default) and inject values for name and
 data properties. Of course, in the real life, input fields would be
 named more meaningfully as \'person.xxx\' instead of \'p.xxx\'.
 
-## Entity list mapping
+### Entity list mapping
 
 *Madvoc* offers way to map list of entity data in similar manner. For
 example, some input form may contain list of `Person` objects, where
@@ -152,7 +148,7 @@ This form may be mapped in the several ways:
 in the real-life, input fields would be named more meaningfully as
 \'person.xxx\' instead of \'ppp.xxx\'.
 
-## Context and Servlet scope
+### Context and Servlet scope
 
 *Madvoc* context and servlet scope are special scopes. Their purpose is
 to provide special data to the action object. It allows to inject the
@@ -200,13 +196,54 @@ scopes.
 ## @Out
 
 Similar as for injection, `@Out` annotation is used on action object
-properties that has to be outjected to the scopes. `@Out` annotation has
-only two elements: `value` and `scope`, with the same meaning as of
-`@In`.
+properties that has to be outjected to the scopes.
 
 ## @InOut
 
 Just a shortcut for both `@In` and `@Out` annotations. May be useful
 when property name differs from scope value name.
+
+## Action method parameters
+
+When your action has more then one action method, the number of `@In` and `@Out`
+properties may be big, and usually, some fields are shared for both methods.
+Such action class does not look pretty and you might loose a track what
+is injected/outjected for each action method.
+
+For this reason, *Madvoc* supports to group `@In` and `@Out` properties into
+separated classes that will be parameter(s) for action method. In other words,
+you may do the following refactoring, from this:
+
+~~~~~ java
+	@MadvocAction
+	public class MyAction {
+		@In String one;
+		@Out int two;
+		...		
+		public void view() {}
+	}
+~~~~~
+
+to this:
+
+~~~~~ java
+	@MadvocAction
+	public class MyAction {
+	
+		class ViewData {
+			@In String one;
+			@Out int two;
+			...
+		}		
+		public void view(ViewData viewData) {}
+	}
+~~~~~
+
+We just made an inner class that simply groups parameters of one action method.
+This way you can separate input and outputs between action methods in the same
+action class.
+
+You may have more the one action method parameter. And you can use inner classes
+or static classes, or even separate classes for parameters.
 
 <js>docnav('madvoc')</js>

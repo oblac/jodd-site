@@ -51,7 +51,7 @@ Here is how to specify this hint in Java:
     // set parameters
     List<SentMessage> list =
     	q.withHints("sm", "sm.content").
-            listAndClose(SentMessage.class, String.class);
+            list(SentMessage.class, String.class);
 ~~~~~
 
 And that is all! Here is how to read this in English: each record from

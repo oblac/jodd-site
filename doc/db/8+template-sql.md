@@ -2,14 +2,14 @@
 
 Native SQL contains table and column names. As *DbOom* is an object
 mapper, it would be more natural to use entity and property names
-instead. In previous topic we have introduced sql generators and
-described how to build query using java. This is still not
+instead. In previous topic we have introduced SQL generators and
+described how to build query using Java. This is still not
 developer-friendly. Therefore, `DbSqlBuilder` offers one more feature:
-template sql queries.
+Template SQL queries, or **TSQL** in short.
 
-Template sql is a sql-alike query string with few string macros that
-allows developer to use entity and property names instead tables and
-columns.
+Template SQL is a SQL-alike query string with an add-on: the macros.
+Macros allow usage of entity and property names instead of tables and
+columns names.
 
 Example:
 
@@ -242,6 +242,18 @@ specify it like this: `$C{boy.girlAlt:girl.*}`.
 
 For more powerful hints configuration, use `withHints()` method.
 
+## ParsedSql
+
+You can gain some performance by parsing the template query only once.
+
+~~~~~ java
+	ParsedSql q1 = sql("select ....").parse();
+~~~~~
+
+If you store the value of `ParsedSql`, you can easily re-use it in your methods,
+by passing it to the constructor of `DbOomQuery`. Just be sure that parsing
+is done _after_ the *DbOom* initialization!
+
 ## DbEntitySql
 
 With `DbSqlBuilder` engine it is possible to create high-level factories
@@ -250,10 +262,10 @@ that can simplify database usage. One such factory already exist:
 
 ~~~~~ java
     new DbOomQuery(session,
-        DbEntitySql.insert(new Girl(...)).executeUpdateAndClose();
+        DbEntitySql.insert(new Girl(...)).executeUpdate();
     // more fluent
     DbEntitySql.insert(new Girl(...)).
-        query(session).executeUpdateAndClose();
+        query(session).executeUpdate();
 
     Girl girl = ...
     DbEntitySql.find(girl);

@@ -3,21 +3,9 @@ make-toc:no
 -----
 # What's coming next?
 
-## Release v3.5.1
+## Release v3.5.2
 
-After so many exiting changes in 3.5, the next release will be all about
-issues fixing and small changes.
-
-NEW
-: `ServletDispatcherResult` now supports multiple extensions: `jspf` and `jsp`.
-Added `AbstractTemplateViewResult` as base template *Madvoc* result.
-
-FIXED
-: Fixed NPE in *Http* when response body is `null` and when 'Content-Length'
-is missing.
-{: .release}
-
-
+Some more small improvements, tweaks and fixes.
 
 ## Code coverage increase
 

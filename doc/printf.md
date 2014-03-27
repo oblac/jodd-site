@@ -42,9 +42,10 @@ structure:
   * **x** unsigned long or integer in hexadecimal,
   * **o** unsigned long or integer in octal,
   * **b** unsigned long or integer in binary,
-  * **s** string,
+  * **s** string (actually, `toString()` value of an object),
   * **c** character,
-  * **l, L** boolean in lower or upper case (for booleans and int/longs).
+  * **l, L** boolean in lower or upper case (for booleans and int/longs),
+  * **p** identity hash code of an object (pointer ;).
 
 Examples:
 

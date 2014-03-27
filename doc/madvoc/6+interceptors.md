@@ -195,15 +195,6 @@ request scope injector:
 The easiest way to change the default behavior is to extend
 `ServletConfigInterceptor` and override `init()` method.
 
-## ServletConfigAltInterceptor
-
-This is an alternative variant of `ServletConfigInterceptor`. Difference
-is that alternative version copies request parameters to the attributes
-and later performs just attributes injection (`copyParamsToAttributes` =
-`true` && `injectParameters` = `false`). Another consequence is
-that in JSP it is possible to reference parameter value (now it is
-attribute value) without \'param\' prefix.
-
 ## EchoInterceptor
 
 Prints to system out stream action path, action class and method name,

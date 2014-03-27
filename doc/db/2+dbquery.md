@@ -14,32 +14,28 @@ used:
 ~~~~~ java
     DbQuery query = new DbQuery(connection, "create table ...");
     query.executeUpdate();
-    query.close();                  // or just: query.executeUpdateAndClose();
+    query.close();              // or just: query.autoClose().executeUpdate();
     ...
     query = new DbQuery(connection, "select * from ....");
     query.setString(1, "param1");
     ResultSet rs = query.execute();
     ...
-    query.closeResultSet(rs);       // not needed, but still nice to have
+    query.closeResultSet(rs);   // not needed, but still nice to have
     query.close();
 ~~~~~
 
-This example already shows few nice new methods offered by `DbQuery`.
-Method `executeUpdateAndClose()` performs everything in just one call.
-Similarly, there are methods `executeCount()` and
-`executeCountAndClose()` that are made for executing `select count`
-database queries, where result is a long number in first
-result row and column.
+Method `autoClose()` enables 'auto-mode' when the very first next action
+closes the query. Besides displayed methods, there is method: `executeCount()` 
+that is made for executing `select count` database queries, or any query
+that returns a `long` number in the first result row and column.
 
-Closing query is important. Fortunately, *Db* allows user to invoke
+Closing queries is important. Fortunately, *Db* allows user to invoke
 `close()` method, and all the dirty work is done in the behind. When a
 query created some `ResultSet`, it is possible to explicitly close it
 using `closeResultSet()` method. However, this is not necessary any
 more! User may just simply close a query, and the `DbQuery` will close
-all results set that were created by it! In above example, line #9 may
-be simple deleted and everything will still work absolutely correctly. As
-will be show later, it is even possible to have automatic query
-closing:)
+all results set that were created by it! As will be shown later,
+it is even possible to have automatic query closing:)
 
 ## Named parameters
 

@@ -1,10 +1,13 @@
 # Sql Generator
 
-SQL generator just helps in building *native* SQL queries: using entity
-and property names in the query or just using one-liner method calls.
+SQL generator helps in building *native* SQL queries: using entity
+and property names directly in the SQL query or with using
+just one-liner method calls.
 
 There is more convenient way for writing queries that you should use
-in practice: Template-SQL i.e. TSQL (see next chapter).
+in practice: Template-SQL i.e. **TSQL** (see next chapter).
+Continue with this page only if you want to learn more about
+internals behind TSQL. Otherwise, please go to the next chapter.
 {: .attn}
 
 Until now, all queries used by *Db* and *DbOom* were just plain old
