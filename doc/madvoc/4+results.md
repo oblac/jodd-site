@@ -180,12 +180,19 @@ This action is mapped to action path: `/hello.world.html`.
 Result value is `ok`. The following list of JSPs are checked,
 in given order:
 
+* `/hello.world.html.ok.jspf`
 * `/hello.world.html.ok.jsp`
+* `/hello.world.html.jspf`
 * `/hello.world.html.jsp`
+* `/hello.world.ok.jspf`
 * `/hello.world.ok.jsp`
+* `/hello.world.jspf`
 * `/hello.world.jsp`
+* `/hello.ok.jspf`
 * `/hello.ok.jsp`
+* `/hello.jspf`
 * `/hello.jsp`
+* `/ok.jspf`
 * `/ok.jsp`
 
 Dispatcher finds the first matching JSP. If no pages is found, error

@@ -53,6 +53,6 @@ NEW
 Added `AbstractTemplateViewResult` as base template *Madvoc* result.
 
 FIXED
-: Fixed NPE in *Http* when response body is `null` and when 'Content-Length'
+: Fixed NPE in *HTTP* when response body is `null` and when 'Content-Length'
 is missing.
 {: .release}
