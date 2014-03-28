@@ -279,8 +279,7 @@ scope with, e.g. prototype scope:
     	void initPetite() {
     		petite = new PetiteContainer();
     		if (isWebApplication == false) {
-    			petite
-                    .registerScope(SessionScope.class, new ProtoScope());
+    			petite.registerScope(SessionScope.class, new ProtoScope());
     		}
     		...
     	}
