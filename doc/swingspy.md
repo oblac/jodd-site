@@ -25,7 +25,7 @@ code:
 
 ~~~~~ java
     try {
-    	Class.forName("jodd.swing.spy.SwingSpy").getMethod("install").invoke(null);
+    	Class.forName("jodd.swingspy.SwingSpy").getMethod("install").invoke(null);
     } catch (Exception ex) {
     	System.err.println("SwingSpy is not installed... " + ex.toString());
     }
