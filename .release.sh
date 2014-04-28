@@ -7,8 +7,8 @@ set -e
 
 echo artifacts
 
-cp .release/jodd-*.zip .out/download
-cp .release/jodd-*.jar .out/download
+cp .release/jodd-*.zip _out/download
+cp .release/jodd-*.jar _out/download
 
 # prepare api documentation
 
@@ -24,7 +24,7 @@ if [ ! -f .release/api.zip ]; then
 	mv api/api.zip .release
 fi
 
-cp .release/api.zip .out/
+cp .release/api.zip _out/
 
 # prepare test documentation
 
@@ -43,6 +43,6 @@ if [ ! -f .release/test.zip ]; then
 	mv test/test.zip .release
 fi
 
-cp .release/test.zip .out/
+cp .release/test.zip _out/
 
 echo done.
