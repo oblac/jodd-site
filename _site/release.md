@@ -13,5 +13,8 @@ CHANGED
 : *Lagarto* is now parsing HTML by the spec.
 
 CHANGED
+: *Props* macros are now resolved dynamically, on fetch.
+
+CHANGED
 : `FormTag` now works on `LagartoParser`.
 {: .release}

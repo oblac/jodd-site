@@ -6,6 +6,11 @@ more! Properties are stored in one or more `*.props` files, but its
 architecture is open for any type of source. Moreover, *Props* is
 compatible with Java properties.
 
+The purpose of *Props* is not to provide the ultimate configuration
+solution, but to replace Java properties with better alternative.
+So if you are using properties in you application, consider
+switching to *Props*.
+
 ## Basic rules
 
 Bellow is set of basic rules for `props` file format. Some of them are
@@ -79,7 +84,7 @@ method always returns a String value.
 
 ## Sections
 
-Sections looks very much like Windows INI file sections. In *Props*,
+Sections looks very much like INI file sections. In *Props*,
 section simply represents the keys prefix for following keys, until the
 section end or end of file.
 
@@ -124,9 +129,11 @@ contain one or more profile definitions. Also, profile definition can be
 anywhere in the key name, even in the middle of the word; however, it is
 a good practice to put them at the end.
 
-Properties without a profile are base properties. If look up for a
+Properties without a profile are _base_ properties. If look up for a
 property of some profile fails, *Props* will examine the base
-properties. So profiles can be considered as a 'different views' or
+properties.
+
+Profiles can be considered as a 'different views' or
 'snapshots' of the same property set.
 
 Example:
@@ -181,7 +188,7 @@ any profile.
 
 ### Default active profiles
 
-Usually, only one set of profiles is active for the application
+Usually, only one set of profiles is active during the application's
 lifetime. Instead of passing active profiles to `getValues()` methods
 each and every time, *Props* allows to define so called active profiles
 externally, in the same `props` files used for loading properties.
@@ -269,10 +276,8 @@ Value of `key1` is `**foo**`.
 
 ### Macros and profiles
 
-There are two ways how macros are resolved in respect to active profiles:
-
-+ using active profiles (default) - when macro value is resolved using active profiles, no matter in what profile is the target key;
-+ using profile of the target key - ignoring the active profiles.
+Macros are always resolved using the currently active or provided
+profile. The value of macro may change if current profile is changed.
 
 This behavior is controlled with flag: `useActiveProfilesWhenResolvingMacros`.
 Here is an example:
@@ -283,12 +288,25 @@ root<foo>=/foo
 data.path=${root}/data
 ~~~~~
 
-What is the value of `data.path` when `foo` profile is set as active? The two possible values are:
+What is the value of `data.path` when `foo` profile is set as active?
+Since `foo` is active, `root` value becomes `/foo`, therefore
+the `data.path` is going to be set to `/foo/data` value.
 
-+ by default, its: `/foo/data`, as `foo` profile is enabled and `${root}`
-is resolved to value `/foo`.
-+ in other case, its: `/app/data`, as `data.path` is base property
-and the base value of `root` is `/foo`.
+If we turn of profiles (and use only base propertes), the `data.path`
+value is going to be `/app/data`.
+
+It is also possible to explicitly set macro's profile:
+
+~~~~~
+root=/app
+root<foo>=/foo
+data.path=${root<foo>}/data
+~~~~~
+
+In this example, `root` macro will always use the `foo` profile
+regardless of the currently selected profiles. So `data.path`
+value would be always be: `/foo/data`.
+
 
 ## Multiline values
 
@@ -446,16 +464,11 @@ convenient way using triple-quote (as in python). Everything between
 triple-quotes is considered as a value, so new line does not need to be
 escaped.
 
-### useActiveProfilesWhenResolvingMacros
-
-Defines if active profiles should be used when resolving macros (default)
-or if macros should be resolved using profile of a target key.
-
 ## IntelliJ IDEA plugin
 
 There is [IntelliJ IDEA plugin][1] that provides support
 for *Props* files. For now, this support is very basic, but it will be
-enhanced in time.
+enhanced in time. Feel free to improve it :)
 
 
 [1]: http://plugins.intellij.net/plugin/?idea&id=5984
