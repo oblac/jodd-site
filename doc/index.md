@@ -2,7 +2,17 @@
 
 ## What can I expect from Jodd?
 
-Developer-friendly experience + Excellent performances + Small memory footprint and code-base; under 1.5 MB + Fast redeployments, matter of seconds + Elegant web framework + Slick and lightweight DI container + The fastest and unique proxy creator + Efficient and thin database layers + Transactions manager + Focused validation framework + Fast and versatile HTML parser + Decoration framework based on templates + Fastest bean library + Elegant and precise time class + Powerful properties replacement + Tiny and raw HTTP client + Many carefully selected utilities... and more!
+Developer-friendly experience + Excellent performances +
+Small memory footprint and code-base; under 1.5 MB +
+Fast redeployments, matter of seconds + Elegant web framework +
+Slick and lightweight DI container + The fastest and unique proxy creator +
+Efficient and thin database layers + Transactions manager +
+Powerfull and fast JSON (de)serialization +
+Focused validation framework + Fast and versatile HTML parser +
+Decoration framework based on templates + Fastest bean library +
+Type conversion +
+Elegant and precise time class + Powerful properties replacement +
+Tiny and raw HTTP client + Many carefully selected utilities... and more!
 
 ## About
 
@@ -81,6 +91,12 @@ The fastest proxy creator with unique approach for defying pointcuts and advices
 Efficient and thin layers that significantly simplifies writing of database code.
 
 <js>doc1('db')</js>
+
+### Json
+
+Poweful JSON serializer and parser.
+
+<js>doc1('json')</js>
 
 ### JTX
 

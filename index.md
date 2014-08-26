@@ -2,9 +2,9 @@
 template:jodd
 -----
 
-*Jodd* is set of Java **micro frameworks**, **tools** and **utilities**, under **1.4 MB**.
+*Jodd* is set of Java **micro frameworks**, **tools** and **utilities**, under **1.5 MB**.
 
-Designed with [common sense](principle.html) to make things simple, but not simpler. 
+Designed with [common sense](principle.html) to make things simple, but not simpler.
 
 Get things done. Build your beautiful ideas. Run your startup.
 

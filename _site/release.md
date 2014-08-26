@@ -1,28 +1,14 @@
-## [2014-04-28] Release v3.5.2
+## [2014-09-01] Release v3.6
 
-Some more small improvements, tweaks and fixes.
+Huge ammount of news.
 
-FIXED
-: Added support for Java 8.
+NEW
+: Welcome to *Json* tool!
 
 FIXED
 : Exceptions thrown in Actions were breaking the intercetors flow.
 
 CHANGED
-: Better modularization of modules.
+: *Lagarto* is now parsing HTML by the spec.
 
-NEW
-: Added `QueryMap` to *DbOom*.
-
-NEW
-: Added `QueryMapper` to *DbOom* and new methods: `list()`, `find()` and `listSet()`.
-
-NEW
-: `InvokeReplacer` *Proxetta* now supports `ProxyTarget` replacements.
-
-CHANGED
-: Improved default class loading strategy.
-
-NEW
-: Some few `StringUtil` methods added.
 {: .release}

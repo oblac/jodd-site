@@ -1,4 +1,3 @@
-
 # stop script if anything fails!
 
 set -e
