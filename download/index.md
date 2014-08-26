@@ -70,35 +70,37 @@ Blue are mandatory dependencies, gray optional and light are 3rd party.
 
 <var>jodd-core</var>
 
-<var>jodd-db</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-log</var> <var class='dep-opt'>jodd-jtx</var> <var class='dep-opt'>jodd-proxetta</var>
+<var>jodd-db</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-jtx,</var> <var class='dep'>jodd-proxetta,</var> <var class='dep'>jodd-props,</var> <var class='dep'>jodd-log</var>
 
 <var>jodd-http</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-upload</var>
 
-<var>jodd-joy</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-petite</var> <var class='dep'>jodd-madvoc</var> <var class='dep'>jodd-vtor</var> <var class='dep'>jodd-jtx</var> <var class='dep'>jodd-db</var> <var class='dep'>jodd-proxetta</var> <var class='dep'>jodd-mail</var> <var class='dep'>jodd-log</var>
+<var>jodd-joy</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-petite</var> <var class='dep'>jodd-madvoc</var> <var class='dep'>jodd-vtor</var> <var class='dep'>jodd-jtx</var> <var class='dep'>jodd-db</var> <var class='dep'>jodd-proxetta</var> <var class='dep'>jodd-mail</var> <var class='dep'>jodd-log</var> <var class='dep'>jodd-lagarto</var>
 
-<var>jodd-jtx</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-log</var> <var class='dep-opt'>jodd-proxetta</var>
+<var>jodd-json</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-core</var>
+
+<var>jodd-jtx</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-proxetta,</var> <var class='dep'>jodd-log</var>
 
 <var>jodd-lagarto</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-log</var>
 
-<var>jodd-lagarto-web</var> <var class='dep'>jodd-lagarto</var> <var class='dep'>jodd-servlet</var> <var class='dep'>jodd-log</var> <var class='lib'>javax.servlet-api</var>
+<var>jodd-lagarto-web</var> <var class='dep'>jodd-lagarto</var> <var class='dep'>jodd-servlet</var> <var class='dep'>jodd-log</var>
 
 <var>jodd-log</var>
 
-<var>jodd-madvoc</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-props</var> <var class='dep'>jodd-upload</var> <var class='dep'>jodd-servlet</var> <var class='dep'>jodd-petite</var> <var class='dep'>jodd-log</var> <var class='dep-opt'>jodd-proxetta</var> <var class='lib'>javax.servlet-api</var> <var class='lib'>jsp-api</var>
+<var>jodd-madvoc</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-props</var> <var class='dep'>jodd-upload</var> <var class='dep'>jodd-servlet</var> <var class='dep'>jodd-petite</var> <var class='dep'>jodd-log</var> <var class='dep'>jodd-proxetta,</var>
 
 <var>jodd-mail</var> <var class='dep'>jodd-core</var> <var class='lib'>mail</var> <var class='lib'>activation</var>
 
-<var>jodd-petite</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-props</var> <var class='dep'>jodd-log</var> <var class='dep-opt'>jodd-servlet</var> <var class='dep-opt'>jodd-proxetta</var>
+<var>jodd-petite</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-props</var> <var class='dep'>jodd-log</var> <var class='dep'>jodd-servlet,</var> <var class='dep'>jodd-proxetta,</var>
 
 <var>jodd-props</var> <var class='dep'>jodd-core</var>
 
 <var>jodd-proxetta</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-log</var>
 
-<var>jodd-servlet</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-upload</var> <var class='lib'>javax.servlet-api</var> <var class='lib'>jsp-api</var>
+<var>jodd-servlet</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-upload</var>
 
 <var>jodd-swingspy</var>
 
-<var>jodd-upload</var> <var class='dep'>jodd-core</var>
+<var>jodd-upload</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean,</var>
 
 <var>jodd-vtor</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var>
 
