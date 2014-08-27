@@ -7,13 +7,22 @@ NEW
 : Welcome to new *Json* tool for JSON (de)serialization!
 
 FIXED
-: foo
+:
 
 CHANGED
-: *Lagarto* is now parsing HTML by the spec.
+: *Lagarto* is now parsing HTML by the specs.
 
 CHANGED
 : *Props* macros are now resolved dynamically, on fetch.
+
+CHANGED
+: *Madvoc* name replacements changed syntax.
+
+NEW
+: *Madvoc* supports action method parameters as injection points.
+
+NEW
+: *Madvoc* supports action naming strategies.
 
 CHANGED
 : `FormTag` now works on `LagartoParser`.

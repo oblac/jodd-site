@@ -23,6 +23,17 @@ Upload strategy for handling uploaded files is defined by used
 implementation of `FileUploadFactory`, as defined in global *Madvoc*
 configuration.
 
+## Different Result types
+
+Sometimes you want your action to return one result type if one condition is set
+and the other result type if some other condition is set instead.
+If both result types can be set with strings (like dispatcher and forward)
+you are fine. But if types are different classes, you have to use different
+trick.
+
+In this case just have action method return `Object`. Return any result
+class from your action and everything will still works. Nice!
+
 ## Nice URLs
 
 *Madvoc* component `ActionPathRewriter` offers URL rewrite
