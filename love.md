@@ -39,7 +39,7 @@ citizens via email, SMS or phone; working in two European countries. Uses full
 
 Efficient pharmacy finder for Germany. Application uses *Madvoc*, *Joy*, the
 tag library, *Props* and finally the GZIP filter. Also, *Lagarto* was used for
-some backend to fetch DBpedia data.
+some back-end to fetch DBpedia data.
 
 [www.ihre-apotheke.in](http://www.ihre-apotheke.in)
 

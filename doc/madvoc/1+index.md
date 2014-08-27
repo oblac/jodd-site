@@ -6,7 +6,9 @@
 way to simplify web application development. It is easy to use, learning
 curve is small and it is easy to extend. There are no external (xml)
 configuration, actions are simple POJOs, it is compatible with any view
-technology, its pluggable and so on...
+technology, its pluggable and so on... What's best is that it offers
+several ways how it can be configured or used, so you can tweak it
+to match your coding preferences.
 
 ## One minute tutorial
 
@@ -38,7 +40,8 @@ parameter (`name`) and prepares one request attribute for the output
 (`value`). Action is also intercepted by default interceptor stack.
 
 Action from above example uses only defaults; however, it can be
-configured in many, many ways.
+configured in many ways. And the same action class can be written
+in different ways to provide the same functionality.
 
 ## Action lifecycle
 

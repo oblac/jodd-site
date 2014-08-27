@@ -11,11 +11,24 @@ Injection and outjection is performed by so-called **injectors**.
 Injectors are simple Java classes that contains all necessary logic,
 usually for single scope.
 
-All injectors scan action object for properties annotated with `@In` and
-`@Out` annotations. Action object properties may have accessors methods
-(getters and setters), but this is not necessary - even more, it is
-recommended just to use default scoped plain fields. Action then becomes
-very clean and much smaller.
+All injectors scan action object for injection points. Injection point
+is a spot annotated with `@In` and/or `@Out` annotations. There are
+three possible spots that can be an injection point:
+
++ object property - you can put annotation either on just field or on
+  access method (getter/setter). It is a good practice to just annotate
+  the fields, to keep the action class small and clean.
++ inner class property - you can group your injection properties into inner
+  classes, and then use this class as action method argument.
+  This approach make sense when your action class contains few action methods
+  and each one has a lot of properties to process. btw, it does not have
+  to be an inner class, but its the best practice.
++ action method arguments - and finally, you can annotate method arguments.
+  This way your action method is complete handler. However, this approach
+  has few drawbacks, more on that later.
+
+Since this is just a matter of semantics, we will discuss these little
+bit later.
 
 ## Scopes
 
@@ -104,7 +117,7 @@ following way:
 Request injectors will create a new instance of `Person` (since `create`
 element of `@In` is `true` by default) and inject values for name and
 data properties. Of course, in the real life, input fields would be
-named more meaningfully as \'person.xxx\' instead of \'p.xxx\'.
+named more meaningfully as 'person.xxx' instead of 'p.xxx'.
 
 ### Entity list mapping
 
@@ -146,7 +159,7 @@ This form may be mapped in the several ways:
 
 *Madvoc* recognizes correct type from generics declaration! Of course,
 in the real-life, input fields would be named more meaningfully as
-\'person.xxx\' instead of \'ppp.xxx\'.
+'person.xxx' instead of 'ppp.xxx'.
 
 ### Context and Servlet scope
 
@@ -203,7 +216,7 @@ properties that has to be outjected to the scopes.
 Just a shortcut for both `@In` and `@Out` annotations. May be useful
 when property name differs from scope value name.
 
-## Action method parameters
+## Injection points in inner classes
 
 When your action has more then one action method, the number of `@In` and `@Out`
 properties may be big, and usually, some fields are shared for both methods.
@@ -219,7 +232,7 @@ you may do the following refactoring, from this:
 	public class MyAction {
 		@In String one;
 		@Out int two;
-		...		
+		...
 		public void view() {}
 	}
 ~~~~~
@@ -229,12 +242,12 @@ to this:
 ~~~~~ java
 	@MadvocAction
 	public class MyAction {
-	
+
 		class ViewData {
 			@In String one;
 			@Out int two;
 			...
-		}		
+		}
 		public void view(ViewData viewData) {}
 	}
 ~~~~~
@@ -244,6 +257,46 @@ This way you can separate input and outputs between action methods in the same
 action class.
 
 You may have more the one action method parameter. And you can use inner classes
-or static classes, or even separate classes for parameters.
+or static classes, or even separate classes for grouping parameters.
+
+## Injection points as action method parameters
+
+Finally, you can use action method parameters as injection points. Example
+from above:
+
+~~~~~ java
+    @MadvocAction
+    public class MyAction {
+        @In String one;
+        @Out int two;
+        ...
+        public void view() {}
+    }
+~~~~~
+
+can be written as:
+
+~~~~~ java
+    @MadvocAction
+    public class MyAction {
+        public void view(
+            @In String one,
+            @Out MutableInteger two) {}
+    }
+~~~~~
+
+To have this approach working fine, you should have <var>jodd-proxetta</var>
+module in the project. It is needed to resolve parameter names
+as this can't be done using reflection. Otherwise, you would
+need to explicitly set the names of parameters in the annotations.
+
+There is one more thing to be careful with: you can't use
+immutable classes as output injection points. For example,
+you can't outject `int` or a `String`. All objects have to
+be created before method is called, so any change after
+is simply not visible to outside of the method. Thats why
+we had to use here `MutableInteger` as we can change its value
+during the method execution.
+
 
 <js>docnav('madvoc')</js>

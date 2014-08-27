@@ -5,10 +5,10 @@ of an action method. Action result can be of any type and for any purpose;
 and *Madvoc* must to know how to render it. Results handlers are defined
 as implementations of `ActionResult`.
 
-There are 3 different ways how to deal with results:
+There are 3 ways how an action method can specify a result type:
 
 1. return object annotated with `@RenderWith` annotation;
-2. return a String with result name prefix
+2. return a `String` with result name prefix
 3. use `Result` helper object
 
 Let's see each of these in action.
@@ -19,12 +19,12 @@ This is the simplest and most basic way how to deal with the results.
 Action result object annotated with `@RenderWith` defines `ActionResult`
 class that is going to be used for rendering the result.
 This `ActionResult` class is also registered on first use,
-so you don't need to specially register them (although that
-would not make any difference).
+so you don't need to specially register them on initilatization
+(although that would not make any difference).
 
 Example is quite simple:
 
-~~~~~ java    
+~~~~~ java
     @Action
     public RawDownload hello() {
         return new RawDownload(new File(..), mimeType);
@@ -33,18 +33,18 @@ Example is quite simple:
 
 Few *Madvoc* results are defined like this (`RawResult` etc).
 While this is a basic way dealing with the results, it's works
-only for types we have control on. Therefore, you can not
+only for types we have control on. You can not
 use this approach when you e.g. return a `String`; you
 would need to wrap it in your class that can be annotated.
 In most cases in web application, we actually need to return strings
-for various paths (redirect, forward...) so wrapping them
+for various paths (redirect, forward...), so wrapping them
 (although possible) is not so user-friendly.
 
 ## Result type, value and path
 
 Most common action result type is `String` that defines where action
 should forward or redirect to. Actions that return `String`
-(or any non-annotated object)
+(or any non-annotated object!)
 are treated in a special way. Returned result string consist of the
 result _type_ (or result name) and result value:
 
@@ -63,7 +63,7 @@ used to build a path that will be used for forwarding, redirecting etc.
 
 ### Result path
 
-_Result path_ is path definition created from action path and
+_Result path_ is a path created from action path and
 result value, in the following way:
 
 ~~~~~
@@ -75,8 +75,8 @@ Although result path can be represented as a one string, it is actually
 a join (or tuple) of two strings: action path and result value,
 both strings are stored separately.
 This is important as some `ActionResult` may combine different versions
-of action path with result value, or to resolve aliases just in result
-value etc.
+of action path with same result value, or to resolve aliases just in
+result value etc.
 
 Example:
 
@@ -106,12 +106,12 @@ value and action path is ignored.
 ## Result object
 
 As said above, most *Madvoc* actions in web app return strings to define paths
-where to forward (or move, chain, see later). Common thing is to
+where to forward (or move, chain, see later). Common thing is also to
 jump to the result of other action: for example, one action may deal with
 some form post and then to redirect to a view action.
 
 While *Madvoc* gives you a way to manipulate result path with returned result
-value (by using special chars, see next page), you are still writing names
+value (by using special chars, see next page), you are still hardcoding names
 in strings. If target action name is changed, your compiler would not
 see the change and the wrong value would stay in the string.
 
@@ -139,8 +139,8 @@ of type `Result` (or any your subclass!) and use it in your actions:
 
 Since action objects are created on each request, you are safe to use
 result object between the actions. In the first action we just
-define result value `ok`. However, pay attention to second action.
-It uses this instance (or any other action class) and allows you to
+define result value `ok`. However, pay attention to the second action.
+It uses `this` instance (or any other action class) and allows you to
 actually define target method by invoking it! Of course, the real
 method is not being called; you are playing here with proxified
 instances. Underneath we are using [*Methref*](../methref.html)
@@ -195,7 +195,7 @@ in given order:
 * `/ok.jspf`
 * `/ok.jsp`
 
-Dispatcher finds the first matching JSP. If no pages is found, error
+Dispatcher finds the first matching JSP(F). If no page is found, error
 404 is returned.
 
 Dispatcher caches results, so scanning for each result value is done
@@ -257,7 +257,7 @@ things, it works just like redirect result.
 Chaining actions is similar to forwarding, except it is done by `Madvoc`
 and not by servlet container. Chain result type handler takes result
 value as the next action path. Chaining to the next action happens after
-the complete execution of first action, including all interceptors 
+the complete execution of first action, including all interceptors
 (but not filters!). The following example illustrates this result type:
 
 ~~~~~ java

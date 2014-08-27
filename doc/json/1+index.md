@@ -9,10 +9,7 @@ Java objects into and from JSON.
 
 Before you say: "Yet another one?", please check what makes *Json* different.
 The power of *Jodd* *Json* library is its control over the process
-of serialization; ease of use and great performances.
-
-## Key features
-
+of serialization and parsing; ease of use and great performances.
 
 Here are more details about the [serializer](json-serializer.html)
 and [parser](json-parser.html).

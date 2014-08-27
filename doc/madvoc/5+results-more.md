@@ -159,11 +159,13 @@ to be the action path! Consider the following hello-world example:
 ~~~~~
 
 What we have here is an action mapped to: `/hello.world.html`. If we return
-`"ok"`, that string will be result value. Dispatcher would try to match following JSPs: `/hello.world.html.ok.jsp`, `/hello.world.html.jsp`,
+`"ok"`, that string will be result value.
+Dispatcher would try to match following JSPs:
+`/hello.world.html.ok.jsp`, `/hello.world.html.jsp`,
 `/html.world.ok.jsp`, `/hello.world.jsp`... In other words, result value
 remains the same while action path is getting shorten.
 
-But if we return `#ok` then only action path is going to be modified and 
+But if we return `#ok` then only action path is going to be modified and
 result value would be `null`. Dispatcher would just try to match following:
 `/hello.world.ok.jsp`, `/hello.world.jsp`... That might be different
 from what expected. In order to specify the result value while using
@@ -206,7 +208,7 @@ control what to serialize in action method. So, this example will use
 result objects, similar to 'raw' result types.
 
 First thing is to create `JsonData`, wrapper for
-e.g. `flexjson.JSONSerializer` or any other JSON serializer (simplified
+our `JsonSerializer` or any other JSON serializer (simplified
 version):
 
 ~~~~~ java
@@ -215,7 +217,7 @@ version):
     	private static final String[] DEFAULT_JSON_EXCLUDES
                 = new String[] {"class", "*.class"};
 
-    	private final JSONSerializer jsonSerializer;
+    	private final JsonSerializer jsonSerializer;
     	private final Object target;
 
     	public JsonData(Object target) {
@@ -224,7 +226,7 @@ version):
 
     	public JsonData(Object target, boolean excludeDefault) {
     		this.target = target;
-    		jsonSerializer = new JSONSerializer();
+    		jsonSerializer = new JsonSerializer();
     		if (excludeDefault == true) {
     			jsonSerializer.exclude(DEFAULT_JSON_EXCLUDES);
     		}

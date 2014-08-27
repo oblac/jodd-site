@@ -22,11 +22,11 @@ Here is a simple action class
     }
 ~~~~~
 
-It\'s quite obvious: above action method is registered to set of action
-paths that starts with \'`/user/`\'. For example, if request action path
-is \'`/user/173`\' *Madvoc* will match it to above action method. Second
+It's quite obvious: above action method is registered to set of action
+paths that starts with `/user/`. For example, if request action path
+is `/user/173` *Madvoc* will match it to above action method. Second
 part of the request will be recognized as macros value. This value will
-be injected into the action object using the macro name, \'`id`\'.
+be injected into the action object using the macro name, `id`.
 
 ~~~~~ java
     @MadvocAction
@@ -41,10 +41,10 @@ be injected into the action object using the macro name, \'`id`\'.
 ~~~~~
 
 In this example, *Madvoc* will match whole set of request action paths:
-\'`/user-*.jpg`\' to this action method. For example, request:
+`/user-*.jpg` to this action method. For example, request:
 `/user-173.jpg` would be served by this method.
 
-In all above examples, `@Action` define absolute action path. This is
+In all above examples, `@Action` defines absolute action path. This is
 not required, i.e. action path with macros is built as usual,
 considering package, class and method annotations. However, only
 `@Action` annotation may contain macros.
@@ -70,7 +70,7 @@ need.
 
 ### Wildcard matching
 
-By default, paths are matched using wildcards. Its simple and fast.
+By default, paths are matched using wildcards. It's simple and fast.
 
 ### RegExp matching
 
@@ -122,7 +122,7 @@ cities.
 ### Custom matching
 
 Of course, it is possible to create custom path macro definition - one
-that may be more complex then this.
+that may be more complex then this. See the code for how :)
 
 ## Result path
 
@@ -135,14 +135,47 @@ in the result, as in following example:
 
     	@Action("/user/${id:^[0-9]+}")
     	public String viewUser() {
-    		return "#[method].ok";
+    		return "#${:method}.ok";
     	}
 ~~~~~
 
 Let's analyze the result value. First character is `#`, that means
-\'go back\', i.e. strip action method part from the end. Then we are
-adding a replacement `[method]`, that will be replaced with the real
+'go back', i.e. strip action method part from the end. Then we are
+adding a replacement `${:method}`, that will be replaced with the real
 method name. So, the result path of the above action method is:
 `/user/viewUser.ok`.
+
+## REST annotation naming convention
+
+But there are even more REST in *Madvoc*: REST naming convention.
+It is just a different convention how action paths are built. Here
+is an example:
+
+~~~~~ java
+    @MadvocAction
+    public class UserAction {
+
+        @InOut
+        String id;
+
+        @RestAction(value = "${id}")
+        public void get() {}
+
+        @RestAction(value = "${id}")
+        public String post() {
+            return "#post";     // don't have to do this
+        }
+    }
+~~~~~
+
+With REST naming convention active (by `@RestAction`) the method `get()` is
+going to be mapped to url: `/user/${id}`, but only for GET requests.
+POST requests get mapped to method `post()` and so on. In this approach
+one action represents one REST _resource_.
+
+Resulting paths are going to be: `/user/get.jsp` and `/user/post.jsp`.
+
+This is common approach for REST apis. Still, you are able to build your
+own naming convention if you like.
 
 <js>docnav('madvoc')</js>

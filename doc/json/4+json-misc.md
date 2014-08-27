@@ -15,7 +15,8 @@ with `BeanSerializer`, in few steps like this:
 
 	BeanSerializer beanSerializer = new BeanSerializer(jsonContext, bean) {
 		@Override
-		protected void onSerializableProperty(String propertyName, Object value) {
+		protected void onSerializableProperty(
+				String propertyName, Class propertyType, Object value) {
 			map.put(propertyName, value);
 		}
 	};

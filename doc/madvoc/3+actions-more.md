@@ -70,7 +70,7 @@ more hard-coded in the action string:
     @MadvocAction
     public class HelloAction {
 
-    	@Action("/bonjour-monde.[ext]")
+    	@Action("/bonjour-monde.${:ext}")
     	public void world() {
     	}
     }
@@ -79,11 +79,25 @@ more hard-coded in the action string:
 In this action path value, extension `[ext]` will be replaced with
 default *Madvoc* extension. The following replacements are available:
 
-* `[package]` - replaces default package name in package-level
-  annotations;
-* `[class] `- replaces default class name in class-level annotations;
-* `[method]` - replaces default method name in method-level annotations;
-* `[ext]` - replaces default extension in \'extension\' and \'value\'
-  elements of method-level annotations.
+* `${:package}` - replaces default package name in package annotations;
+* `${:class} `- replaces default class name in class annotations;
+* `${:method}` - replaces default method name in method annotations;
+* `${:ext}` - replaces default extension in `extension` and `value`
+  elements of method annotations.
+* `${:http-method}` - replaces default HTTP method in method annotatins;
+
+## Action naming strategies
+
+One way to control convention of building action paths is to use
+action name strategy. Default naming strategy is already defined.
+It uses action class and action method name to build action path.
+
+You can use annotation's element `path` to define action naming
+strategy class that gonna be used for building action path.
+This is so cool, as you can easily make any convention you like!
+
+For now, there is just one more naming strategy: `RestResourcePath`.
+This one will be explained in more details on one of the following
+pages dedicated to REST.
 
 <js>docnav('madvoc')</js>

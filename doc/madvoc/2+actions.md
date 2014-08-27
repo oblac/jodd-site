@@ -1,7 +1,21 @@
 # Actions
 
-**Action** is action method defined in action class, mapped to some URL
-- **action path**. *Madvoc* uses naming convention (CoC) and annotations
+The three most important terms in *Madvoc* are:
+
++ action path - the HTTP request path or the URL;
++ action - handler method, mapped to action path, processes requests; and
++ result - resulting object, whatever action method returns.
+  Used for locating the response content (like JSPs).
+  Often the result object is used as a result path.
+
+These three makes the whole cycle of handling requests and providing
+response. Most of the configuration in *Madvoc* is done by convention,
+so always keep in mind this three dimensions of request processing.
+
+## Action path
+
+**Action** is action _method_ defined in action class, mapped to some URL
+- the **action path**. *Madvoc* uses naming convention (CoC) and annotations
 to define action path from action method. By default, action path is
 built from package, class and method name of an action or its
 annotations, using the following convention:
@@ -27,7 +41,7 @@ Still, each part of action path can be explicitly defined by corresponding annot
 ## Action class & action method
 
 Bare minimum for creating an action is putting annotations on POJO class
-and one of its methods:
+and one of its methods that is going to handle the action path request:
 
 ~~~~~ java
     @MadvocAction
@@ -41,7 +55,7 @@ and one of its methods:
 
 This action class and action method is mapped to the following action
 path: `/hello.world.html`. As said, each part of action path may be set
-explicitly in annotations, so the following action:
+explicitly in annotations; the following action:
 
 ~~~~~ java
     @MadvocAction("holla")
@@ -69,8 +83,9 @@ complex paths using annotations:
 
 This action is mapped to: `/foo/boo.zoo/hello.exec.html`.
 
-One side-note: one action class may contain more then one actions
-(action methods).
+One action class may contain more then one actions (action methods).
+This happens often, especially when you have set of similar
+requests over some same resource.
 
 ## Custom extension
 
@@ -96,16 +111,19 @@ The first action is mapped to: `/hello.world.jpg`. The second one is
 mapped to: `/hello.foo`.
 
 Action's extension is either default one or one defined by `@Action`
-element `extension`.
+element `extension`. There is no default convention in setting
+action's extension.
 {: .attn}
 
 Since *Madvoc* is very extensible, it is also possible to extend its
 component dedicated for action path registration and to implement custom
-behavior. For example, it is easy to develop such feature where any method that starts with `store...` has extension `.do` instead of the default one.
+behavior. For example, it is easy to develop such feature where any
+method that starts with `store...` has extension `.do` instead of the
+default one.
 
 ## Full action path
 
-To override *Madvoc* action naming conventions without coding, 
+To override *Madvoc* action naming conventions without coding,
 just specify the full action path in the annotation by using
 the prefix '**/**':
 
@@ -155,7 +173,8 @@ by passing the action class, like in above example. Therefore, above
 configuration snippet defines one root package (package where `IndexAction`
 class belongs to) mapped to the web root (`/`).
 
-When root packages are defined, *Madvoc* will use package name of action classes relative to the build action path. The package name is relative
+When root packages are defined, *Madvoc* will use package name of
+action classes relative to the build action path. The package name is relative
 from the root package. The following action:
 
 ~~~~~ java
@@ -223,7 +242,7 @@ only for POST HTTP request methods. GET and others will simply return
 error 404 (page not found).
 
 When HTTP method is specified, *Madvoc* will register such action path
-with appended http method information. Action from above example is
+with appended HTTP method information. Action from above example is
 therefore mapped to: `/form.store.html#POST`.
 
 When looking up for the action path among registered once, *Madvoc*
@@ -235,7 +254,7 @@ Similar as for extensions, it is possible to extend *Madvoc* to
 programatically specify HTTP method to actions that match some custom
 criteria.
 
-Nice practice is to specify the extension such as 'do' using `@Action`
+Nice practice is to specify the extension such as `do` using `@Action`
 annotation to all actions that are mapped to POST request (i.e. form
 submissions) and then to programatically set POST for those actions, and
 GET to all others; if it is not explicitly set different.
@@ -266,7 +285,7 @@ exception indicating duplicated action paths (depending on
 configuration). Furthermore, default action names are part of global
 *Madvoc* configuration and can be customized as needed.
 
-Alternatively, `@Action` annotation value element may be set to IGNORE
+Alternatively, `@Action` annotation value element may be set to NONE
 value. Then the method name will be ignored when building action path.
 Therefore, following action has the same action path mapping:
 
