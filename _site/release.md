@@ -7,7 +7,7 @@ NEW
 : Welcome to new *Json* tool for JSON (de)serialization!
 
 FIXED
-:
+: Fixed OSGi compatibility.
 
 CHANGED
 : *Lagarto* is now parsing HTML by the specs.

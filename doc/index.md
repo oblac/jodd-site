@@ -2,6 +2,8 @@
 
 ## What can I expect from Jodd?
 
+Take a deep breath and hold it:
+
 Developer-friendly experience + Excellent performances +
 Small memory footprint and code-base; under 1.5 MB +
 Fast redeployments, matter of seconds + Elegant web framework +
@@ -13,6 +15,8 @@ Decoration framework based on templates + Fastest bean library +
 Type conversion +
 Elegant and precise time class + Powerful properties replacement +
 Tiny and raw HTTP client + Many carefully selected utilities... and more!
+
+Now you can breath out :)
 
 ## About
 
@@ -151,7 +155,9 @@ jQuery in Java.
 
 [Jodd Joy](joy) - Start coding your web applications right away, using best Jodd practices integrated into thin application layer.
 
-## Misc
+## Integration
+
+[Jodd & OSGi](osgi.html) - Learn how to use *Jodd* modules as OSGi bundles.
 
 ### Examples
 
