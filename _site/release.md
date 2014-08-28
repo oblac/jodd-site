@@ -24,6 +24,12 @@ NEW
 NEW
 : *Madvoc* supports action naming strategies.
 
+NEW
+: *Madvoc* allows routing configuration.
+
+NEW
+: *Madvoc* actions can be asynchronous.
+
 CHANGED
 : `FormTag` now works on `LagartoParser`.
 {: .release}

@@ -59,6 +59,12 @@ code.
 Finally, custom annotations are registered in `MadvocConfig`, either in
 pure Java or in properties file.
 
+## Asynchronous actions
+
+*Madvoc* actions can become `asynchronous` (in Servlets 3.0 terms)
+by simply setting the annotation element `async` to `true`.
+That is all!
+
 ## Name replacements
 
 It is possible to reference class and method names in name values of the
