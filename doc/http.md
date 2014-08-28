@@ -18,7 +18,7 @@ The best way to learn about *HTTP* is through examples.
 All *HTTP* classes offers fluent interface, so you can write:
 
 ~~~~~ java
-    HttpRequest httpRequest = HttpRequest.get("http://jodd.org").send();
+    HttpResponse response = HttpRequest.get("http://jodd.org").send();
 
     System.out.println(response);
 ~~~~~
