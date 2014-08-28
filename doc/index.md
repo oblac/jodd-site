@@ -155,9 +155,13 @@ jQuery in Java.
 
 [Jodd Joy](joy) - Start coding your web applications right away, using best Jodd practices integrated into thin application layer.
 
-## Integration
+## Misc
+
+### Integration
 
 [Jodd & OSGi](osgi.html) - Learn how to use *Jodd* modules as OSGi bundles.
+
+[Jodd as JBoss AS 7 module](jodd-jboss7-module.html) - make JBoss module out of *Jodd* jars.
 
 ### Examples
 
