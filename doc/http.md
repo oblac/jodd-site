@@ -50,6 +50,14 @@ of the following methods:
 + `bodyBytes()` - returns raw body as byte array, so e.g. downloaded file
 can be saved.
 
+Character encoding used in `bodyText()` is one set in the response headers.
+If response does not specify the encoding in it's headers (but e.g. only
+on the HTML page), you _must_ specify the encoding with `charset()`
+method before calling `bodyText()`.
+{: .attn}
+
+Don't forget this :)
+
 
 ## Query parameters
 
@@ -296,7 +304,7 @@ There are several ways how to do this. The easiest way is the following:
 This example fires several requests over the same `HttpConnection`
 (i.e. the same socket). When in 'keep-alive' mode, *HTTP* continues
 using the existing connection, while paying attention on servers
-responses. If server explicitly requires connection to be closed, 
+responses. If server explicitly requires connection to be closed,
 *HTTP* will close it and then it will open a new connection to
 continue your session. You don't have to worry about this, just
 keep calling `keepAlive()` and it will magically do everything
