@@ -79,7 +79,7 @@ div.button {
 		width: 200px;
 		text-decoration: none;
 		&:hover { color: #fff; background-color: $color-orange2; }
-		
+
 		div.sub {
 			font-family: $font-cond;
 			font-size: 20px;
@@ -127,7 +127,7 @@ div.button-long {
 		width:0;height:0;
 		border-left:6px solid transparent;
 		border-right:6px solid transparent;
-		border-top:6px solid #454545;		
+		border-top:6px solid #454545;
 	}
 }
 #social a:hover span {
@@ -138,9 +138,9 @@ div.button-long {
 	background: url(/img/vs.jpg) no-repeat fixed;
 	background-size: 100% auto;
 	padding-top: 6px;
-	
+
 	header {
-		background-color: #fff;		
+		background-color: #fff;
 	}
 }
 
@@ -168,7 +168,7 @@ div.button-long {
 #top {
 	nav {
 		float:right;
-		margin-right: 40px;	
+		margin-right: 40px;
 		a {
 			font-family: $font-bold;
 			display: block;
@@ -256,7 +256,7 @@ div.button-long {
 			color: $color-orange1;
 		}
 	}
-	
+
 	.inner {
 		background-color: #f9f9f9;
 		position: relative;
@@ -271,7 +271,7 @@ div.button-long {
 		border-right: 1px solid #f4f3f1;
 		@include box-shadow(#eee 4px 4px 10px);
 		padding: 20px 0;
-		
+
 		a {
 			color: $color-orange;
 			&:hover {
@@ -336,9 +336,16 @@ div.button-long {
 				color: $color-orange1;
 				&:hover { color: #fff; text-decoration: none;}
 			}
-		}		
+		}
+		blockquote p {
+			font-style: italic;
+			margin-left: 20px;
+			padding-left: 10px;
+			border-left: 4px solid #f0f0f0;
+			margin-right: 30px;
+		}
 	}
-	
+
 	aside {
 		position: absolute;
 		top: 40px;
@@ -436,7 +443,7 @@ div.pre {
 }
 pre {
 	overflow: auto;
-	color: $color-code;	
+	color: $color-code;
 	padding: 10px 0 10px 10px;
 	margin: 0 0 10px 0;
 	font-family: $font-code;
@@ -569,7 +576,7 @@ var.lib {
 dl.release {
 	margin: 20px 10px 30px 10px;
 	border-top: 1px dotted #9F9F9F;
-	
+
 	dt {
 		float:left;
 		width: 80px;

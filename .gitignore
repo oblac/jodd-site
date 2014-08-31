@@ -6,3 +6,4 @@ jodd-site.sublime-project
 jodd-site.sublime-workspace
 /.sass-cache/
 /_out/
+*.codekit

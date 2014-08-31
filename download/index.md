@@ -12,10 +12,14 @@ license](/license.html).
 * [What's comming next](/beta.html) (betas, snapshots...) - the list might
 not be complete
 
+Please find some information in how *Jodd* is organized
+into the [modules](../module.html).
+
 ## Jodd Bundle
 
 *Jodd* Bundle is one jar with most modules bundled together.
-Distribution archive contains bundle jar (with sources jar) and jars of remaining modules.
+Distribution archive contains bundle jar (with sources jar)
+and jars of remaining modules.
 
 <div class="button"><a href="jodd-@@{VERSION}.zip">
 	jodd-@@{VERSION}.zip
@@ -44,6 +48,10 @@ Jodd jars are published on Maven central repository.
 * artifactId: **jodd-\<module_name\>**
 * version: @@{VERSION}
 
+*Jodd* also provides "bill of materials"
+([BOM](http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html))
+to help Maven users.
+
 ## Beta (SNAPSHOT)
 {: #beta}
 
@@ -59,50 +67,6 @@ Please note that beta version is not always available.
 jodd-@@{BETA}.zip](jodd-@@{BETA}.zip)
 
 {::comment}+BETA{:/comment}
-
-
-## Module List and dependencies
-
-Here is the list of all *Jodd* modules with their dependencies.
-Blue are mandatory dependencies, gray optional and light are 3rd party.
-
-<var>jodd-bean</var> <var class='dep'>jodd-core</var>
-
-<var>jodd-core</var>
-
-<var>jodd-db</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-jtx,</var> <var class='dep'>jodd-proxetta,</var> <var class='dep'>jodd-props,</var> <var class='dep'>jodd-log</var>
-
-<var>jodd-http</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-upload</var>
-
-<var>jodd-joy</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-petite</var> <var class='dep'>jodd-madvoc</var> <var class='dep'>jodd-vtor</var> <var class='dep'>jodd-jtx</var> <var class='dep'>jodd-db</var> <var class='dep'>jodd-proxetta</var> <var class='dep'>jodd-mail</var> <var class='dep'>jodd-log</var> <var class='dep'>jodd-lagarto</var>
-
-<var>jodd-json</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-core</var>
-
-<var>jodd-jtx</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-proxetta,</var> <var class='dep'>jodd-log</var>
-
-<var>jodd-lagarto</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-log</var>
-
-<var>jodd-lagarto-web</var> <var class='dep'>jodd-lagarto</var> <var class='dep'>jodd-servlet</var> <var class='dep'>jodd-log</var>
-
-<var>jodd-log</var>
-
-<var>jodd-madvoc</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-props</var> <var class='dep'>jodd-upload</var> <var class='dep'>jodd-servlet</var> <var class='dep'>jodd-petite</var> <var class='dep'>jodd-log</var> <var class='dep'>jodd-proxetta,</var>
-
-<var>jodd-mail</var> <var class='dep'>jodd-core</var> <var class='lib'>mail</var> <var class='lib'>activation</var>
-
-<var>jodd-petite</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-props</var> <var class='dep'>jodd-log</var> <var class='dep'>jodd-servlet,</var> <var class='dep'>jodd-proxetta,</var>
-
-<var>jodd-props</var> <var class='dep'>jodd-core</var>
-
-<var>jodd-proxetta</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-log</var>
-
-<var>jodd-servlet</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-upload</var>
-
-<var>jodd-swingspy</var>
-
-<var>jodd-upload</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean,</var>
-
-<var>jodd-vtor</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var>
 
 ## Misc
 

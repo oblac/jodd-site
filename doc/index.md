@@ -4,7 +4,7 @@
 
 Take a deep breath and hold it:
 
-Developer-friendly experience + Excellent performances +
+> Developer-friendly experience + Excellent performances +
 Small memory footprint and code-base; under 1.5 MB +
 Fast redeployments, matter of seconds + Elegant web framework +
 Slick and lightweight DI container + The fastest and unique proxy creator +
@@ -22,9 +22,11 @@ Now you can breath out :)
 
 [About Jodd](/about) - an effective one-page you will love :)
 
-[Jodd overview in 5 minutes](http://oblac.github.io/jodd) - Jodd frameworks overview in 5 minutes.
+[Jodd overview in 5 minutes](http://oblac.github.io/jodd) - *Jodd* frameworks overview in 5 minutes.
 
-[Jodd micro-frameworks in 30 minutes](http://joddframework.org) - example of using Jodd micro-frameworks.
+[Jodd micro-frameworks in 30 minutes](http://joddframework.org) - example of using *Jodd* micro-frameworks.
+
+[Jodd modules](/doc/modules.html) - learn how *Jodd* is organized into the modules.
 
 ## Jodd utilities
 
