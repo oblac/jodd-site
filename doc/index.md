@@ -26,51 +26,53 @@ Now you can breath out :)
 
 [Jodd micro-frameworks in 30 minutes](http://joddframework.org) - example of using *Jodd* micro-frameworks.
 
-[Jodd modules](/doc/modules.html) - learn how *Jodd* is organized into the modules.
+[Jodd modules](modules.html) - learn how *Jodd* is organized into the modules.
 
 ## Jodd utilities
 
-[BeanUtil](/doc/beanutil.html) - fastest bean manipulation library around.
+[BeanUtil](beanutil.html) - fastest bean manipulation library around.
 
 Cache - set of common cache implementation.
 
-[Printf](/doc/printf.html) - formatted value printing, as in C.
+[Printf](printf.html) - formatted value printing, as in C.
 
-[JDateTime](/doc/jdatetime.html) - elegant usage and astronomical precision in one time-manipulation class.
+[JDateTime](jdatetime.html) - elegant usage and astronomical precision in one time-manipulation class.
 
-[Type Converter](/doc/typeconverter.html) - converting types.
+[Type Converter](typeconverter.html) - converting types.
 
-[StringUtil](/doc/stringutil.html) - more then 100 of additional String utilities.
+[StringUtil](stringutil.html) - more then 100 of additional String utilities.
 
-[StringTemplateParser](/doc/stringtemplateparser.html) - simple string template parser.
+[StringTemplateParser](stringtemplateparser.html) - simple string template parser.
 
-[Finding, scanning, walking files](/doc/findfile.html) - few easy ways.
+[Finding, scanning, walking files](findfile.html) - few easy ways.
 
-[Class finder](/doc/class-finder.html) - find classes on classpath.
+[Class finder](class-finder.html) - find classes on classpath.
 
-[Wildcard](/doc/wildcard.html) - using wildcards.
+[Wildcard](wildcard.html) - using wildcards.
 
-[Servlets](/doc/servlets.html) - various servlets-related tools.
+[Servlets](servlets.html) - various servlets-related tools.
 
-[Jodd tag library](/doc/taglibrary.html) - new power to the JSP.
+[Jodd tag library](taglibrary.html) - new power to the JSP.
 
-[Form tag](/doc/formtag.html) - automagically populates forms.
+[Form tag](formtag.html) - automagically populates forms.
 
-[Class loading in Jodd](/doc/class-loading-in-jodd.html) - great ways for loading classes.
+[Class loading in Jodd](class-loading-in-jodd.html) - great ways for loading classes.
 
-[Fast buffers](/doc/fast-buffers.html) - really fast appendable storage.
+[Fast buffers](fast-buffers.html) - really fast appendable storage.
+
+[Include-Exclude rules](inc-exc-rules.html) - small rule engine for filtering resources.
 
 ## Jodd tools
 
-[Email](/doc/email.html) - sending and receiving emails.
+[Email](email.html) - sending and receiving emails.
 
-[Props](/doc/props.html) - enhanced `Properties` replacement.
+[Props](props.html) - enhanced `Properties` replacement.
 
-[HTTP](/doc/http.html) - tiny, raw HTTP client.
+[HTTP](http.html) - tiny, raw HTTP client.
 
-[Methref](/doc/methref.html) - strongly-typed method name references.
+[Methref](methref.html) - strongly-typed method name references.
 
-[SwingSpy](/doc/swingspy.html) - inspection of swing component hierarchy.
+[SwingSpy](swingspy.html) - inspection of swing component hierarchy.
 
 ## Jodd micro-frameworks
 
@@ -169,7 +171,7 @@ jQuery in Java.
 
 [Uphea](/uphea/index.html) - real-world web application example built on *Jodd* framework.
 
-[Quickstart](/doc/quickstart/index.html) - start experiencing *Jodd* right away.
+[Quickstart](quickstart/index.html) - start experiencing *Jodd* right away.
 
 [Build web applications with Jodd](example/index.html)
 - tutorial that gives step-by-step instructions how to build web
@@ -179,13 +181,13 @@ using *Jodd* frameworks.
 
 ### Tips, Tricks & Best practice
 
-[Logging](/doc/logging-jodd.html), make *Jodd* logs to your logging framework.
+[Logging](logging-jodd.html), make *Jodd* logs to your logging framework.
 
-[Add to classpath](/doc/add-classpath-in-runtime.html) with `ClassLoaderUtil` in runtime.
+[Add to classpath](add-classpath-in-runtime.html) with `ClassLoaderUtil` in runtime.
 
-Learn how to [remove session id](/doc/remove-session-id.html) from URL for more security.
+Learn how to [remove session id](remove-session-id.html) from URL for more security.
 
-*Jodd* can be used on [Android](/doc/android.html), too!
+*Jodd* can be used on [Android](android.html), too!
 
 
 ### Performance
@@ -214,7 +216,8 @@ and whats described.
 {: .attn}
 
 Documentation is written in **kramdown** (excellent markdown extension).
-You can find and even read our documentation on [GitHub](https://github.com/oblac/jodd-site), too. Feel free to contribute!
+You can find and even read our documentation on
+[GitHub](https://github.com/oblac/jodd-site), too. Feel free to contribute!
 
 Need more documentation on certain topics? Don't hesitate to ask for it!
 

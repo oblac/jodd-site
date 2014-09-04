@@ -61,7 +61,7 @@ Here is one simple example that finds all files on some path:
     	.setRecursive(true)
     	.setIncludeDirs(true)
     	.searchPath("/some/path");
-    
+
     File f;
     while ((f = ff.nextFile()) != null) {
     	if (f.isDirectory() == true) {
@@ -74,14 +74,14 @@ Here is one simple example that finds all files on some path:
 
 The same example using iterator:
 
-~~~~~ java    
+~~~~~ java
     FindFile ff = new FindFile()
     	.setRecursive(true)
     	.setIncludeDirs(true)
     	.searchPath("/some/path");
-    
+
     Iterator<File> iterator = ff.iterator();
-    
+
     while (iterator.hasNext()) {
     	File f = iterator.next();
     	if (f.isDirectory() == true) {
@@ -96,6 +96,11 @@ Why both ways? Why not;)
 
 Once when search is done, you can call the `reset()` method to go back
 to the beginning and then start the very same search again.
+
+## Order of include/exclude rules
+
+The order of the include - exclude rules is defined by the
+[rule engine](inc-exc-rules.html).
 
 ## FindFile callbacks
 
@@ -136,7 +141,7 @@ methods.
 
 Example:
 
-~~~~~ java    
+~~~~~ java
     FindFile ff = new FindFile()
     	.setRecursive(false)
     	.setIncludeDirs(true)

@@ -1,7 +1,6 @@
-## [2014-09-01] Release v3.6
+## [2014-09-05] Release v3.6
 
-There are so many tweaks and changes
-that we are going to list here only major ones.
+Very Awesome Release!
 
 NEW
 : Welcome to new *Json* tool for JSON (de)serialization!
@@ -41,4 +40,19 @@ CHANGED
 
 CHANGED
 : `FormTag` now works on `LagartoParser`.
+
+FIXED
+: Many small issues with `ClassIntrospector`.
+
+NEW
+: Added `InExRules` - small rule engine for filtering some resources.
+
+CHANGED
+: Every tool that filters something uses `InExRules`.
+
+CHANGED
+: `EmailAddress` works better now.
+
+CHANGED
+: All *Jodd* modules have been moved from the `jodd` package.
 {: .release}
