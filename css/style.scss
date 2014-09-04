@@ -319,9 +319,13 @@ div.button-long {
 			background-color: #fef3ee;
 			padding: 0 1px;
 		}
-		li {
+		ul li {
 			margin-left: 50px;
 			list-style: disc;
+		}
+		ol li {
+			margin-left: 50px;
+			list-style: decimal;
 		}
 		ul.doc-all li {
 			margin-left: 20px;

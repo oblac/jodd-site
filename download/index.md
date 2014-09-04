@@ -13,7 +13,7 @@ license](/license.html).
 not be complete
 
 Please find some information in how *Jodd* is organized
-into the [modules](../module.html).
+into the [modules](../doc/module.html).
 
 ## Jodd Bundle
 
@@ -36,7 +36,7 @@ small in size.
 
 ## Maven
 
-Jodd jars are published on Maven central repository.
+*Jodd* jars are published on Maven central repository.
 
 <div class="button button-long">
 	<a href="http://repo1.maven.org/maven2/org/jodd/" target="_blank">
@@ -48,9 +48,8 @@ Jodd jars are published on Maven central repository.
 * artifactId: **jodd-\<module_name\>**
 * version: @@{VERSION}
 
-*Jodd* also provides "bill of materials"
-([BOM](http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html))
-to help Maven users.
+*Jodd* provides "bill of materials"
+([BOM](http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)).
 
 ## Beta (SNAPSHOT)
 {: #beta}
@@ -70,9 +69,9 @@ jodd-@@{BETA}.zip](jodd-@@{BETA}.zip)
 
 ## Misc
 
-Some various Jodd-related stuff.
+Some various *Jodd*-related stuff.
 
-* [**Jodd in 10 minutes**](/download/jodd-in-10-minutes.pdf) - presentation, covers version 3.2.7
++ [**Jodd in 10 minutes**](/download/jodd-in-10-minutes.pdf) - presentation, covers version 3.2.7
 
 
 [1]: https://oss.sonatype.org/content/repositories/snapshots/org/jodd/

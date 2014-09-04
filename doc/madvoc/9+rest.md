@@ -122,7 +122,8 @@ cities.
 ### Custom matching
 
 Of course, it is possible to create custom path macro definition - one
-that may be more complex then this. See the code for how :)
+that may be more complex then regular expression, or more specific
+to your needs. See the code for how :)
 
 ## Result path
 
@@ -177,5 +178,31 @@ Resulting paths are going to be: `/user/get.jsp` and `/user/post.jsp`.
 
 This is common approach for REST apis. Still, you are able to build your
 own naming convention if you like.
+
+## Use REST with JSON Action Result
+
+*Madvoc* does not provide out-of-box Action result handler that produces
+the JSON from the result. This is because there are so many ways how
+object can be serialized, how the response should look etc. We leave all
+this to you :) But at least you have good tools to make it easy.
+
+When building JSON api with *Madvoc* you probably should create your own
+JSON `ActionResult` that will handle action results and convert them into
+JSON. So your action may look like:
+
+~~~~~ java
+    @MadvocAction
+    public class BookAction {
+        @MyRestAction(value = "${id}")
+        public Book get(@In int bookId) {
+            ...
+        }
+    }
+~~~~~
+
+Here we used custom annotation `MyRestAction` that defines your own
+action result handler for rendering returned values as JSON.
+
+Awesome!
 
 <js>docnav('madvoc')</js>

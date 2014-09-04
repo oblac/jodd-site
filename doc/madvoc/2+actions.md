@@ -2,13 +2,13 @@
 
 The three most important terms in *Madvoc* are:
 
-+ action path - the HTTP request path or the URL;
-+ action - handler method, mapped to action path, processes requests; and
-+ result - resulting object, whatever action method returns.
-  Used for locating the response content (like JSPs).
-  Often the result object is used as a result path.
++ **action path** - the HTTP request path or the URL;
++ **action** - handler method, mapped to action path, processes requests; and
++ **result** - handler for whatever action method returns, provides
+  a response (using e.g. JSP). Often results threat returned object
+  as a _result path_.
 
-These three makes the whole cycle of handling requests and providing
+These three makes the whole cycle of handling request and providing
 response. Most of the configuration in *Madvoc* is done by convention,
 so always keep in mind this three dimensions of request processing.
 

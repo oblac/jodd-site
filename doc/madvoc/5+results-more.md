@@ -194,42 +194,41 @@ path.
 | /zoo/boo.foo               | (void) or (null)| /zoo/boo.foo            |
 | /zoo/boo.foo               | ##ok            | /zoo/ok                 |
 
-## Custom result types
+## Custom result names
 
-Custom result type handler has to extend `ActionResult` class. It has to
-provide result type name and to override `render()` method. Here is an
-real-life example of custom result type handler for generating [JSON][1] results.
+Custom result handler has to extend `ActionResult` class. Since there are many
+ways how *Madvoc* resolves action result, you may configure your implementation
+to match how you plan to use it.
+
+That being said, you may provide result _name_ if you want your action result
+handler to be specified in strings of actions returned values. Or you
+can specify a type if you your handler is just for certain returning type.
+Or you can omit specifying either and use your action result in annotation
+or `Result` class.
+
+In any case, your action result must to implement the `render()` method.
+Here is an real-life example of custom result handler for generating
+[JSON][1] results.
 
 Generating JSON from existing objects might be not so easy sometimes:
 some object values has to be omitted, or objects come from ORM mapper
 that uses lazy initialization, so using reflection and deep-scanning is
 not enough or may produce unexpected results. Idea is to manually
 control what to serialize in action method. So, this example will use
-result objects, similar to 'raw' result types.
+result objects, similar to 'raw' result names.
 
 First thing is to create `JsonData`, wrapper for
-our `JsonSerializer` or any other JSON serializer (simplified
-version):
+our `JsonSerializer` or any other JSON serializer (simplified version):
 
 ~~~~~ java
     @RenderWith(JsonResult.class)
     public class JsonData {
-    	private static final String[] DEFAULT_JSON_EXCLUDES
-                = new String[] {"class", "*.class"};
-
     	private final JsonSerializer jsonSerializer;
     	private final Object target;
 
     	public JsonData(Object target) {
-    		this(target, true);
-    	}
-
-    	public JsonData(Object target, boolean excludeDefault) {
     		this.target = target;
     		jsonSerializer = new JsonSerializer();
-    		if (excludeDefault == true) {
-    			jsonSerializer.exclude(DEFAULT_JSON_EXCLUDES);
-    		}
     	}
 
     	public JsonData include(String... includes) {
@@ -248,7 +247,7 @@ version):
     }
 ~~~~~
 
-Here is the `JsonResult` result type handler (simplified version):
+Here is the code for `JsonResult` action result handler (simplified version):
 
 ~~~~~ java
     public class JsonResult extends BaseActionResult<JsonData> {
@@ -279,16 +278,34 @@ And the usage:
 
     	@Action
     	public JsonData view() {
-    		Object foo = ... // create object somehow
-    		return new JsonData(foo, true).exclude("address");
+    		Object foo = ... // get object somehow
+    		return new JsonData(foo).exclude("address");
     	}
     }
 ~~~~~
 
-This example covers usage of custom result types, so we can add `@RenderWith`
-annotation. Of course, we can make custom result types when actions
-returns strings. See the code of *Madvoc* results, it is very similar
-to above, just string prefix has to be defined.
+This example covers usage of custom result, and we used `@RenderWith`
+annotation.
+
+### Better approach
+
+Maybe better approach would be not to have `JsonData` wrapper and instead just
+return objects that needs to be rendered into JSON:
+
+~~~~~ java
+    @MadvocAction
+    public class HelloAction {
+
+        @Action(result = JsonResult.class)
+        public Book view() {
+            Book foo = ... // get object somehow
+            return foo;
+        }
+    }
+~~~~~
+
+Now your action is clean of custom wrapper and your `JsonResult` may
+serialize whatever is returned by the action. Simple as that ;)
 
 <js>docnav('madvoc')</js>
 

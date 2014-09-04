@@ -38,11 +38,21 @@ GET	/helloWorld.html 	jodd.madvoc.action.HelloAction#world
 
 It's simple as that :)
 
-## Result classes
+## Action Results
 
-Since we need to define result classes as well, just list them by
-class name that ends with `.class`. *Madvoc* router will recognize
-it is a class reference and process it depending on its type.
+Action results may be specified for action or registered for global use.
+
+To specify action result handler simply write the action result class name
+(ending with `.class`) anywhere in the line, after the action path is defined:
+
+~~~~
+/book/${id}  jodd.madvoc.action.BookAction#get  jodd.madvoc.result.MyResult.class
+~~~~
+
+To define action results that should be globally available (such dispatcher,
+forwarder...) just list them with class names (that ends with `.class`).
+*Madvoc* router will recognize class references and process
+them according to the class type.
 
 ~~~~
 ...
@@ -50,7 +60,7 @@ it is a class reference and process it depending on its type.
 com.myapp.MyResult.class
 ~~~~
 
-Don't forget to register default *Madvoc* rules.
+Don't forget to register default *Madvoc* rules!
 
 ## Macros
 
@@ -113,6 +123,5 @@ Register default's manually and use routing for everything else.
 
 Routing configuration is enabled by `RouteMadvocConfigurator`.
 Routing file name can be changed in `MadvocConfig`.
-
 
 <js>docnav('madvoc')</js>

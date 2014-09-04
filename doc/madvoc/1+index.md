@@ -39,9 +39,24 @@ dispatching is: `/hello.world.ok.jsp`. Action takes one input request
 parameter (`name`) and prepares one request attribute for the output
 (`value`). Action is also intercepted by default interceptor stack.
 
-Action from above example uses only defaults; however, it can be
-configured in many ways. And the same action class can be written
-in different ways to provide the same functionality.
+Action from above example uses only defaults; but, it can be
+configured and written in different ways. For example, the following action
+is also working in *Madvoc*:
+
+~~~~~ java
+    @MadvocAction
+    public class BookAction {
+
+        @RestAction("${bookId}")
+        public Book get(@In int bookId) {
+        }
+    }
+~~~~~
+
+Method `BookAction#get` handles GET urls like: `/book/123` and displays
+the result using `/book/get.jsp` template.
+
+Make and use your own *Madvoc* conventions!
 
 ## Action lifecycle
 

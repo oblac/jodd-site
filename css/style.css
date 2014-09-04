@@ -379,9 +379,13 @@ div.button-long a {
   background-color: #fef3ee;
   padding: 0 1px;
 }
-#content article li {
+#content article ul li {
   margin-left: 50px;
   list-style: disc;
+}
+#content article ol li {
+  margin-left: 50px;
+  list-style: decimal;
 }
 #content article ul.doc-all li {
   margin-left: 20px;

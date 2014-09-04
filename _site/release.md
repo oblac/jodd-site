@@ -24,11 +24,20 @@ NEW
 NEW
 : *Madvoc* supports action naming strategies.
 
+CHANGED
+: *Madvoc* has improved and enhanced ways of how action result handler is specified.
+
 NEW
 : *Madvoc* allows routing configuration.
 
 NEW
 : *Madvoc* actions can be asynchronous.
+
+CHANGED
+: *Madvoc* result type term is changed to result name.
+
+CHANGED
+: Tests code coverage increased from 57% to 71%!
 
 CHANGED
 : `FormTag` now works on `LagartoParser`.

@@ -1,25 +1,28 @@
 # Results
 
-**Action Result** is returning value (also known as **result object**)
-of an action method. Action result can be of any type and for any purpose;
-and *Madvoc* must to know how to render it. Results handlers are defined
-as implementations of `ActionResult`.
+**Action Result** is handler returning value (also known as **result object**)
+of an action method. Result object can be of any type and for any purpose;
+and *Madvoc* uses action results to _render_ the response. Results handlers
+are defined as implementations of `ActionResult`.
 
-There are 3 ways how an action method can specify a result type:
+*Madvoc* offers many ways how to specify action result handler! You will be
+surprised:
 
-1. return object annotated with `@RenderWith` annotation;
-2. return a `String` with result name prefix
-3. use `Result` helper object
++ return object annotated with `@RenderWith` annotation;
++ return `String` with result name as a prefix;
++ use `Result` helper object in your action method (and ignore the returns);
++ simply return an object that has registered handler matched by its type;
++ use `result` element of `@Action` annotation.
 
-Let's see each of these in action.
+So many choices! Let's see each of these in action.
 
 ## @RenderWith
 
 This is the simplest and most basic way how to deal with the results.
-Action result object annotated with `@RenderWith` defines `ActionResult`
+Actions result object annotated with `@RenderWith` defines `ActionResult`
 class that is going to be used for rendering the result.
 This `ActionResult` class is also registered on first use,
-so you don't need to specially register them on initilatization
+so you don't need to specially register them on initialization
 (although that would not make any difference).
 
 Example is quite simple:
@@ -38,25 +41,27 @@ use this approach when you e.g. return a `String`; you
 would need to wrap it in your class that can be annotated.
 In most cases in web application, we actually need to return strings
 for various paths (redirect, forward...), so wrapping them
-(although possible) is not so user-friendly.
+(although possible) is not so user-friendly. Moreover, adding
+view-related annotation to your domain classes may not be acceptable.
+Fortunately, with *Madvoc* you have more alternatives.
 
-## Result type, value and path
+## Result name, value and path
 
-Most common action result type is `String` that defines where action
-should forward or redirect to. Actions that return `String`
-(or any non-annotated object!)
+Common action return value is `String` that defines where action
+should forward or redirect to - defines the _result path_. Actions
+that return `String` (or `toString()` of non-annotated object!)
 are treated in a special way. Returned result string consist of the
-result _type_ (or result name) and result value:
+result _name_ and result value:
 
 ~~~~~
-result string = <result_type>:<result_value>
+result string = <result_name>:<result_value>
 ~~~~~
 
-* `result_type` - optional result type identification i.e. unique name;
+* `result_name` - optional unique result name identification;
 * `result_value` - result value, used for building result path.
 
-Result type defines which `ActionResult` instance will be used to
-render the result. When result type is missing, the default one
+Result name defines which `ActionResult` instance will be used to
+render the result. When result name is missing, the default one
 is used (defined in global *Madvoc* configuration). Result value
 is used to build the **result path**. Result path is then usually
 used to build a path that will be used for forwarding, redirecting etc.
@@ -70,11 +75,11 @@ result value, in the following way:
     result path = <action_path>.<result_value>
 ~~~~~
 
-This value can be used by some `ActionResult` to perform rendering.
+This value can be used by `ActionResult` to perform rendering.
 Although result path can be represented as a one string, it is actually
 a join (or tuple) of two strings: action path and result value,
 both strings are stored separately.
-This is important as some `ActionResult` may combine different versions
+This is important as some `ActionResult` may combine different variants
 of action path with same result value, or to resolve aliases just in
 result value etc.
 
@@ -90,11 +95,11 @@ Example:
 ~~~~~
 
 In above example, the action path for `hello()` method (if using defaults)
-is: `/foo.hello.html`. Result type is not specified. Result value is `ok`.
+is: `/foo.hello.html`. Result name is not specified. Returned value is `ok`.
 So the result path is: `/foo.hello.html.ok`.
 
 Actions may also return `void` to trigger the default result
-type handler with empty result value. Returning `null` has the same
+type handler with empty value. Returning `null` has the same
 effect.
 
 ### Full result path
@@ -102,6 +107,33 @@ effect.
 When result value starts with the '**/**' sign, *Madvoc* will take it
 as a full result path. In that case result path is equal to result
 value and action path is ignored.
+
+## Action Result associated to a type
+
+Action result handler may be associated to a type. For example, your action
+may return a `Book` that is going to be rendered using `BookActionResult<Book>`.
+Such action result has to be registered on *Madvoc* startup.
+
+## Action result from `@Action` annotation
+
+Action result can be specified in the `@Action` annotation.
+
+~~~~~ java
+    public class BookAction {
+        @Action(result = BookActionResult.class)
+        public Book view() {
+            return new Book();
+        }
+    }
+~~~~~
+
+Above action is going to be rendered by a `BookActionResult`. Good thing here is
+that you may use the same action result for different types. You can render
+books, comics, novel etc with the very same action result.
+
+Another thing to remember - *Madvoc* allows usage of _custom_ annotations. You
+may create predefined annotations so not to repeat same elements values all
+over your code.
 
 ## Result object
 
@@ -147,14 +179,27 @@ instances. Underneath we are using [*Methref*](../methref.html)
 super-tool for this, so your project must include <var>jodd-proxetta</var>
 optional dependency.
 
+## Order
+
+With all this ways of specifying Action result, there must be the order. Here
+is the ordered list of how Action result is resolved:
+
+1. First check if the `Result` helper object is used.
+2. Then check the `@Action` annotation.
+3. Check if returned value is annotated with `@RenderWith`.
+4. Find action result by returned value type.
+5. Finally, perform `toString()` on returned value and find action result by name.
+
 ## Madvoc Action results
 
-Here goes the list of all *Madvoc* Action results.
+Here goes the list of all *Madvoc* Action results. Some of them
+are registered for names, some are meant to be used differently.
 
 ### Dispatcher result ('dispatch')
 
-Servlet dispatched is the default result type. In short, this result
-finds the closest JSP that match result path and then forwards to it.
+Servlet dispatcher is the default action result when name is not specified.
+In short, this result finds the closest JSP that match result path and
+then forwards to it.
 
 Remember when we said that result path is not just a simple string,
 but it always has two parts: action path and result value? Dispatcher
@@ -228,7 +273,7 @@ of which, *Jodd* provides nice utility for building url's and encoding
 parameters: `UrlEncoder`.
 
 Moreover, it is possible to inject action properties into the resulting
-url:
+URL:
 
 ~~~~~ java
     @MadvocAction
@@ -247,18 +292,18 @@ url:
 Invocation of action path: `/one.html` will perform the redirection to:
 `/index.html?value=173`.
 
-### Redirect Permanently('url')
+### Redirect Permanently ('url')
 
-This result redirects permanently (301) to an external URL. For the other
-things, it works just like redirect result.
+This result redirects permanently (301) to an external URL. For everything else
+it works just like redirect result.
 
 ### Chain result ('chain')
 
 Chaining actions is similar to forwarding, except it is done by `Madvoc`
-and not by servlet container. Chain result type handler takes result
+and not by servlet container. Chain result handler takes result
 value as the next action path. Chaining to the next action happens after
 the complete execution of first action, including all interceptors
-(but not filters!). The following example illustrates this result type:
+(but not filters!). The following example illustrates this:
 
 ~~~~~ java
     @MadvocAction
@@ -289,11 +334,11 @@ setting values in various scopes (request, session, etc).
 
 Main problem with the redirection is the necessity of sending parameters
 through the URL as GET parameters. This means that you have to write
-the complete and properly formed url string as result. Although there are some
+the complete and properly formed URL string as result. Although there are some
 helpers in *Jodd* for this, it is still not very maintainable and visual
 solution.
 
-Move result type handler works similar as redirect one, except it stores
+Move result handler works similar as redirect one, except it stores
 the current action in the session before the redirection. After the
 redirection, *Madvoc* detects the stored (source) action and performs
 the outjection of its data to request attributes. Like that, all data
@@ -375,9 +420,9 @@ invocation of second, target action.
 There are situations when data needs to be sent directly to the output
 stream of HTTP response. In that case, action method is responsible for
 sending the full response. Action also has to return `none:`, the
-result type that will not perform any additional result processing,
+name of action result that will not perform any additional result processing,
 since action is responsible for sending the result data back. This
-result type handler doesn't takes any result value and result value in
+result handler doesn't takes any result value and result value in
 result string may be omitted.
 
 ### TextResult ('text')
@@ -393,7 +438,6 @@ output stream:
 ~~~~~
 
 String is encoded using *Madvoc* encoding.
-
 
 ### RawResult
 
