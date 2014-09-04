@@ -13,7 +13,7 @@ license](/license.html).
 not be complete
 
 Please find some information in how *Jodd* is organized
-into the [modules](../doc/module.html).
+into the [modules](../doc/modules.html).
 
 ## Jodd Bundle
 

@@ -14,6 +14,7 @@ $width-page2: 640px;
 $color-code: #444;
 $color-dark: #222;
 $color-orange: #f16522;
+$color-orange0: #f5ede1;
 $color-orange1: #ecdcc4;
 $color-orange2: #f9a748;
 $color-footer1: #454545;
@@ -213,7 +214,7 @@ div.button-long {
 	margin-right: 100px;
 	margin-bottom: 0;
 	a {
-		color: $color-orange1;
+		color: $color-orange0;
 	}
 }
 
