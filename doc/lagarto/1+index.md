@@ -37,15 +37,27 @@ parsers out there.
 *Lagarto* is to HTML what **ASM** is to bytecode :)
 {: .attn}
 
+## DOM Builder
+
+*Lagarto* DOMBuilder is an extension made on *Lagarto* parser that
+builds a DOM tree from the input HTML. This way you can manipulate
+tree more convenient, with minor performance sacrifice.
+
+## Jerry
+
+If you feel like a JavaScript-ninja, go ahead and use *Jerry*! It is
+jQuery in Java. Write your code for reading or manipulating HTML similar as you
+would with jQuery. Now, that is convenient :)
+
 ## Lagarto Family
 
 Lagarto is just a HTML/XML content parser, but many other cool things in
 *Jodd* are built on top of it:
 
-* [*HtmlStapler*](/doc/htmlstapler/index.html) - packages HTML resources,
-* [*StripHtml*](strip-html.html) - compress HTML page,
-* [*Decora*](/doc/decora) - web decoration framework,
-* [*CSSelly*](/doc/csselly) - CSS3 selectors parser,
+* [*CSSelly*](/doc/csselly) - CSS3 selectors parser.
 * [*Jerry*](/doc/jerry) - JQuery in Java.
+* [*HtmlStapler*](/doc/htmlstapler/index.html) - packages HTML resources.
+* [*StripHtml*](strip-html.html) - compress HTML page.
+* [*Decora*](/doc/decora) - web decoration framework.
 
 <js>docnav('lagarto')</js>

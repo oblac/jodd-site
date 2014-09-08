@@ -396,16 +396,24 @@ the search is performed on the client-side, so still all messages
 have to be downloaded before the search is thrown.
 
 
-## Parsing EML files
+## Everything else...
+
+### Parsing EML files
 
 What if you have your emails stored in EML files. Not a problem, just use
 `EmailUtil.parseEML()`. It accepts both file or files content as an input and
 returns `ReceivedEmail` of parsed EML message.
 
-
-## Gmail and new message count
+### Gmail and new message count
 
 Gmail does not support the Recent flags on messages. Since the
 `getNewMessageCount()` method counts messages with the RECENT flags, *Jodd*
 will not (yet) find any such messages on Gmail servers (hence always returning
 value 0).
+
+### Email parsing and validation
+
+*Jodd* offer one great class for parsing and validating emails: `EmailAddress`.
+It works per RFC2822 standard. This class can be trusted to only
+provide authenticated results. Since the standard is quite complex,
+it is not a perfect yet, but it works much better then other solutions.

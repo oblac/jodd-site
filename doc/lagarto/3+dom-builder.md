@@ -20,17 +20,32 @@ methods.
 
 ## HTML content and DOM Builder
 
-`LagartoDOMBuilder` process successfully most common HTMLs. If you
-follow common HTML5 formatting rules, this DOM builder implementation
-will give you beautiful DOM tree.
+As we said on the previous page, processing HTML (like eg browsers do)
+requires a second step: building a DOM tree from the input tokens.
 
-However (and that is very important) `LagartoDOMBuilder` does not implement
-all HTML5 rules out there. It can NOT be used for validating HTML5 code, for
-example. We have a plan to build strict DOM Builder implementation, but
-currently we are out of resources at the moment, so we can't promise when :)
+While *Lagarto* parser strictly follows the HTML5 rules, `LagartoDOMBuilder`
+follows only a subset of the DOM-building specification! Here is why.
 
-`LagartoDOMBuilder` is NOT a strict implementation of HTML5 rules!
+By default, `LagartoDOMBuilder` follows all the rules that does not involve
+any movements of DOM nodes. This is done on purpose, so to get the
+exact tree to what you have provide. If you passed HTML with some tags
+that are not suppose to be nested, `LagartoDOMBuilder` would not complain
+and you will get exactly what you had on input.
+
+In most cases, this is perfectly fine, as you are probably not using
+all the tricks of HTML5 for the sake of better readability. But if you
+need some more rules, you can turn them on! By enabling them, resulting
+DOM tree can get modified per HTML5 rules. We have implemented the most
+common of these rules and exceptions, but haven't covered them all (yet).
+So if you have some quite weird HTML, you might expect different tree
+then what you have in browser. Don't run away yet, it never happened
+in the real life that *Lagarto* was not enough for the job!
+
+`LagartoDOMBuilder` is not (yet) a strict implementation of HTML5
+DOM-building rules; but it is good-enough for most cases!
 {: .attn}
+
+Just don't forget this and carry on :)
 
 ## Custom DOM Builder
 
@@ -94,11 +109,11 @@ except for those specified for non-IE browser.
 ## After parsing
 
 During parsing, `LagartoDomBuilder` also collects some information that
-are awailiable after:
+are available after:
 
-* `getErrors()` - if errors are collected during parsing, this methos
-  will return list of all errors as they appeard.
-* `getParsingTime()` - return parsing time in miliseconds.
+* `getErrors()` - if errors are collected during parsing, this methods
+  will return list of all errors as they appear.
+* `getParsingTime()` - return parsing time in milliseconds.
 
 ## Jerry
 

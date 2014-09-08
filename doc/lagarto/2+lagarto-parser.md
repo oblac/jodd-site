@@ -2,8 +2,8 @@
 
 To parse HTML/XML content with *Lagarto* you must do just two steps:
 
-1.  create a *Lagarto* parser instance providing content; and then
-2.  invoke parsing using the implementation of `TagVisitor`\:
+1.  create a *Lagarto* parser instance by providing the HTML content; and then
+2.  invoke parser using the implementation of `TagVisitor`\:
 
 In other words:
 
@@ -12,6 +12,26 @@ In other words:
     TagVisitor tagVisitor = new FooTagVisitor();
     lagartoParser.parse(tagVisitor);
 ~~~~~
+
+That is it!
+
+## Specifications and compatibility
+
+Processing HTML, in general, has two phases:
+
+1. parsing HTML - to recognize tokens from the input content; and
+2. building DOM tree - create and organize DOM tree from the tokens.
+
+*Lagarto* parser, as its name say, performs the first task.
+Parsing is done strictly by the HTML5 specification! We put _huge_
+effort to add all the parsing rules. So you can use *Lagarto* for
+checking if the syntax of some HTML is valid.
+
+*Lagarto* parser follows HTML5 rules for parsing HTML into tokens.
+{: .attn}
+
+*Lagarto* extension can also build a DOM tree; you can read more
+about this on the following pages.
 
 ## Events
 

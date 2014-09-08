@@ -55,4 +55,7 @@ CHANGED
 
 CHANGED
 : All *Jodd* modules have been moved from the `jodd` package.
+
+FIXED
+: Many issues here and there.
 {: .release}

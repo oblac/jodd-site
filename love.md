@@ -10,7 +10,7 @@ Bellow is a short list of some big and small projects that officially uses *Jodd
 ## Liferay Portal
 
 The best Java open-source enterprise portal, Liferay Portal, uses few *Jodd*
-tools and utilities in it's core: *BeanUtil*, *Paramo* etc.
+tools and utilities in it's core: *BeanUtil*, *Paramo*, *Json* etc.
 
 [liferay.com](http://liferay.com)
 
@@ -52,7 +52,7 @@ Web site for food and restaurant lovers; uses *Madvoc* for web layer.
 
 ## Submit your project!
 
-... and many, many more. Feel free to contact us with publicly available information about your project and how you used
-*Jodd* and we will list it here.
+... and many, many more. Feel free to contact us with publicly available
+information about your project and how you used *Jodd* and we will list it here.
 
 Share your love with the world!

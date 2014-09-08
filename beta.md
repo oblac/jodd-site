@@ -3,9 +3,9 @@ make-toc:no
 -----
 # What's coming next?
 
-## Release v3.5.3
+## Release v3.6.1
 
-Some more improvements.
+Bug fixes. We do promise we gonna release on month level, from now on.
 
 ## Code coverage increase
 

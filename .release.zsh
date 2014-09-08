@@ -18,7 +18,7 @@ if [ ! -f .release/api.zip ]; then
 	mkdir api || true
 	cd api
 	cp -pR ~/prj/oblac/jodd/build/reports/javadoc/* .
-	zip -9 -r -m -q api.zip * .[^.]*
+	zip -9 -r -m -q api.zip *
 	cd ..
 	mv api/api.zip .release
 fi
@@ -37,7 +37,7 @@ if [ ! -f .release/test.zip ]; then
 	mkdir coverage-report
 	cp -pR ~/prj/oblac/jodd/build/reports/coverage/* ./coverage-report/
 	cp -pR ~/prj/oblac/jodd/build/reports/coverage/.??* ./coverage-report/
-	zip -9 -r -m -q test.zip * .[^.]*
+	zip -9 -r -m -q test.zip *
 	cd ..
 	mv test/test.zip .release
 fi
