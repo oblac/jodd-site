@@ -8,8 +8,8 @@ including Linux, UNIX, Windows, MacOSX.
 license](/license.html).
 
 * [Release notes](/release.html)
-* [Release history](/history.html)
-* [What's comming next](/beta.html) (betas, snapshots...) - the list might
+* [Release history](/history.html) - warning, long page!
+* [What's coming next](/beta.html) (betas, snapshots...) - the list might
 not be complete
 
 Please find some information in how *Jodd* is organized

@@ -159,10 +159,10 @@ is an example:
         @InOut
         String id;
 
-        @RestAction(value = "${id}")
+        @RestAction("${id}")
         public void get() {}
 
-        @RestAction(value = "${id}")
+        @RestAction("${id}")
         public String post() {
             return "#post";     // don't have to do this
         }
@@ -193,7 +193,7 @@ JSON. So your action may look like:
 ~~~~~ java
     @MadvocAction
     public class BookAction {
-        @MyRestAction(value = "${id}")
+        @MyRestAction("${id}")
         public Book get(@In int bookId) {
             ...
         }

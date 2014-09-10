@@ -241,6 +241,36 @@ we can use `ValueConverter`:
 
 It's clear what we did here.
 
+## Loose mode
+
+By default, *Json* parser consumes only valid JSON strings. If JSON
+string is not valid, an exception is thrown with detailed message
+of why parsing failed.
+
+But real-world often does not play by the rules ;) Therefore, `JsonParser`
+may run in so-called _loose_ mode, when it can process more:
+
+~~~~~ java
+	JsonParser jsonParser = new JsonParser().looseMode(true);
+~~~~~
+
+Here is what loose mode may handle:
+
++ both single and double quotes are accepted.
++ invalid escape characters are just added to the ouput.
++ strings may be unquoted, too.
+
+For example, `JsonParser` in loose mode may parse the following input:
+
+~~~~~
+	{
+		key : value,
+		'my' : 'hol\\x'
+	}
+~~~~~
+
+This JSON is not valid, but it can be parsed, too.
+
 ## Go out and play
 
 This was a small summary of *Jodd* *Json* features. See testcases for more :)

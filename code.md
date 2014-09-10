@@ -14,7 +14,9 @@ You can get the code by clonning *Jodd* Git repository:
 
 ## Build Instructions
 
-*Jodd* is built with [Gradle](http://gradle.org) on [JDK6](http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html), targeting **Java 1.5**. You don't have to install anything, the only prerequisites are [Git](http://help.github.com/set-up-git-redirect) and Java JDK.
+*Jodd* is built with [Gradle](http://gradle.org) targeting **Java 1.5**.
+You don't have to install anything, the only prerequisites are
+[Git](http://help.github.com/set-up-git-redirect) and Java JDK.
 
 After cloning *Jodd* repo, you can build the project with:
 
@@ -38,7 +40,7 @@ For integration tests you will need also to set up databases named: '`jodd-test`
 
 ## Using Java IDE
 
-Since *Jodd* is a *Gradle* project, you can easily open it by selecting main `build.gradle` in
+Since *Jodd* is a Gradle project, you can easily open it by selecting main `build.gradle` in
 every modern Java IDE (**IntelliJ IDEA**, **Eclipse**, **Netbeans**).
 
 ### IntellJ IDEA
@@ -82,6 +84,7 @@ The best way to contribute would be via **GitHub**, using the following workflow
 + fork *Jodd* repo (<code>upstream</code>) to your **GitHub** account (`origin`)
 + clone `origin` to `local` repo
 + make branch for your work, commit often
++ please, prefix your commit message with relevant module name in square brackets (e.g. `[json]`)
 + push `local` branch to `origin`
 + when the work is done, send us pull request (PR)
 

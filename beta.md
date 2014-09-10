@@ -5,7 +5,22 @@ make-toc:no
 
 ## Release v3.6.1
 
-Bug fixes. We do promise we gonna release on month level, from now on.
+Bug fixes. We promise we gonna release more often.
+
+NEW
+:  **[madvoc]** When `@RestAction` value starts with macro, add action
+method name to the path.
+
+NEW
+:  **[json]** Added loose mode for parsing.
+
+FIXED
+:  **[json]** Fixed using integers in some cases for *Json* parser.
+
+FIXED
+:  **[json]** Fixed parsing bug that may occur with long strings and late escapes.
+{: .release}
+
 
 ## Code coverage increase
 

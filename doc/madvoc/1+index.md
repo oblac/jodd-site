@@ -56,7 +56,7 @@ is also working in *Madvoc*:
 Method `BookAction#get` handles GET urls like: `/book/123` and displays
 the result using `/book/get.jsp` template.
 
-Make and use your own *Madvoc* conventions!
+Make and use _your own_ *Madvoc* conventions!
 
 ## Action lifecycle
 
