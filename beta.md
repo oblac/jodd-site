@@ -5,7 +5,16 @@ make-toc:no
 
 ## Release v3.6.1
 
-Bug fixes. We promise we gonna release more often.
+Bug fixes. Minor changes. We promise we gonna release more often.
+
+CHANGED
+: **[mail]** Multiple addresses now should be added by repeated call to
+address-related methods.
+
+CHANGED
+: **[mail]** Email address-related methods now accept two arguments:
+for personal name and for email address. Moreover, they accept
+`EmailAddress` and `InternetAddress`.
 
 NEW
 :  **[madvoc]** When `@RestAction` value starts with macro, add action

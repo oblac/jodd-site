@@ -20,7 +20,8 @@ Plain-text email:
 
 ~~~~~ java
     Email email = Email.create()
-        .from("...@jodd.org").to("...@jodd.org")
+        .from("...@jodd.org")
+        .to("...@jodd.org")
         .subject("Hello!")
         .addText("A plain text message...");
 ~~~~~
@@ -29,7 +30,8 @@ HTML email:
 
 ~~~~~ java
     Email email = Email.create()
-        .from("...@jodd.org").to("...@jodd.org")
+        .from("...@jodd.org")
+        .to("...@jodd.org")
         .subject("Hello HTML!")
         .addHtml("<b>HTML</b> message...");
 ~~~~~
@@ -38,7 +40,8 @@ Text and HTML email, high priority:
 
 ~~~~~ java
     Email email = Email.create()
-        .from("...@jodd.org").to("...@jodd.org")
+        .from("...@jodd.org")
+        .to("...@jodd.org")
         .subject("Hello!")
         .addText("text message...")
         .addHtml("<b>HTML</b> message...")
@@ -47,13 +50,33 @@ Text and HTML email, high priority:
 
 ### Email Addresses
 
-All types of email addresses (from, to, cc...) may be specified in two ways:
+All email addresses (from, to, cc...) may be specified in following ways:
 
-+ only by email address, eg: `some.one@jodd.com`, or
-+ by personal (display) name and email address, eg: `John <some.one@jodd.com>`
++ only by email address, eg: `some.one@jodd.com`
++ by personal (display) name and email address in one string, eg: `John <some.one@jodd.com>`
++ by separate personal (display) name and email address
++ by providing `EmailAddress`, class that parses and validates emails per specification
++ by providing `InternetAddress` or just `Address` instance.
 
-In the second case, email address must be surrounded by angled brackets.
-Consider using it as it is less likely your message is going to be marked as spam ;)
+Consider using personal names as it is less likely your message is
+going to be marked as spam ;)
+
+Multiple email addresses are specified by repeated call to relevant method:
+
+~~~~~ java
+    Email email = Email.create()
+        .from("...@jodd.org")
+        .to("adr1@jodd.org")
+        .to("adr2@jodd.org")
+        .cc("xxx@bar.com")
+        .cc("zzz@bar.com")
+        .subject("Hello HTML!")
+        .addHtml("<b>HTML</b> message");
+~~~~~
+
+Alternatively you may pass an array of strings, `EmailAddress` or
+`InternetAddress`. In this case, the addresses will not be appended,
+but replaced!
 
 ## Attachments
 
@@ -183,7 +206,8 @@ Here is an example of sending previously defined emails:
 
 ~~~~~ java
     SmtpServer smtpServer =
-        new SmtpServer("mail.jodd.org", new SimpleAuthenticator("user", "pass"));
+        new SmtpServer("mail.jodd.org",
+            new SimpleAuthenticator("user", "pass"));
     ...
     SendMailSession session = smtpServer.createSession();
     session.open();
@@ -290,7 +314,8 @@ For POP3 connection, use `Pop3Server`:
                     System.out.println("name: " + attachment.getName());
                     System.out.println("cid: " + attachment.getContentId());
                     System.out.println("size: " + attachment.getSize());
-                    attachment.writeToFile(new File("d:\\", attachment.getName()));
+                    attachment.writeToFile(
+                        new File("d:\\", attachment.getName()));
                 }
             }
         }
@@ -315,7 +340,8 @@ Again, very simply: use `Pop3SslServer` implementation. Here is how it can be us
 Above example can be converted to IMAP usage very easily:
 
 ~~~~~ java
-    ImapServer imapServer = new ImapSslServer("imap.gmail.com", "username", "password");
+    ImapServer imapServer =
+        new ImapSslServer("imap.gmail.com", "username", "password");
     ReceiveMailSession session = imapServer.createSession();
     session.open();
     ...
