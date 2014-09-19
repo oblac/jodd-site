@@ -84,7 +84,6 @@ The best way to contribute would be via **GitHub**, using the following workflow
 + fork *Jodd* repo (<code>upstream</code>) to your **GitHub** account (`origin`)
 + clone `origin` to `local` repo
 + make branch for your work, commit often
-+ please, prefix your commit message with relevant module name in square brackets (e.g. `[json]`)
 + push `local` branch to `origin`
 + when the work is done, send us pull request (PR)
 

@@ -34,9 +34,6 @@ would fire the following set of events:
 This makes *Lagarto* very, very fast; in fact it is one of the fastest
 parsers out there.
 
-*Lagarto* is to HTML what **ASM** is to bytecode :)
-{: .attn}
-
 ## DOM Builder
 
 *Lagarto* DOMBuilder is an extension made on *Lagarto* parser that

@@ -298,7 +298,7 @@ For POP3 connection, use `Pop3Server`:
             System.out.println("RECEIVED DATE: " + email.getReceiveDate());
 
             // process messages
-            LinkedList messages = email.getAllMessages();
+            List messages = email.getAllMessages();
             for (EmailMessage msg : messages) {
                 System.out.println("------");
                 System.out.println(msg.getEncoding());
