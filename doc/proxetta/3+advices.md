@@ -1,20 +1,21 @@
 # Advices
 
-*Proxetta* defines advices in a unique way: they are written in the same
-way as one would write overridden method in a subclass.
+*Proxetta* advices are unique: they are written in the same
+way as one would write overridden method in a subclass. Accessing
+target method or info is done with special _macro_ markers.
 
 Advices implement the `ProxyAdvice` interface that has just one method:
-`execute()`. Now, the question is how *Proxetta* references the proxy
-target, i.e. the pointcut method that is proxified. Instead of having
-some custom object filled with data about the target method (pointcut),
-*Proxetta* introduces special \'macro\' class `ProxyTarget` for this
-purpose. `ProxyTarget` is just dummy class and its methods are empty!
-Usage of its methods serves just as macros that will be replaced by
-appropriate and correct bytecode! After the process of replacing
-`ProxyTarget` macro methods, all dependencies on `ProxyTarget` will be
-gone. Macro methods are replaced with the bytecode that mimic the code
-that developer would write by himself, if he would like to subclass
-target class and override target method (pointcut).
+`execute()`. Now, the question is how *Proxetta* references the proxy target,
+i.e. the pointcut method that is proxified. Instead of having some custom
+(handler) object filled with data about the target method (pointcut), *Proxetta*
+introduces special 'macro' class `ProxyTarget` for this purpose. `ProxyTarget`
+is just a dummy class and all its methods are empty! `ProxyTarget` methods
+serves just as macros that will be _replaced_ by appropriate bytecode that does
+what macro method is specified for! After replacing `ProxyTarget`
+macro methods, all dependencies on `ProxyTarget` are gone. Macro methods are
+replaced with the bytecode that mimic the code that developer would write by
+himself, if he would like to subclass target class and override target method
+(pointcut).
 
 Here is the definition of the advice that should log some data (on all
 log pointcuts):
@@ -37,12 +38,12 @@ log pointcuts):
 
 When *Proxetta* finds some pointcut, i.e. proxy target method on which
 to apply this advice, it will **replace** all `ProxyTarget` method
-invocations (i.e. macros) with correct bytecode. For example,
+invocations (i.e. macros) with appropriate bytecode. For example,
 `ProxyTarget.argumentsCount()` will be **replaced** by appropriate
-number of target method arguments.
+number of target method arguments. The macro method call is replaced by
+a number.
 
-For more complete example, if the pointcut is the method in the
-following class:
+To continue the example, if the pointcut is the method in the following class:
 
 ~~~~~ java
     public class Foo {
@@ -68,9 +69,17 @@ then the proxy bytecode generated using above advice will look like:
 ~~~~~
 
 Replacements occurs in the run-time, during proxy creation, using
-bytecode manipulation.
+bytecode manipulation. But don't forget that changes are done in the class,
+meaning, all the replaced info is on class-level scope, as you would
+write them before compilation!
 
-It is advisible to use `ProxyTarget` macro-methods just in simple
+All macro methods replacement is done on class-level. Think of it as constant
+data you put there _before_ compilation!
+{: .attn}
+
+And one more thing, for the sake of good health:
+
+It is advisable to use `ProxyTarget` macro-methods just in simple
 assignment expressions.
 {: .attn}
 
@@ -86,7 +95,9 @@ have its own static attribute, instead of having one field for all
 classes. This can be solved by using some external class that will hold
 this static attribute.
 
-Using inner classes as advices is not supported.
+Using inner classes in advices is not supported.
 {: .attn}
+
+We just didn't want to complicate your world :)
 
 <js>docnav('proxetta')</js>
