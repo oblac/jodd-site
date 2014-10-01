@@ -1,61 +1,70 @@
-## [2014-09-05] Release v3.6
+## [2014-10-01] Release v3.6.1
 
-Very Awesome Release!
-
-NEW
-: Welcome to new *Json* tool for JSON (de)serialization!
+Everybody loves fixes and improvements.
 
 FIXED
-: Fixed OSGi compatibility.
-
-CHANGED
-: *Lagarto* is now parsing HTML by the specs.
-
-CHANGED
-: *Props* macros are now resolved dynamically, on fetch.
-
-CHANGED
-: *Madvoc* name replacements changed syntax.
-
-NEW
-: *Madvoc* supports action method parameters as injection points.
-
-NEW
-: *Madvoc* supports action naming strategies.
-
-CHANGED
-: *Madvoc* has improved and enhanced ways of how action result handler is specified.
-
-NEW
-: *Madvoc* allows routing configuration.
-
-NEW
-: *Madvoc* actions can be asynchronous.
-
-CHANGED
-: *Madvoc* result type term is changed to result name.
-
-CHANGED
-: Tests code coverage increased from 57% to 71%!
-
-CHANGED
-: `FormTag` now works on `LagartoParser`.
+: **[lagarto]** Fixed parsing in some special case of truncated HTMLs.
 
 FIXED
-: Many small issues with `ClassIntrospector`.
+: **[lagarto-web]** Form tag now works with multipart requests.
 
 NEW
-: Added `InExRules` - small rule engine for filtering some resources.
+: **[http]** Added `HttpProgressListener`.
+
+NEW
+: **[http]** Added method to force multipart requests.
+
+NEW
+: **[proxetta]** Added `targetMethodAnnotation()` and `targetClassAnnotation()`
+macro methods for *Proxetta*.
+
+NEW
+: **[proxetta]** Pass classloader info to the `TargetClassInfoReader`.
 
 CHANGED
-: Every tool that filters something uses `InExRules`.
+: **[bean]** `propertyFieldPrefix` for `CachingIntrospector` is now array of strings.
+
+NEW
+: **[core]** Added `ClassMap`.
+
+NEW
+: **[core]** Added `DirWatcher`.
 
 CHANGED
-: `EmailAddress` works better now.
+: **[core]** Removed `jodd.io.filter` package.
 
 CHANGED
-: All *Jodd* modules have been moved from the `jodd` package.
+: **[core]** Method `StringUtil.substring` is now full safe.
+
+CHANGED
+: **[core]** Using smart mode for `FindFile` and configurators.
 
 FIXED
-: Many issues here and there.
+: **[core]** `ClassFinder` don't throw exceptions if flag is set.
+
+CHANGED
+: **[mail]** Multiple addresses now could be added by repeated call to
+address-related methods.
+
+CHANGED
+: **[mail]** Email address-related methods now accept two arguments:
+for personal name and for email address. Moreover, they accept
+`EmailAddress` and `InternetAddress`.
+
+NEW
+: **[madvoc]** *Madvoc* configuration `defaultActionName` changed
+to `defaultActionResult` that accept `Class`.
+
+CHANGED
+: **[madvoc]** When `@RestAction` value starts with macro, add action
+method name to the path.
+
+NEW
+: **[json]** Added loose mode for parsing.
+
+FIXED
+: **[json]** Fixed using integers in some cases for *Json* parser.
+
+FIXED
+: **[json]** Fixed parsing bug that may occur with long strings and late escapes.
 {: .release}

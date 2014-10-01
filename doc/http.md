@@ -143,6 +143,33 @@ example:
 
 And that's really all!
 
+### Monitor upload progress
+
+When uploading large file, it is helpful to monitor the progress. For that
+purpose you can use `HttpProgressListener` like this:
+
+~~~~~ java
+    HttpResponse response = HttpRequest
+        .post("http://localhost:8081/hello")
+        .form("file", file)
+        .monitor(new HttpProgressListener() {
+            @Override
+            public void transferred(long len) {
+                System.out.println(len/size);
+            }
+        })
+        .send();
+~~~~~
+
+Before the upload starts, `HttpProgressListener` calculates the `callbackSize`
+- the size of chunk in bytes that will be transfered. By default, this size
+equals to 1% of total size. Moreover, it is never less then 512 bytes.
+
+`HttpProgressListener` contains the inner field `size` with the total size
+of the request. Note that this is the size of _whole_ request, not only the
+files! This is the actual number of bytes that is going to be send, and it is
+always a bit larger then file size (due to protocol overhead).
+
 ## Headers
 
 Add or reach header parameters with method `header()`. Some common

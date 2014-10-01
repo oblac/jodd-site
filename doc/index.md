@@ -62,6 +62,8 @@ Cache - set of common cache implementation.
 
 [Include-Exclude rules](inc-exc-rules.html) - small rule engine for filtering resources.
 
+[Dir Watcher](dir-watcher.html) - watching directory for file changes.
+
 ## Jodd tools
 
 [Email](email.html) - sending and receiving emails.

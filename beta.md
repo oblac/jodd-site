@@ -3,32 +3,9 @@ make-toc:no
 -----
 # What's coming next?
 
-## Release v3.6.1
+## Release v3.6.2
 
-Bug fixes. Minor changes. We promise we gonna release more often.
-
-CHANGED
-: **[mail]** Multiple addresses now should be added by repeated call to
-address-related methods.
-
-CHANGED
-: **[mail]** Email address-related methods now accept two arguments:
-for personal name and for email address. Moreover, they accept
-`EmailAddress` and `InternetAddress`.
-
-NEW
-:  **[madvoc]** When `@RestAction` value starts with macro, add action
-method name to the path.
-
-NEW
-:  **[json]** Added loose mode for parsing.
-
-FIXED
-:  **[json]** Fixed using integers in some cases for *Json* parser.
-
-FIXED
-:  **[json]** Fixed parsing bug that may occur with long strings and late escapes.
-{: .release}
+Some more fixes and minor improvements.
 
 
 ## Code coverage increase
