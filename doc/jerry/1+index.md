@@ -8,7 +8,7 @@ and manipulating. *Jerry* is designed to change the way that you parse
 HTML content.
 
 *Jerry* belongs to <var>jodd-lagarto</var> module and has no dependencies
-other then Jodd's.
+other than Jodd's.
 
 ## What does Jerry code look like?
 
