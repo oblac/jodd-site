@@ -1,4 +1,4 @@
-## [2014-10-01] Release v3.6.1
+## [2014-11-02] Release v3.6.2
 
 Everybody loves fixes and improvements.
 
@@ -30,41 +30,39 @@ NEW
 NEW
 : **[core]** Added `DirWatcher`.
 
-CHANGED
-: **[core]** Removed `jodd.io.filter` package.
-
-CHANGED
-: **[core]** Method `StringUtil.substring` is now full safe.
-
-CHANGED
-: **[core]** Using smart mode for `FindFile` and configurators.
-
 FIXED
-: **[core]** `ClassFinder` don't throw exceptions if flag is set.
-
-CHANGED
-: **[mail]** Multiple addresses now could be added by repeated call to
-address-related methods.
-
-CHANGED
-: **[mail]** Email address-related methods now accept two arguments:
-for personal name and for email address. Moreover, they accept
-`EmailAddress` and `InternetAddress`.
+: **[json]** Fix the lookup order of custom and default type serializers.
 
 NEW
-: **[madvoc]** *Madvoc* configuration `defaultActionName` changed
-to `defaultActionResult` that accept `Class`.
-
-CHANGED
-: **[madvoc]** When `@RestAction` value starts with macro, add action
-method name to the path.
+: **[core]** Added digest methods for files.
 
 NEW
-: **[json]** Added loose mode for parsing.
+: **[http]** Added socket timeout to the API.
+
+NEW
+: **[http]** Added missing HTTP methods. Added few more convenient methods.
 
 FIXED
-: **[json]** Fixed using integers in some cases for *Json* parser.
+: **[http]** Track removed cookies in `HttpBrowser`.
 
 FIXED
-: **[json]** Fixed parsing bug that may occur with long strings and late escapes.
+: **[lagarto]** Fixed some parsing issues.
+
+CHANGED
+: **[http]** Upload is now memory-efficient.
+
+NEW
+: **[http]** Added upload monitor
+
+FIXED
+: **[lagarto]** Fixed JVM crash on `null` argument.
+
+CHANGED
+: **[madvoc]** Replaced *Madvoc* config flag `injectionErrorThrowsException` with `*Injector.silent`.
+
+CHANGED
+: **[core]** Making `BeanUtil` more silent with better performances.
+
+CHANGED
+: **[madvoc]** Removed `RequestScopeInjector.Config`. Breaking change!
 {: .release}
