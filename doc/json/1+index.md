@@ -20,7 +20,7 @@ Let's see how it looks working with *Json*:
 
 	String json = new JsonSerializer()
 			.include("authors")
-			.serialize(user);
+			.serialize(book);
 
 	Book book2 = new JsonParser()
 			.parse(json, Book.class);
