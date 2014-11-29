@@ -11,7 +11,7 @@ therefore is very, very fast.
 
 ## Setup
 
-Enable *Decora* filter in `web.xml`\:
+Enable *Decora* filter in `web.xml`:
 
 ~~~~~ xml
 	<filter>
@@ -28,31 +28,34 @@ Enable *Decora* filter in `web.xml`\:
 	</filter-mapping>
 ~~~~~
 
-Here we also defines custom `DecoraManager` instance. `DecoraManager` is
-responsible if some request should be decorated and resolves decorator
-path. By default, `DecoraManager` decorates all requests, all mime types
-for all `*.html` action paths. Default decorator is
-"`/decora/main.jsp`".
+Here we also define custom `DecoraManager`. This is optional. `DecoraManager` is
+responsible for detectin if some request should be decorated and
+for resolveing decorator path. Default `DecoraManager` decorates all
+requests, all mime types, for all incoming `*.html` requests (action paths).
+Default decorator is located in "`/decora/main.jsp`".
 
 *Decora* may be used offline, too. It is not required to use it in web
-environment.
+and servlets environment.
 {: .attn}
 
 ## DecoraManager
 
-`DecoraManager` does two things: determines what requests should be
-decorated and resolves decorator path for requests. While determining
-what requests should be decorated, there are following options:
+`DecoraManager` does two things:
 
-* request in general
-* content type, mime type, encoding
++ determines which requests should be decorated, and
++ resolves decorator path for requests.
+
+To determine which requests to decorate, it examines the following:
+
+* request object in general
+* content type, mime type and encoding
 * status code
 
 Resolving decorators path is very simple: for given request and action
-path `DecoraManager` must return decorator path (or `null` if request
-does not have to be parsed).
+path `DecoraManager` must return a decorator path (or `null` if request
+does not have to be decorated).
 
-Here is an example of `DecoraManager` that decorates some additional
+Here is an example of custom `DecoraManager` that decorates some additional
 paths:
 
 ~~~~~ java
@@ -99,13 +102,13 @@ decorator file you can define one or more *regions*.
 Here we used custom decora tags.
 
 *Decora* decorators may be static files or dynamic files, created using
-technologies like JSP, freemarker, etc. *Decora* tags are simple text
+technologies like JSP, Freemarker, etc. *Decora* tags are simple text
 tags.
 {: .attn}
 
 ### Standard tags for regions
 
-But this is not the only way how to create *Decora* regions. You can use
+This is not the only way how to create *Decora* regions. You can use
 any standard HTML tag using *Decora* specific id, for example:
 
 ~~~~~ html
@@ -125,7 +128,7 @@ any standard HTML tag using *Decora* specific id, for example:
 ~~~~~
 
 *Decora* specific id consist of three parts, separated by a dash:
-`decora` prefix, tag name and, optionally, tag id. So
+`decora` prefix, tag name and, optionally, tag id.
 
 ## Content regions
 
@@ -143,12 +146,12 @@ Region content is defined in a simple, non-decorated HTML page.
     </html>
 ~~~~~
 
-We defined here 3 regions:
+We have here 3 regions:
 
-* title - defined by \'`title`\' tag
-* head - everything between \'`head`\' tags, not including other regions
-  (therefore, excluding the \'`title`\').
-* body - everything between \'`body`\' tags.
+* title - defined by `title` tag
+* head - everything between `head` tags, not including other regions
+  (therefore, excluding the `title` region).
+* body - everything between `body` tags.
 
 ### Standard tags for regions
 
@@ -169,7 +172,7 @@ defined like this:
     </html>
 ~~~~~
 
-Note that the \'`main`\' region is defined by the `div` tag with
+Note that the `main` region is defined by the `div` tag with
 specified `id`.
 
 ## Result
