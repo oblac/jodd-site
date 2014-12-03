@@ -3,7 +3,7 @@ make-toc:no
 -----
 # What's coming next?
 
-## Release v3.6.3
+## Release v3.6.4
 
 Some more fixes and minor improvements.
 

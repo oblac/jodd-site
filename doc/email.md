@@ -205,9 +205,8 @@ session for each email.
 Here is an example of sending previously defined emails:
 
 ~~~~~ java
-    SmtpServer smtpServer =
-        new SmtpServer("mail.jodd.org",
-            new SimpleAuthenticator("user", "pass"));
+    SmtpServer smtpServer = SmtpServer.create("mail.jodd.org")
+                .authenticateWith("user", "password");
     ...
     SendMailSession session = smtpServer.createSession();
     session.open();
@@ -220,6 +219,20 @@ Since opening session and sending emails may produce `EmailException`,
 it is necessary to wrap methods in `try`-`catch` block and closing the
 session in the `finally` block.
 
+`SmtpServer` uses fluent interface so you can easily specify different
+configuration. For example:
+
+~~~~~ java
+        SmtpServer smtpServer = SmtpServer
+                .create("some.host.com", 587)
+                .authenticateWith("test", "password")
+                .timeout(10)
+                .properties(overridenProperties);
+~~~~~
+
+Here we specified the timeout value and provide additional mail properties
+for the SMTP server.
+
 ## Sending using SSL
 
 Preferred way for sending e-mails is using SSL protocol. *Jodd* supports
@@ -228,8 +241,9 @@ Here is an example of sending e-mail via [Gmail](http://gmail.com) (port
 465 is set by default):
 
 ~~~~~ java
-    SmtpServer smtpServer =
-        new SmtpSslServer("smtp.gmail.com", "user@gmail.com", "password"));
+    SmtpServer smtpServer = SmtpSslServer
+            .create("smtp.gmail.com")
+            .authenticateWith("user@gmail.com", "password");
     ...
     SendMailSession session = smtpServer.createSession();
     session.open();
