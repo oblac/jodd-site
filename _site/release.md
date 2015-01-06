@@ -1,4 +1,4 @@
-## [2014-11-02] Release v3.6.3
+## [2014-12-03] Release v3.6.3
 
 This is just a monthly fix-pack.
 
