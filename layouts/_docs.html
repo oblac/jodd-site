@@ -1,0 +1,66 @@
+		{{TOC}}
+
+		<form id="search" method="get" action="http://www.google.com/search">
+        	<input type="search" name="q" placeholder="Search Jodd docs" results="10">
+        	<input type="hidden" name="sitesearch" value="http://jodd.org">
+        	<button type="submit">Search</button>
+    	</form>
+
+		<h2>Documentation</h2>
+		<ul>
+			<li><a href="/doc/index.html">Jodd in action</a></li>
+			<li><a href="http://oblac.github.io/jodd/">Jodd in 5 minutes</a></li>
+			<li><a href="http://joddframework.org">Jodd in 30 minutes</a></li>
+		</ul>
+		<%= doc_list(@item, '/doc/madvoc/', "Madvoc") %>
+		<%= doc_list(@item, '/doc/petite/', "Petite") %>
+		<%= doc_list(@item, '/doc/proxetta/', "Proxetta") %>
+		<%= doc_list(@item, '/doc/db/', "DbOom") %>
+		<%= doc_list(@item, '/doc/jtx/', "JTX") %>
+		<%= doc_list(@item, '/doc/paramo/', "Paramo") %>
+		<%= doc_list(@item, '/doc/vtor/', "VTor") %>
+		<%= doc_list(@item, '/doc/lagarto/', "Lagarto") %>
+		<%= doc_list(@item, '/doc/htmlstapler/', "HtmlStapler") %>
+		<%= doc_list(@item, '/doc/decora/', "Decora") %>
+		<%= doc_list(@item, '/doc/csselly/', "CSSelly") %>
+		<%= doc_list(@item, '/doc/jerry/', "Jerry") %>
+		<%= doc_list(@item, '/doc/json/', "Json") %>
+		<%= doc_list(@item, '/doc/example/', "Example") %>
+		<h3>Jodd tools and utils</h3>
+		<ul>
+			<li><a href="/doc/beanutil.html">BeanUtil &middot; the fastest bean tool</a></li>
+			<li><a href="/doc/jdatetime.html">JDateTime &middot; accurate and elegant</a></li>
+			<li><a href="/doc/props.html">Props &middot; super properties</a></li>
+			<li><a href="/doc/email.html">Email &middot; convenient email handling</a></li>
+			<li><a href="/doc/http.html">HTTP &middot; easy http client</a></li>
+			<li><a href="/doc/index.html">and more...</a></li>
+		</ul>
+		<h3>Jodd micro-frameworks</h3>
+		<ul>
+			<li><a href="/doc/madvoc/index.html">Madvoc &middot; slick MVC framework</a></li>
+			<li><a href="/doc/petite/index.html">Petite &middot; pragmatic DI container</a></li>
+			<li><a href="/doc/proxetta/index.html">Proxetta &middot; dynamic proxy</a></li>
+			<li><a href="/doc/db/index.html">Db &amp; DbOom &middot; practical db access</a></li>
+			<li><a href="/doc/json/index.html">Json &middot; cool (de)serialization</a></li>
+			<li><a href="/doc/jtx/index.html">JTX &middot; enjoyable transactions</a></li>
+			<li><a href="/doc/paramo/index.html">Paramo &middot; method params names</a></li>
+			<li><a href="/doc/vtor/index.html">VTor &middot; validation with style</a></li>
+			<li><a href="/doc/lagarto/index.html">Lagarto &middot; versatile html parser</a></li>
+			<li><a href="/doc/decora/index.html">Decora &middot; web page decorators</a></li>
+			<li><a href="/doc/jerry/index.html">Jerry &middot; jQuery in Java</a></li>
+
+		</ul>
+		<h3>Examples</h3>
+		<ul>
+			<li><a href="/doc/quickstart/index.html">Quickstart &raquo; instant run</a></li>
+			<li><a href="/doc/example/index.html">Web app example &raquo; step-by-step</a></li>
+			<li><a href="/uphea/index.html">Uphea &raquo; real world app</a></li>
+		</ul>
+		<h3>Reports</h3>
+		<ul>
+			<li><a href="/api/index.html">Javadoc API</a></li>
+			<li><a href="/test/index.html">Test results</a></li>
+			<li><a href="/test/coverage-report/index.html">Coverage report</a></li>
+		</ul>
+
+		<%= render('_ohloh') %>

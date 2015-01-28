@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= 'Jodd | ' + (@item[:title] ? @item[:title] : @config[:site][:slogan]) %></title>
+	<%= render '_head' %>
+</head>
+<body>
+	<section id="intro">
+
+		<%= render '_header' %>
+
+		<div class="inner">
+			<div id="button-jodd"><a href="/download">
+				Jodd v<%= @config[:jodd][:version] %>
+				<div class="sub">Released: <%= @config[:jodd][:release_date] %></div>
+			</a></div>
+			<div id="title">
+				<h1>Jodd</h1>
+				<h2>The Unbearable Lightness of Java</h2>
+
+				<%= render '_social' %>
+			</div>
+		</div>
+	</section>
+
+	<section id="shout">
+		<div class="inner" >
+			<%= yield %>
+		</div>
+	</section>
+
+	<section id="main">
+		<div class="inner">
+
+			<h2>Jodd Periodic Table of Components</h2>
+
+			<div class="under">
+				Here are some components for you!
+				See <a href="/doc">documentation</a> for more.
+			</div>
+
+			<div id="badges">
+
+				<div class="badge">
+					<a href="/doc/beanutil.html" class="circle">B</a>
+					<div class="desc">
+						<span>BeanUtil</span> - fast bean library, type introspection
+						and type conversion tools with unique features.
+					</div>
+				</div>
+
+				<div class="badge br1">
+					<a href="/doc/jdatetime.html" class="hexagon">T</a>
+					<div class="desc">
+						<span>JDateTime</span> - elegant usage and astronomical
+						precision in single time-manipulation class.
+					</div>
+				</div>
+
+				<div class="badge br1">
+					<a href="/doc/props.html" class="circle bg-col1">R</a>
+					<div class="desc">
+						<span>Props</span> - super properties replacement,
+						featuring: UTF8, sections, profiles, macros and more.
+					</div>
+				</div>
+
+				<div class="badge">
+					<a href="/doc/db/" class="circle bg-col4">D</a>
+					<div class="desc">
+						<span>DbOom</span> - efficient and thin DB layers and
+						object mapper that simplify database code.
+					</div>
+				</div>
+
+				<div class="badge">
+					<a href="/doc/madvoc/" class="hexagon">M</a>
+					<div class="desc">
+						<span>Madvoc</span> - elegant web MVC framework based on
+						CoC and annotations for pragmatic web development.
+					</div>
+				</div>
+
+				<div class="badge">
+					<a href="/doc/petite/" class="square bg-col3">P</a>
+					<div class="desc">
+						<span>Petite</span> - slick and lightweight DI container
+						supports sufficient most of features offered by other containers.
+					</div>
+				</div>
+
+				<div class="badge">
+					<a href="/doc/proxetta/" class="circle">X</a>
+					<div class="desc">
+						<span>Proxetta</span> - the fastest proxy creator with new, unique
+						approach for making pointcuts and different type of advices.
+					</div>
+				</div>
+
+				<div class="badge br2">
+					<a href="/doc/lagarto/" class="square bg-col4">L</a>
+					<div class="desc">
+						<span>Lagarto</span> - super fast and versatile all-purpose HTML parser
+						and DOM builder.
+						<br><br><br>
+					</div>
+				</div>
+
+				<div class="badge">
+					<a href="/doc/jerry/" class="circle">J</a>
+					<div class="desc">
+						<span>Jerry</span> - jQuery-friendly HTML parser with CSS3 selectors support.
+						<br><br><br>
+					</div>
+				</div>
+
+				<div class="badge br2">
+					<a href="/doc/http.html" class="square bg-col1">H</a>
+					<div class="desc">
+						<span>HTTP</span> - Tiny and raw HTTP client, helps talking to servers.
+						<br><br>
+					</div>
+				</div>
+
+				<div class="badge br1">
+					<a href="/doc/email.html" class="circle">E</a>
+					<div class="desc">
+						<span>Email</span> - sending and receiving emails for busy developers.
+						<br><br>
+					</div>
+				</div>
+
+				<div class="badge br1">
+					<a href="/doc/decora/" class="hexagon">C</a>
+					<div class="desc">
+						<span>Decora</span> - powerful decoration framework for web pages based on templates.
+						<br><br>
+					</div>
+				</div>
+
+				<div class="badge br1">&nbsp;
+				</div>
+
+				<div class="badge br2">
+					<a href="/doc/json/" class="circle bg-col4">S</a>
+					<div class="desc">
+						<span>Json</span> - super tool for parsing JSON to objects and serializing objects back to JSON.
+						<br><br>
+					</div>
+				</div>
+
+				<div class="badge br1">
+					<a href="/doc/htmlstapler/" class="square bg-col1">A</a>
+					<div class="desc">
+						<span>HtmlStapler</span> - automatic packaging of web resources included by HTML page.
+						<br><br>
+					</div>
+				</div>
+
+			</div>
+
+			<h2>Think Lightweight, Be Awesome, Get Things Done!</h2>
+
+		</div>
+	</section>
+
+	<%= render '_footer' %>
+	<%= render '_ga' %>
+
+</body>
+</html>

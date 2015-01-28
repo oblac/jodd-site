@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= 'Jodd | ' + (@item[:title] ? @item[:title] : @config[:site][:slogan]) %></title>
+	<%= render '_head' %>
+</head>
+<body>
+	<section id="intro">
+		<%= render '_header' %>
+
+		<div id="title-doc">&nbsp;</div>
+	</section>
+
+	<section id="content"><div class="inner">
+
+		<%= render '_social' %>
+
+		<article>
+			<%= javadoc(@item) %>
+
+			<%= yield %>
+
+			<%= doc_nav(@item) %>
+		</article>
+		<aside>
+			<%= render '_docs' %>
+		</aside>
+	</div></section>
+
+	<%= render '_footer' %>
+	<%= render '_ga' %>
+
+</body>
+</html>
