@@ -1,5 +1,0 @@
-.etc
-.release*
-.gen*
-.sass-cache
-jodd-site.sublime*
