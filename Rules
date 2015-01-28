@@ -1,0 +1,162 @@
+#!/usr/bin/env ruby
+
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+require 'compass'
+Compass.add_project_configuration 'config.rb'
+
+preprocess do
+  # assign a 'site_path' to each item
+  @items.each do |item|
+    collect_path(item)
+  end
+end
+
+
+## just blind-copy these
+
+passthrough '/humans'
+passthrough '/robots'
+passthrough '/BingSiteAuth'
+passthrough '/google*'
+passthrough '/favicon'
+passthrough '/y_key_*'
+
+passthrough '/about/*'
+passthrough '/fonts/*'
+passthrough '/gfx/*'
+passthrough '/img/*'
+passthrough '/*.zip'
+
+## partials
+
+# just compile partials and route nothing
+compile '/partials/*/' do
+  filter :erb
+  filter :kramdown if item[:extension] == 'md'
+end
+route '/partials/*/' do ; nil ; end
+
+## sitemap
+
+compile '/sitemap' do
+  filter :haml
+end
+route '/sitemap' do
+  item.identifier.chop + '.xml'
+end
+
+## error pages
+
+compile %r{^/(40.|500)/$} do
+  filter :erb
+  filter :kramdown if item[:extension] == 'md'
+  layout 'error'
+end
+route '/40*' do
+  item.identifier.chop + '.shtml'
+end
+route '/500' do
+  '/500.php'
+end
+route '/500-shtml' do
+  '/500.shtml'
+end
+
+## mailer
+
+compile '/mailer' do ; end
+route '/mailer' do
+  '/mailer.php'
+end
+
+## htaccess
+
+compile '/htaccess' do ; end
+route '/htaccess' do
+  '/.htaccess'
+end
+
+
+## sync-filter (for sync)
+
+compile '/sync-filter.txt' do ; end
+route '/sync-filter.txt' do
+  '/.sync-filter.txt'
+end
+
+## javascript
+
+compile '/js/*' do
+end
+
+## CSS
+
+ignore '/css/_*'
+
+compile '/css/*' do
+  if item[:extension] == 'scss'
+    #filter :sass, :syntax => :scss, :style => :compressed
+    filter :sass, Compass.sass_engine_options.merge(
+      :syntax => :scss,
+      :style => :compressed
+    )
+  end
+end
+
+route '/css/*' do
+  '/css/' + File.basename(item.identifier) + '.css'
+end
+
+
+## defaults
+
+compile '*' do
+  if !item.binary?
+    ext = item[:extension]
+
+    filter :erb
+    if ext == 'md'
+      filter :kramdown, {
+        :smart_quotes => "apos,apos,quot,quot",
+        :coderay_line_numbers => nil,
+        :coderay_tab_width => 4,
+        :coderay_wrap => :div,
+        :coderay_css => :class
+      }
+    end
+
+    if item[:layout] != nil
+      layout item[:layout]
+    else
+      layout 'default'
+    end
+
+    if [ext == 'md']
+      filter :add_toc
+      filter :jodd_replace
+    end
+  end
+end
+
+route '/' do
+  '/index.html'
+end
+
+route '*' do
+  path(item)
+end
+
+
+## layouts
+
+layout '*', :erb
