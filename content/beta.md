@@ -4,7 +4,7 @@ toc: false
 
 # What's coming next?
 
-## Release v3.6.4
+## Release v3.6.5
 
 Some more fixes and minor improvements.
 
