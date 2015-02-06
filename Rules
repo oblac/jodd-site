@@ -105,7 +105,6 @@ ignore '/css/_*'
 
 compile '/css/*' do
   if item[:extension] == 'scss'
-    #filter :sass, :syntax => :scss, :style => :compressed
     filter :sass, Compass.sass_engine_options.merge(
       :syntax => :scss,
       :style => :compressed
@@ -133,6 +132,7 @@ compile '*' do
         :coderay_wrap => :div,
         :coderay_css => :class
       }
+      filter :words_filter
     end
 
     if item[:layout] != nil

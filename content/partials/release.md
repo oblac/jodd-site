@@ -1,6 +1,7 @@
 ## \[2015-02-05\] Release v3.6.4
 
-Another month, another fix-pack.
+Another month, another fix-pack. This time, however, we have some number of
+changes, so please be sure to go over the list.
 
 NEW
 : **\[mail\]** Method `sendMail()` now returns MessageID.
