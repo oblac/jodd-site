@@ -40,6 +40,7 @@ GEM
     haml (4.0.6)
       tilt
     hitimes (1.2.2)
+    json (1.8.2)
     kramdown (1.5.0)
     listen (2.8.5)
       celluloid (>= 0.15.2)
@@ -84,6 +85,7 @@ DEPENDENCIES
   compass (~> 1.0.3)
   guard-nanoc
   haml (~> 4.0.6)
+  json
   kramdown (~> 1.5.0)
   mime-types (~> 2.4.3)
   nanoc (~> 3.7.5)
