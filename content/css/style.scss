@@ -469,17 +469,26 @@ pre code {
 	margin: 0 auto;
 }
 .badge {
+	font-family: $font-head;
 	float: left;
 	width: 180px;
 	text-align: center;
 	margin: 10px;
-	font-size: 16px;
-	span {
-		font-weight: bold;
-		font-size: 20px;
+	padding: 10px 0;
+	@include border-radius(10px);
+	.desc {
+		font-family: $font-text;
+		font-size: 15px;
+		span {
+			font-weight: bold;
+			font-size: 20px;
+		}
+	}
+	&:hover { background-color: $color-back; color: $color-text;}
+	&:hover div {
+		background-color: $color-back;
 	}
 }
-
 .circle {
 	width: 100px;
 	@include border-radius(50px);
@@ -796,27 +805,35 @@ footer {
 #badges {
 	//width: 200px;
 	width: inherit;
+	margin: 0;
 }
 .br2 {
 	display: none;
 }
 
 .badge {
-	float: none;
-	position: relative;
+	float: left;
 	width: inherit;
-	margin-bottom: 30px;
-}
-.desc {
-	position: absolute;
-	left: 120px;
-	top: 20px;
+	margin: 0 10px;
+
+	span {
+		font-size: 18px;
+	}
+	.desc {
+		text-align: left;
+		padding: 10px 20px 0 90px;
+	}
+
+	.circle, .square, .hexagon {
+		margin-left: 0;
+		margin-bottom: 0;
+		float:left;
+		font-size: 30px;
+		width: 80px;
+		line-height: 80px;
+	}
 }
 
-.circle, .square, .hexagon {
-	margin-left: 0;
-	margin-bottom: 0;
-}
 
 #logo {
 	float:none;
