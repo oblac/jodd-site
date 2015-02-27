@@ -468,13 +468,17 @@ pre code {
 	width: 820px;
 	margin: 0 auto;
 }
-.badge {
+.badge-frame {
 	font-family: $font-head;
 	float: left;
 	width: 180px;
 	text-align: center;
 	margin: 10px;
 	padding: 10px 0;
+}
+
+.badge {
+	@extend .badge-frame;
 	@include border-radius(10px);
 	.desc {
 		font-family: $font-text;
