@@ -56,3 +56,13 @@ $ bundle exec nanoc autocompile
 ```
 
 This starts a web server too, so there's no need to run `nanoc view`.
+
+### Search
+
+We have custom javascript search engine and you need to execute:
+
+```sh
+$ bundle exec nanoc sd
+```
+
+to generate JSON search data file.

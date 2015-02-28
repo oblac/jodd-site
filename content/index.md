@@ -6,7 +6,7 @@ layout: 'jodd'
 
 Designed with [common sense](principle.html) to make things simple, but not simpler.
 
-Get things done! Build your beautiful ideas! Run your startup!
+Get things done! Build your Beautiful Ideas! Kickstart your Startup!
 
 And enjoy the coding.
 

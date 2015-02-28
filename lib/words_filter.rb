@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'json'
+require 'fileutils'
 
 class WordsFilter < Nanoc::Filter
   identifier :words_filter
@@ -60,19 +61,21 @@ class WordsFilter < Nanoc::Filter
             ' ' << document[:alltitles]
 
     words = word_counter(text, 15)
-    words = words.map {|e| e[0] }.join(' ')
+    words = words.map{|e| e[0] }.join(' ')
 
     # update
 
-    if File.exist?(@index_file)
-      json = JSON.parse(File.read(@index_file))
-    else
-      json = []
+    filename = @site.config[:output_dir] + '/.meta' + @item[:site_path] + '.json'
+    dirname = File.dirname(filename)
+    unless File.directory?(dirname)
+      FileUtils.mkdir_p(dirname)
     end
 
-    json << {"t" => document[:title],"v" => words,"u"=>@item[:site_path]}
+    puts("\t" + filename)
 
-    File.open(@index_file, 'w') do |file|
+    File.open(filename, 'w') do |file|
+      json = {"t" => document[:title],"v" => words,"u"=>@item[:site_path]}
+
       file.write(JSON.pretty_generate(json))
     end
 
