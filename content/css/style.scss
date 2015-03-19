@@ -738,6 +738,22 @@ footer {
 	animation: rotateInUpRight 1s;
 }
 
+
+/** TWITTER **/
+
+
+#twitter {
+	background-color: #eee;
+	color: #eee;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+#twitter .slider {
+	margin-left: 250px;
+	margin-right: 50px;
+}
+
+
 /** MEDIUM **/
 
 @media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
@@ -763,6 +779,9 @@ footer {
 .inner {
 	width: $width-page2;
 	max-width: $width-page2;
+}
+#twitter {
+	display:none;
 }
 
 #content {
@@ -799,6 +818,9 @@ footer {
 	h2 {
 		font-size: 20px;
 	}
+}
+#twitter {
+	display:none;
 }
 #social {
 	float:none;
