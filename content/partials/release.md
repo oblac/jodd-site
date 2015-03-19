@@ -1,47 +1,38 @@
-## \[2015-02-05\] Release v3.6.4
+## \[2015-03-21\] Release v3.6.5
 
-Another month, another fix-pack. This time, however, we have some number of
-changes, so please be sure to go over the list.
+It seems that this month we cleaned up some important bugs,
+thanks to our awesome community!
 
 NEW
-: **\[mail\]** Method `sendMail()` now returns MessageID.
+: **\[http\]** `HttpBrowser` now accepts local path on 30x.
+
+NEW
+: **\[http\]** Added default headers to `HttpBrowser`.
+
+FIXED
+: **\[madvoc\]** Fixed action string in case of proxified classes.
+
+FIXED
+: **\[servlet\]** Reset `content-length` in GZip stream.
+
+FIXED
+: **\[lagarto\]** Reset `content-length` in *Lagarto* filter.
+
+FIXED
+: **\[decora\]** Reset `content-length` in *Decora* filter.
+
+NEW
+: **\[htmlstapler\]** Added `randomDigestChars` option to bundles manager.
+
+NEW
+: **\[bean\]** Added methods to `BeanCopy` for better fluent interface.
+
+NEW
+: **\[bean\]** Added `BeanUtil#setProperty` with all options as arguments.
 
 CHANGED
-: **\[proxetta\]** Removed hierarchy level from `MethodInfo`.
+: **\[bean\]** Removed `this*` reference.
 
-FIXED
-: **\[proxetta\]** Using ASM5 all the way, fixed issues with default methods on Java8.
-
-CHANGED
-: **\[core\]** Small change with `getComponentType()`, added index.
-
-CHANGED
-: **\[core\]** `RandomStringUtil` changed to `RandomString` class.
-
-CHANGED
-: **\[core\]** `ValueHolder` is now an interface; added `ValueProvider`.
-
-FIXED
-: **\[http\]** Added support for `Numbers` and `Booleans` as form objects.
-
-FIXED
-: **\[core\]** Fixed `isHostUnix()` false positive value on Mac OS X.
-
-CHANGED
-: **\[servlet\]** Updated `ServletUtil` to read parameter values in a proper way.
-
-FIXED
-: **\[lagarto\]** Added support for `String[]` in the `FormTag`.
-
-FIXED
-: **\[proxetta\]** Fixed casting issue and classes with default packages.
-
-FIXED
-: **\[gradle\]** BOM file was empty
-
-FIXED
-: **\[servlets\]** Fix `GzipResponseWrapper` for Servlets 3.1 by adding method `setContentLengthLong()`.
-
-FIXED
-: **\[json\]** Fixed special case when using custom annotations and strict mode.
+NEW
+: **\[props\]** Added extracting of inner map in the *Props*.
 {: .release}
