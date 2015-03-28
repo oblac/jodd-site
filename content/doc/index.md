@@ -4,7 +4,7 @@
 
 Take a deep breath and hold it:
 
-> Developer-friendly experience + Excellent performances +
+> Developer-friendly experience + Excellent performance +
 Small memory footprint and code-base; under 1.5 MB +
 Fast redeployments, matter of seconds + Elegant web framework +
 Slick and lightweight DI container + The fastest and unique proxy creator +
