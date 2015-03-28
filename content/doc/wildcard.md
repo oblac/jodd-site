@@ -5,7 +5,7 @@ regular expression may help, but is not top performance solution.
 `Wildcard` class matches strings to wildcard patterns using `*` and `?`
 characters, and that does very fast and good!
 
-## Mathing strings
+## Matching strings
 
 Here are some examples:
 
