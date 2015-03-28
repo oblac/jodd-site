@@ -48,10 +48,11 @@ small in size.
 | maven            | value                            |
 |------------------|----------------------------------|
 | groupId:         | **org.jodd**                     |
-| artifactId:      | **jodd-\<module_name\>**         |
+| artifactId:      | **jodd-**\<module_name\>         |
 | version:         | **<%=@config[:jodd][:version]%>**|
 |------------------|----------------------------------|
 
+See list of all *Jodd* [modules](../doc/modules.html#modules-list-and-dependencies).
 *Jodd* provides "bill of materials"
 ([BOM](http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)).
 
