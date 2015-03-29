@@ -432,7 +432,7 @@ Specifies if values should be trimmed from the left.
 
 ### valueTrimRight
 
-Specifies if values shoould be trimmed from the right.
+Specifies if values should be trimmed from the right.
 
 ### ignorePrefixWhitespacesOnNewLine
 

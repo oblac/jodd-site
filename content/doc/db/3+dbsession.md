@@ -1,7 +1,7 @@
 # DbSession
 
 `DbSession` encapsulates database connection. It also plays nicely with
-`DbQuery`ies and has some convenient features.
+`DbQuery`-ies and has some convenient features.
 
 ## Connection providers
 
@@ -40,7 +40,7 @@ connection back to `ConnectionProvider`. Here is an example of basic
 ~~~~~
 
 In above example only `DbSession` is explicitly closed. As said,
-`DbSession` keeps track of all created `DbQuery`ies. On session closing,
+`DbSession` keeps track of all created `DbQuery`-ies. On session closing,
 all open queries will be implicitly closed; therefore all created and
 still open ResultSet\'s will be closed. Even this is nice feature, some
 may like more to explicitly close each resource - with *Db* this is just

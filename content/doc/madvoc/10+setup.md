@@ -172,7 +172,7 @@ web application is shutting down, invoked by
 Defined in `web.xml`, `MadvocConfigurator` implementation purpose is to
 configure the whole web application: to register actions, results and so
 on. `MadvocConfigurator` instance is wired into internal IoC container,
-so all *Madvoc* components are availiable.
+so all *Madvoc* components are available.
 
 Default `MadvocConfigurator` implementation is
 `AutomagicMadvocConfigurator`. Despite the funny name, it is really one
@@ -323,7 +323,7 @@ e.g.: `RequestScopeInjector` (from `InjectorsManager` component).
 
 ## Madvoc parameters
 
-There is more convinient way for *Madvoc* configuration, suitable in
+There is more convenient way for *Madvoc* configuration, suitable in
 most cases. Configuration may be specified as
 [parameters](/doc/petite/parameters.html) of internal *Petite*
 container. Parameters may be set manually or read from the classpath (as

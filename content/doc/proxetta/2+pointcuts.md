@@ -23,7 +23,7 @@ return type... It also returns `ClassInfo` and `AnnotationInfo`
 instances, with additional class and annotation information. All this
 information may be use to fine-tune on which methods to apply a proxy.
 And since all this information is stored as simple types and Strings,
-pointcut definition becomes easy, but powerfull - all in plan Java.
+pointcut definition becomes easy, but powerful - all in plan Java.
 
 When scanning classes for pointcuts, *Proxetta* examines all methods of
 target class and of all its superclasses, up to the `Object`. Final

@@ -29,12 +29,12 @@ Enable *Decora* filter in `web.xml`:
 ~~~~~
 
 Here we also define custom `DecoraManager`. This is optional. `DecoraManager` is
-responsible for detectin if some request should be decorated and
-for resolveing decorator path. Default `DecoraManager` decorates all
+responsible for detecting if some request should be decorated and
+for resolving decorator path. Default `DecoraManager` decorates all
 requests, all mime types, for all incoming `*.html` requests (action paths).
 Default decorator is located in "`/decora/main.jsp`".
 
-*Decora* may be used offline, too. It is not required to use it in web
+*Decora* may be used off-line, too. It is not required to use it in web
 and servlets environment.
 {: .attn}
 

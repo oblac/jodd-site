@@ -1,6 +1,6 @@
 # Fast app development with Jodd Joy
 
-Your time is precious, so lets do a quick roundup of *Jodd* microframeworks.
+Your time is precious, so lets do a quick roundup of *Jodd* micro-frameworks.
 Instead of configuring and integrating each framework manually, we will use
 [*Joy*](/doc/joy/index.html) - an application template that significantly
 speeds up the project start-up time and that provides *Jodd* best

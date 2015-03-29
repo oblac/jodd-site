@@ -136,7 +136,7 @@ good practice to add days instead.
 ## Periods
 
 With `JDateTime` its easy to calculate period duration in days: just by
-subtracting two julian numbers. However, to calculate period duration
+subtracting two Julian numbers. However, to calculate period duration
 including hours, minutes, seconds, and milliseconds; its somewhat easier
 and faster to use class `Period`.
 

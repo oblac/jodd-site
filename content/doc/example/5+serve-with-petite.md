@@ -177,7 +177,7 @@ works perfectly!
 ## LocalRunner
 
 As you've noticed, our business layer is decoupled from the web layer.
-ood practice at this time is to build simple console-mode application
+Good practice at this time is to build simple console-mode application
 where we can play with the application services without starting the
 Tomcat! Something like this:
 

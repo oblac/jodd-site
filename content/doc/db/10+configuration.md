@@ -69,7 +69,7 @@ practice you can use in your projects:
   types.
 * Use code `columnAliasType` if needed.
 * Use `$C{}` just for selected columns, and nothing else.
-* Don\'t forget that letter case of tables is different when created
+* Don't forget that letter case of tables is different when created
   from the code.
 
 Very often (at the beginning of the project), *DbOom* is not working

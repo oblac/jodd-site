@@ -16,7 +16,7 @@ features make `BeanUtil` distinct from other similar libraries:
 In `BeanUtil` world, bean property is a class field with its *optional*
 setter and getter (aka accessors) methods. When accessing properties,
 `BeanUtil` first tries to use accessors methods. If they don't exist,
-`BeanUtil` failbacks to using the field of the same visibility.
+`BeanUtil` fail-backs to using the field of the same visibility.
 Therefore, existence of accessors methods is not required and depends on
 usage, what often may be handy. `BeanUtil` is used internally inside
 the *Jodd* library, so this behavior applies everywhere.
@@ -232,7 +232,7 @@ be injected. Usage is quite simple:
 ## Performance test
 
 `BeanUtil` seems almost 20% faster compared to
-[Common's BeanUtils v1.8](http://commons.apache.org/beanutils/).
+[Commons BeanUtils v1.8](http://commons.apache.org/beanutils/).
 However, the performance is not the only reason why `BeanUtil` is a good choice, as seen above.
 
 ![BeanUtil performance test](beanutil-benchmark.png)

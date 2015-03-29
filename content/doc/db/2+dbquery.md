@@ -86,7 +86,7 @@ Here is the difference that debug mode makes:
 
 ## Configuration & Lazy initialization
 
-`DbQuery` initializes lazy. Creating an object still doesn\'t do
+`DbQuery` initializes lazy. Creating an object still doesn't do
 anything with the database, therefore it can be configured as needed.
 `DbQuery` initializes on first concrete database-related method.
 Therefore, setting the debug mode (and other config) must be done

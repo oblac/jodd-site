@@ -16,7 +16,7 @@ When set to `true` (default) *Lagarto* parser will detect IE conditional
 comments. If you know that your HTML does not have any you can disable
 this property to gain some more speed. If disabled and conditional
 comment is found, *Lagarto* will either send an error for revealed
-conditional comment tags or threat downlevel-hidden codnitional comments
+conditional comment tags or threat downlevel-hidden conditional comments
 as regular comments.
 
 ### parseSpecialTagsAsCdata

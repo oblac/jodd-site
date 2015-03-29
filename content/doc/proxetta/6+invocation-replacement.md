@@ -121,7 +121,7 @@ Simple, right :)
 
 `InvokeInfo` contains a lot of information about the methods being invoked.
 It is used to determine if some method call should be replaced or not.
-Using `InvokeInfo` we can get class name, method singatures, arguments etc.
+Using `InvokeInfo` we can get class name, method signatures, arguments etc.
 of the invoked methods; so we can decide if some invocation is a target one, one that should be replaced.
 
 `InvokeReplacer` holds information about the replacement method - the one

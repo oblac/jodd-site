@@ -53,7 +53,7 @@ assuming there is one and only one, big session.
 
 At any time, all registered beans may be iterated. This is useful when
 some additional modification has to be performed on bean classes, after
-being registered. Method `beansIterator` iterates all beans - actially,
+being registered. Method `beansIterator` iterates all beans - actually,
 it iterates all bean definitions! This means that beans may not be even
 initialized yet (there was no first lookup yet).
 

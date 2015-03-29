@@ -178,7 +178,7 @@ same example from above:
 ~~~~~
 
 As you see, it's really less code:) Biggest difference here is that
-instead of creating emai attachments using constructors, we have been
+instead of creating email attachments using constructors, we have been
 using `EmailAttachment.attachment()` helper - a smart factory for email
 attachment classes.
 

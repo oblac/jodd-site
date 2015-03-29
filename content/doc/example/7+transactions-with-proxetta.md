@@ -91,7 +91,7 @@ And that is all :)
 `JtxTransactionManager` is transaction manager responsible for
 transactions propagation and resource managers. In general, it works
 across several transaction resource types. However, if we are sure that
-we gonna use just one transactional resource and that resouce is database
+we gonna use just one transactional resource and that resource is database
 (that is often true) we can use the simplified version of transaction
 manager: `DbJtxTransactionManager`. It is simplified just in sense of
 usage, all underlying mechanisms are the same. For example, it is easier

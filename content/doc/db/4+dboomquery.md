@@ -30,7 +30,7 @@ objects.
     girl.setBoy(boy);		// if there is such dependency
 ~~~~~
 
-Here a join between two tables is mapped to two, explicity specified,
+Here a join between two tables is mapped to two, explicitly specified,
 classes. Since `DbOomQuery` is not aware of relationships, `boy`
 instance would be not injected into the `girl`. Here, this has to be
 done manually (line #5).
@@ -48,14 +48,14 @@ Since world is not perfect, some JDBC drivers doesn't provide table
 name within result set meta-data (hello [Oracle][1]). When
 table name is not available, mapper tries to to best possible job: it
 tries to map columns to one class by matching just column names and bean
-properties. While everything is ok (i.e. while there is a bean property
+properties. While everything is OK (i.e. while there is a bean property
 that matches result set columns), mapper continues using the same bean
 object. If mapping fails i.e. if some column name is not founded among
 bean properties, mapper takes the next bean class and repeats the
 procedure. This approach has some sharp usage corners, but they can be
 easily avoided.
 
-*DbOom* offers a solution when table names are not availiable in JDBC
+*DbOom* offers a solution when table names are not available in JDBC
 meta-data, that will be explained later.
 
 As said, mapping works with bean classes, i.e. domain objects. Moreover,

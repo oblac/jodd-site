@@ -152,7 +152,7 @@ will try to resolve the name. By default, bean name is resolved using
 the following values in given order:
 
 1.  property name
-2.  uncaptialized short field type name
+2.  uncapitalized short field type name
 3.  long type name
 
 This order and values are fully configurable in *Petite*

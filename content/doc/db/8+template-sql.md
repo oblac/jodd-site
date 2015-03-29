@@ -29,7 +29,7 @@ Result:
 
 Table macro converts entity names into table names. Optionally it may
 define table alias for further reference, otherwise entity name is used
-isntead. Ona table macro may define more tables definitions separated by
+instead. One table macro may define more tables definitions separated by
 comma.
 
 Usages:

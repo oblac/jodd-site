@@ -209,7 +209,7 @@ parser.
 
 Every JSON map first must be converted to a `Map` so we can fetch the class name
 and then converted to a target class. Because of this double conversion expect
-performance penalties if using class metada name.
+performance penalties if using class metadata name.
 
 ## Type conversion
 

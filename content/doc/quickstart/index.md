@@ -3,7 +3,7 @@
 *Jodd* Quickstart projects are pre-configured *Jodd* bundles that are
 small and ready to be run fast. In most cases, a quickstart project is
 just an empty web application containing some of the *Jodd* frameworks
-confugred and prepared for the use and further exploration.
+configured and prepared for the use and further exploration.
 
 Please keep in mind that Quickstart projects are just simple examples
 built for users to get quickly into the *Jodd*, so many (advanced)
@@ -33,7 +33,7 @@ MySql and to change configuration parameters prior starting.
 
 ## 3. Steady, ready... Code!
 
-Simply open QuickStart project in your IDE. As a gradle project, everything
+Simply open QuickStart project in your IDE. As a Gradle project, everything
 will be set up for you, so you can start exploring it right away.
 
 You are now ready to experience *Jodd*:)

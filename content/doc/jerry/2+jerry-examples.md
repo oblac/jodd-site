@@ -71,7 +71,7 @@ simple HTML text.
     }
 ~~~~~
 
-Easy peasy!
+Easy!
 
 ## Facebook bot
 

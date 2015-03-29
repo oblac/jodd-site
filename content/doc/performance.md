@@ -6,7 +6,7 @@ that skill of writing fast code is somewhat lost. But not here! We are
 **devoted** to code **optimization** and we have some significant
 experience, starting back since days of C and assembler.
 
-We are currently rewritting our benchmarks using JMH microbenchmark tool.
+We are currently rewriting our benchmarks using JMH microbenchmark tool.
 Please be patient until we publish the code and the results!
 {: .attn}
 

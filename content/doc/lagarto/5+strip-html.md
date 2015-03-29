@@ -6,7 +6,7 @@ reducing the size of HTML pages by removing all unnecessary characters.
 `StripHtmlTagAdapter` does the following modifications to HTML page:
 
 * removes all HTML comments.
-* replaces mutliple whitespaces in text with a single space character.
+* replaces multiple whitespaces in text with a single space character.
 
 Note that javascript blocks are not stripped by this tag adapter.
 
@@ -26,7 +26,7 @@ See
 [`SimpleLagartoServletFilter`](lagarto-parser.html#lagartoservletfilter)
 how you can use any *Lagarto* adapter in a simple way to get you going.
 
-### Offline usage
+### Off-line usage
 
 Here is an example:
 

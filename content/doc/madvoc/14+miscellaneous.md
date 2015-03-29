@@ -59,7 +59,7 @@ With *Madvoc* it is easy to prevent such cases and still to avoid manual
 setting of method name in every action. All what has to be done is to
 override `ActionMethodParser#buildActionPath()`. This method is called
 during action registration, once when all parts of action path are
-readed (from annotation or using corresponding names). Custom version of
+read (from annotation or using corresponding names). Custom version of
 `ActionMethodParser` component may look like:
 
 ~~~~~ java

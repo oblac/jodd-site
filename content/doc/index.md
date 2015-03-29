@@ -6,15 +6,15 @@ Take a deep breath and hold it:
 
 > Developer-friendly experience + Excellent performance +
 Small memory footprint and code-base; under 1.5 MB +
-Fast redeployments, matter of seconds + Elegant web framework +
-Slick and lightweight DI container + The fastest and unique proxy creator +
-Efficient and thin database layers + Transactions manager +
-Powerfull and fast JSON (de)serialization +
-Focused validation framework + Fast and versatile HTML parser +
-Decoration framework based on templates + Fastest bean library +
+Fast redeployments, matter of seconds + Web framework +
+Lightweight DI container + Unique proxy creator +
+Thin database layers + Template SQL + Transactions manager +
+JSON (de)serialization +
+Validation framework + HTML parser +
+Decoration framework + Fastest bean library +
 Type conversion +
-Elegant and precise time class + Powerful properties replacement +
-Tiny and raw HTTP client + Many carefully selected utilities... and more!
+Elegant and precise time class + Properties replacement +
+Tiny HTTP client + Many carefully selected utilities... and more!
 
 Now you can breath out :)
 
