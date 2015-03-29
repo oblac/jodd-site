@@ -1,8 +1,8 @@
 # StringUtil
 
-Strings manipulation is a common and frequent task in everday life of a
+Strings manipulation is a common and frequent task in everyday life of a
 developer. JDK doesn't provide much help on this topic. *Jodd* comes in
-a rescue! It's `StringUtil` class offers more then **100** additional
+a rescue! It's `StringUtil` class offers more than **100** additional
 string utilities (and still growing). And each one is optimized for
 speed. Description of some methods follows, more details can be founded
 in javadoc and test cases.
@@ -50,13 +50,13 @@ Two methods that are always needed: `capitalize()` and `uncapitalize()`.
 When parsing, splitting string into substrings is also a common task.
 `StringUtil` offers several split methods.
 
-`split(String src, String delimeter)` splits a string in several parts
+`split(String src, String delimiter)` splits a string in several parts
 (tokens) that are separated by delimiter. Delimiter is **always**
 surrounded by two strings (tokens)! If there is no content between two
 delimiters, empty string will be returned for that token. Therefore, the
 length of the returned array will always be: #delimiters + 1. This
-method is much, much faster then regexp variant `String.split()` and
-just a bit faster then `StringTokenizer`.
+method is much, much faster than regexp variant `String.split()` and
+just a bit faster than `StringTokenizer`.
 
 `splitc(String src, char d)` and `splitc(String src, String d)`splits a
 string in several parts (tokens) that are separated by delimiter
