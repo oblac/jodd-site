@@ -3,9 +3,24 @@ toc: false
 ---
 # Who loves Jodd? ![heart](gfx/heart.png)
 
-**Awesome** people loves *Jodd* :) Share your success stories with us and the community!
+**Awesome** people loves *Jodd* :) Share your success stories with the community!
 
-Bellow is a short list of some big and small projects that officially uses *Jodd* in production.
+## About Jodd
+
+> Jodd is oriented more around simpler libraries for doing what people
+have oftentimes used heavyweight frameworks for
+(not in terms of performance though necessarily but in terms of mental efforts
+and scaffolding required to get a MVP out the door).
+
+> Jodd in itself could work for not needing an app container by using something
+like Winstone (Jenkins is built with it) for deployment models closer to systems
+like node.js or Flask and Sinatra that emphasize minimal scaffolding to make
+it easier to horizontally scale a system by just deploying more dumb nodes.
+
+> I've seen Jodd used in production systems and just never seen a stacktrace
+fail to that point so far. I've only ever seen application code fail in itself
+or fail due to a side effect or misunderstanding of the underlying libraries.
+
 
 ## Liferay Portal
 
@@ -32,7 +47,7 @@ Template-like script and engine, with grammar similar to JavaScript and JSP; and
 ## eComm
 
 Set of government intranet applications for electronic communication with
-citizens via email, SMS or phone; working in two European countries. Uses full
+citizens via email, SMS or phone; working in few European countries. Uses full
 *Jodd* stack.
 
 ## Ihre Apotheke
@@ -42,12 +57,6 @@ tag library, *Props* and finally the GZIP filter. Also, *Lagarto* was used for
 some back-end to fetch DBpedia data.
 
 [www.ihre-apotheke.in](http://www.ihre-apotheke.in)
-
-## Klopaj
-
-Web site for food and restaurant lovers; uses *Madvoc* for web layer.
-
-[klopaj.com](http://klopaj.com)
 
 
 ## Submit your project!

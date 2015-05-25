@@ -1,38 +1,32 @@
-## \[2015-03-21\] Release v3.6.5
+## \[2015-05-25\] Release v3.6.6
 
 It seems that this month we cleaned up some important bugs,
 thanks to our awesome community!
 
-NEW
-: **\[http\]** `HttpBrowser` now accepts local path on 30x.
-
-NEW
-: **\[http\]** Added default headers to `HttpBrowser`.
-
 FIXED
-: **\[madvoc\]** Fixed action string in case of proxified classes.
-
-FIXED
-: **\[servlet\]** Reset `content-length` in GZip stream.
-
-FIXED
-: **\[lagarto\]** Reset `content-length` in *Lagarto* filter.
-
-FIXED
-: **\[decora\]** Reset `content-length` in *Decora* filter.
+: **\[http\]** Fixed special case when content-length and chunked encoding exists.
 
 NEW
-: **\[htmlstapler\]** Added `randomDigestChars` option to bundles manager.
-
-NEW
-: **\[bean\]** Added methods to `BeanCopy` for better fluent interface.
-
-NEW
-: **\[bean\]** Added `BeanUtil#setProperty` with all options as arguments.
+: **\[util\]** `getResourceAsStream` now has a boolean argument to disable the cache.
 
 CHANGED
-: **\[bean\]** Removed `this*` reference.
+: **\[util\]** Zip methods now returns resulting zip `File`.
+
+FIXED
+: **\[methref\]** Fixed parallel access, added `Pathrefs`.
+
+FIXED
+: **\[mail\]** Fixed parsing with `MailAddress`.
 
 NEW
-: **\[props\]** Added extracting of inner map in the *Props*.
+: **\[mail\]** Added `startTlsRequired` and `plaintextOverTLS()`.
+
+NEW
+: **\[mail\]** Added debug mode option and strict email address flag.
+
+CHANGED
+: **\[bean\]** `BeanCopy` got some slight modifications and improvements.
+
+CHANGED
+: **\[madvoc\]** Execution of inteceptors, filters and actions is significantly simplified.
 {: .release}
