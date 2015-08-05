@@ -1,6 +1,6 @@
 # Download Jodd
 
-*Jodd* may be used on any platform where there is a suitable **Java 5+**
+*Jodd* may be used on any platform where there is a suitable **Java 7+**
 runtime environment. *Jodd* may be used successfully on many platforms,
 including Linux, UNIX, Windows, MacOSX.
 
@@ -34,42 +34,35 @@ small in size.
 
 [jodd-mobile-<%=@config[:jodd][:version]%>.jar](jodd-mobile-<%=@config[:jodd][:version]%>.jar) (350 KB)
 
-## Maven
+## Maven repositories
 
-*Jodd* jars are published on Maven central repository.
+*Jodd* jars are published on **jCenter** and **Maven central** repository.
+Snapshots are released on **jCenter** only.
 
-<div class="button button-long">
-	<a href="http://repo1.maven.org/maven2/org/jodd/" target="_blank">
-		repo1.maven.org/maven2/org/jodd
-	</a>
-</div>
+### Maven
 
-|------------------|----------------------------------|
-| maven            | value                            |
-|------------------|----------------------------------|
-| groupId:         | **org.jodd**                     |
-| artifactId:      | **jodd-**\<module_name\>         |
-| version:         | **<%=@config[:jodd][:version]%>**|
-|------------------|----------------------------------|
+~~~~~ xml
+	<dependency>
+		<groupId>org.jodd</groupId>
+		<artifactId>jodd-xxx</artifactId>
+		<version><%=@config[:jodd][:version]%></version>
+	</dependency>
+~~~~~
 
-See list of all *Jodd* [modules](../doc/modules.html#modules-list-and-dependencies).
-*Jodd* provides "bill of materials"
-([BOM](http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)).
+### Gradle
 
-## Beta (SNAPSHOT)
-{: #beta}
+~~~~~
+'org.jodd:jodd-xxx:<%=@config[:jodd][:version]%>'
+~~~~~
 
-Please note that beta version is not always available.
+### SBT
 
-### Snapshot Repo
+~~~~~
+libraryDependencies += "org.jodd" % "jodd-xxx" % "<%=@config[:jodd][:version]%>"
+~~~~~
 
-[oss.sonatype.org/content/repositories/snapshots/org/jodd][1]
+### Ivy
 
-## Misc
-
-Some various *Jodd*-related stuff.
-
-+ [**Jodd in 10 minutes**](/download/jodd-in-10-minutes.pdf) - presentation, covers version 3.2.7
-
-
-[1]: https://oss.sonatype.org/content/repositories/snapshots/org/jodd/
+~~~~~ xml
+	<dependency org="org.jodd" name="jodd-xxx" rev="<%=@config[:jodd][:version]%>"/>
+~~~~~
