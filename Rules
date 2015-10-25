@@ -1,16 +1,5 @@
 #!/usr/bin/env ruby
 
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
 require 'compass'
 Compass.add_project_configuration 'config.rb'
 
@@ -37,73 +26,78 @@ passthrough '/gfx/*'
 passthrough '/img/*'
 passthrough '/*.zip'
 
+
+## static
+
+compile '/static/**/*' do
+end
+
+route '/static/**/*' do
+  # /static/foo.html → /foo.html
+  item.identifier.to_s.sub(/\A\/static/, '')
+end
+
+
 ## partials
 
 # just compile partials and route nothing
-compile '/partials/*/' do
+compile '/partials/**/*' do
   filter :erb
   filter :kramdown if item[:extension] == 'md'
 end
-route '/partials/*/' do ; nil ; end
+route '/partials/**/*' do ; nil ; end
 
 ## sitemap
 
-compile '/sitemap' do
+compile '/sitemap.haml' do
   filter :haml
 end
-route '/sitemap' do
-  item.identifier.chop + '.xml'
+route '/sitemap.haml' do
+  item.identifier.without_ext + '.xml'
 end
 
 ## error pages
 
-compile %r{^/(40.|500)/$} do
+compile '/{4,5}0?.md' do
   filter :erb
   filter :kramdown if item[:extension] == 'md'
-  layout 'error'
+  layout '/error.html'
 end
-route '/40*' do
-  item.identifier.chop + '.shtml'
+route '/40?.*' do
+  item.identifier.without_ext + '.shtml'
 end
-route '/500' do
+route '/500.md' do
   '/500.php'
 end
-route '/500-shtml' do
+route '/500.shtml' do
   '/500.shtml'
 end
 
 ## mailer
 
-compile '/mailer' do ; end
-route '/mailer' do
+compile '/mailer.php' do ; end
+route '/mailer.php' do
   '/mailer.php'
 end
 
 ## htaccess
 
-compile '/htaccess' do ; end
-route '/htaccess' do
+compile '/htaccess.txt' do ; end
+route '/htaccess.txt' do
   '/.htaccess'
 end
 
 
-## sync-filter (for sync)
-
-compile '/sync-filter.txt' do ; end
-route '/sync-filter.txt' do
-  '/.sync-filter.txt'
-end
-
 ## javascript
 
-compile '/js/*' do
+compile '/js/**/*' do
 end
 
 ## CSS
 
 ignore '/css/_*'
 
-compile '/css/*' do
+compile '/css/**/*' do
   if item[:extension] == 'scss'
     filter :sass, Compass.sass_engine_options.merge(
       :syntax => :scss,
@@ -112,14 +106,17 @@ compile '/css/*' do
   end
 end
 
-route '/css/*' do
-  '/css/' + File.basename(item.identifier) + '.css'
+route '/css/**/*.css' do
+  item.identifier.to_s
+end
+route '/css/**/*.scss' do
+  item.identifier.without_ext + '.css'
 end
 
 
 ## defaults
 
-compile '*' do
+compile '/**/*' do
   if !item.binary?
     ext = item[:extension]
 
@@ -138,7 +135,7 @@ compile '*' do
     if item[:layout] != nil
       layout item[:layout]
     else
-      layout 'default'
+      layout '/default.html'
     end
 
     if [ext == 'md']
@@ -148,15 +145,15 @@ compile '*' do
   end
 end
 
-route '/' do
-  '/index.html'
+route '/**/*.md' do
+  item.identifier.without_ext + '.html'
 end
 
-route '*' do
-  path(item)
+route '/**/*' do
+  item.identifier.to_s
 end
 
 
 ## layouts
 
-layout '*', :erb
+layout '/**/*', :erb

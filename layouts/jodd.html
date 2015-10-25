@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title><%= 'Jodd | ' + (@item[:title] ? @item[:title] : @config[:site][:slogan]) %></title>
-	<%= render '_head' %>
+	<%= render '/_head.html' %>
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"/>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 <script>
@@ -20,9 +20,9 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-	<%= render '_search' %>
+	<%= render '/_search.html' %>
 	<section id="intro">
-		<%= render '_header' %>
+		<%= render '/_header.html' %>
 
 		<div class="inner">
 			<div id="button-jodd"><a href="/download">
@@ -34,7 +34,7 @@ $(document).ready(function() {
 				<h2>The Unbearable Lightness of Java</h2>
 				<iframe src="https://ghbtns.com/github-btn.html?user=oblac&repo=jodd&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" style="float:left; margin-top:14px;"></iframe>
 
-				<%= render '_social' %>
+				<%= render '/_social.html' %>
 			</div>
 		</div>
 	</section>
@@ -216,8 +216,8 @@ $(document).ready(function() {
 
 	</section>
 
-	<%= render '_footer' %>
-	<%= render '_ga' %>
+	<%= render '/_footer.html' %>
+	<%= render '/_ga.html' %>
 
 </body>
 </html>

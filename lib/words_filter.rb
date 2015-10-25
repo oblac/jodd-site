@@ -11,8 +11,8 @@ class WordsFilter < Nanoc::Filter
 
     @index_file = 'output/js/data.json'
     @index_file = File.join(
-        @site.config[:output_dir],
-        @site.config[:js_search_file] || 'js/data.json')
+        @config[:output_dir],
+        @config[:js_search_file] || 'js/data.json')
   end
 
   def word_counter(string, max)
@@ -65,7 +65,7 @@ class WordsFilter < Nanoc::Filter
 
     # update
 
-    filename = @site.config[:output_dir] + '/.meta' + @item[:site_path] + '.json'
+    filename = @config[:output_dir] + '/.meta' + @item[:site_path] + '.json'
     dirname = File.dirname(filename)
     unless File.directory?(dirname)
       FileUtils.mkdir_p(dirname)

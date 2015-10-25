@@ -1,5 +1,5 @@
 ---
-layout: 'jodd'
+layout: '/jodd.html'
 ---
 
 *Jodd* is set of Java **micro frameworks**, **tools** and **utilities**, under [**1.5 MB**](size-matters.html).

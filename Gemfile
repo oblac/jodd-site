@@ -1,18 +1,23 @@
 source "https://rubygems.org"
 
+gem 'adsf'
 gem 'builder'
-gem 'kramdown',		'~> 1.5.0'
-gem 'nanoc',		'~> 3.8.0'
-gem 'sass',			'~> 3.4.10'
-gem 'mime-types',	'~> 2.4.3'
-gem 'compass',		'~> 1.0.3'
-gem 'nokogiri',		'~> 1.6.6'
-gem 'coderay',		'~> 1.1.0'
-gem 'haml',			'~> 4.0.6'
+gem 'kramdown'
+gem 'sass'
+gem 'mime-types'
+gem 'compass'
+gem 'nokogiri'
+gem 'coderay'
+gem 'haml'
 gem 'json'
-#gem 'typogruby',	'~> 1.0.18'
+gem 'rainpress'
+gem 'jsmin'
+gem 'htmlcompressor'
+gem 'nanoc',          # Nanoc 4
+    :git => 'git://github.com/nanoc/nanoc.git'
+gem 'nanoc-external', # :external filter
+    :git => 'git://github.com/nanoc/nanoc-external.git',
+    :branch => 'nanoc4'
 
-group :development do
-	gem 'adsf'
-	gem 'guard-nanoc'
-end
+#gem 'guard-nanoc'
+#gem 'typogruby',	'~> 1.0.18'

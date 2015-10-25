@@ -2,19 +2,19 @@
 <html>
 <head>
 	<title><%= 'Jodd | ' + (@item[:title] ? @item[:title] : @config[:site][:slogan]) %></title>
-	<%= render '_head' %>
+	<%= render '/_head.html' %>
 </head>
 <body>
-	<%= render '_search' %>
+	<%= render '/_search.html' %>
 	<section id="intro">
-		<%= render '_header' %>
+		<%= render '/_header.html' %>
 
 		<div id="title-doc">&nbsp;</div>
 	</section>
 
 	<section id="content"><div class="inner">
 
-		<%= render '_social' %>
+		<%= render '/_social.html' %>
 
 		<article>
 			<%= javadoc(@item) %>
@@ -24,12 +24,12 @@
 			<%= doc_nav(@item) %>
 		</article>
 		<aside>
-			<%= render '_docs' %>
+			<%= render '/_docs.html' %>
 		</aside>
 	</div></section>
 
-	<%= render '_footer' %>
-	<%= render '_ga' %>
+	<%= render '/_footer.html' %>
+	<%= render '/_ga.html' %>
 
 </body>
 </html>

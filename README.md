@@ -8,7 +8,7 @@ commit your changes, and send us a
 
 ## Setup
 
-Ruby 1.9 is required to build the site.
+Ruby 2.x is required to build the site.
 
 Get the `nanoc` gem, plus [kramdown](http://kramdown.gettalong.org/)
 for [Markdown](http://daringfireball.net/projects/markdown/) parsing:

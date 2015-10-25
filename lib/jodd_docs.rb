@@ -12,12 +12,15 @@ module JoddDocs
 
 	# Collect paths
 	def collect_path(item)
-		path = item.raw_filename
+		#puts item.raw_filename
+		#puts item.identifier
+
+		path = item.identifier.to_s
 
 		# remove raw prefix
-		if (path.start_with?('content/'))
+		if (path.start_with?('/content/'))
 			path = path[7..-1]
-		elsif (path.start_with?('static/'))
+		elsif (path.start_with?('/static/'))
 			path = path[6..-1]
 		end
 
