@@ -29,9 +29,13 @@ passthrough '/*.zip'
 
 ## static
 
-compile '/static/**/*' do
+compile '/static/sync-filter.txt' do ; end
+route '/static/sync-filter.txt' do
+  '/.sync-filter.txt'
 end
 
+
+compile '/static/**/*' do ; end
 route '/static/**/*' do
   # /static/foo.html → /foo.html
   item.identifier.to_s.sub(/\A\/static/, '')
@@ -86,7 +90,6 @@ compile '/htaccess.txt' do ; end
 route '/htaccess.txt' do
   '/.htaccess'
 end
-
 
 ## javascript
 
@@ -146,7 +149,7 @@ compile '/**/*' do
 end
 
 route '/**/*.md' do
-  item.identifier.without_ext + '.html'
+  path(item)
 end
 
 route '/**/*' do

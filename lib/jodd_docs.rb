@@ -13,16 +13,15 @@ module JoddDocs
 	# Collect paths
 	def collect_path(item)
 		#puts item.raw_filename
-		#puts item.identifier
 
 		path = item.identifier.to_s
 
 		# remove raw prefix
-		if (path.start_with?('/content/'))
+		if (path.start_with?('/static/'))
 			path = path[7..-1]
-		elsif (path.start_with?('/static/'))
-			path = path[6..-1]
 		end
+
+		# puts "---->" + path
 
 		# collect documents (format: /path/number+name.md)
 		ndx = path.index('+')
@@ -31,6 +30,7 @@ module JoddDocs
 			key = path[0..last]
 			number = path[(last+1)..(ndx-1)]
 			path = key + path[(ndx+1)..-1]
+
 			add_doc(key, number, item)
 		end
 
