@@ -1,32 +1,80 @@
-## \[2015-05-25\] Release v3.6.6
+## \[2015-11-11\] Release v3.6.7
 
-It seems that this month we cleaned up some important bugs,
-thanks to our awesome community!
-
-FIXED
-: **\[http\]** Fixed special case when content-length and chunked encoding exists.
-
-NEW
-: **\[util\]** `getResourceAsStream` now has a boolean argument to disable the cache.
-
-CHANGED
-: **\[util\]** Zip methods now returns resulting zip `File`.
+Release 3.6.7 is very different. This is mainly a bug-fix on our way to 3.7.
+However, we have one more change: Java version bumped up to 7!!!
 
 FIXED
-: **\[methref\]** Fixed parallel access, added `Pathrefs`.
+: **\[http\]** Fixed encoding with multipart requests.
+
+NEW
+: **\[util\]** Added some `StringUtil` methods.
+
+CHANGED
+: **\[madvoc\]** Class loading exception loosened.
+
+CHANGED
+: **\[util\]** Extended Class loader has been significantly improved.
+
+CHANGED
+: **\[http\]** Replaced the `HttpValuesMap` with `HttpMultiMap`.
+
+CHANGED
+: **\[mail\]** Added ParseEML class.
+
+NEW
+: **\[util\]** Added `BeanWalker`.
+
+CHANGED
+: **\[util\]** Removed sort.
 
 FIXED
-: **\[mail\]** Fixed parsing with `MailAddress`.
+: **\[json\]** Fixed special case in parsing.
 
 NEW
-: **\[mail\]** Added `startTlsRequired` and `plaintextOverTLS()`.
+: **\[util\]** Enhanced `StringTemplateParser` to support macros with just $.
 
 NEW
-: **\[mail\]** Added debug mode option and strict email address flag.
+: **\[json\]** Added `FileJsonTypeSerializer`.
 
-CHANGED
-: **\[bean\]** `BeanCopy` got some slight modifications and improvements.
+NEW
+: **\[json\]** Added set serialization.
 
-CHANGED
-: **\[madvoc\]** Execution of inteceptors, filters and actions is significantly simplified.
+NEW
+: **\[util\]** Added `ZipBuilder`.
+
+FIXED
+: **\[util\]** Fixed boolean `printf`.
+
+NEW
+: **\[json\]** Make JSON parser to be aware of JSON annotations.
+
+FIXED
+: **\[util\]** Fixed BCrypt.
+
+NEW
+: **\[util\]** Added `PBKDF2Hash` and `MurmurHash3`.
+
+NEW
+: **\[props\]** Added method to get profiles list.
+
+NEW
+: **\[util\]** Added method to parse internet time.
+
+FIXED
+: **\[dboom\]** Fixed issues with hints and collections.
+
+FIXED
+: **\[util\]** Fixed `Unsafe` handling.
+
+NEW
+: **\[vtor\]** Added message to validation annotation.
+
+FIXED
+: **\[petite\]** Fixed Petite wiring.
+
+FIXED
+: **\[lagarto\]** Fixed handling of naked ampersends.
+
+FIXED
+: **\[http\]** Better handling of the HTTP connections.
 {: .release}
