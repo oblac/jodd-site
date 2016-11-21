@@ -11,8 +11,8 @@ do
 done
 
 cd coverage
-find . -name "*.html" -exec sed -i '' "s/.resources/_resources/g" {} \;
-mv .resources _resources
+find . -name "*.html" -exec sed -i '' "s/.resources/resources/g" {} \;
+mv .resources resources
 cd ..
 
 
