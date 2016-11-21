@@ -143,6 +143,19 @@ div.button-long {
 	header {
 		background-color: #fff;
 	}
+	#pplane {
+		float:right;
+		z-index:100;
+		position: relative;
+		top: -82px;
+		left: 40px;
+		-moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+	}
 }
 
 #shout {
@@ -155,7 +168,7 @@ div.button-long {
 		font-weight: bold;
 	}
 	p {
-		margin-bottom: 2px;
+		margin-bottom: 6px;
 	}
 	a {
 		color: #fff;
@@ -184,12 +197,17 @@ div.button-long {
 	float: left;
 	background-color: $color-orange;
 	color: #fff;
-	padding: 10px;
+	padding: 4px 10px;
 	font-size: 20px;
 	@include border-bottom-radius(6px);
 	display: block;
 	i {
 		width:20px;
+	}
+	span {
+		padding-left: 6px;
+		position:relative;
+		top: -8px;
 	}
 }
 #title {
@@ -783,7 +801,12 @@ footer {
 #twitter {
 	display:none;
 }
-
+#intro #pplane {
+	width: 64px;
+    height: 64px;
+    left: 20px;
+    top: -40px;
+}
 #content {
 	aside {
 		position: static;
@@ -836,7 +859,9 @@ footer {
 .br2 {
 	display: none;
 }
-
+#pplane {
+	display: none;
+}
 .badge {
 	float: left;
 	width: inherit;
