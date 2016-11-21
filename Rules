@@ -17,7 +17,6 @@ passthrough '/humans'
 passthrough '/robots'
 passthrough '/BingSiteAuth'
 passthrough '/google*'
-passthrough '/favicon'
 passthrough '/y_key_*'
 
 passthrough '/about/*'
