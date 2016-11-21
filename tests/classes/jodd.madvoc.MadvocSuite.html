@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class jodd.madvoc.MadvocSuite</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class jodd.madvoc.MadvocSuite</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/jodd.madvoc.html">jodd.madvoc</a> &gt; MadvocSuite</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">0</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">-</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">-</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2 [DEBUG] j.m.WebApplication.initWebApplication:89 - Initializing Madvoc web application
+15 [DEBUG] j.p.ScopedProxyManager.&lt;init&gt;:67 - ScopedProxyManager created
+15 [DEBUG] j.p.PetiteContainer.&lt;init&gt;:77 - Petite container created
+15 [DEBUG] j.p.PetiteContainer.&lt;init&gt;:80 - Petite proxy features enabled
+16 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean madpc of type PetiteContainer in SingletonScope using wiring mode NONE
+38 [INFO] j.m.Madvoc.start:209 - Madvoc starting...
+38 [INFO] j.m.Madvoc.start:214 - Madvoc web application: jodd.madvoc.MyWebApplication
+39 [INFO] j.m.Madvoc.loadMadvocParams:319 - Loading Madvoc parameters from: /madvoc.props
+140 [DEBUG] j.m.WebApplication.defineParams:211 - Defining Madvoc parameters
+140 [DEBUG] j.m.WebApplication.registerMadvocComponents:179 - Registering Madvoc components
+142 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'actionMethodParser' of type jodd.madvoc.component.ActionMethodParser
+142 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean actionMethodParser of type ActionMethodParser in SingletonScope using wiring mode STRICT
+147 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'actionMethodParamNameResolver' of type jodd.madvoc.component.ActionMethodParamNameResolver
+147 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean actionMethodParamNameResolver of type ActionMethodParamNameResolver in SingletonScope using wiring mode STRICT
+148 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'actionPathRewriter' of type jodd.madvoc.component.ActionPathRewriter
+148 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean actionPathRewriter of type ActionPathRewriter in SingletonScope using wiring mode STRICT
+149 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'actionPathMacroManager' of type jodd.madvoc.component.ActionPathMacroManager
+149 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean actionPathMacroManager of type ActionPathMacroManager in SingletonScope using wiring mode STRICT
+150 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'actionsManager' of type jodd.madvoc.component.ActionsManager
+151 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean actionsManager of type ActionsManager in SingletonScope using wiring mode STRICT
+152 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'contextInjectorComponent' of type jodd.madvoc.component.ContextInjectorComponent
+152 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean contextInjectorComponent of type ContextInjectorComponent in SingletonScope using wiring mode STRICT
+154 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'injectorsManager' of type jodd.madvoc.component.InjectorsManager
+154 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean injectorsManager of type InjectorsManager in SingletonScope using wiring mode STRICT
+161 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'interceptorsManager' of type jodd.madvoc.component.InterceptorsManager
+162 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean interceptorsManager of type InterceptorsManager in SingletonScope using wiring mode STRICT
+164 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'filtersManager' of type jodd.madvoc.component.FiltersManager
+164 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean filtersManager of type FiltersManager in SingletonScope using wiring mode STRICT
+166 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'madvocConfig' of type jodd.madvoc.component.MadvocConfig
+166 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean madvocConfig of type MadvocConfig in SingletonScope using wiring mode STRICT
+170 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'madvocController' of type jodd.madvoc.component.MadvocController
+170 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean madvocController of type MadvocController in SingletonScope using wiring mode STRICT
+173 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'resultsManager' of type jodd.madvoc.component.ResultsManager
+173 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean resultsManager of type ResultsManager in SingletonScope using wiring mode STRICT
+175 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'resultMapper' of type jodd.madvoc.component.ResultMapper
+175 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean resultMapper of type ResultMapper in SingletonScope using wiring mode STRICT
+177 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'scopeDataResolver' of type jodd.madvoc.component.ScopeDataResolver
+177 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean scopeDataResolver of type ScopeDataResolver in SingletonScope using wiring mode STRICT
+180 [DEBUG] j.p.ScopedProxyManager.&lt;init&gt;:67 - ScopedProxyManager created
+180 [DEBUG] j.p.PetiteContainer.&lt;init&gt;:77 - Petite container created
+180 [DEBUG] j.p.PetiteContainer.&lt;init&gt;:80 - Petite proxy features enabled
+464 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean globalService of type GlobalService in SingletonScope using wiring mode STRICT
+467 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean sessionBean of type SessionBean in SessionScope using wiring mode STRICT
+483 [INFO] j.p.c.AutomagicPetiteConfigurator.configure:83 - Petite configured in 293 ms. Total beans: 2
+483 [DEBUG] j.m.WebApplication.registerComponent:152 - Registering component 'petiteContainer' instance of jodd.petite.PetiteContainer
+483 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean petiteContainer of type PetiteContainer in SingletonScope using wiring mode STRICT
+492 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'madvocController' of type jodd.madvoc.petite.PetiteMadvocController
+492 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean madvocController of type PetiteMadvocController in SingletonScope using wiring mode STRICT
+493 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'filtersManager' of type jodd.madvoc.petite.PetiteFilterManager
+493 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean filtersManager of type PetiteFilterManager in SingletonScope using wiring mode STRICT
+494 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'interceptorsManager' of type jodd.madvoc.petite.PetiteInterceptorManager
+495 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean interceptorsManager of type PetiteInterceptorManager in SingletonScope using wiring mode STRICT
+496 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'resultsManager' of type jodd.madvoc.petite.PetiteResultsManager
+496 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean resultsManager of type PetiteResultsManager in SingletonScope using wiring mode STRICT
+497 [DEBUG] j.m.WebApplication.registerComponent:130 - Registering component 'actionPathRewriter' of type jodd.madvoc.MyRewriter
+497 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean actionPathRewriter of type MyRewriter in SingletonScope using wiring mode STRICT
+520 [DEBUG] j.m.WebApplication.init:222 - Initializing Madvoc
+539 [DEBUG] j.m.WebApplication.initFilters:229 - Initializing Madvoc filters
+539 [DEBUG] j.m.WebApplication.initInterceptors:236 - Initializing Madvoc interceptors
+539 [DEBUG] j.m.WebApplication.initActions:244 - Initializing Madvoc actions
+539 [DEBUG] j.m.WebApplication.initResults:251 - Initializing Madvoc results
+541 [INFO] j.m.Madvoc.loadMadvocConfig:350 - Configuring Madvoc using configurator: jodd.madvoc.MadvocTestIntegrationConfig
+541 [DEBUG] j.m.WebApplication.configure:274 - Configuring Madvoc
+541 [DEBUG] j.m.WebApplication.registerComponent:152 - Registering component 'automagicMadvocConfigurator' instance of jodd.madvoc.MadvocTestIntegrationConfig
+541 [DEBUG] j.p.PetiteBeans.registerPetiteBean:288 - Register bean automagicMadvocConfigurator of type MadvocTestIntegrationConfig in SingletonScope using wiring mode STRICT
+574 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: chain -&gt; class jodd.madvoc.result.ChainResult
+575 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.ChainResult
+577 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: http -&gt; class jodd.madvoc.result.HttpStatusResult
+577 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.HttpStatusResult
+579 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: move -&gt; class jodd.madvoc.result.MoveResult
+579 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.MoveResult
+580 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: none -&gt; class jodd.madvoc.result.NoneResult
+580 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.NoneResult
+582 [DEBUG] j.m.c.ResultsManager.register:153 - ActionResult registered: class jodd.madvoc.result.RawResultData -&gt; class jodd.madvoc.result.RawResult
+582 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.RawResult
+584 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: dispatch -&gt; class jodd.madvoc.result.ServletDispatcherResult
+585 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.ServletDispatcherResult
+586 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: redirect -&gt; class jodd.madvoc.result.ServletRedirectResult
+587 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.ServletRedirectResult
+588 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: url -&gt; class jodd.madvoc.result.ServletUrlRedirectResult
+588 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.ServletUrlRedirectResult
+589 [DEBUG] j.m.c.ResultsManager.register:127 - ActionResult registered: text -&gt; class jodd.madvoc.result.TextResult
+589 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.result.TextResult
+602 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.chain.html to: jodd.madvoc.action.AlphaAction#chain
+603 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.ciao.html to: jodd.madvoc.action.AlphaAction#ciao
+604 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.ciao2.html to: jodd.madvoc.action.AlphaAction#ciao2
+604 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.ciao3.html to: jodd.madvoc.action.AlphaAction#ciao3
+605 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.hello.html to: jodd.madvoc.action.AlphaAction#hello
+606 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.hola.html to: jodd.madvoc.action.AlphaAction#hola
+606 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.holahoopa.html to: jodd.madvoc.action.AlphaAction#holahoopa
+608 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.home.html to: jodd.madvoc.action.AlphaAction#home
+609 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.home2.html to: jodd.madvoc.action.AlphaAction#home2
+609 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.link.html to: jodd.madvoc.action.AlphaAction#link
+610 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.noresult.html to: jodd.madvoc.action.AlphaAction#noresult
+610 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.postme.html to: jodd.madvoc.action.AlphaAction#postme
+611 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.red1.html to: jodd.madvoc.action.AlphaAction#red1
+611 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.red2.html to: jodd.madvoc.action.AlphaAction#red2
+611 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.txt.html to: jodd.madvoc.action.AlphaAction#txt
+612 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.html to: jodd.madvoc.action.AlphaAction#view
+613 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /alpha.world.html to: jodd.madvoc.action.AlphaAction#world
+628 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /args.hello.html to: jodd.madvoc.action.ArgsAction#hello
+629 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /args.user.html to: jodd.madvoc.action.ArgsAction#user
+631 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /args.world.html to: jodd.madvoc.action.ArgsAction#world
+632 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /async.html to: jodd.madvoc.action.AsyncAction#view
+635 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.action.Book2ActionResult
+689 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /book/${iban} to: jodd.madvoc.action.BookAction#get
+691 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /book/${iban} to: jodd.madvoc.action.BookAction#post
+691 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /book/${iban} to: jodd.madvoc.action.BookAction#put
+693 [DEBUG] j.m.c.ResultsManager.register:153 - ActionResult registered: class jodd.madvoc.action.Book -&gt; class jodd.madvoc.action.BookActionResult
+693 [DEBUG] j.m.c.ResultsManager.register:162 - ActionResult registered: class jodd.madvoc.action.BookActionResult
+694 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /bookPartial.hello.html to: jodd.madvoc.action.BookPartialAction#hello
+695 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /500.html to: jodd.madvoc.action.ErrorAction#error500
+696 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /exc.red.html to: jodd.madvoc.action.ExcAction#red
+698 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /exc.html to: jodd.madvoc.action.ExcAction#view
+703 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /filter.html to: jodd.madvoc.action.FilterAction#view
+707 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.backback.html to: jodd.madvoc.action.HelloAction#backback
+708 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.bean.html to: jodd.madvoc.action.HelloAction#bean
+708 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.chain.html to: jodd.madvoc.action.HelloAction#chain
+709 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.direct.html to: jodd.madvoc.action.HelloAction#direct
+709 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.link.html to: jodd.madvoc.action.HelloAction#link
+710 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.many.html to: jodd.madvoc.action.HelloAction#many
+711 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /nohello.nojsp to: jodd.madvoc.action.HelloAction#nojsp
+712 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.planet.html to: jodd.madvoc.action.HelloAction#planet
+713 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.reqreq.html to: jodd.madvoc.action.HelloAction#reqreq
+714 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.html to: jodd.madvoc.action.HelloAction#view
+714 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /hello.world.html to: jodd.madvoc.action.HelloAction#world
+717 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /cpt.in1.html to: jodd.madvoc.action.IntcptAction#in1
+718 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /cpt.in2.html to: jodd.madvoc.action.IntcptAction#in2
+720 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /cpt.inap.html to: jodd.madvoc.action.IntcptAction#inap
+721 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /cpt.inap2.html to: jodd.madvoc.action.IntcptAction#inap2
+724 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /cpt.inap3.html to: jodd.madvoc.action.IntcptAction#inap3
+726 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /item.global.html to: jodd.madvoc.action.ItemAction#global
+726 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /item.html to: jodd.madvoc.action.ItemAction#view
+728 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /missing.html to: jodd.madvoc.action.MissingAction#view
+730 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /mv/upload.html to: jodd.madvoc.action.mv.UploadAction#execute
+732 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /mv/user.importList.html to: jodd.madvoc.action.mv.UserAction#importList
+734 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /oneMove.html to: jodd.madvoc.action.OneMoveAction#execute
+734 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /oneMove.go.html to: jodd.madvoc.action.OneMoveAction#go
+736 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /oneRedirect.html to: jodd.madvoc.action.OneRedirectAction#execute
+736 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /oneRedirect.perm.html to: jodd.madvoc.action.OneRedirectAction#perm
+736 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /oneRedirect.permGoogle.html to: jodd.madvoc.action.OneRedirectAction#permGoogle
+738 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /pac/hello.html to: jodd.madvoc.action.pac.HelloAction#view
+739 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /raw.download to: jodd.madvoc.action.RawAction#download
+739 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /raw.text.html to: jodd.madvoc.action.RawAction#text
+739 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /raw.html to: jodd.madvoc.action.RawAction#view
+741 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /madvocEncoding to: jodd.madvoc.action.RawResultAction#madvocEncoding
+741 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /madvocRawImage to: jodd.madvoc.action.RawResultAction#madvocRawImage
+742 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /re/view/${itemId} to: jodd.madvoc.action.RestAction#viewItem
+742 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /re/view2/g-${itemId}.html to: jodd.madvoc.action.RestAction#viewItem2
+742 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /re/view3/${itemId:^[0-9]+} to: jodd.madvoc.action.RestAction#viewItem3
+745 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /sess.four.html to: jodd.madvoc.action.SessAction#four
+745 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /sess.three.html to: jodd.madvoc.action.SessAction#three
+746 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /sess.two.html to: jodd.madvoc.action.SessAction#two
+747 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /sess.html to: jodd.madvoc.action.SessAction#view
+748 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /sys/user/${id} to: jodd.madvoc.action.sys.UserAction#get
+749 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /sys/user/${id} to: jodd.madvoc.action.sys.UserAction#post
+751 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /tag/delete/${id} to: jodd.madvoc.action.tag.TagAction#delete
+752 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /tag/disable/${id} to: jodd.madvoc.action.tag.TagAction#disable
+753 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /tag/edit/${id} to: jodd.madvoc.action.tag.TagAction#edit
+754 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /tag/save/${id} to: jodd.madvoc.action.tag.TagAction#save
+755 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /two.html to: jodd.madvoc.action.TwoAction#view
+756 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /types.one.html to: jodd.madvoc.action.TypesAction#one
+757 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /foo/hello to: jodd.madvoc.action.UrlAction#one
+758 [DEBUG] j.m.c.ActionsManager.registerAction:219 - Registering Madvoc action: /foo/boo.zoo/two.exec.html to: jodd.madvoc.action.UrlAction#two
+759 [DEBUG] j.m.c.ResultsManager.register:117 - ActionResult already registered: class jodd.madvoc.MyRedirectResult
+762 [INFO] j.m.c.AutomagicMadvocConfigurator.configure:111 - Madvoc configured in 212 ms. Total actions: 78
+762 [INFO] j.m.WebApplication.ready:258 - Madvoc is ready
+762 [INFO] j.m.Madvoc.startNewWebApplication:181 - Madvoc is up and running.
+Tomcat test server started
+3404 [INFO] j.m.Madvoc.stopWebApplication:278 - Madvoc shutting down...
+3404 [DEBUG] j.m.WebApplication.destroy:265 - Destroying Madvoc
+Tomcat test server stopped
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Oct 25, 2016 1:47:31 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler [&quot;http-bio-8173&quot;]
+Oct 25, 2016 1:47:31 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+Oct 25, 2016 1:47:31 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.47
+Oct 25, 2016 1:47:31 PM org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
+INFO: No global web.xml found
+Oct 25, 2016 1:47:33 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler [&quot;http-bio-8173&quot;]
+Oct 25, 2016 1:47:35 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler [&quot;http-bio-8173&quot;]
+Oct 25, 2016 1:47:35 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Tomcat
+Oct 25, 2016 1:47:35 PM org.apache.catalina.session.StandardSession writeObject
+WARNING: Cannot serialize session attribute jodd.petite.scope.SessionScope.SESSION_BEANS. for session F8744FFE476D2C936E538C6542B1B546
+java.io.NotSerializableException: jodd.petite.BeanData
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.HashMap.internalWriteEntries(HashMap.java:1785)
+	at java.util.HashMap.writeObject(HashMap.java:1362)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:1673)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1079)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:432)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:353)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:518)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5622)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1575)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1564)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Oct 25, 2016 1:47:35 PM org.apache.catalina.session.StandardSession writeObject
+WARNING: Cannot serialize session attribute jodd.petite.scope.SessionScope.SESSION_BEANS. for session D66CDBCF82EFF6EC9AF5600F64D2F9AA
+java.io.NotSerializableException: jodd.petite.BeanData
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.HashMap.internalWriteEntries(HashMap.java:1785)
+	at java.util.HashMap.writeObject(HashMap.java:1362)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:1673)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1079)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:432)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:353)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:518)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5622)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1575)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1564)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Oct 25, 2016 1:47:35 PM org.apache.catalina.session.StandardSession writeObject
+WARNING: Cannot serialize session attribute jodd.petite.scope.SessionScope.SESSION_BEANS. for session 59B775EA64E78165543B4A88A9B41FA5
+java.io.NotSerializableException: jodd.petite.BeanData
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.HashMap.internalWriteEntries(HashMap.java:1785)
+	at java.util.HashMap.writeObject(HashMap.java:1362)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:1673)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1079)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:432)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:353)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:518)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5622)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1575)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1564)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Oct 25, 2016 1:47:35 PM org.apache.catalina.session.StandardSession writeObject
+WARNING: Cannot serialize session attribute jodd.petite.scope.SessionScope.SESSION_BEANS. for session 21CD8E0CA89A1460D58E7862AB288278
+java.io.NotSerializableException: jodd.petite.BeanData
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.HashMap.internalWriteEntries(HashMap.java:1785)
+	at java.util.HashMap.writeObject(HashMap.java:1362)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at org.apache.catalina.session.StandardSession.writeObject(StandardSession.java:1673)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1079)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:432)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:353)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:518)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5622)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1575)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1564)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Oct 25, 2016 1:47:35 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/] appears to have started a thread named [pool-1-thread-1] but has failed to stop it. This is very likely to create a memory leak.
+Oct 25, 2016 1:47:36 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler [&quot;http-bio-8173&quot;]
+Oct 25, 2016 1:47:36 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler [&quot;http-bio-8173&quot;]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 3.1</a> at Oct 25, 2016 3:47:49 PM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class jodd.madvoc.HelloActionTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class jodd.madvoc.HelloActionTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/jodd.madvoc.html">jodd.madvoc</a> &gt; HelloActionTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.259s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testBackBack</td>
+<td>0.043s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testChain</td>
+<td>0.055s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHelloAction</td>
+<td>0.089s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHelloBeanAction</td>
+<td>0.051s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHelloDirectAction</td>
+<td>0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHelloNoJspAction</td>
+<td>0.144s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHelloPlanetAction</td>
+<td>0.053s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHelloReqReqAction</td>
+<td>0.046s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHelloWorldAction</td>
+<td>0.727s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMany</td>
+<td>0.047s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>921 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /nohello.nojsp.html
+943 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.world.html
+944 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.world.html' using HelloAction
+959 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.world.html:ok
+959 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.ok.jspf
+960 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.ok.jsp
+960 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.jspf
+960 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.jsp
+960 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.ok.jspf
+960 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.ok.jsp
+961 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.world.ok.jsp
+1665 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.backback.html
+1665 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.backback.html' using HelloAction
+1667 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.backback.html:###default.big
+1667 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /default.big.jspf
+1667 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /default.big.jsp
+1667 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /default.big.jsp
+1710 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.chain.html
+1710 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.chain.html' using HelloAction
+1711 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.link.html
+1711 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.link.html' using HelloAction
+1712 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.link.html
+1712 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.link.html.jspf
+1712 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.link.html.jsp
+1713 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.link.jspf
+1713 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.link.jsp
+1713 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.link.jsp
+1765 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.many.html
+1765 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.many.html' using HelloAction
+default action name
+1768 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.many.html:ok
+1768 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.html.ok.jspf
+1768 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.html.ok.jsp
+1768 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.html.jspf
+1769 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.html.jsp
+1769 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.ok.jspf
+1769 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.ok.jsp
+1769 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.jspf
+1769 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.many.jsp
+1770 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.many.jsp
+1812 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.planet.html
+1812 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.planet.html' using HelloAction
+1814 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.planet.html
+1814 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.planet.html.jspf
+1814 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.planet.html.jsp
+1814 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.planet.jspf
+1814 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.planet.jsp
+1815 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.planet.jsp
+1865 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.direct.html
+1865 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.direct.html' using HelloAction
+1869 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.bean.html
+1869 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.bean.html' using HelloAction
+1871 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.bean.html
+1871 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.bean.html.jspf
+1871 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.bean.html.jsp
+1871 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.bean.jspf
+1872 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.bean.jsp
+1872 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.bean.jsp
+1920 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.reqreq.html
+1920 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.reqreq.html' using HelloAction
+1922 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.reqreq.html
+1922 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.reqreq.html.jspf
+1922 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.reqreq.html.jsp
+1922 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.reqreq.jspf
+1923 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.reqreq.jsp
+1924 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.reqreq.jsp
+1966 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.html
+1966 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.html' using HelloAction
+1967 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /hello.html
+1967 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.html.jspf
+1967 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.html.jsp
+1967 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.jspf
+1968 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.jsp
+1968 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.jsp
+2013 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /pac/hello.html
+2014 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/pac/hello.html' using HelloAction
+/pac/hello.html
+2014 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /pac/hello.html
+2014 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /pac/hello.html.jspf
+2015 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /pac/hello.html.jsp
+2015 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /pac/hello.jspf
+2015 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /pac/hello.jsp
+2015 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /pac/hello.jsp
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 3.1</a> at Oct 25, 2016 3:47:49 PM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class jodd.madvoc.SessionScopeTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class jodd.madvoc.SessionScopeTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/jodd.madvoc.html">jodd.madvoc</a> &gt; SessionScopeTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.111s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testSessionScope</td>
+<td>0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSessionScopeWithInOut</td>
+<td>0.094s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSessionScopeWithScopedProxy</td>
+<td>0.010s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2475 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /item.global.html
+2475 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/item.global.html' using ItemAction
+2480 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /item.global.html
+2480 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/item.global.html' using ItemAction
+2482 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /item.global.html
+2483 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/item.global.html' using ItemAction
+2485 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /item.html
+2485 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/item.html' using ItemAction
+2487 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /item.html
+2488 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/item.html' using ItemAction
+2490 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /item.html
+2490 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/item.html' using ItemAction
+2492 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /sess.html
+2493 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/sess.html' using SessAction
+2494 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /sess.html
+2494 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.html.jspf
+2494 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.html.jsp
+2495 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.jspf
+2495 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.jsp
+2495 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /sess.jsp
+2541 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /sess.two.html
+2541 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/sess.two.html' using SessAction
+2542 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /sess.two.html
+2542 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.two.html.jspf
+2542 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.two.html.jsp
+2542 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.two.jspf
+2543 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.two.jsp
+2543 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.jspf
+2543 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.jsp
+2543 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /sess.jsp
+2545 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /sess.three.html
+2545 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/sess.three.html' using SessAction
+2546 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /sess.three.html
+2546 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.three.html.jspf
+2547 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.three.html.jsp
+2547 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.three.jspf
+2547 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.three.jsp
+2547 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.jspf
+2547 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.jsp
+2547 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /sess.jsp
+2549 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /sess.four.html
+2549 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/sess.four.html' using SessAction
+2550 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /sess.four.html
+2550 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.four.html.jspf
+2550 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.four.html.jsp
+2550 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.four.jspf
+2551 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /sess.four.jsp
+2551 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /sess.four.jsp
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 3.1</a> at Oct 25, 2016 3:47:49 PM</p>
+</div>
+</div>
+</body>
+</html>

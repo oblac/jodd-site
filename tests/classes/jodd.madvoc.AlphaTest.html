@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class jodd.madvoc.AlphaTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class jodd.madvoc.AlphaTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/jodd.madvoc.html">jodd.madvoc</a> &gt; AlphaTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.241s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testChain</td>
+<td>0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testForwardTo</td>
+<td>0.180s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testNoResult</td>
+<td>0.034s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testRedirectTo</td>
+<td>0.021s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testText</td>
+<td>0.003s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2587 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.html
+2587 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.html' using AlphaAction
+2588 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.html:ok
+2589 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.html.ok.jspf
+2589 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.html.ok.jsp
+2589 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.html.jspf
+2589 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.html.jsp
+2589 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.ok.jspf
+2590 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.ok.jsp
+2590 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.jspf
+2590 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.jsp
+2590 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /alpha.jsp
+2625 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.hello.html
+2625 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.hello.html' using AlphaAction
+2626 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.hello.html
+2627 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jspf
+2627 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jsp
+2627 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jspf
+2627 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jsp
+2628 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /alpha.hello.jsp
+2661 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.ciao.html
+2661 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.ciao.html' using AlphaAction
+2662 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.ciao.html:&lt;hello&gt;
+2662 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jspf
+2662 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jsp
+2663 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jspf
+2663 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jsp
+2663 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /alpha.hello.jsp
+2665 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.ciao2.html
+2665 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.ciao2.html' using AlphaAction
+2686 [DEBUG] j.p.ProxettaBuilder.process:218 - processing: jodd/madvoc/action/AlphaAction
+2707 [DEBUG] j.p.ProxettaBuilder.define:274 - proxy created jodd.madvoc.action.AlphaAction
+2709 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.ciao2.html:jodd.madvoc.action.AlphaAction#hello
+2709 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jspf
+2709 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jsp
+2710 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jspf
+2710 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jsp
+2710 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /alpha.hello.jsp
+2712 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.hola.html
+2712 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.hola.html' using AlphaAction
+2713 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.hola.html:hello
+2713 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jspf
+2713 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.html.jsp
+2713 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jspf
+2713 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hello.jsp
+2713 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /alpha.hello.jsp
+2715 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.holahoopa.html
+2715 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.holahoopa.html' using AlphaAction
+2716 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.holahoopa.html:jodd.madvoc.action.AlphaAction#hola
+2717 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hola.html.jspf
+2717 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hola.html.jsp
+2717 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hola.jspf
+2717 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.hola.jsp
+2718 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /alpha.hola.jsp
+2755 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.home.html
+2755 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.home.html' using AlphaAction
+2756 [DEBUG] j.p.ProxettaBuilder.process:218 - processing: jodd/madvoc/action/HelloAction
+2760 [DEBUG] j.p.ProxettaBuilder.define:274 - proxy created jodd.madvoc.action.HelloAction
+2761 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.home.html:jodd.madvoc.action.HelloAction#world
+2762 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.jspf
+2762 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.jsp
+2762 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.jspf
+2762 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.jsp
+2762 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.jspf
+2762 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.jsp
+2762 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.jsp
+2764 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.home2.html
+2764 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.home2.html' using AlphaAction
+2765 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.home2.html:/&lt;jodd.madvoc.action.HelloAction#world&gt;..ok
+2765 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.ok.jspf
+2765 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.ok.jsp
+2765 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.jspf
+2765 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.html.jsp
+2765 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.ok.jspf
+2766 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /hello.world.ok.jsp
+2766 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /hello.world.ok.jsp
+2768 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.chain.html
+2768 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.chain.html' using HelloAction
+2769 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.link.html
+2769 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.link.html' using HelloAction
+2772 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.txt.html
+2772 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.txt.html' using AlphaAction
+2775 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.red1.html
+2775 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.red1.html' using AlphaAction
+2780 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.html
+2780 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.html' using AlphaAction
+2782 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.red2.html
+2782 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.red2.html' using AlphaAction
+2784 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.html
+2784 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.html' using HelloAction
+2786 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.world.html
+2786 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.world.html' using AlphaAction
+2788 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /hello.world.html
+2788 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/hello.world.html' using HelloAction
+2791 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.postme.html
+2791 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.postme.html' using AlphaAction
+2793 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.hello.html
+2793 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.hello.html' using AlphaAction
+2795 [DEBUG] j.m.c.MadvocController.invoke:121 - Action path: /alpha.noresult.html
+2795 [DEBUG] j.m.c.MadvocController.invoke:135 - Invoking action path '/alpha.noresult.html' using AlphaAction
+2796 [DEBUG] j.m.r.AbstractTemplateViewResult.render:76 - new target: /alpha.noresult.html
+2796 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.noresult.html.jspf
+2797 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.noresult.html.jsp
+2797 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.noresult.jspf
+2797 [DEBUG] j.m.r.ServletDispatcherResult.targetExists:105 - target check: /alpha.noresult.jsp
+2797 [DEBUG] j.m.r.AbstractTemplateViewResult.render:87 - target found: /alpha.noresult.jsp
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 3.1</a> at Oct 25, 2016 3:47:49 PM</p>
+</div>
+</div>
+</body>
+</html>
