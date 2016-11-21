@@ -5,7 +5,7 @@
 Take a deep breath and hold it:
 
 > Developer-friendly experience + Excellent performance +
-Small memory footprint and code-base; under 1.5 MB +
+Small memory footprint and code-base; under <%= @config[:jodd][:size] %> MB +
 Fast redeployments, matter of seconds + Web framework +
 Lightweight DI container + Unique proxy creator +
 Thin database layers + Template SQL + Transactions manager +

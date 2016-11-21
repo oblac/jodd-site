@@ -2,295 +2,380 @@
 
 Recent history, release notes and previous releases.
 
-<%= @items['/partials/release.md'].compiled_content %>
+\<%= @items['/partials/release.md'].compiled\_content %\>
 
-## \[2015-05-25\] Release v3.6.6
+## [2016-03-24] Release v3.7.x
+
+Release 3.7.
+
+## [2015-11-11] Release v3.6.7
+
+Release 3.6.7 is very different. This is mainly a bug-fix on our way to 3.7.
+However, we have one more change: Java version bumped up to 7!!!
+
+FIXED
+: **[http]** Fixed encoding with multipart requests.
+
+NEW
+: **[util]** Added some `StringUtil` methods.
+
+CHANGED
+: **[madvoc]** Class loading exception loosened.
+
+CHANGED
+: **[util]** Extended Class loader has been significantly improved.
+
+CHANGED
+: **[http]** Replaced the `HttpValuesMap` with `HttpMultiMap`.
+
+CHANGED
+: **[mail]** Added ParseEML class.
+
+NEW
+: **[util]** Added `BeanWalker`.
+
+CHANGED
+: **[util]** Removed sort.
+
+FIXED
+: **[json]** Fixed special case in parsing.
+
+NEW
+: **[util]** Enhanced `StringTemplateParser` to support macros with just $.
+
+NEW
+: **[json]** Added `FileJsonTypeSerializer`.
+
+NEW
+: **[json]** Added set serialization.
+
+NEW
+: **[util]** Added `ZipBuilder`.
+
+FIXED
+: **[util]** Fixed boolean `printf`.
+
+NEW
+: **[json]** Make JSON parser to be aware of JSON annotations.
+
+FIXED
+: **[util]** Fixed BCrypt.
+
+NEW
+: **[util]** Added `PBKDF2Hash` and `MurmurHash3`.
+
+NEW
+: **[props]** Added method to get profiles list.
+
+NEW
+: **[util]** Added method to parse internet time.
+
+FIXED
+: **[dboom]** Fixed issues with hints and collections.
+
+FIXED
+: **[util]** Fixed `Unsafe` handling.
+
+NEW
+: **[vtor]** Added message to validation annotation.
+
+FIXED
+: **[petite]** Fixed Petite wiring.
+
+FIXED
+: **[lagarto]** Fixed handling of naked ampersends.
+
+FIXED
+: **[http]** Better handling of the HTTP connections.
+{: .release}
+
+## [2015-05-25] Release v3.6.6
 
 It seems that this month we cleaned up some important bugs,
 thanks to our awesome community!
 
 FIXED
-: **\[http\]** Fixed special case when content-length and chunked encoding exists.
+: **[http]** Fixed special case when content-length and chunked encoding exists.
 
 NEW
-: **\[util\]** `getResourceAsStream` now has a boolean argument to disable the cache.
+: **[util]** `getResourceAsStream` now has a boolean argument to disable the cache.
 
 CHANGED
-: **\[util\]** Zip methods now returns resulting zip `File`.
+: **[util]** Zip methods now returns resulting zip `File`.
 
 FIXED
-: **\[methref\]** Fixed parallel access, added `Pathrefs`.
+: **[methref]** Fixed parallel access, added `Pathrefs`.
 
 FIXED
-: **\[mail\]** Fixed parsing with `MailAddress`.
+: **[mail]** Fixed parsing with `MailAddress`.
 
 NEW
-: **\[mail\]** Added `startTlsRequired` and `plaintextOverTLS()`.
+: **[mail]** Added `startTlsRequired` and `plaintextOverTLS()`.
 
 NEW
-: **\[mail\]** Added debug mode option and strict email address flag.
+: **[mail]** Added debug mode option and strict email address flag.
 
 CHANGED
-: **\[bean\]** `BeanCopy` got some slight modifications and improvements.
+: **[bean]** `BeanCopy` got some slight modifications and improvements.
 
 CHANGED
-: **\[madvoc\]** Execution of inteceptors, filters and actions is significantly simplified.
+: **[madvoc]** Execution of inteceptors, filters and actions is significantly simplified.
 {: .release}
 
 
-## \[2015-03-21\] Release v3.6.5
+## [2015-03-21] Release v3.6.5
 
 It seems that this month we cleaned up some important bugs,
 thanks to our awesome community!
 
 NEW
-: **\[http\]** `HttpBrowser` now accepts local path on 30x.
+: **[http]** `HttpBrowser` now accepts local path on 30x.
 
 NEW
-: **\[http\]** Added default headers to `HttpBrowser`.
+: **[http]** Added default headers to `HttpBrowser`.
 
 FIXED
-: **\[madvoc\]** Fixed action string in case of proxified classes.
+: **[madvoc]** Fixed action string in case of proxified classes.
 
 FIXED
-: **\[servlet\]** Reset `content-length` in GZip stream.
+: **[servlet]** Reset `content-length` in GZip stream.
 
 FIXED
-: **\[lagarto\]** Reset `content-length` in *Lagarto* filter.
+: **[lagarto]** Reset `content-length` in *Lagarto* filter.
 
 FIXED
-: **\[decora\]** Reset `content-length` in *Decora* filter.
+: **[decora]** Reset `content-length` in *Decora* filter.
 
 NEW
-: **\[htmlstapler\]** Added `randomDigestChars` option to bundles manager.
+: **[htmlstapler]** Added `randomDigestChars` option to bundles manager.
 
 NEW
-: **\[bean\]** Added methods to `BeanCopy` for better fluent interface.
+: **[bean]** Added methods to `BeanCopy` for better fluent interface.
 
 NEW
-: **\[bean\]** Added `BeanUtil#setProperty` with all options as arguments.
+: **[bean]** Added `BeanUtil#setProperty` with all options as arguments.
 
 CHANGED
-: **\[bean\]** Removed `this*` reference.
+: **[bean]** Removed `this*` reference.
 
 NEW
-: **\[props\]** Added extracting of inner map in the *Props*.
+: **[props]** Added extracting of inner map in the *Props*.
 {: .release}
 
 
-## \[2015-02-05\] Release v3.6.4
+## [2015-02-05] Release v3.6.4
 
 Another month, another fix-pack. This time, however, we have some number of
 changes, so please be sure to go over the list.
 
 NEW
-: **\[mail\]** Method `sendMail()` now returns MessageID.
+: **[mail]** Method `sendMail()` now returns MessageID.
 
 CHANGED
-: **\[proxetta\]** Removed hierarchy level from `MethodInfo`.
+: **[proxetta]** Removed hierarchy level from `MethodInfo`.
 
 FIXED
-: **\[proxetta\]** Using ASM5 all the way, fixed issues with default methods on Java8.
+: **[proxetta]** Using ASM5 all the way, fixed issues with default methods on Java8.
 
 CHANGED
-: **\[core\]** Small change with `getComponentType()`, added index.
+: **[core]** Small change with `getComponentType()`, added index.
 
 CHANGED
-: **\[core\]** `RandomStringUtil` changed to `RandomString` class.
+: **[core]** `RandomStringUtil` changed to `RandomString` class.
 
 CHANGED
-: **\[core\]** `ValueHolder` is now an interface; added `ValueProvider`.
+: **[core]** `ValueHolder` is now an interface; added `ValueProvider`.
 
 FIXED
-: **\[http\]** Added support for `Numbers` and `Booleans` as form objects.
+: **[http]** Added support for `Numbers` and `Booleans` as form objects.
 
 FIXED
-: **\[core\]** Fixed `isHostUnix()` false positive value on Mac OS X.
+: **[core]** Fixed `isHostUnix()` false positive value on Mac OS X.
 
 CHANGED
-: **\[servlet\]** Updated `ServletUtil` to read parameter values in a proper way.
+: **[servlet]** Updated `ServletUtil` to read parameter values in a proper way.
 
 FIXED
-: **\[lagarto\]** Added support for `String[]` in the `FormTag`.
+: **[lagarto]** Added support for `String[]` in the `FormTag`.
 
 FIXED
-: **\[proxetta\]** Fixed casting issue and classes with default packages.
+: **[proxetta]** Fixed casting issue and classes with default packages.
 
 FIXED
-: **\[gradle\]** BOM file was empty
+: **[gradle]** BOM file was empty
 
 FIXED
-: **\[servlets\]** Fix `GzipResponseWrapper` for Servlets 3.1 by adding method `setContentLengthLong()`.
+: **[servlets]** Fix `GzipResponseWrapper` for Servlets 3.1 by adding method `setContentLengthLong()`.
 
 FIXED
-: **\[json\]** Fixed special case when using custom annotations and strict mode.
+: **[json]** Fixed special case when using custom annotations and strict mode.
 {: .release}
 
 
-## \[2014-12-03\] Release v3.6.3
+## [2014-12-03] Release v3.6.3
 
 This is just a monthly fix-pack.
 
 FIXED
-: **\[decora\]** Fixed and improved regions detection.
+: **[decora]** Fixed and improved regions detection.
 
 NEW
-: **\[mail\]** Allows user to set the subject encoding if it differs from the platform.
+: **[mail]** Allows user to set the subject encoding if it differs from the platform.
 
 CHANGED
-: **\[mail\]** Changed `SmtpServer` API for creation.
+: **[mail]** Changed `SmtpServer` API for creation.
 
 FIXED
-: **\[core\]** Fixed issue with `ByteArrayResponseWrapper` and `CharArrayResponseWrapper`.
+: **[core]** Fixed issue with `ByteArrayResponseWrapper` and `CharArrayResponseWrapper`.
 
 CHANGED
-: **\[lagarto\]** Removed deep level property from tag.
+: **[lagarto]** Removed deep level property from tag.
 {: .release}
 
 
-## \[2014-11-02\] Release v3.6.2
+## [2014-11-02] Release v3.6.2
 
 Everybody loves fixes and improvements.
 
 FIXED
-: **\[lagarto\]** Fixed parsing in some special case of truncated HTMLs.
+: **[lagarto]** Fixed parsing in some special case of truncated HTMLs.
 
 FIXED
-: **\[lagarto-web\]** Form tag now works with multipart requests.
+: **[lagarto-web]** Form tag now works with multipart requests.
 
 NEW
-: **\[http\]** Added `HttpProgressListener`.
+: **[http]** Added `HttpProgressListener`.
 
 NEW
-: **\[http\]** Added method to force multipart requests.
+: **[http]** Added method to force multipart requests.
 
 NEW
-: **\[proxetta\]** Added `targetMethodAnnotation()` and `targetClassAnnotation()`
+: **[proxetta]** Added `targetMethodAnnotation()` and `targetClassAnnotation()`
 macro methods for *Proxetta*.
 
 NEW
-: **\[proxetta\]** Pass classloader info to the `TargetClassInfoReader`.
+: **[proxetta]** Pass classloader info to the `TargetClassInfoReader`.
 
 CHANGED
-: **\[bean\]** `propertyFieldPrefix` for `CachingIntrospector` is now array of strings.
+: **[bean]** `propertyFieldPrefix` for `CachingIntrospector` is now array of strings.
 
 NEW
-: **\[core\]** Added `ClassMap`.
+: **[core]** Added `ClassMap`.
 
 NEW
-: **\[core\]** Added `DirWatcher`.
+: **[core]** Added `DirWatcher`.
 
 FIXED
-: **\[json\]** Fix the lookup order of custom and default type serializers.
+: **[json]** Fix the lookup order of custom and default type serializers.
 
 NEW
-: **\[core\]** Added digest methods for files.
+: **[core]** Added digest methods for files.
 
 NEW
-: **\[http\]** Added socket timeout to the API.
+: **[http]** Added socket timeout to the API.
 
 NEW
-: **\[http\]** Added missing HTTP methods. Added few more convenient methods.
+: **[http]** Added missing HTTP methods. Added few more convenient methods.
 
 FIXED
-: **\[http\]** Track removed cookies in `HttpBrowser`.
+: **[http]** Track removed cookies in `HttpBrowser`.
 
 FIXED
-: **\[lagarto\]** Fixed some parsing issues.
+: **[lagarto]** Fixed some parsing issues.
 
 CHANGED
-: **\[http\]** Upload is now memory-efficient.
+: **[http]** Upload is now memory-efficient.
 
 NEW
-: **\[http\]** Added upload monitor
+: **[http]** Added upload monitor
 
 FIXED
-: **\[lagarto\]** Fixed JVM crash on `null` argument.
+: **[lagarto]** Fixed JVM crash on `null` argument.
 
 CHANGED
-: **\[madvoc\]** Replaced *Madvoc* config flag `injectionErrorThrowsException` with `*Injector.silent`.
+: **[madvoc]** Replaced *Madvoc* config flag `injectionErrorThrowsException` with `*Injector.silent`.
 
 CHANGED
-: **\[core\]** Making `BeanUtil` more silent with better performances.
+: **[core]** Making `BeanUtil` more silent with better performances.
 
 CHANGED
-: **\[madvoc\]** Removed `RequestScopeInjector.Config`. Breaking change!
+: **[madvoc]** Removed `RequestScopeInjector.Config`. Breaking change!
 {: .release}
 
 
-## \[2014-10-01\] Release v3.6.1
+## [2014-10-01] Release v3.6.1
 
 Everybody loves fixes and improvements.
 
 FIXED
-: **\[lagarto\]** Fixed parsing in some special case of truncated HTMLs.
+: **[lagarto]** Fixed parsing in some special case of truncated HTMLs.
 
 FIXED
-: **\[lagarto-web\]** Form tag now works with multipart requests.
+: **[lagarto-web]** Form tag now works with multipart requests.
 
 NEW
-: **\[http\]** Added `HttpProgressListener`.
+: **[http]** Added `HttpProgressListener`.
 
 NEW
-: **\[http\]** Added method to force multipart requests.
+: **[http]** Added method to force multipart requests.
 
 NEW
-: **\[proxetta\]** Added `targetMethodAnnotation()` and `targetClassAnnotation()`
+: **[proxetta]** Added `targetMethodAnnotation()` and `targetClassAnnotation()`
 macro methods for *Proxetta*.
 
 NEW
-: **\[proxetta\]** Pass classloader info to the `TargetClassInfoReader`.
+: **[proxetta]** Pass classloader info to the `TargetClassInfoReader`.
 
 CHANGED
-: **\[bean\]** `propertyFieldPrefix` for `CachingIntrospector` is now array of strings.
+: **[bean]** `propertyFieldPrefix` for `CachingIntrospector` is now array of strings.
 
 NEW
-: **\[core\]** Added `ClassMap`.
+: **[core]** Added `ClassMap`.
 
 NEW
-: **\[core\]** Added `DirWatcher`.
+: **[core]** Added `DirWatcher`.
 
 CHANGED
-: **\[core\]** Removed `jodd.io.filter` package.
+: **[core]** Removed `jodd.io.filter` package.
 
 CHANGED
-: **\[core\]** Method `StringUtil.substring` is now full safe.
+: **[core]** Method `StringUtil.substring` is now full safe.
 
 CHANGED
-: **\[core\]** Using smart mode for `FindFile` and configurators.
+: **[core]** Using smart mode for `FindFile` and configurators.
 
 FIXED
-: **\[core\]** `ClassFinder` don't throw exceptions if flag is set.
+: **[core]** `ClassFinder` don't throw exceptions if flag is set.
 
 CHANGED
-: **\[mail\]** Multiple addresses now could be added by repeated call to
+: **[mail]** Multiple addresses now could be added by repeated call to
 address-related methods.
 
 CHANGED
-: **\[mail\]** Email address-related methods now accept two arguments:
+: **[mail]** Email address-related methods now accept two arguments:
 for personal name and for email address. Moreover, they accept
 `EmailAddress` and `InternetAddress`.
 
 NEW
-: **\[madvoc\]** *Madvoc* configuration `defaultActionName` changed
+: **[madvoc]** *Madvoc* configuration `defaultActionName` changed
 to `defaultActionResult` that accept `Class`.
 
 CHANGED
-: **\[madvoc\]** When `@RestAction` value starts with macro, add action
+: **[madvoc]** When `@RestAction` value starts with macro, add action
 method name to the path.
 
 NEW
-: **\[json\]** Added loose mode for parsing.
+: **[json]** Added loose mode for parsing.
 
 FIXED
-: **\[json\]** Fixed using integers in some cases for *Json* parser.
+: **[json]** Fixed using integers in some cases for *Json* parser.
 
 FIXED
-: **\[json\]** Fixed parsing bug that may occur with long strings and late escapes.
+: **[json]** Fixed parsing bug that may occur with long strings and late escapes.
 {: .release}
 
 
-## \[2014-09-05\] Release v3.6
+## [2014-09-05] Release v3.6
 
 Very Awesome Release!
 
@@ -352,7 +437,7 @@ FIXED
 : Many issues here and there.
 {: .release}
 
-## \[2014-03-27\] Release v3.5.1
+## [2014-03-27] Release v3.5.1
 
 This release is full of small changes, fixes and improvements.
 
@@ -412,7 +497,7 @@ is missing.
 {: .release}
 
 
-## \[2014-02-21\] Release v3.5
+## [2014-02-21] Release v3.5
 
 After two months of heavy work, sweat and tears, we
 released a new, shiny version of Jodd. It's hard
@@ -425,7 +510,7 @@ This release contains some major changes, but nothing too dramatic
 not to upgrade:) Do not hesitate to contact us for any reason.
 
 FIXED
-: Generated table references appends '_' in *DbOom*.
+: Generated table references appends '\_' in *DbOom*.
 
 NEW
 : Added `GenericDao` to *DbOom*.
@@ -530,7 +615,7 @@ define custom JSP functions using our utilities.
 {: .release}
 
 
-## \[2013-12-19\] Release v3.4.10
+## [2013-12-19] Release v3.4.10
 
 Performances. Improvements. Fixes. Enjoy!
 
@@ -559,7 +644,7 @@ CHANGED
 {: .release}
 
 
-## \[2013-12-03\] Release v3.4.9
+## [2013-12-03] Release v3.4.9
 
 If we have to choose one word to describe this release, that would be **optimization**. We did many changes under the hood, to optimize
 performances and reduce memory usage.
@@ -612,7 +697,7 @@ NEW
 {: .release}
 
 
-## \[2013-10-14\] Release v3.4.8
+## [2013-10-14] Release v3.4.8
 
 Many fixes. Sad day for bugs, great day for us :)
 
@@ -651,7 +736,7 @@ FIXED
 {: .release}
 
 
-## \[2013-09-17\] Release v3.4.7
+## [2013-09-17] Release v3.4.7
 
 Many new awesome things:) Just look at the change list!
 
@@ -693,7 +778,7 @@ CHANGED
 {: .release}
 
 
-## \[2013-07-26\] Release v3.4.5
+## [2013-07-26] Release v3.4.5
 
 Wow, still alive. Another set of improvements and some new features.
 Also, the documentation was converted to markdown.
@@ -755,7 +840,7 @@ CHANGED
 {: .release}
 
 
-## \[2013-05-17\] Release v3.4.4
+## [2013-05-17] Release v3.4.4
 
 Wow, and we thought this is gonna be an easy release.
 There are plenty of new changes under the hub, so keep an eye on this release
@@ -783,7 +868,7 @@ CHANGED
 {: .release}
 
 
-## \[2013-04-17\] Release v3.4.3
+## [2013-04-17] Release v3.4.3
 
 After some time, we bring you one awesome release packed with many small, but powerful and exciting new features! Most important improvements are in *Petite* container and *HTTP* tool. Enjoy!
 
@@ -819,7 +904,7 @@ NEW
 {: .release}
 
 
-## \[2013-02-23\] Release v3.4.2
+## [2013-02-23] Release v3.4.2
 
 In this sweet, little release, the biggest change is totally new HTTP client. Other then that, we have the usual amount of improvements and bug fixes; some classes have been cleaned. *Jodd* has finally moved to Gradle!
 
@@ -861,7 +946,7 @@ NEW
 {: .release}
 
 
-## \[2013-01-07\] Release v3.4.1
+## [2013-01-07] Release v3.4.1
 
 Release 3.4.1. is polished version of our big previous release. Some things have been fixed, some upgraded and there are few new features!
 
@@ -903,7 +988,7 @@ FIXED
 {: .release}
 
 
-## \[2012-10-25\] Release v3.4.0
+## [2012-10-25] Release v3.4.0
 
 Release 3.4.0. is very special in many ways. Not only that some new and exciting features have been added (as always:), but the whole project has been re-organized! We migrated to Maven multi-module structure, making everything easier for you. We have also moved to the GitHub, so fork the repo :)
 
@@ -917,7 +1002,7 @@ CHANGED
 : Added better handling for return values in *Proxetta*.
 
 FIXED
-: `JDateTime `now can parse patterns w/o separators
+: `JDateTime`now can parse patterns w/o separators
 
 NEW
 : Added `StringUtil.decapitalize()` and `ReflectUtil.getCallerClass()` to remove dependency on `java.beans` and `sun` packages.
@@ -948,7 +1033,7 @@ FIXED
 {: .release}
 
 
-## \[2012-09-05\] Release v3.3.8
+## [2012-09-05] Release v3.3.8
 
 Enjoy release 3.3.8!
 
@@ -983,7 +1068,7 @@ CHANGED
 : `FileUtil` methods for reading file content now detects BOM characters for Unicode encodings.
 
 CHANGED
-: `UnicodeInputStream` now may work in two modes: detect mode and read mode``.
+: `UnicodeInputStream` now may work in two modes: detect mode and read mode\`\`.
 
 CHANGED
 : Added `FastSort` (with new sorting implementation) in favor of `FastMergeSort`.
@@ -1017,7 +1102,7 @@ NEW
 {: .release}
 
 
-## \[2012-07-27\] Release v3.3.7
+## [2012-07-27] Release v3.3.7
 
 Enjoy release 3.3.7!
 
@@ -1077,7 +1162,7 @@ CHANGED
 {: .release}
 
 
-## \[2012-06-12\] Release v3.3.4
+## [2012-06-12] Release v3.3.4
 
 Another maintenance release. Mostly bug fixes. Only few changes, but might be important ones.
 
@@ -1091,7 +1176,7 @@ NEW
 : `MimeTypes` upgraded.
 
 FIXED
-: *HtmlStapler* servlet now returns content-type for bundles \[#jodd-16\].
+: *HtmlStapler* servlet now returns content-type for bundles [\#jodd-16].
 
 FIXED
 : Fixed FCQN names for logger wrapper.
@@ -1116,7 +1201,7 @@ CHANGED
 {: .release}
 
 
-## \[2012-05-07\] Release v3.3.3
+## [2012-05-07] Release v3.3.3
 
 Killing the bugs, is what we do in this release. We would like to thank Bandino Jurumai for helping us with this release! And hey, it's only two days after Jodds birthday :)
 
@@ -1124,13 +1209,13 @@ CHANGED
 : Improved `GzipFilter`.
 
 NEW
-: Added gziped *HtmlStapler* bundles \[#jodd-15\]
+: Added gziped *HtmlStapler* bundles [\#jodd-15]
 
 FIXED
-: Fixed *Jerry* issue with different modes \[#jodd-14\]
+: Fixed *Jerry* issue with different modes [\#jodd-14]
 
 FIXED
-: Fixed *HtmlStapler* context issue \[#jodd-13\]
+: Fixed *HtmlStapler* context issue [\#jodd-13]
 
 NEW
 : Added `StringTemplateParser`.
@@ -1139,23 +1224,23 @@ FIXED
 : Fixed an issue with empty properties in `PropertyUtil`
 
 FIXED
-: Fixed `FileNameUtil.getPathNoEndSeparator()` issue \[#jodd-12\]
+: Fixed `FileNameUtil.getPathNoEndSeparator()` issue [\#jodd-12]
 
 FIXED
-: Fixed *HtmlStapler* issue with relative paths to JS and CSS files \[#jodd-11\]
+: Fixed *HtmlStapler* issue with relative paths to JS and CSS files [\#jodd-11]
 
 FIXED
-: Fixed *HtmlStapler* CSS Problem \[#jodd-10\]
+: Fixed *HtmlStapler* CSS Problem [\#jodd-10]
 
 FIXED
-: Fixed *Madvoc* and *Lagarto* issue under Jetty \[#jodd-9\]
+: Fixed *Madvoc* and *Lagarto* issue under Jetty [\#jodd-9]
 
 NEW
 : Added generic `ServletResponse` wrapper.
 {: .release}
 
 
-## \[2012-02-21\] Release v3.3.2
+## [2012-02-21] Release v3.3.2
 
 This release contains mainly bug fixes and minor enhancements. Still, upgrade as it is an important release.
 
@@ -1172,7 +1257,7 @@ CHANGED
 : Type converters and `Convert` refactored and improved!
 
 NEW
-: Refactor *BeanUtil* loaders and allow setting custom `TypeConverterManagerBean` \[#jodd-8\]
+: Refactor *BeanUtil* loaders and allow setting custom `TypeConverterManagerBean` [\#jodd-8]
 
 NEW
 : Added `ConvertBean`.
@@ -1218,7 +1303,7 @@ NEW
 {: .release}
 
 
-## \[2011-12-27\] Release v3.3.1
+## [2011-12-27] Release v3.3.1
 
 Some important bugfixes and minor changes.
 
@@ -1245,7 +1330,7 @@ CHANGED
 {: .release}
 
 
-## \[2011-12-17\] Release v3.3
+## [2011-12-17] Release v3.3
 
 So many great enhancements and news... do not know where to start;) Too many to list here. Enjoy!
 
@@ -1311,7 +1396,7 @@ NEW
 {: .release}
 
 
-## \[2011-08-29\] Release v3.2.7
+## [2011-08-29] Release v3.2.7
 
 After unusually long time, we released another significant update! As *Jodd* is used in few live web projects there were some issues and we wanted to wait as much as possible to clean the most of them:) Moreover, we added some significant updates and bug fixes, so please update your projects. The most important change is the new name of the *DbOom* framework. Sorry for all inconveniences - and enjoy the release!
 
@@ -1328,7 +1413,7 @@ NEW
 : `FindFile#iterator()` added.
 
 FIXED
-: *Email* sending byte areas and input stream fixed``.
+: *Email* sending byte areas and input stream fixed\`\`.
 
 NEW
 : Added `ignoreInvalidUploadFiles` parameter for ignoring bad file uploads in *Madvoc*.
@@ -1386,7 +1471,7 @@ FIXED
 {: .release}
 
 
-## \[2011-04-05\] Release v3.2.6
+## [2011-04-05] Release v3.2.6
 
 Besides bug fixing and minor updates, this release brings major enhancement in *Petite* IOC container. We put a lot of heart into this release!
 
@@ -1435,7 +1520,7 @@ FIXED
 {: .release}
 
 
-## \[2011-02-20\] Release v3.2.5
+## [2011-02-20] Release v3.2.5
 
 This release is all about new *Madvoc* features! It was very bright and sunny day, perfect for releasing!;)
 
@@ -1461,7 +1546,7 @@ CHANGED
 : *Madvoc* `@Action` notInPath removed.
 
 CHANGED
-: *Madvoc* `@Action#IGNORE` added instead of NO_EXTENSION.
+: *Madvoc* `@Action#IGNORE` added instead of NO\_EXTENSION.
 
 NEW
 : `ArraysUtil.inser` added for single element.
@@ -1477,7 +1562,7 @@ NEW
 {: .release}
 
 
-## \[2011-01-10\] Release v3.2
+## [2011-01-10] Release v3.2
 
 A new year and a new release, with some great new features!
 
@@ -1501,7 +1586,7 @@ CHANGED
 {: .release}
 
 
-## \[2010-10-03\] Release v3.1.1
+## [2010-10-03] Release v3.1.1
 
 First autumn release brings some nice refinements making *Jodd* more beautiful. Some important bugs were fixed too. Enjoy!
 
@@ -1549,7 +1634,7 @@ NEW
 {: .release}
 
 
-## \[2010-06-18\] Release v3.1.0
+## [2010-06-18] Release v3.1.0
 
 Some new tools, utils and Maven support (finally:) Also, since *Jodd* is currently being used in couple of live projects, we decided it is a time for new major release.
 
@@ -1573,7 +1658,7 @@ NEW
 {: .release}
 
 
-## \[2010-05-10\] Release v3.0.9
+## [2010-05-10] Release v3.0.9
 
 Mainly bugfixes. Few days after *Jodd*s 3.x first birthday... a new release! Can't imagine a better present;) Moreover, *Jodd* has been used in couple of projects meanwhile, and it is fast, stable and good-looking:) And soon, we will give YOU a present for our birthday... just stay tuned;)
 
@@ -1606,7 +1691,7 @@ NEW
 {: .release}
 
 
-## \[2010-03-12\] Release v3.0.8
+## [2010-03-12] Release v3.0.8
 
 This is one of the most important releases, since all *Jodd* frameworks have been used in production together.
 As a result, we have several bug fixed, some important changes and more power inside the framework.
@@ -1687,7 +1772,7 @@ NEW
 {: .release}
 
 
-## \[2009-11-19\] Release v3.0.7
+## [2009-11-19] Release v3.0.7
 
 Since previous version was released before scheduled time, this one contains many small and some important news. First, there is a new tool 'Paramo' for reading methods parameter names from debug bytecode info. Next, Madvoc has been enhanced in an good way;) All-in-all, we are going towards the next big release.
 
@@ -1735,7 +1820,7 @@ CHANGED
 {: .release}
 
 
-## \[2009-09-23\] Release v3.0.6
+## [2009-09-23] Release v3.0.6
 
 Another small update, made mainly to fix distribution archive.
 
@@ -1756,7 +1841,7 @@ CHANGED
 {: .release}
 
 
-## \[2009-09-10\] Release v3.0.5
+## [2009-09-10] Release v3.0.5
 
 Small update, but we have fixed something that bothered us from long time: SQL mappings. Now everything seems to be on the right track;). Besides, some more utilities have been added.
 
@@ -1783,7 +1868,7 @@ NEW
 {: .release}
 
 
-## \[2009-08-06\] Release v3.0.4
+## [2009-08-06] Release v3.0.4
 
 This update fixes one important issue with *Proxetta* and enhance it in a way so it is now possible to apply proxy on JDK classes. Moreover, several little utilities have been added. It is recommended to upgrade to this version.
 
@@ -1858,7 +1943,7 @@ NEW
 {: .release}
 
 
-## \[2009-06-29\] Release v3.0.3
+## [2009-06-29] Release v3.0.3
 
 This is important upgrade. Some bugs regarding reading annotations in *Proxetta* have been fixed, while *Proxetta* was refactored. Next, this is the first version that starts to use external logger. *Petite* container now can be configured with parameters (from properties files, for example). Documentation has been extended by an example of building web applications using *Jodd*.
 
@@ -1924,7 +2009,7 @@ NEW
 {: .release}
 
 
-## \[2009-06-06\] Release v3.0.1
+## [2009-06-06] Release v3.0.1
 
 Minor upgrades and additions. Documentation fixed and more added.
 
@@ -1969,7 +2054,7 @@ CHANGED
 {: .release}
 
 
-## \[2009-05-05\] Release v3.0
+## [2009-05-05] Release v3.0
 
 *Jodd* started new life on new web address: http://jodd.org
 {: .release}

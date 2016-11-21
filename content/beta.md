@@ -4,11 +4,7 @@ toc: false
 
 # What's coming next?
 
-## Release v3.6.8
-
-Some more fixes and minor improvements.
-
-## Release v3.7.0
+## Release v3.7.1
 
 This is the next major release in our road map.
 

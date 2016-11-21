@@ -36,6 +36,19 @@ extractors implementation.
 
 [jmeter.apache.org](http://jmeter.apache.org/)
 
+## BookWatchr
+
+The complete website made with Jodd and nothing else by Jodd :)
+
+[www.bookwatchr.com/](http://www.bookwatchr.com/)
+
+
+## Chasse aux Livres
+
+The complete awesome website made in Jodd.
+
+[chasse-aux-livres.fr](https://www.chasse-aux-livres.fr/)
+
 
 ## Webit Script
 

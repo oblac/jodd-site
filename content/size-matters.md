@@ -6,7 +6,7 @@ though necessarily, but in terms of mental efforts and scaffolding required
 to get a MVP out the door. The very point of minimalism from a reliability
 perspective is to reduce points of failure in code with simply less parts.
 
-With only 1.5 MB in size, Jodd tools and microframeworks tries to make
+With only <%= @config[:jodd][:size] %> MB in size, Jodd tools and microframeworks tries to make
 things as simple as possible, but no simpler.
 
 Todays world of Java is ruled by Enterprise Giants. It seems that

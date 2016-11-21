@@ -1,6 +1,6 @@
 # Download Jodd
 
-*Jodd* may be used on any platform where there is a suitable **Java 7+**
+*Jodd* may be used on any platform where there is a suitable **Java 8+**
 runtime environment. *Jodd* may be used successfully on many platforms,
 including Linux, UNIX, Windows, MacOSX.
 
@@ -15,28 +15,9 @@ not be complete
 Please find some information in how *Jodd* is organized
 into the [modules](../doc/modules.html).
 
-## Jodd Bundle
-
-*Jodd* Bundle is one jar with most modules bundled together.
-Distribution archive contains bundle jar (with sources jar)
-and jars of remaining modules.
-
-<div class="button"><a href="jodd-<%=@config[:jodd][:version]%>.zip">
-	jodd-<%=@config[:jodd][:version]%>.zip
-	<div class="sub">(2.5 MB)</div>
-</a></div>
-
-### Mobile version
-
-Single jar that contains selected utilities and tools from modules
-<var>jodd-core</var>, <var>jodd-bean</var> and <var>jodd-props</var>;
-small in size.
-
-[jodd-mobile-<%=@config[:jodd][:version]%>.jar](jodd-mobile-<%=@config[:jodd][:version]%>.jar) (350 KB)
-
 ## Maven repositories
 
-*Jodd* jars are published on **jCenter** and **Maven central** repository.
+*Jodd* jars are published on **Maven central** and **jCenter** repository.
 Snapshots are released on **jCenter** only.
 
 ### Maven
@@ -52,7 +33,7 @@ Snapshots are released on **jCenter** only.
 ### Gradle
 
 ~~~~~
-'org.jodd:jodd-xxx:<%=@config[:jodd][:version]%>'
+compile: 'org.jodd:jodd-xxx:<%=@config[:jodd][:version]%>'
 ~~~~~
 
 ### SBT

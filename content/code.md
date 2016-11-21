@@ -14,7 +14,7 @@ You can get the code by clonning *Jodd* Git repository:
 
 ## Build Instructions
 
-*Jodd* is built with [Gradle](http://gradle.org) targeting **Java 1.5**.
+*Jodd* is built with [Gradle](http://gradle.org) targeting **Java 1.8**.
 You don't have to install anything, the only prerequisites are
 [Git](http://help.github.com/set-up-git-redirect) and Java JDK.
 
@@ -37,6 +37,7 @@ And that's all!
 Integration tests are executed only when building `release` task or `testAll` task.
 
 For integration tests you will need also to set up databases named: '`jodd-test`' on local **MySql** (access: _root_/_root!_) and **PostgreSQL** (_postgres_/_root!_).
+The easiest way to run the test infrastructure is by using Docker.
 
 ## Using Java IDE
 
@@ -65,7 +66,7 @@ the path to the Gradle installation.
 
 ![import project](gfx/source-3-import-project.png)
 
-*Jodd* uses JDK5, but you can use any other JDK you have installed. Thats all!
+*Jodd* uses **JDK8**. Thats all!
 
 
 ### Eclipse
