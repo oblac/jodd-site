@@ -9,3 +9,7 @@ do
   mkdir $var
 	cp -r ../jodd/build/reports/$var/ ./$var
 done
+
+git add --all
+git commit -m "Jodd reports updated"
+git push
