@@ -47,3 +47,21 @@ libraryDependencies += "org.jodd" % "jodd-xxx" % "<%=@config[:jodd][:version]%>"
 ~~~~~ xml
 	<dependency org="org.jodd" name="jodd-xxx" rev="<%=@config[:jodd][:version]%>"/>
 ~~~~~
+
+
+## All-in-One Bundle
+
+We also provide *Jodd* bundle: `jodd-all`. It is available on Maven central
+repository. But you can also download it from here with just one click:
+
+<div class="button"><a href="https://repo1.maven.org/maven2/org/jodd/jodd-all/<%=@config[:jodd][:version]%>/jodd-all-<%=@config[:jodd][:version]%>.jar">
+	jodd-all-<%=@config[:jodd][:version]%>.zip
+	<div class="sub">(<%=@config[:jodd][:size]%> MB)</div>
+</a></div>
+
+You can also download
+[source](https://repo1.maven.org/maven2/org/jodd/jodd-all/<%=@config[:jodd][:version]%>/jodd-all-<%=@config[:jodd][:version]%>-sources.jar)
+and [javadoc](https://repo1.maven.org/maven2/org/jodd/jodd-all/<%=@config[:jodd][:version]%>/jodd-all-<%=@config[:jodd][:version]%>-javadoc.jar)
+bundles.
+
+Enjoy!
