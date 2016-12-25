@@ -2,7 +2,7 @@
 
 Recent history, release notes and previous releases.
 
-\<%= @items['/partials/release.md'].compiled\_content %\>
+<%= @items['/partials/release.md'].compiled_content %>
 
 ## [2016-03-24] Release v3.7.x
 
