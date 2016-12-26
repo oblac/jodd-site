@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">6.013s</div>
+<div class="counter">6.008s</div>
 <p>duration</p>
 </div>
 </td>
@@ -64,7 +64,10 @@
 <a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Standard error</a>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
@@ -79,31 +82,57 @@
 </thead>
 <tr>
 <td class="success">testTimeout</td>
-<td>6.013s</td>
+<td>6.008s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>12:24:41.290 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x83754a77, /127.0.0.1:60936 :&gt; /127.0.0.1:1080] FLUSH
+12:24:41.291 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x83754a77, /127.0.0.1:60936 :&gt; /127.0.0.1:1080] INACTIVE
+12:24:41.291 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x83754a77, /127.0.0.1:60936 :&gt; /127.0.0.1:1080] UNREGISTERED
+12:24:41.291 [nioEventLoopGroup-3-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-3-3
+12:24:41.492 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x2575fbad, /127.0.0.1:60943 :&gt; /127.0.0.1:1080] FLUSH
+12:24:41.492 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x2575fbad, /127.0.0.1:60943 :&gt; /127.0.0.1:1080] INACTIVE
+12:24:41.493 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x2575fbad, /127.0.0.1:60943 :&gt; /127.0.0.1:1080] UNREGISTERED
+12:24:41.493 [nioEventLoopGroup-13-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-13-3
+12:24:41.569 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf79417a1, /127.0.0.1:60948 :&gt; /127.0.0.1:1080] FLUSH
+12:24:41.569 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf79417a1, /127.0.0.1:60948 :&gt; /127.0.0.1:1080] INACTIVE
+12:24:41.569 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf79417a1, /127.0.0.1:60948 :&gt; /127.0.0.1:1080] UNREGISTERED
+12:24:41.570 [nioEventLoopGroup-22-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-22-3
+12:24:41.665 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbd6e407d, /127.0.0.1:60953 :&gt; /127.0.0.1:1080] FLUSH
+12:24:41.665 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbd6e407d, /127.0.0.1:60953 :&gt; /127.0.0.1:1080] INACTIVE
+12:24:41.665 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbd6e407d, /127.0.0.1:60953 :&gt; /127.0.0.1:1080] UNREGISTERED
+12:24:41.665 [nioEventLoopGroup-30-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-30-3
+12:24:41.780 [nioEventLoopGroup-5-4] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-5-4
+12:24:41.974 [nioEventLoopGroup-15-4] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-15-4
+12:24:42.057 [nioEventLoopGroup-24-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-24-2
+12:24:42.154 [nioEventLoopGroup-32-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-32-2
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Oct 25, 2016 1:46:15 PM org.apache.coyote.AbstractProtocol init
+<pre>Dec 26, 2016 12:24:41 PM org.apache.coyote.AbstractProtocol init
 INFO: Initializing ProtocolHandler [&quot;http-bio-8173&quot;]
-Oct 25, 2016 1:46:15 PM org.apache.catalina.core.StandardService startInternal
+Dec 26, 2016 12:24:41 PM org.apache.catalina.core.StandardService startInternal
 INFO: Starting service Tomcat
-Oct 25, 2016 1:46:15 PM org.apache.catalina.core.StandardEngine startInternal
+Dec 26, 2016 12:24:41 PM org.apache.catalina.core.StandardEngine startInternal
 INFO: Starting Servlet Engine: Apache Tomcat/7.0.47
-Oct 25, 2016 1:46:15 PM org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
+Dec 26, 2016 12:24:41 PM org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
 INFO: No global web.xml found
-Oct 25, 2016 1:46:15 PM org.apache.coyote.AbstractProtocol start
+Dec 26, 2016 12:24:44 PM org.apache.coyote.AbstractProtocol start
 INFO: Starting ProtocolHandler [&quot;http-bio-8173&quot;]
-Oct 25, 2016 1:46:21 PM org.apache.coyote.AbstractProtocol pause
+Dec 26, 2016 12:24:50 PM org.apache.coyote.AbstractProtocol pause
 INFO: Pausing ProtocolHandler [&quot;http-bio-8173&quot;]
-Oct 25, 2016 1:46:21 PM org.apache.catalina.core.StandardService stopInternal
+Dec 26, 2016 12:24:50 PM org.apache.catalina.core.StandardService stopInternal
 INFO: Stopping service Tomcat
-Oct 25, 2016 1:46:21 PM org.apache.coyote.AbstractProtocol stop
+Dec 26, 2016 12:24:50 PM org.apache.coyote.AbstractProtocol stop
 INFO: Stopping ProtocolHandler [&quot;http-bio-8173&quot;]
-Oct 25, 2016 1:46:21 PM org.apache.coyote.AbstractProtocol destroy
+Dec 26, 2016 12:24:50 PM org.apache.coyote.AbstractProtocol destroy
 INFO: Destroying ProtocolHandler [&quot;http-bio-8173&quot;]
 </pre>
 </span>
@@ -116,7 +145,7 @@ INFO: Destroying ProtocolHandler [&quot;http-bio-8173&quot;]
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 3.1</a> at Oct 25, 2016 3:47:49 PM</p>
+<a href="http://www.gradle.org">Gradle 3.1</a> at Dec 26, 2016 1:26:45 PM</p>
 </div>
 </div>
 </body>
