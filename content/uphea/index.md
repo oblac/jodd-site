@@ -9,16 +9,12 @@ examine the real web application, and not only some half-baked pet-store
 example. *Uphea* will also be upgraded and enhanced in time, showing
 more and more *Jodd*s features.
 
-**site url:** [uphea.com][1]
-
-(site is no longer alive, but you can see some screenshots and list of features)
-
 ## Download
 
 Hey, you can try *Uphea*! Just download prepared Tomcat 7 bundle:
 
 <div class="button"><a href="uphea.zip">
-    uphea.zip 
+    uphea.zip
     <div class="sub">Tomcat 7 bundle (12 MB)</div>
 </a></div>
 
