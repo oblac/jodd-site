@@ -1,11 +1,4 @@
 
-### default filename
-DirectoryIndex index.html
-
-### preventing directory listings
-Options -Indexes
-
-
 # ----------------------------------------------------------------------
 # Cross-domain AJAX requests
 # ----------------------------------------------------------------------
@@ -17,6 +10,7 @@ Options -Indexes
 #  <IfModule mod_headers.c>
 #    Header set Access-Control-Allow-Origin "*"
 #  </IfModule>
+
 
 
 # ----------------------------------------------------------------------
@@ -32,6 +26,7 @@ Options -Indexes
     Header set Access-Control-Allow-Origin "*"
   </IfModule>
 </FilesMatch>
+
 
 
 # ----------------------------------------------------------------------
@@ -67,6 +62,7 @@ AddType application/x-xpinstall        xpi
 AddType application/octet-stream       safariextz
 
 
+
 # ----------------------------------------------------------------------
 # gzip compression
 # ----------------------------------------------------------------------
@@ -84,8 +80,23 @@ AddType application/octet-stream       safariextz
 # html, txt, css, js, json, xml, htc:
 <IfModule filter_module>
   FilterDeclare   COMPRESS
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml|x-javascript)/
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/html'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/css'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/javascript'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/x-component'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/plain'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/xml'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/javascript'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/json'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/xml'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/xhtml+xml'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/rss+xml'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/atom+xml'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/vnd.ms-fontobject'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'image/svg+xml'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'image/x-icon'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/x-font-ttf'"
+  FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'font/opentype'"
   FilterChain     COMPRESS
   FilterProtocol  COMPRESS  change=yes;byteranges=no
 </IfModule>
@@ -102,6 +113,8 @@ AddType application/octet-stream       safariextz
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule>
+
+
 
 # ----------------------------------------------------------------------
 # Expires headers (for better cache control)
@@ -198,7 +211,6 @@ FileETag None
 
 
 
-
 # ----------------------------------------------------------------------
 # Cookie setting from iframes
 # ----------------------------------------------------------------------
@@ -213,6 +225,7 @@ FileETag None
 # </IfModule>
 
 
+
 # ----------------------------------------------------------------------
 # Start rewrite engine
 # ----------------------------------------------------------------------
@@ -222,6 +235,7 @@ FileETag None
 <IfModule mod_rewrite.c>
   RewriteEngine On
 </IfModule>
+
 
 
 # ----------------------------------------------------------------------
@@ -246,6 +260,7 @@ FileETag None
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
+
 
 
 # ----------------------------------------------------------------------
@@ -295,11 +310,9 @@ Options -MultiViews
 # custom 404 page
 # ----------------------------------------------------------------------
 
-ErrorDocument 400 /400.shtml
-ErrorDocument 401 /401.shtml
-ErrorDocument 403 /403.shtml
-ErrorDocument 404 /404.shtml
-ErrorDocument 500 /500.shtml
+# You can add custom pages to handle 500 or 403 pretty easily, if you like.
+ErrorDocument 404 /404.html
+
 
 
 # ----------------------------------------------------------------------
@@ -311,3 +324,28 @@ AddDefaultCharset utf-8
 
 # force utf-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml .json .rss
+
+
+
+# ----------------------------------------------------------------------
+# A little more security
+# ----------------------------------------------------------------------
+
+
+# Do we want to advertise the exact version number of Apache we're running?
+# Probably not.
+## This can only be enabled if used in httpd.conf - It will not work in .htaccess
+# ServerTokens Prod
+
+
+# "-Indexes" will have Apache block users from browsing folders without a default document
+# Usually you should leave this activated, because you shouldn't allow everybody to surf through
+# every folder on your server (which includes rather private places like CMS system folders).
+Options -Indexes
+
+
+# Block access to "hidden" directories whose names begin with a period. This
+# includes directories used by version control systems such as Subversion or Git.
+<IfModule mod_rewrite.c>
+  RewriteRule "(^|/)\." - [F]
+</IfModule>
