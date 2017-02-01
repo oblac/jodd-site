@@ -163,12 +163,12 @@ div.button-long {
 	text-align: center;
 	color: #fff;
 	background-color: $color-orange;
-	padding: 16px 0 10px 0;
+	padding: 20px 0 10px 0;
 	strong {
 		font-weight: bold;
 	}
 	p {
-		margin-bottom: 6px;
+		margin-bottom: 8px;
 	}
 	a {
 		color: #fff;
@@ -507,9 +507,7 @@ pre code {
 		}
 	}
 	&:hover { background-color: $color-back; color: $color-text;}
-	&:hover div {
-		background-color: $color-back;
-	}
+	//&:hover div { background-color: $color-back;}
 }
 .circle {
 	width: 100px;
@@ -539,41 +537,54 @@ pre code {
 	display: block;
 }
 
-.hexagon {
-	width: 100px;
-	height: 55px;
-	background: $color-orange1;
+.radial-out {
+  backface-visibility: hidden;
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0);
+}
+
+.radial-out:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  transform: scale(0);
+  transition: transform 0.4s ease-out;
+}
+
+.radial-out:hover:before,
+.radial-out:focus:before {
+  transform: scale(2);
+}
+
+.radial-out .topic-icon {
+	transform: scale(1);
+	transition: transform 0.4s ease-out;
+}
+
+.radial-out:hover .topic-icon,
+.radial-out:focus .topic-icon {
+  transform: scale(1.5);
+}
+
+.radial-out .topic-title {
+	top: 0;
 	position: relative;
-	font-size: 60px;
-	font-weight: bold;
-	color: #777;
-	margin-left: 40px;
-	margin-bottom: 40px;
-	margin-top: 20px;
-	display: block;
+	transition: all 0.4s ease-out;
 }
-.hexagon:before {
-	content: "";
-	position: absolute;
-	top: -25px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-bottom: 25px solid $color-orange1;
+
+.radial-out:hover .topic-title,
+.radial-out:focus .topic-title {
+  top: -10px;
+  color: black;
 }
-.hexagon:after {
-	content: "";
-	position: absolute;
-	bottom: -25px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-top: 25px solid $color-orange1;
-}
+
+
 
 .bg-col1 {
 	background-color: #c6d0d5;
@@ -978,7 +989,4 @@ body.search-overlay:after{position:absolute;top:0;left:0;z-index:9001;width:100%
 .search-form .search-list a {color:#eee; font-size: 1.2em;}
 .search-form .search-list a:hover {color:#fff; font-weight: bold;}
 
-
-/* coderay */
-
-@import '_coderay'
+@import '_coderay';

@@ -18,6 +18,18 @@ $(document).ready(function() {
         autoplaySpeed: 3000	});
 });
 </script>
+<style>
+/* Big Triangle */
+svg#bigTriangleColor {
+	pointer-events: none;
+}
+
+#bigTriangleColor path {
+	fill: #f16522;
+	stroke: #f16522;
+	stroke-width: 2;
+}
+</style>
 </head>
 <body>
 	<%= render '/_search.html' %>
@@ -42,16 +54,20 @@ $(document).ready(function() {
 		</div>
 	</section>
 
-	<section id="shout">
-		<div class="inner" >
+	<section id="shout" class="ss-style-bigtriangle">
+		<div class="inner">
 			<%= yield %>
 		</div>
 	</section>
 
+	<svg id="bigTriangleColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z" />
+	</svg>
+
 	<section id="main">
 		<div class="inner">
 
-			<h2>Jodd Table of Micro Components</h2>
+			<h2>Jodd table of Micro-components</h2>
 
 			<div class="under">
 				Here are some components for you!
@@ -60,115 +76,115 @@ $(document).ready(function() {
 
 			<div id="badges">
 
-				<a href="/doc/beanutil.html" class="badge">
-					<div class="square">B</div>
-					<div class="desc">
+				<a href="/doc/beanutil.html" class="badge radial-out">
+					<div class="circle topic-icon">B</div>
+					<div class="desc topic-title">
 						<span>BeanUtil</span> - fast bean library, type introspection
 						and type conversion tools with some unique features.
 					</div>
 				</a>
 
-				<a href="/doc/jdatetime.html" class="badge br1">
-					<div class="square">T</div>
-					<div class="desc">
+				<a href="/doc/jdatetime.html" class="badge br1 radial-out">
+					<div class="circle topic-icon">T</div>
+					<div class="desc topic-title">
 						<span>JDateTime</span> - astronomical
 						precision in single time-manipulation class.
 					</div>
 				</a>
 
-				<a href="/doc/props.html" class="badge br1">
-					<div class="square bg-col1">R</div>
-					<div class="desc">
+				<a href="/doc/props.html" class="badge br1 radial-out">
+					<div class="circle topic-icon bg-col1">R</div>
+					<div class="desc topic-title">
 						<span>Props</span> - properties replacement,
 						featuring: UTF8, sections, profiles, macros and more.
 					</div>
 				</a>
 
-				<a href="/doc/db/" class="badge">
-					<div class="square bg-col4">D</div>
-					<div class="desc">
+				<a href="/doc/db/" class="badge radial-out">
+					<div class="circle topic-icon bg-col4">D</div>
+					<div class="desc topic-title">
 						<span>DbOom</span> - thin database layers,
 						object mapper and Template-SQL that simplifies database code.
 					</div>
 				</a>
 
-				<a href="/doc/madvoc/" class="badge">
-					<div class="square">M</div>
-					<div class="desc">
+				<a href="/doc/madvoc/" class="badge radial-out">
+					<div class="circle topic-icon">M</div>
+					<div class="desc topic-title">
 						<span>Madvoc</span> - MVC framework based on
 						CoC and annotations for pragmatic web development.
 					</div>
 				</a>
 
-				<a href="/doc/petite/" class="badge">
-					<div class="square bg-col3">P</div>
-					<div class="desc">
+				<a href="/doc/petite/" class="badge radial-out">
+					<div class="circle topic-icon bg-col3">P</div>
+					<div class="desc topic-title">
 						<span>Petite</span> - DI container
 						that supports sufficient most of features
 						offered by other containers.
 					</div>
 				</a>
 
-				<a href="/doc/proxetta/" class="badge">
-					<div class="square">X</div>
-					<div class="desc">
+				<a href="/doc/proxetta/" class="badge radial-out">
+					<div class="circle topic-icon">X</div>
+					<div class="desc topic-title">
 						<span>Proxetta</span> - the fastest proxy creator with new, unique
 						approach for making pointcuts and different type of advices.
 					</div>
 				</a>
 
-				<a href="/doc/lagarto/" class="badge br2">
-					<div class="square bg-col4">L</div>
-					<div class="desc">
+				<a href="/doc/lagarto/" class="badge br2 radial-out">
+					<div class="circle topic-icon bg-col4">L</div>
+					<div class="desc topic-title">
 						<span>Lagarto</span> - all-purpose HTML parser and DOM builder.
 						<br><br><br>
 					</div>
 				</a>
 
-				<a href="/doc/jerry/" class="badge">
-					<div class="square">J</div>
-					<div class="desc">
+				<a href="/doc/jerry/" class="badge radial-out">
+					<div class="circle topic-icon">J</div>
+					<div class="desc topic-title">
 						<span>Jerry</span> - jQuery-friendly HTML parser with CSS3 selectors support.
 						<br><br><br>
 					</div>
 				</a>
 
-				<a href="/doc/http.html" class="badge br2">
-					<div class="square bg-col1">H</div>
-					<div class="desc">
+				<a href="/doc/http.html" class="badge br2 radial-out">
+					<div class="circle topic-icon bg-col1">H</div>
+					<div class="desc topic-title">
 						<span>HTTP</span> - Tiny and raw HTTP client, helps talking to servers.
 						<br><br>
 					</div>
 				</a>
 
-				<a href="/doc/email.html" class="badge br1">
-					<div class="square">E</div>
-					<div class="desc">
+				<a href="/doc/email.html" class="badge br1 radial-out">
+					<div class="circle topic-icon">E</div>
+					<div class="desc topic-title">
 						<span>Email</span> - sending and receiving emails for busy developers.
 						<br><br>
 					</div>
 				</a>
 
-				<a href="/doc/decora/" class="badge br1">
-					<div class="square">C</div>
-					<div class="desc">
+				<a href="/doc/decora/" class="badge br1 radial-out">
+					<div class="circle topic-icon">C</div>
+					<div class="desc topic-title">
 						<span>Decora</span> - decoration framework for web pages based on templates.
 						<br><br>
 					</div>
 				</a>
 
-				<a href="/doc/json/" class="badge br2">
-					<div class="square bg-col4">S</div>
-					<div class="desc">
+				<a href="/doc/json/" class="badge br2 radial-out">
+					<div class="circle topic-icon bg-col4">S</div>
+					<div class="desc topic-title">
 						<span>Json</span> - parsing JSON to objects and serializing objects back to JSON.
 						<br><br>
 					</div>
 				</a>
 
-				<a href="/doc/htmlstapler/" class="badge br1">
-					<div class="square bg-col1">A</div>
-					<div class="desc">
-						<span>HtmlStapler</span> - automatic packaging of web resources included by HTML page.
+				<a href="/doc/htmlstapler/" class="badge br1 radial-out">
+					<div class="circle topic-icon bg-col1">A</div>
+					<div class="desc topic-title">
+						<span>HtmlStapler</span> - auto packaging of web resources included by HTML page.
 						<br><br>
 					</div>
 				</a>
