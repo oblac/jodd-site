@@ -341,7 +341,7 @@ Petite automagic:
     PetiteContainer petite = new PetiteContainer();
     AutomagicPetiteConfigurator petiteConfigurator =
         new AutomagicPetiteConfigurator();
-    petite.configure(petiteConfigurator);
+    petiteConfigurator.configure(petite);
 ~~~~~
 
 Now all *Petite*\'s beans founded on the classpath will be registered in
