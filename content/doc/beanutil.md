@@ -1,15 +1,36 @@
 # BeanUtil
 
-Bean utilities allow setting and reading bean properties. Several
-features make `BeanUtil` distinct from other similar libraries:
+`BeanUtil` is bean manipulation library, that in a nutshell, allows
+setting and reading bean properties. Several features make `BeanUtil`
+distinct:
 
-* the *fastest* bean manipulation utility
+* *fast* (if not the fastest) bean manipulation utility
 * works with both *attributes* and *properties*
 * nested properties can be arrays, lists and maps
 * missing inner properties may be created
 * may work silently (no exception is thrown)
 * offers few populate methods
-* has strong type conversion library
+* has strong-type conversion library
+
+## Flavors of BeanUtil
+
+Before we jump into the details, let's quickly learn what types of `BeanUtil`
+exists. Implementations differ in the way how they threat private properties,
+if they throw exceptions and, finally, if they force creation of missing inner
+properties (more details later). You can build your own implementation easily
+using `BeanUtilBean`, but these are already provided:
+
+| name | access privates | throws exception? | force missing properties?
+| `BeanUtil.pojo`           | no  | yes | no
+| `BeanUtil.declared`       | yes | yes | no
+| `BeanUtil.silent`         | no  | no  | no
+| `BeanUtil.forced`         | no  | yes | yes
+| `BeanUtil.declaredSilent` | yes | no  | no
+| `BeanUtil.declaredForced` | yes | no  | yes
+| `BeanUtil.declaredForcedSilent` | yes | no | yes
+| `BeanUtil.forcedSilent`   | no  | no | yes
+
+Let' jump into details!
 
 ## Working with bean properties
 
@@ -35,30 +56,31 @@ Usage:
 
 ~~~~~ java
     Foo foo = new Foo();
-    BeanUtil.setProperty(foo, "readwrite", "data");
-    BeanUtil.getProperty(foo, "readwrite");
-    BeanUtil.setDeclaredProperty(foo, "readonly", "data");
+    BeanUtil.pojo.setProperty(foo, "readwrite", "data");
+    BeanUtil.pojo.getProperty(foo, "readwrite");
+    BeanUtil.declared.setProperty(foo, "readonly", "data");
 ~~~~~
 
 Lines #2 and #3 show common and expected `BeanUtil` usage: setting value
 of read-write property through it's accessors methods. Setting
-`readonly` property in above example is only possible with
-`setDeclaredProperty()` method. It first tries to use `setReadonly()`
-method, but since such doesn't exist, field is used directly.
+`readonly` property in above example is only possible with default
+implementation, so we use `BeanUtil.declared`. This variant first tries to
+use `setReadonly()` method, but since such method doesn't exist,
+field value is accessed directly.
 
 ## Nested properties
 
-`BeanUtil` supports nested properties. Besides other bean, nested
-property may be also a **list**, a **map** or an **array** element:
+`BeanUtil` supports nested properties. Nested properties can be java beans,
+a **List**, a **Map** or an **array** element:
 
 ~~~~~ java
-    BeanUtil.getProperty(cbean, "list[0].map[foo].foo");
-    BeanUtil.setProperty(cbean, "arr[4].map[elem.boo].foo", "test");
+    BeanUtil.pojo.getProperty(cbean, "list[0].map[foo].foo");
+    BeanUtil.pojo.setProperty(cbean, "arr[4].map[elem.boo].foo", "test");
 ~~~~~
 
-When accessing nested properties, `BeanUtil` goes one property at time
-and expects that all nested properties (except the very last one) exist
-i.e. to be not-`null`. Above example is executed as shown by this
+When accessing nested properties, `BeanUtil` access one property at time
+and, by default, expects that all inner properties exist
+i.e. are not-`null`. Above example is executed like the
 following pseudo-code:
 
 ~~~~~ java
@@ -69,27 +91,26 @@ following pseudo-code:
 
 ## Forced setting of nested properties
 
-Setting of nested properties fails if one of the (middle) elements on
-the path is `null`. To overcome this behavior, properties may be set in
-*forced* mode:
+Setting of nested properties fails if one of the inner elements is `null`.
+Using *forced* feature of `BeanUtil`, such properties still may be set!
 
 ~~~~~ java
-    BeanUtil.setPropertyForced(x, "y.foo", value);
-    BeanUtil.setPropertyForced(x, "yy[2].foo", "xxx");
+    BeanUtil.forced.setProperty(x, "y.foo", value);
+    BeanUtil.forced.setProperty(x, "yy[2].foo", "xxx");
 ~~~~~
 
 If the object `x` in above example has uninitialized property `y`,
-`BeanUtil` first creates a new instance of `y`\'s type, that will be set
+`BeanUtil` will first create a new instance of `y`\'s type, and set it
 to property `y`. Then, `foo` property of newly created object `y` will
 be set. In the second example, `yy` is an array. If it is uninitialized,
 `BeanUtil` will create a new array of length 3. Then, it will create a
 new instance of `yy`\'s type that will be stored as third element of the
 array. Finally, the `foo` property is set.
 
-In forced mode, `BeanUtil` tries to instantiate uninitialized properties
+In forced mode, `BeanUtil` tries to instantiate all uninitialized properties
 needed for setting the final property. Instantiation depends of the
-type: if it is a simple bean, no-args constructor will be invoked. If it
-is a list, new `ArrayList` will be created. Similar applies for arrays
+inner property type: if it is a simple bean, no-args constructor will be invoked.
+If it is a list, new `ArrayList` will be created. Similar applies for arrays
 and map types. Additionally, `BeanUtil` will check the length of
 existing initialized arrays and lists and if the current size is not
 enough, list or array will be expanded by adding `null` elements up to
@@ -101,72 +122,29 @@ When creating a new element of an list, `BeanUtil` will consider
 existing generics information in order to create element of correct
 type.
 
-## Silent work (no exceptions)
+## Silent mode (no exceptions)
 
-Property setting may fail from various reasons, causing an unchecked
-exception (`BeanUtilException`) to be thrown. Sometimes this is not
-desired behavior. For such usages, `BeanUtil` offers *silent* version of
-methods that will not throw an exception at all. If setting is not
-successful, simple nothing will happened.
+Property setting may fail for various reasons, causing an unchecked
+exception `BeanUtilException` to be thrown. Sometimes this is not
+desired behavior. For these cases, `BeanUtil` offers *silent* implementation
+that does not throw any exception at all.
 
-## Populate
+## Maps and lists instead of beans
 
-`BeanUtil` offers few methods for populating properties and beans from
-Map/List bean representation. This is handy when some JSON string should
-be deserialized into the bean.
-
-## Self-reference
-
-In some (rare) occasions `BeanUtil` has to work on arrays, `List`s or
-`Map`s directly instead with beans. In such cases it is needed to
-somehow reference this object, in order to use its elements. For such
-situations, `BeanUtil` introduce special self-reference property name:
-\"**\*this**\". It simply points to current reference.
-
-For example, lets say that it is needed to reference some element from
-context map (or array, or list) using `BeanUtil` and to set value of one
-of it's properties: `context[foo].boo`. Since context is the target
-bean used as an argument of `BeanUtil`, it is needed be able to somehow
-access it in the property name. This is possible with self-reference:
-
-~~~~~ java
-    BeanUtil.setProperty(ctx, "*this[foo].boo", value);
-~~~~~
-
-With self-reference you may also set `Map` keys that have a dot in its name:
+You can pass maps and list instead of beans as a root object. Just omit
+the bean name (since we do not work on a bean anymore):
 
 ~~~~~ java
     Properties properties = new Properties();
-    BeanUtil.setProperty(property, "*this[ldap.auth.enabled]", "true");
+    BeanUtil.pojo.setProperty(property, "[ldap.auth.enabled]", "true");
 ~~~~~
-
-Although it's purpose is to be used on very start of nested property
-name, self-reference may be used anywhere in between. So the following
-two property names are identical:
-
-~~~~~ java
-    BeanUtil.getProperty(fb4, "data[0].bbean.abean.fooProp");
-    BeanUtil.getProperty(fb4, "*this.data.*this[0].*this.bbean.abean.fooProp");
-~~~~~
-
-You can change the self-reference keyword (`*this`) by setting static
-variable: `BeanUtilBean.THIS_REF`.
-
-From recent versions of *BeanUtil*, self-reference is implicitly used
-for the first simple bean, so you can omit the keyword:
-
-~~~~~ java
-    Properties properties = new Properties();
-    BeanUtil.setProperty(property, "[ldap.auth.enabled]", "true");
-~~~~~
-
 
 ## Testing of property existence
 
 `BeanUtil` also offers convenient way to test if some property exists:
 
 ~~~~~ java
-    BeanUtil.hasProperty(fb, "fooInteger")
+    BeanUtil.pojo.hasProperty(fb, "fooInteger")
 ~~~~~
 
 ## Type conversion
@@ -182,7 +160,7 @@ snippet (from [Liferay](http://www.liferay.com) portal) shows the usage:
     public boolean getBoolean(Object bean, String param, boolean defaultValue) {
     	Boolean booleanValue = null;
     	if (bean != null) {
-    		Object value = BeanUtil.getProperty(bean, param);
+    		Object value = BeanUtil.pojo.getProperty(bean, param);
     		beanValue = TypeConverterManager.convertType(value, Boolean.class);
     	} catch (Exception ex) {
     		// log error
@@ -197,9 +175,9 @@ snippet (from [Liferay](http://www.liferay.com) portal) shows the usage:
 
 ## BeanUtilBean
 
-`BeanUtil` is just a static delegate class to default `BeanUtilBean`
-instance. Therefore, it is possible to change behavior of `BeanUtil` as
-well as to change the default type conversion rules.
+`BeanUtil` is just an intreface. `BeanUtilBean` is the class that contains
+all the logic. You can create your variant of bean utilities and share it in
+your code. It should be thread-safe.
 
 ## BeanCopy
 

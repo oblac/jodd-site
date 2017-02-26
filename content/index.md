@@ -2,11 +2,12 @@
 layout: '/jodd.html'
 ---
 
-*Jodd* is set of Java **micro frameworks**, **tools** and **utilities**, under [**<%= @config[:jodd][:size] %> MB**](size-matters.html).
+*Jodd* is set of Java **micro frameworks**, **tools** and **utilities**, under
+[**<%= @config[:jodd][:size] %> MB**](size-matters.html).
 
-Designed with [common sense](principle.html) to make things simple, but not simpler.
+We believe in [common sense](principle.html) to make things simple, but not simpler.
 
-Get things done! Build your Beautiful Ideas! Kickstart your Startup!
+Get things done! Make your ideas! Kickstart your startup!
 
 And enjoy the coding.
 
