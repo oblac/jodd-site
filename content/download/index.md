@@ -55,7 +55,7 @@ We also provide *Jodd* bundle: `jodd-all`. It is available on Maven central
 repository. But you can also download it from here with just one click:
 
 <div class="button"><a href="https://repo1.maven.org/maven2/org/jodd/jodd-all/<%=@config[:jodd][:version]%>/jodd-all-<%=@config[:jodd][:version]%>.jar">
-	jodd-all-<%=@config[:jodd][:version]%>.zip
+	jodd-all-<%=@config[:jodd][:version]%>.jar
 	<div class="sub">(<%=@config[:jodd][:size]%> MB)</div>
 </a></div>
 
