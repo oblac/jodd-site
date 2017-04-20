@@ -58,8 +58,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     multi_json (1.12.1)
-    nanoc (4.6.0)
-      cri (~> 2.3)
+    nanoc (4.7.7)
+      cri (~> 2.8)
       ddplugin (~> 1.0)
       hamster (~> 3.0)
       ref (~> 2.0)
@@ -103,7 +103,7 @@ DEPENDENCIES
   json
   kramdown
   mime-types
-  nanoc (= 4.6)
+  nanoc (= 4.7.7)
   nanoc-external
   nokogiri
   rainpress
