@@ -441,7 +441,7 @@ have to be downloaded before the search is thrown.
 ### Parsing EML files
 
 What if you have your emails stored in EML files. Not a problem, just use
-`EmailUtil.parseEML()`. It accepts both file or files content as an input and
+`EMLParser.create().parse()`. It accepts both file or files content as an input and
 returns `ReceivedEmail` of parsed EML message.
 
 ### Gmail and new message count
