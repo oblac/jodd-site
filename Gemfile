@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
-gem 'adsf'
+group :development do
+	gem 'adsf'
+end
+
 gem 'builder'
 gem 'kramdown'
 gem 'sass'
