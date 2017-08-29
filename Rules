@@ -145,12 +145,11 @@ end
 
 
 ## search
-## must be called after the MD
 compile '/w_js_meta.haml' do
   filter :haml
 end
 route '/w_js_meta.haml' do
-  '/js/data.js'
+  '/js/data.json'
 end
 
 ## final rule
