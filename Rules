@@ -59,6 +59,16 @@ route '/sitemap.haml' do
   item.identifier.without_ext + '.xml'
 end
 
+## search
+## must be called LAST!!!
+## therefore, the name starts with `w`
+compile '/w_js_meta.haml' do
+  filter :haml
+end
+route '/w_js_meta.haml' do
+  '/js/data.js'
+end
+
 ## error pages
 
 compile '/{4,5}0?.md' do
@@ -131,7 +141,7 @@ compile '/**/*' do
         :coderay_wrap => :div,
         :coderay_css => :class
       }
-      filter :words_filter
+      #filter :words_filter
     end
 
     if item[:layout] != nil
@@ -154,7 +164,6 @@ end
 route '/**/*' do
   item.identifier.to_s
 end
-
 
 ## layouts
 
