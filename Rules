@@ -59,16 +59,6 @@ route '/sitemap.haml' do
   item.identifier.without_ext + '.xml'
 end
 
-## search
-## must be called LAST!!!
-## therefore, the name starts with `w`
-compile '/w_js_meta.haml' do
-  filter :haml
-end
-route '/w_js_meta.haml' do
-  '/js/data.js'
-end
-
 ## error pages
 
 compile '/{4,5}0?.md' do
@@ -128,37 +118,47 @@ end
 
 ## defaults
 
-compile '/**/*' do
-  if !item.binary?
-    ext = item[:extension]
+compile '/**/*.md' do
+  filter :erb
+  filter :kramdown, {
+    :smart_quotes => "apos,apos,quot,quot",
+    :coderay_line_numbers => nil,
+    :coderay_tab_width => 4,
+    :coderay_wrap => :div,
+    :coderay_css => :class
+  }
+  #filter :words_filter
 
-    filter :erb
-    if ext == 'md'
-      filter :kramdown, {
-        :smart_quotes => "apos,apos,quot,quot",
-        :coderay_line_numbers => nil,
-        :coderay_tab_width => 4,
-        :coderay_wrap => :div,
-        :coderay_css => :class
-      }
-      #filter :words_filter
-    end
-
-    if item[:layout] != nil
-      layout item[:layout]
-    else
-      layout '/default.html'
-    end
-
-    if [ext == 'md']
-      filter :add_toc
-      filter :jodd_replace
-    end
+  if item[:layout] != nil
+    layout item[:layout]
+  else
+    layout '/default.html'
   end
+
+  filter :add_toc
+  filter :jodd_replace
 end
 
 route '/**/*.md' do
   path(item)
+end
+
+
+## search
+## must be called after the MD
+compile '/w_js_meta.haml' do
+  filter :haml
+end
+route '/w_js_meta.haml' do
+  '/js/data.js'
+end
+
+## final rule
+
+compile '/**/*' do
+  if !item.binary?
+    filter :erb
+  end
 end
 
 route '/**/*' do

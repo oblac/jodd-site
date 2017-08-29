@@ -34,6 +34,7 @@ module JoddJsMeta
 
 
   def js_meta_data(params = {})
+    print ("Generating JS search data...\n")
     # Extract parameters
     items       = params.fetch(:items) { @items.reject { |i| i[:is_hidden] } }
     select_proc = params.fetch(:rep_select, nil)
@@ -50,7 +51,12 @@ module JoddJsMeta
       reps.sort_by { |r| r.name.to_s }.each do |rep|
         if (rep.path).end_with?(".html")
 
-          content = File.read("output" + rep.path)
+          begin
+            content = File.read("output" + rep.path)
+          rescue SystemCallError
+            print ("\tSkipped " + rep.path)
+            return
+          end
           html = Nokogiri::HTML(content)
 
           document = {
