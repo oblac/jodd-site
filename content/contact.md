@@ -1,29 +1,19 @@
 # Contact
 
-If you need to reach us directly, feel free to send us an e-mail.
+If you need to reach us directly:
 
-## General information
+## Development related
 
-Feel free to contact us for any reason.
+Please use [Github](https://github.com/oblac/jodd).
 
-**info \[at\] jodd&#46;org**
+## General Information
 
-
-## Ask support
-
-Don't know how to do something? Have an issue? Need technical support?
-
-**support \[at\] jodd&#46;org**
-
+Feel free to contact us for any reason: **info \[at\] jodd&#46;org**
 
 ## Follow us on Twitter
 
-Yeah, we are there too:
-
-[**joddorg@Twitter**](https://twitter.com/joddorg)
+Yeah, we are there too: [**joddorg@Twitter**](https://twitter.com/joddorg)
 
 ## Ask on StackOverflow
 
-Sure, you can post questions on StackOverflow, too!
-
-[**Jodd questions**](http://stackoverflow.com/questions/tagged/jodd)
+Ask questions on StackOverflow, too: [**Jodd questions**](http://stackoverflow.com/questions/tagged/jodd)
