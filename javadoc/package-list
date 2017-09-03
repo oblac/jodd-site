@@ -1,4 +1,5 @@
 jodd
+jodd.aop
 jodd.asm
 jodd.bean
 jodd.cache

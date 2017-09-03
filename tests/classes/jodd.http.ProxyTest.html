@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3.665s</div>
+<div class="counter">2.420s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">testDirect</td>
-<td>0.078s</td>
+<td>0.080s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testDirectHttps</td>
-<td>0.095s</td>
+<td>0.094s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -94,12 +94,12 @@
 </tr>
 <tr>
 <td class="success">testSocks5Proxy</td>
-<td>3.292s</td>
+<td>2.052s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testSocks5ProxyWithHttps</td>
-<td>0.200s</td>
+<td>0.194s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,44 +107,44 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>12:24:37.627 [Test worker] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
-12:24:37.638 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
-12:24:37.641 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
-12:24:37.641 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
-12:24:37.642 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: true
-12:24:37.644 [Test worker] DEBUG i.n.util.internal.PlatformDependent - Java version: 8
-12:24:37.645 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noUnsafe: false
-12:24:37.645 [Test worker] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
-12:24:37.645 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noJavassist: false
-12:24:37.647 [Test worker] DEBUG i.n.util.internal.PlatformDependent - Javassist: unavailable
-12:24:37.647 [Test worker] DEBUG i.n.util.internal.PlatformDependent - You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
-12:24:37.647 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/y3/qpdd_xn53l17ky6ptvym9w1h0000gn/T (java.io.tmpdir)
-12:24:37.648 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
-12:24:37.648 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
-12:24:38.024 [Test worker] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
-12:24:38.052 [Test worker] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
-12:24:38.052 [Test worker] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
-12:24:38.122 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 4
-12:24:38.123 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 4
-12:24:38.123 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
-12:24:38.123 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
-12:24:38.123 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
-12:24:38.124 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
-12:24:38.124 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
-12:24:38.124 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
-12:24:38.124 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
-12:24:38.124 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
-12:24:38.205 [MockServer thread for port: 1080] DEBUG i.n.util.internal.ThreadLocalRandom - -Dio.netty.initialSeedUniquifier: 0x6fd86cea1bf7065f (took 1 ms)
-12:24:38.254 [MockServer thread for port: 1080] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: unpooled
-12:24:38.254 [MockServer thread for port: 1080] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 65536
-12:24:38.255 [MockServer thread for port: 1080] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
-12:24:38.259 [MockServer thread for port: 1080] DEBUG io.netty.util.NetUtil - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1)
-12:24:38.260 [MockServer thread for port: 1080] DEBUG io.netty.util.NetUtil - /proc/sys/net/core/somaxconn: 128 (non-existent)
-12:24:38.276 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
-12:24:38.313 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
-12:24:38.315 [MockServer HttpProxy Thread] DEBUG o.m.c.ConfigurationProperties - Property file not found on classpath using path [mockserver.properties]
-12:24:38.316 [MockServer HttpProxy Thread] DEBUG o.m.c.ConfigurationProperties - Property file not found using path [mockserver.properties]
-12:24:38.621 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+<pre>10:31:49.320 [Test worker] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+10:31:49.326 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+10:31:49.327 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+10:31:49.328 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+10:31:49.328 [Test worker] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: true
+10:31:49.330 [Test worker] DEBUG i.n.util.internal.PlatformDependent - Java version: 8
+10:31:49.330 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noUnsafe: false
+10:31:49.330 [Test worker] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+10:31:49.331 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noJavassist: false
+10:31:49.332 [Test worker] DEBUG i.n.util.internal.PlatformDependent - Javassist: unavailable
+10:31:49.332 [Test worker] DEBUG i.n.util.internal.PlatformDependent - You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
+10:31:49.332 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/y3/qpdd_xn53l17ky6ptvym9w1h0000gn/T (java.io.tmpdir)
+10:31:49.332 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+10:31:49.332 [Test worker] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+10:31:49.570 [Test worker] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+10:31:49.591 [Test worker] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+10:31:49.591 [Test worker] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 4
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 4
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+10:31:49.626 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+10:31:49.627 [Test worker] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+10:31:49.654 [MockServer thread for port: 1080] DEBUG i.n.util.internal.ThreadLocalRandom - -Dio.netty.initialSeedUniquifier: 0xf5f748a7d365100d (took 0 ms)
+10:31:49.676 [MockServer thread for port: 1080] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: unpooled
+10:31:49.676 [MockServer thread for port: 1080] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 65536
+10:31:49.677 [MockServer thread for port: 1080] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+10:31:49.680 [MockServer thread for port: 1080] DEBUG io.netty.util.NetUtil - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1)
+10:31:49.681 [MockServer thread for port: 1080] DEBUG io.netty.util.NetUtil - /proc/sys/net/core/somaxconn: 128 (non-existent)
+10:31:49.691 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
+10:31:49.704 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
+10:31:49.706 [MockServer HttpProxy Thread] DEBUG o.m.c.ConfigurationProperties - Property file not found on classpath using path [mockserver.properties]
+10:31:49.706 [MockServer HttpProxy Thread] DEBUG o.m.c.ConfigurationProperties - Property file not found using path [mockserver.properties]
+10:31:49.829 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/expectation&quot;,
   &quot;body&quot; : {
@@ -153,11 +153,11 @@
     &quot;string&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;httpResponse\&quot; : {\n    \&quot;headers\&quot; : [ {\n      \&quot;name\&quot; : \&quot;Content-Type\&quot;,\n      \&quot;values\&quot; : [ \&quot;application/json\&quot; ]\n    } ],\n    \&quot;body\&quot; : \&quot;[\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;1\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;Xenophon's imperial fiction : on the education of Cyrus\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;James Tatum\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0691067570\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1989\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;2\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You are here : personal geographies and other maps of the imagination\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Katharine A. Harmon\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;1568984308\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;2004\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;3\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You just don't understand : women and men in conversation\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Deborah Tannen\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0345372050\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1990\\\&quot;\\n    }]\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;remainingTimes\&quot; : 0,\n    \&quot;unlimited\&quot; : true\n  },\n  \&quot;timeToLive\&quot; : {\n    \&quot;unlimited\&quot; : true\n  }\n}&quot;
   }
 }
-12:24:38.747 [nioEventLoopGroup-6-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.bytebuf.checkAccessible: true
-12:24:38.751 [nioEventLoopGroup-6-1] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
-12:24:38.752 [nioEventLoopGroup-6-1] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.maxRecords: 4
-12:24:38.812 [nioEventLoopGroup-6-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacity.default: 262144
-12:24:39.254 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa5817435, /127.0.0.1:60930 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
+10:31:49.880 [nioEventLoopGroup-6-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.bytebuf.checkAccessible: true
+10:31:49.881 [nioEventLoopGroup-6-1] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+10:31:49.882 [nioEventLoopGroup-6-1] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.maxRecords: 4
+10:31:49.906 [nioEventLoopGroup-6-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacity.default: 262144
+10:31:50.088 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x5959f537, /127.0.0.1:49207 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
 PUT /expectation HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
@@ -233,7 +233,7 @@ Content-Type: text/plain; charset=utf-8, 1034B
 |000003f0| 20 20 22 75 6e 6c 69 6d 69 74 65 64 22 20 3a 20 |  &quot;unlimited&quot; : |
 |00000400| 74 72 75 65 0a 20 20 7d 0a 7d                   |true.  }.}      |
 +--------+-------------------------------------------------+----------------+
-12:24:39.413 [nioEventLoopGroup-3-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
+10:31:50.181 [nioEventLoopGroup-3-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -256,13 +256,13 @@ Content-Type: text/plain; charset=utf-8, 1034B
 	}
 
 
-12:24:39.416 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa5817435, /127.0.0.1:60930 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:50.182 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x5959f537, /127.0.0.1:49207 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 201 Created
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:39.417 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa5817435, /127.0.0.1:60930 =&gt; /127.0.0.1:1080] FLUSH
-12:24:39.421 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:50.183 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x5959f537, /127.0.0.1:49207 =&gt; /127.0.0.1:1080] FLUSH
+10:31:50.185 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 201,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -275,16 +275,16 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:39.425 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa5817435, /127.0.0.1:60930 =&gt; /127.0.0.1:1080] FLUSH
-12:24:39.426 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa5817435, /127.0.0.1:60930 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:39.427 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa5817435, /127.0.0.1:60930 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:39.453 [nioEventLoopGroup-6-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-6-1
-12:24:40.184 [nioEventLoopGroup-5-1] DEBUG org.mockserver.socket.SSLFactory - Using protocol TLSv1.2
-12:24:40.350 [nioEventLoopGroup-5-1] DEBUG io.netty.util.internal.Cleaner0 - java.nio.ByteBuffer.cleaner(): available
-12:24:40.403 [nioEventLoopGroup-5-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
-12:24:40.576 [nioEventLoopGroup-5-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x92f716a4, /192.168.1.121:60932 =&gt; /192.168.1.121:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.580 [nioEventLoopGroup-5-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x3848173f, /192.168.1.121:60932 =&gt; 0.0.0.0/0.0.0.0:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.608 [nioEventLoopGroup-5-2] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:50.187 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x5959f537, /127.0.0.1:49207 =&gt; /127.0.0.1:1080] FLUSH
+10:31:50.188 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x5959f537, /127.0.0.1:49207 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:50.188 [nioEventLoopGroup-3-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x5959f537, /127.0.0.1:49207 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:50.202 [nioEventLoopGroup-6-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-6-1
+10:31:50.838 [nioEventLoopGroup-5-1] DEBUG org.mockserver.socket.SSLFactory - Using protocol TLSv1.2
+10:31:50.919 [nioEventLoopGroup-5-1] DEBUG io.netty.util.internal.Cleaner0 - java.nio.ByteBuffer.cleaner(): available
+10:31:51.056 [nioEventLoopGroup-5-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
+10:31:51.129 [nioEventLoopGroup-5-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xbf757be6, /192.168.1.127:49209 =&gt; /192.168.1.127:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.132 [nioEventLoopGroup-5-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x545a5ca5, /192.168.1.127:49209 =&gt; 0.0.0.0/0.0.0.0:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.146 [nioEventLoopGroup-5-2] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;GET&quot;,
   &quot;path&quot; : &quot;/get_books&quot;,
   &quot;headers&quot; : [ {
@@ -300,13 +300,13 @@ Content-Type: text/plain, 0B
   &quot;keepAlive&quot; : false,
   &quot;secure&quot; : true
 }
-12:24:40.622 [nioEventLoopGroup-3-2] DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.tmpdir: /var/folders/y3/qpdd_xn53l17ky6ptvym9w1h0000gn/T (java.io.tmpdir)
-12:24:40.623 [nioEventLoopGroup-3-2] DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.native.workdir: /var/folders/y3/qpdd_xn53l17ky6ptvym9w1h0000gn/T (io.netty.tmpdir)
-12:24:40.632 [nioEventLoopGroup-3-2] DEBUG io.netty.handler.ssl.OpenSsl - Failed to load netty-tcnative; OpenSslEngine will be unavailable. See http://netty.io/wiki/forked-tomcat-native.html for more information.
+10:31:51.160 [nioEventLoopGroup-3-2] DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.tmpdir: /var/folders/y3/qpdd_xn53l17ky6ptvym9w1h0000gn/T (java.io.tmpdir)
+10:31:51.160 [nioEventLoopGroup-3-2] DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.native.workdir: /var/folders/y3/qpdd_xn53l17ky6ptvym9w1h0000gn/T (io.netty.tmpdir)
+10:31:51.169 [nioEventLoopGroup-3-2] DEBUG io.netty.handler.ssl.OpenSsl - Failed to load netty-tcnative; OpenSslEngine will be unavailable. See http://netty.io/wiki/forked-tomcat-native.html for more information.
 java.lang.UnsatisfiedLinkError: no netty-tcnative in java.library.path
-	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1867) ~[na:1.8.0_101]
-	at java.lang.Runtime.loadLibrary0(Runtime.java:870) ~[na:1.8.0_101]
-	at java.lang.System.loadLibrary(System.java:1122) ~[na:1.8.0_101]
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1867) ~[na:1.8.0_121]
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870) ~[na:1.8.0_121]
+	at java.lang.System.loadLibrary(System.java:1122) ~[na:1.8.0_121]
 	at io.netty.util.internal.NativeLibraryLoader.load(NativeLibraryLoader.java:168) ~[netty-common-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.handler.ssl.OpenSsl.&lt;clinit&gt;(OpenSsl.java:58) ~[netty-handler-4.0.34.Final.jar:4.0.34.Final]
 	at org.mockserver.server.unification.PortUnificationHandler.enableSsl(PortUnificationHandler.java:85) [mockserver-core-3.10.4.jar:na]
@@ -323,18 +323,18 @@ java.lang.UnsatisfiedLinkError: no netty-tcnative in java.library.path
 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354) [netty-transport-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112) [netty-common-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137) [netty-common-4.0.34.Final.jar:4.0.34.Final]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_101]
-12:24:40.644 [nioEventLoopGroup-8-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
-12:24:40.655 [nioEventLoopGroup-3-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 =&gt; /127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.657 [nioEventLoopGroup-8-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x9626e97e, /127.0.0.1:60933 =&gt; localhost/127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.662 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_121]
+10:31:51.179 [nioEventLoopGroup-8-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
+10:31:51.191 [nioEventLoopGroup-3-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xf6cb3636, /127.0.0.1:49210 =&gt; /127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.193 [nioEventLoopGroup-8-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x24d5c8a0, /127.0.0.1:49210 =&gt; localhost/127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.198 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf6cb3636, /127.0.0.1:49210 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 GET /get_books HTTP/1.1
 User-Agent: Jodd HTTP
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
 Content-Length: 0
 Connection: keep-alive, 0B
-12:24:40.666 [nioEventLoopGroup-3-2] INFO  o.m.matchers.HttpRequestMatcher - request:
+10:31:51.202 [nioEventLoopGroup-3-2] INFO  o.m.matchers.HttpRequestMatcher - request:
 
 	{
 	  &quot;method&quot; : &quot;GET&quot;,
@@ -366,7 +366,7 @@ Connection: keep-alive, 0B
 	}
 
 
-12:24:40.672 [nioEventLoopGroup-3-2] INFO  o.m.mockserver.MockServerHandler - returning response:
+10:31:51.208 [nioEventLoopGroup-3-2] INFO  o.m.mockserver.MockServerHandler - returning response:
 
 	{
 	  &quot;headers&quot; : [ {
@@ -399,7 +399,7 @@ Connection: keep-alive, 0B
 	}
 
 
-12:24:40.674 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
+10:31:51.211 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf6cb3636, /127.0.0.1:49210 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 643
@@ -449,8 +449,8 @@ Connection: keep-alive, 643B
 |00000270| 61 74 65 22 3a 20 22 31 39 39 30 22 0a 20 20 20 |ate&quot;: &quot;1990&quot;.   |
 |00000280| 20 7d 5d                                        | }]             |
 +--------+-------------------------------------------------+----------------+
-12:24:40.675 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.683 [nioEventLoopGroup-5-2] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.212 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf6cb3636, /127.0.0.1:49210 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.217 [nioEventLoopGroup-5-2] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 200,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -464,12 +464,12 @@ Connection: keep-alive, 643B
   } ],
   &quot;body&quot; : &quot;[\n    {\n        \&quot;id\&quot;: \&quot;1\&quot;,\n        \&quot;title\&quot;: \&quot;Xenophon's imperial fiction : on the education of Cyrus\&quot;,\n        \&quot;author\&quot;: \&quot;James Tatum\&quot;,\n        \&quot;isbn\&quot;: \&quot;0691067570\&quot;,\n        \&quot;publicationDate\&quot;: \&quot;1989\&quot;\n    },\n    {\n        \&quot;id\&quot;: \&quot;2\&quot;,\n        \&quot;title\&quot;: \&quot;You are here : personal geographies and other maps of the imagination\&quot;,\n        \&quot;author\&quot;: \&quot;Katharine A. Harmon\&quot;,\n        \&quot;isbn\&quot;: \&quot;1568984308\&quot;,\n        \&quot;publicationDate\&quot;: \&quot;2004\&quot;\n    },\n    {\n        \&quot;id\&quot;: \&quot;3\&quot;,\n        \&quot;title\&quot;: \&quot;You just don't understand : women and men in conversation\&quot;,\n        \&quot;author\&quot;: \&quot;Deborah Tannen\&quot;,\n        \&quot;isbn\&quot;: \&quot;0345372050\&quot;,\n        \&quot;publicationDate\&quot;: \&quot;1990\&quot;\n    }]&quot;
 }
-12:24:40.684 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.686 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.687 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:40.687 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xdcb2e8b3, /127.0.0.1:60933 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:40.691 [nioEventLoopGroup-8-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 11 thread-local buffer(s) from thread: nioEventLoopGroup-8-1
-12:24:40.696 [nioEventLoopGroup-5-2] INFO  o.m.proxy.http.HttpProxyHandler - returning response:
+10:31:51.218 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf6cb3636, /127.0.0.1:49210 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.220 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf6cb3636, /127.0.0.1:49210 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.221 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf6cb3636, /127.0.0.1:49210 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:51.221 [nioEventLoopGroup-3-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf6cb3636, /127.0.0.1:49210 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:51.224 [nioEventLoopGroup-8-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 11 thread-local buffer(s) from thread: nioEventLoopGroup-8-1
+10:31:51.227 [nioEventLoopGroup-5-2] INFO  o.m.proxy.http.HttpProxyHandler - returning response:
 
 	{
 	  &quot;statusCode&quot; : 200,
@@ -510,12 +510,12 @@ Connection: keep-alive, 643B
 	curl -v 'https://localhost:1080/get_books' -H 'Host: localhost:1080' -H 'User-Agent: Jodd HTTP' -H 'Content-Length: 0'
 
 
-12:24:40.712 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.238 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/verify&quot;,
   &quot;body&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;count\&quot; : 1,\n    \&quot;exact\&quot; : true\n  }\n}&quot;
 }
-12:24:40.735 [nioEventLoopGroup-5-3] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
+10:31:51.256 [nioEventLoopGroup-5-3] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -528,7 +528,7 @@ Connection: keep-alive, 643B
 	}
 
 
-12:24:40.738 [nioEventLoopGroup-5-3] INFO  o.m.matchers.HttpRequestMatcher - request:
+10:31:51.257 [nioEventLoopGroup-5-3] INFO  o.m.matchers.HttpRequestMatcher - request:
 
 	{
 	  &quot;method&quot; : &quot;GET&quot;,
@@ -554,7 +554,7 @@ Connection: keep-alive, 643B
 	}
 
 
-12:24:40.741 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.260 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -567,12 +567,12 @@ Connection: keep-alive, 643B
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:40.743 [nioEventLoopGroup-9-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-9-1
-12:24:40.746 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.261 [nioEventLoopGroup-9-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-9-1
+10:31:51.264 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:40.764 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.279 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -585,28 +585,28 @@ Connection: keep-alive, 643B
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:40.766 [nioEventLoopGroup-10-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-10-1
-12:24:40.767 [nioEventLoopGroup-5-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-5-1
-12:24:40.767 [nioEventLoopGroup-5-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 8 thread-local buffer(s) from thread: nioEventLoopGroup-5-2
-12:24:40.769 [nioEventLoopGroup-5-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-5-3
-12:24:40.771 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.280 [nioEventLoopGroup-10-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-10-1
+10:31:51.281 [nioEventLoopGroup-5-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 7 thread-local buffer(s) from thread: nioEventLoopGroup-5-2
+10:31:51.281 [nioEventLoopGroup-5-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-5-1
+10:31:51.282 [nioEventLoopGroup-5-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-5-3
+10:31:51.283 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:40.781 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x83754a77, /127.0.0.1:60936 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+10:31:51.293 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa350f743, /127.0.0.1:49213 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 PUT /stop HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
 Content-Length: 0
 Connection: keep-alive, 0B
-12:24:40.782 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x83754a77, /127.0.0.1:60936 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:51.295 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa350f743, /127.0.0.1:49213 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:40.783 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x83754a77, /127.0.0.1:60936 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.783 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x83754a77, /127.0.0.1:60936 =&gt; /127.0.0.1:1080] CLOSE()
-12:24:40.784 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.295 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa350f743, /127.0.0.1:49213 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.295 [nioEventLoopGroup-3-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xa350f743, /127.0.0.1:49213 =&gt; /127.0.0.1:1080] CLOSE()
+10:31:51.297 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -619,12 +619,12 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:40.785 [nioEventLoopGroup-11-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-11-1
-12:24:40.786 [nioEventLoopGroup-3-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-3-1
-12:24:40.786 [nioEventLoopGroup-3-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 11 thread-local buffer(s) from thread: nioEventLoopGroup-3-2
-12:24:40.794 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
-12:24:40.798 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
-12:24:40.799 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.298 [nioEventLoopGroup-11-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-11-1
+10:31:51.298 [nioEventLoopGroup-3-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-3-1
+10:31:51.298 [nioEventLoopGroup-3-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 10 thread-local buffer(s) from thread: nioEventLoopGroup-3-2
+10:31:51.307 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
+10:31:51.311 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
+10:31:51.312 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/expectation&quot;,
   &quot;body&quot; : {
@@ -633,7 +633,7 @@ Content-Type: text/plain, 0B
     &quot;string&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;httpResponse\&quot; : {\n    \&quot;headers\&quot; : [ {\n      \&quot;name\&quot; : \&quot;Content-Type\&quot;,\n      \&quot;values\&quot; : [ \&quot;application/json\&quot; ]\n    } ],\n    \&quot;body\&quot; : \&quot;[\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;1\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;Xenophon's imperial fiction : on the education of Cyrus\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;James Tatum\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0691067570\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1989\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;2\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You are here : personal geographies and other maps of the imagination\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Katharine A. Harmon\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;1568984308\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;2004\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;3\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You just don't understand : women and men in conversation\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Deborah Tannen\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0345372050\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1990\\\&quot;\\n    }]\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;remainingTimes\&quot; : 0,\n    \&quot;unlimited\&quot; : true\n  },\n  \&quot;timeToLive\&quot; : {\n    \&quot;unlimited\&quot; : true\n  }\n}&quot;
   }
 }
-12:24:40.809 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbde8b441, /127.0.0.1:60937 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
+10:31:51.323 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x857a9709, /127.0.0.1:49214 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
 PUT /expectation HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
@@ -709,7 +709,7 @@ Content-Type: text/plain; charset=utf-8, 1034B
 |000003f0| 20 20 22 75 6e 6c 69 6d 69 74 65 64 22 20 3a 20 |  &quot;unlimited&quot; : |
 |00000400| 74 72 75 65 0a 20 20 7d 0a 7d                   |true.  }.}      |
 +--------+-------------------------------------------------+----------------+
-12:24:40.819 [nioEventLoopGroup-13-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
+10:31:51.332 [nioEventLoopGroup-13-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -732,14 +732,14 @@ Content-Type: text/plain; charset=utf-8, 1034B
 	}
 
 
-12:24:40.820 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbde8b441, /127.0.0.1:60937 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:51.333 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x857a9709, /127.0.0.1:49214 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 201 Created
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:40.820 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbde8b441, /127.0.0.1:60937 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.822 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbde8b441, /127.0.0.1:60937 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.821 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.333 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x857a9709, /127.0.0.1:49214 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.335 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x857a9709, /127.0.0.1:49214 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.335 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 201,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -752,14 +752,14 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:40.822 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbde8b441, /127.0.0.1:60937 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:40.822 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbde8b441, /127.0.0.1:60937 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:40.823 [nioEventLoopGroup-16-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-16-1
-12:24:40.842 [nioEventLoopGroup-15-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
-12:24:40.856 [nioEventLoopGroup-15-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xc5bebcc4, /192.168.1.121:60939 =&gt; /192.168.1.121:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.857 [nioEventLoopGroup-15-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x13da2570, /192.168.1.121:60939 =&gt; 0.0.0.0/0.0.0.0:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.865 [nioEventLoopGroup-15-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xd464da54, /127.0.0.1:60938 =&gt; /127.0.0.1:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.879 [nioEventLoopGroup-15-2] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.335 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x857a9709, /127.0.0.1:49214 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:51.335 [nioEventLoopGroup-13-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x857a9709, /127.0.0.1:49214 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:51.336 [nioEventLoopGroup-16-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-16-1
+10:31:51.357 [nioEventLoopGroup-15-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
+10:31:51.369 [nioEventLoopGroup-15-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x90601374, /127.0.0.1:49215 =&gt; /127.0.0.1:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.370 [nioEventLoopGroup-15-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x02f44a40, /192.168.1.127:49217 =&gt; /192.168.1.127:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.378 [nioEventLoopGroup-15-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x19253cc7, /192.168.1.127:49217 =&gt; 0.0.0.0/0.0.0.0:1090] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.385 [nioEventLoopGroup-15-2] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;GET&quot;,
   &quot;path&quot; : &quot;/get_books&quot;,
   &quot;headers&quot; : [ {
@@ -775,17 +775,17 @@ Content-Type: text/plain, 0B
   &quot;keepAlive&quot; : false,
   &quot;secure&quot; : true
 }
-12:24:40.894 [nioEventLoopGroup-17-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
-12:24:40.906 [nioEventLoopGroup-13-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x31447a53, /127.0.0.1:60940 =&gt; /127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.907 [nioEventLoopGroup-17-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xd5d78b16, /127.0.0.1:60940 =&gt; localhost/127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:40.911 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x31447a53, /127.0.0.1:60940 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+10:31:51.400 [nioEventLoopGroup-17-1] DEBUG i.n.h.s.u.InsecureTrustManagerFactory - Accepting a server certificate: C=UK, ST=England, L=London, O=MockServer, CN=localhost
+10:31:51.414 [nioEventLoopGroup-13-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xd4e3b706, /127.0.0.1:49218 =&gt; /127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.416 [nioEventLoopGroup-17-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x9925964d, /127.0.0.1:49218 =&gt; localhost/127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.421 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xd4e3b706, /127.0.0.1:49218 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 GET /get_books HTTP/1.1
 User-Agent: Jodd HTTP
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
 Content-Length: 0
 Connection: keep-alive, 0B
-12:24:40.913 [nioEventLoopGroup-13-2] INFO  o.m.matchers.HttpRequestMatcher - request:
+10:31:51.424 [nioEventLoopGroup-13-2] INFO  o.m.matchers.HttpRequestMatcher - request:
 
 	{
 	  &quot;method&quot; : &quot;GET&quot;,
@@ -817,7 +817,7 @@ Connection: keep-alive, 0B
 	}
 
 
-12:24:40.917 [nioEventLoopGroup-13-2] INFO  o.m.mockserver.MockServerHandler - returning response:
+10:31:51.428 [nioEventLoopGroup-13-2] INFO  o.m.mockserver.MockServerHandler - returning response:
 
 	{
 	  &quot;headers&quot; : [ {
@@ -850,7 +850,7 @@ Connection: keep-alive, 0B
 	}
 
 
-12:24:40.919 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x31447a53, /127.0.0.1:60940 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
+10:31:51.430 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xd4e3b706, /127.0.0.1:49218 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 643
@@ -900,8 +900,8 @@ Connection: keep-alive, 643B
 |00000270| 61 74 65 22 3a 20 22 31 39 39 30 22 0a 20 20 20 |ate&quot;: &quot;1990&quot;.   |
 |00000280| 20 7d 5d                                        | }]             |
 +--------+-------------------------------------------------+----------------+
-12:24:40.919 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x31447a53, /127.0.0.1:60940 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.923 [nioEventLoopGroup-15-2] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.431 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xd4e3b706, /127.0.0.1:49218 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.437 [nioEventLoopGroup-15-2] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 200,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -915,16 +915,16 @@ Connection: keep-alive, 643B
   } ],
   &quot;body&quot; : &quot;[\n    {\n        \&quot;id\&quot;: \&quot;1\&quot;,\n        \&quot;title\&quot;: \&quot;Xenophon's imperial fiction : on the education of Cyrus\&quot;,\n        \&quot;author\&quot;: \&quot;James Tatum\&quot;,\n        \&quot;isbn\&quot;: \&quot;0691067570\&quot;,\n        \&quot;publicationDate\&quot;: \&quot;1989\&quot;\n    },\n    {\n        \&quot;id\&quot;: \&quot;2\&quot;,\n        \&quot;title\&quot;: \&quot;You are here : personal geographies and other maps of the imagination\&quot;,\n        \&quot;author\&quot;: \&quot;Katharine A. Harmon\&quot;,\n        \&quot;isbn\&quot;: \&quot;1568984308\&quot;,\n        \&quot;publicationDate\&quot;: \&quot;2004\&quot;\n    },\n    {\n        \&quot;id\&quot;: \&quot;3\&quot;,\n        \&quot;title\&quot;: \&quot;You just don't understand : women and men in conversation\&quot;,\n        \&quot;author\&quot;: \&quot;Deborah Tannen\&quot;,\n        \&quot;isbn\&quot;: \&quot;0345372050\&quot;,\n        \&quot;publicationDate\&quot;: \&quot;1990\&quot;\n    }]&quot;
 }
-12:24:40.925 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x31447a53, /127.0.0.1:60940 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.926 [nioEventLoopGroup-17-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 11 thread-local buffer(s) from thread: nioEventLoopGroup-17-1
-12:24:40.926 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x31447a53, /127.0.0.1:60940 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.927 [nioEventLoopGroup-13-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x31447a53, /127.0.0.1:60940 =&gt; /127.0.0.1:1080] Swallowing a harmless 'connection reset by peer / broken pipe' error that occurred while writing close_notify in response to the peer's close_notify
+10:31:51.438 [nioEventLoopGroup-17-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 11 thread-local buffer(s) from thread: nioEventLoopGroup-17-1
+10:31:51.438 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xd4e3b706, /127.0.0.1:49218 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.440 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xd4e3b706, /127.0.0.1:49218 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.441 [nioEventLoopGroup-13-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xd4e3b706, /127.0.0.1:49218 =&gt; /127.0.0.1:1080] Swallowing a harmless 'connection reset by peer / broken pipe' error that occurred while writing close_notify in response to the peer's close_notify
 java.io.IOException: Connection reset by peer
-	at sun.nio.ch.FileDispatcherImpl.read0(Native Method) ~[na:1.8.0_101]
-	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39) ~[na:1.8.0_101]
-	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_101]
-	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_101]
-	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_101]
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method) ~[na:1.8.0_121]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39) ~[na:1.8.0_121]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_121]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_121]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_121]
 	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:221) ~[netty-buffer-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898) ~[netty-buffer-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242) ~[netty-transport-4.0.34.Final.jar:4.0.34.Final]
@@ -935,10 +935,10 @@ java.io.IOException: Connection reset by peer
 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354) [netty-transport-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112) [netty-common-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137) [netty-common-4.0.34.Final.jar:4.0.34.Final]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_101]
-12:24:40.928 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x31447a53, /127.0.0.1:60940 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:40.928 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x31447a53, /127.0.0.1:60940 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:40.931 [nioEventLoopGroup-15-2] INFO  o.m.proxy.http.HttpProxyHandler - returning response:
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_121]
+10:31:51.441 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xd4e3b706, /127.0.0.1:49218 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:51.442 [nioEventLoopGroup-13-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xd4e3b706, /127.0.0.1:49218 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:51.442 [nioEventLoopGroup-15-2] INFO  o.m.proxy.http.HttpProxyHandler - returning response:
 
 	{
 	  &quot;statusCode&quot; : 200,
@@ -979,13 +979,13 @@ java.io.IOException: Connection reset by peer
 	curl -v 'https://localhost:1080/get_books' -H 'Host: localhost:1080' -H 'User-Agent: Jodd HTTP' -H 'Content-Length: 0'
 
 
-12:24:40.939 [nioEventLoopGroup-15-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x13da2570, /192.168.1.121:60939 =&gt; 0.0.0.0/0.0.0.0:1090] Swallowing a harmless 'connection reset by peer / broken pipe' error that occurred while writing close_notify in response to the peer's close_notify
+10:31:51.451 [nioEventLoopGroup-15-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x19253cc7, /192.168.1.127:49217 =&gt; 0.0.0.0/0.0.0.0:1090] Swallowing a harmless 'connection reset by peer / broken pipe' error that occurred while writing close_notify in response to the peer's close_notify
 java.io.IOException: Connection reset by peer
-	at sun.nio.ch.FileDispatcherImpl.read0(Native Method) ~[na:1.8.0_101]
-	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39) ~[na:1.8.0_101]
-	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_101]
-	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_101]
-	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_101]
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method) ~[na:1.8.0_121]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39) ~[na:1.8.0_121]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_121]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_121]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_121]
 	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357) ~[netty-buffer-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898) ~[netty-buffer-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242) ~[netty-transport-4.0.34.Final.jar:4.0.34.Final]
@@ -996,13 +996,13 @@ java.io.IOException: Connection reset by peer
 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354) [netty-transport-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112) [netty-common-4.0.34.Final.jar:4.0.34.Final]
 	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137) [netty-common-4.0.34.Final.jar:4.0.34.Final]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_101]
-12:24:40.940 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_121]
+10:31:51.452 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/verify&quot;,
   &quot;body&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;count\&quot; : 1,\n    \&quot;exact\&quot; : true\n  }\n}&quot;
 }
-12:24:40.950 [nioEventLoopGroup-15-3] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
+10:31:51.462 [nioEventLoopGroup-15-3] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -1015,7 +1015,7 @@ java.io.IOException: Connection reset by peer
 	}
 
 
-12:24:40.951 [nioEventLoopGroup-15-3] INFO  o.m.matchers.HttpRequestMatcher - request:
+10:31:51.464 [nioEventLoopGroup-15-3] INFO  o.m.matchers.HttpRequestMatcher - request:
 
 	{
 	  &quot;method&quot; : &quot;GET&quot;,
@@ -1041,7 +1041,7 @@ java.io.IOException: Connection reset by peer
 	}
 
 
-12:24:40.953 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.466 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1054,12 +1054,12 @@ java.io.IOException: Connection reset by peer
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:40.953 [nioEventLoopGroup-18-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-18-1
-12:24:40.955 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.467 [nioEventLoopGroup-18-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-18-1
+10:31:51.468 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:40.965 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.478 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1072,28 +1072,28 @@ java.io.IOException: Connection reset by peer
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:40.966 [nioEventLoopGroup-19-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-19-1
-12:24:40.967 [nioEventLoopGroup-15-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 11 thread-local buffer(s) from thread: nioEventLoopGroup-15-1
-12:24:40.967 [nioEventLoopGroup-15-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-15-3
-12:24:40.967 [nioEventLoopGroup-15-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 8 thread-local buffer(s) from thread: nioEventLoopGroup-15-2
-12:24:40.973 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.479 [nioEventLoopGroup-19-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-19-1
+10:31:51.479 [nioEventLoopGroup-15-3] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-15-3
+10:31:51.479 [nioEventLoopGroup-15-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 9 thread-local buffer(s) from thread: nioEventLoopGroup-15-1
+10:31:51.479 [nioEventLoopGroup-15-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 7 thread-local buffer(s) from thread: nioEventLoopGroup-15-2
+10:31:51.481 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:40.979 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x2575fbad, /127.0.0.1:60943 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+10:31:51.491 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x1a909ccd, /127.0.0.1:49221 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 PUT /stop HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
 Content-Length: 0
 Connection: keep-alive, 0B
-12:24:40.980 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x2575fbad, /127.0.0.1:60943 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:51.492 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x1a909ccd, /127.0.0.1:49221 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:40.980 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x2575fbad, /127.0.0.1:60943 =&gt; /127.0.0.1:1080] FLUSH
-12:24:40.980 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x2575fbad, /127.0.0.1:60943 =&gt; /127.0.0.1:1080] CLOSE()
-12:24:40.981 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.492 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x1a909ccd, /127.0.0.1:49221 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.492 [nioEventLoopGroup-13-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x1a909ccd, /127.0.0.1:49221 =&gt; /127.0.0.1:1080] CLOSE()
+10:31:51.493 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1106,12 +1106,12 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:40.982 [nioEventLoopGroup-20-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-20-1
-12:24:40.983 [nioEventLoopGroup-13-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-13-1
-12:24:40.983 [nioEventLoopGroup-13-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 11 thread-local buffer(s) from thread: nioEventLoopGroup-13-2
-12:24:40.995 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
-12:24:40.998 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
-12:24:40.999 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.495 [nioEventLoopGroup-13-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 10 thread-local buffer(s) from thread: nioEventLoopGroup-13-2
+10:31:51.495 [nioEventLoopGroup-20-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-20-1
+10:31:51.495 [nioEventLoopGroup-13-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-13-1
+10:31:51.502 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
+10:31:51.505 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
+10:31:51.506 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/expectation&quot;,
   &quot;body&quot; : {
@@ -1120,7 +1120,7 @@ Content-Type: text/plain, 0B
     &quot;string&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;httpResponse\&quot; : {\n    \&quot;headers\&quot; : [ {\n      \&quot;name\&quot; : \&quot;Content-Type\&quot;,\n      \&quot;values\&quot; : [ \&quot;application/json\&quot; ]\n    } ],\n    \&quot;body\&quot; : \&quot;[\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;1\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;Xenophon's imperial fiction : on the education of Cyrus\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;James Tatum\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0691067570\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1989\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;2\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You are here : personal geographies and other maps of the imagination\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Katharine A. Harmon\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;1568984308\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;2004\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;3\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You just don't understand : women and men in conversation\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Deborah Tannen\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0345372050\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1990\\\&quot;\\n    }]\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;remainingTimes\&quot; : 0,\n    \&quot;unlimited\&quot; : true\n  },\n  \&quot;timeToLive\&quot; : {\n    \&quot;unlimited\&quot; : true\n  }\n}&quot;
   }
 }
-12:24:41.007 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x407b9b19, /127.0.0.1:60944 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
+10:31:51.515 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x9c7bc3dc, /127.0.0.1:49222 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
 PUT /expectation HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
@@ -1196,7 +1196,7 @@ Content-Type: text/plain; charset=utf-8, 1034B
 |000003f0| 20 20 22 75 6e 6c 69 6d 69 74 65 64 22 20 3a 20 |  &quot;unlimited&quot; : |
 |00000400| 74 72 75 65 0a 20 20 7d 0a 7d                   |true.  }.}      |
 +--------+-------------------------------------------------+----------------+
-12:24:41.013 [nioEventLoopGroup-22-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
+10:31:51.520 [nioEventLoopGroup-22-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -1219,13 +1219,14 @@ Content-Type: text/plain; charset=utf-8, 1034B
 	}
 
 
-12:24:41.014 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x407b9b19, /127.0.0.1:60944 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:51.521 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x9c7bc3dc, /127.0.0.1:49222 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 201 Created
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:41.014 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x407b9b19, /127.0.0.1:60944 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.015 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.521 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x9c7bc3dc, /127.0.0.1:49222 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.523 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x9c7bc3dc, /127.0.0.1:49222 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.522 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 201,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1238,17 +1239,16 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:41.015 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x407b9b19, /127.0.0.1:60944 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.015 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x407b9b19, /127.0.0.1:60944 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:41.015 [nioEventLoopGroup-25-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-25-1
-12:24:41.015 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x407b9b19, /127.0.0.1:60944 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:41.020 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc5e0b668, /127.0.0.1:60945 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+10:31:51.523 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x9c7bc3dc, /127.0.0.1:49222 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:51.523 [nioEventLoopGroup-22-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x9c7bc3dc, /127.0.0.1:49222 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:51.523 [nioEventLoopGroup-25-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-25-1
+10:31:51.529 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc427b562, /127.0.0.1:49223 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 GET /get_books HTTP/1.1
 Connection: Close
 Host: localhost:1080
 User-Agent: Jodd HTTP
 Content-Length: 0, 0B
-12:24:41.021 [nioEventLoopGroup-22-2] INFO  o.m.matchers.HttpRequestMatcher - request:
+10:31:51.531 [nioEventLoopGroup-22-2] INFO  o.m.matchers.HttpRequestMatcher - request:
 
 	{
 	  &quot;method&quot; : &quot;GET&quot;,
@@ -1277,7 +1277,7 @@ Content-Length: 0, 0B
 	}
 
 
-12:24:41.023 [nioEventLoopGroup-22-2] INFO  o.m.mockserver.MockServerHandler - returning response:
+10:31:51.533 [nioEventLoopGroup-22-2] INFO  o.m.mockserver.MockServerHandler - returning response:
 
 	{
 	  &quot;headers&quot; : [ {
@@ -1307,7 +1307,7 @@ Content-Length: 0, 0B
 	}
 
 
-12:24:41.025 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc5e0b668, /127.0.0.1:60945 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
+10:31:51.534 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc427b562, /127.0.0.1:49223 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 643
@@ -1357,17 +1357,17 @@ Connection: close, 643B
 |00000270| 61 74 65 22 3a 20 22 31 39 39 30 22 0a 20 20 20 |ate&quot;: &quot;1990&quot;.   |
 |00000280| 20 7d 5d                                        | }]             |
 +--------+-------------------------------------------------+----------------+
-12:24:41.025 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc5e0b668, /127.0.0.1:60945 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.026 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc5e0b668, /127.0.0.1:60945 =&gt; /127.0.0.1:1080] CLOSE()
-12:24:41.026 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc5e0b668, /127.0.0.1:60945 :&gt; /127.0.0.1:1080] FLUSH
-12:24:41.026 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.535 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc427b562, /127.0.0.1:49223 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.535 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc427b562, /127.0.0.1:49223 =&gt; /127.0.0.1:1080] CLOSE()
+10:31:51.536 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc427b562, /127.0.0.1:49223 :&gt; /127.0.0.1:1080] FLUSH
+10:31:51.536 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc427b562, /127.0.0.1:49223 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:51.536 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/verify&quot;,
   &quot;body&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;count\&quot; : 0,\n    \&quot;exact\&quot; : true\n  }\n}&quot;
 }
-12:24:41.026 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc5e0b668, /127.0.0.1:60945 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:41.026 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc5e0b668, /127.0.0.1:60945 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:41.036 [nioEventLoopGroup-24-1] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
+10:31:51.536 [nioEventLoopGroup-22-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xc427b562, /127.0.0.1:49223 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:51.546 [nioEventLoopGroup-24-1] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -1380,7 +1380,7 @@ Connection: close, 643B
 	}
 
 
-12:24:41.038 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.549 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1393,12 +1393,13 @@ Connection: close, 643B
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:41.039 [nioEventLoopGroup-26-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-26-1
-12:24:41.040 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.550 [nioEventLoopGroup-26-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-26-1
+10:31:51.551 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:41.049 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.563 [nioEventLoopGroup-24-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-24-1
+10:31:51.562 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1411,26 +1412,25 @@ Connection: close, 643B
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:41.050 [nioEventLoopGroup-27-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-27-1
-12:24:41.050 [nioEventLoopGroup-24-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-24-1
-12:24:41.054 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.565 [nioEventLoopGroup-27-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-27-1
+10:31:51.566 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:41.060 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf79417a1, /127.0.0.1:60948 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+10:31:51.572 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x888b1960, /127.0.0.1:49226 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 PUT /stop HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
 Content-Length: 0
 Connection: keep-alive, 0B
-12:24:41.061 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf79417a1, /127.0.0.1:60948 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:51.573 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x888b1960, /127.0.0.1:49226 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:41.061 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf79417a1, /127.0.0.1:60948 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.062 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xf79417a1, /127.0.0.1:60948 =&gt; /127.0.0.1:1080] CLOSE()
-12:24:41.063 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.574 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x888b1960, /127.0.0.1:49226 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.574 [nioEventLoopGroup-22-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x888b1960, /127.0.0.1:49226 =&gt; /127.0.0.1:1080] CLOSE()
+10:31:51.575 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1443,12 +1443,12 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:41.064 [nioEventLoopGroup-28-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-28-1
-12:24:41.065 [nioEventLoopGroup-22-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-22-1
-12:24:41.065 [nioEventLoopGroup-22-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-22-2
-12:24:41.073 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
-12:24:41.076 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
-12:24:41.077 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.576 [nioEventLoopGroup-22-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-22-2
+10:31:51.576 [nioEventLoopGroup-22-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-22-1
+10:31:51.576 [nioEventLoopGroup-28-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-28-1
+10:31:51.582 [MockServer thread for port: 1080] INFO  org.mockserver.mockserver.MockServer - MockServer started on port: 1080
+10:31:51.585 [MockServer HttpProxy Thread] INFO  org.mockserver.proxy.http.HttpProxy - MockServer proxy started on port: 1090
+10:31:51.586 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/expectation&quot;,
   &quot;body&quot; : {
@@ -1457,7 +1457,7 @@ Content-Type: text/plain, 0B
     &quot;string&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;httpResponse\&quot; : {\n    \&quot;headers\&quot; : [ {\n      \&quot;name\&quot; : \&quot;Content-Type\&quot;,\n      \&quot;values\&quot; : [ \&quot;application/json\&quot; ]\n    } ],\n    \&quot;body\&quot; : \&quot;[\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;1\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;Xenophon's imperial fiction : on the education of Cyrus\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;James Tatum\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0691067570\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1989\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;2\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You are here : personal geographies and other maps of the imagination\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Katharine A. Harmon\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;1568984308\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;2004\\\&quot;\\n    },\\n    {\\n        \\\&quot;id\\\&quot;: \\\&quot;3\\\&quot;,\\n        \\\&quot;title\\\&quot;: \\\&quot;You just don't understand : women and men in conversation\\\&quot;,\\n        \\\&quot;author\\\&quot;: \\\&quot;Deborah Tannen\\\&quot;,\\n        \\\&quot;isbn\\\&quot;: \\\&quot;0345372050\\\&quot;,\\n        \\\&quot;publicationDate\\\&quot;: \\\&quot;1990\\\&quot;\\n    }]\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;remainingTimes\&quot; : 0,\n    \&quot;unlimited\&quot; : true\n  },\n  \&quot;timeToLive\&quot; : {\n    \&quot;unlimited\&quot; : true\n  }\n}&quot;
   }
 }
-12:24:41.085 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x7467a947, /127.0.0.1:60949 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
+10:31:51.594 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xfde28ccc, /127.0.0.1:49227 =&gt; /127.0.0.1:1080] RECEIVED: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 1034, cap: 1034, components=2))
 PUT /expectation HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
@@ -1533,7 +1533,7 @@ Content-Type: text/plain; charset=utf-8, 1034B
 |000003f0| 20 20 22 75 6e 6c 69 6d 69 74 65 64 22 20 3a 20 |  &quot;unlimited&quot; : |
 |00000400| 74 72 75 65 0a 20 20 7d 0a 7d                   |true.  }.}      |
 +--------+-------------------------------------------------+----------------+
-12:24:41.094 [nioEventLoopGroup-30-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
+10:31:51.602 [nioEventLoopGroup-30-1] INFO  o.m.mockserver.MockServerHandler - creating expectation:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -1556,14 +1556,13 @@ Content-Type: text/plain; charset=utf-8, 1034B
 	}
 
 
-12:24:41.095 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x7467a947, /127.0.0.1:60949 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:51.603 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xfde28ccc, /127.0.0.1:49227 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 201 Created
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:41.095 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x7467a947, /127.0.0.1:60949 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.096 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x7467a947, /127.0.0.1:60949 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.096 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.604 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xfde28ccc, /127.0.0.1:49227 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.605 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 201,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1576,17 +1575,18 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:41.097 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x7467a947, /127.0.0.1:60949 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:41.097 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x7467a947, /127.0.0.1:60949 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:41.097 [nioEventLoopGroup-33-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-33-1
-12:24:41.114 [nioEventLoopGroup-30-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 =&gt; /127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-12:24:41.117 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+10:31:51.606 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xfde28ccc, /127.0.0.1:49227 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.607 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xfde28ccc, /127.0.0.1:49227 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:51.607 [nioEventLoopGroup-33-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 3 thread-local buffer(s) from thread: nioEventLoopGroup-33-1
+10:31:51.607 [nioEventLoopGroup-30-1] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xfde28ccc, /127.0.0.1:49227 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:51.624 [nioEventLoopGroup-30-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x859e1dd9, /127.0.0.1:49228 =&gt; /127.0.0.1:1080] HANDSHAKEN: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+10:31:51.630 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x859e1dd9, /127.0.0.1:49228 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 GET /get_books HTTP/1.1
 Connection: Close
 Host: localhost:1080
 User-Agent: Jodd HTTP
 Content-Length: 0, 0B
-12:24:41.119 [nioEventLoopGroup-30-2] INFO  o.m.matchers.HttpRequestMatcher - request:
+10:31:51.632 [nioEventLoopGroup-30-2] INFO  o.m.matchers.HttpRequestMatcher - request:
 
 	{
 	  &quot;method&quot; : &quot;GET&quot;,
@@ -1615,7 +1615,7 @@ Content-Length: 0, 0B
 	}
 
 
-12:24:41.120 [nioEventLoopGroup-30-2] INFO  o.m.mockserver.MockServerHandler - returning response:
+10:31:51.634 [nioEventLoopGroup-30-2] INFO  o.m.mockserver.MockServerHandler - returning response:
 
 	{
 	  &quot;headers&quot; : [ {
@@ -1645,7 +1645,7 @@ Content-Length: 0, 0B
 	}
 
 
-12:24:41.122 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
+10:31:51.635 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x859e1dd9, /127.0.0.1:49228 =&gt; /127.0.0.1:1080] WRITE: DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: UnpooledHeapByteBuf(ridx: 0, widx: 643, cap: 643/643))
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 643
@@ -1695,17 +1695,17 @@ Connection: close, 643B
 |00000270| 61 74 65 22 3a 20 22 31 39 39 30 22 0a 20 20 20 |ate&quot;: &quot;1990&quot;.   |
 |00000280| 20 7d 5d                                        | }]             |
 +--------+-------------------------------------------------+----------------+
-12:24:41.122 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.123 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 =&gt; /127.0.0.1:1080] CLOSE()
-12:24:41.124 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 :&gt; /127.0.0.1:1080] FLUSH
-12:24:41.124 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.636 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x859e1dd9, /127.0.0.1:49228 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.637 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x859e1dd9, /127.0.0.1:49228 =&gt; /127.0.0.1:1080] CLOSE()
+10:31:51.637 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x859e1dd9, /127.0.0.1:49228 :&gt; /127.0.0.1:1080] FLUSH
+10:31:51.637 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x859e1dd9, /127.0.0.1:49228 :&gt; /127.0.0.1:1080] INACTIVE
+10:31:51.638 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x859e1dd9, /127.0.0.1:49228 :&gt; /127.0.0.1:1080] UNREGISTERED
+10:31:51.638 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/verify&quot;,
   &quot;body&quot; : &quot;{\n  \&quot;httpRequest\&quot; : {\n    \&quot;path\&quot; : \&quot;/get_books\&quot;\n  },\n  \&quot;times\&quot; : {\n    \&quot;count\&quot; : 0,\n    \&quot;exact\&quot; : true\n  }\n}&quot;
 }
-12:24:41.124 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 :&gt; /127.0.0.1:1080] INACTIVE
-12:24:41.124 [nioEventLoopGroup-30-2] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xcd53c0d0, /127.0.0.1:60950 :&gt; /127.0.0.1:1080] UNREGISTERED
-12:24:41.132 [nioEventLoopGroup-32-1] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
+10:31:51.647 [nioEventLoopGroup-32-1] INFO  o.m.proxy.http.HttpProxyHandler - verifying:
 
 	{
 	  &quot;httpRequest&quot; : {
@@ -1718,7 +1718,7 @@ Connection: close, 643B
 	}
 
 
-12:24:41.133 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.649 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1731,12 +1731,12 @@ Connection: close, 643B
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:41.134 [nioEventLoopGroup-34-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-34-1
-12:24:41.136 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.650 [nioEventLoopGroup-34-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-34-1
+10:31:51.651 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:41.144 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.659 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1749,26 +1749,26 @@ Connection: close, 643B
     &quot;values&quot; : [ &quot;application/json; charset=utf-8&quot; ]
   } ]
 }
-12:24:41.145 [nioEventLoopGroup-35-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-35-1
-12:24:41.145 [nioEventLoopGroup-32-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-32-1
-12:24:41.149 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
+10:31:51.660 [nioEventLoopGroup-32-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-32-1
+10:31:51.660 [nioEventLoopGroup-35-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-35-1
+10:31:51.663 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Sending request: {
   &quot;method&quot; : &quot;PUT&quot;,
   &quot;path&quot; : &quot;/stop&quot;
 }
-12:24:41.154 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbd6e407d, /127.0.0.1:60953 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+10:31:51.668 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x19f2f35e, /127.0.0.1:49231 =&gt; /127.0.0.1:1080] RECEIVED, HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
 PUT /stop HTTP/1.1
 Host: localhost:1080
 Accept-Encoding: gzip,deflate
 Content-Length: 0
 Connection: keep-alive, 0B
-12:24:41.156 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbd6e407d, /127.0.0.1:60953 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+10:31:51.668 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x19f2f35e, /127.0.0.1:49231 =&gt; /127.0.0.1:1080] WRITE, DefaultFullHttpResponse(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: keep-alive
 Content-Type: text/plain, 0B
-12:24:41.156 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbd6e407d, /127.0.0.1:60953 =&gt; /127.0.0.1:1080] FLUSH
-12:24:41.156 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0xbd6e407d, /127.0.0.1:60953 =&gt; /127.0.0.1:1080] CLOSE()
-12:24:41.157 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
+10:31:51.669 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x19f2f35e, /127.0.0.1:49231 =&gt; /127.0.0.1:1080] FLUSH
+10:31:51.669 [nioEventLoopGroup-30-3] DEBUG i.n.handler.logging.LoggingHandler - [id: 0x19f2f35e, /127.0.0.1:49231 =&gt; /127.0.0.1:1080] CLOSE()
+10:31:51.670 [Test worker] DEBUG o.m.client.netty.NettyHttpClient - Received response: {
   &quot;statusCode&quot; : 202,
   &quot;headers&quot; : [ {
     &quot;name&quot; : &quot;Connection&quot;,
@@ -1781,9 +1781,9 @@ Content-Type: text/plain, 0B
     &quot;values&quot; : [ &quot;text/plain&quot; ]
   } ]
 }
-12:24:41.158 [nioEventLoopGroup-36-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-36-1
-12:24:41.160 [nioEventLoopGroup-30-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 10 thread-local buffer(s) from thread: nioEventLoopGroup-30-2
-12:24:41.160 [nioEventLoopGroup-30-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-30-1
+10:31:51.671 [nioEventLoopGroup-36-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-36-1
+10:31:51.671 [nioEventLoopGroup-30-1] DEBUG io.netty.buffer.PoolThreadCache - Freed 5 thread-local buffer(s) from thread: nioEventLoopGroup-30-1
+10:31:51.671 [nioEventLoopGroup-30-2] DEBUG io.netty.buffer.PoolThreadCache - Freed 10 thread-local buffer(s) from thread: nioEventLoopGroup-30-2
 </pre>
 </span>
 </div>
@@ -1795,7 +1795,7 @@ Content-Type: text/plain, 0B
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 3.1</a> at Dec 26, 2016 1:26:45 PM</p>
+<a href="http://www.gradle.org">Gradle 3.5.1</a> at Sep 3, 2017 12:33:55 PM</p>
 </div>
 </div>
 </body>
