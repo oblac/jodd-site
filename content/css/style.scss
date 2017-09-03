@@ -733,6 +733,18 @@ footer {
 	padding: 40px 10px;
 	size: 12px;
 }
+#share {
+	font-size: 30px;
+	padding: 20px 0 40px 0;
+	a {
+		color: #aaa;
+		margin: 0 20px;
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
 
 /* error */
 
