@@ -1,4 +1,4 @@
-# Jodd,org Website
+# Jodd.org Website
 
 This is source for [Jodd](http://jodd.org) web site built with [nanoc](http://nanoc.ws).
 
