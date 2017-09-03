@@ -27,10 +27,3 @@ Yeah, we are there too:
 Sure, you can post questions on StackOverflow, too!
 
 [**Jodd questions**](http://stackoverflow.com/questions/tagged/jodd)
-
-
-## User group and a mailing list
-
-Subscribe to mailing list and be informed on time!
-
-[**Jodders user group**](http://groups.google.com/group/jodders?hl=en)

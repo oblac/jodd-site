@@ -30,8 +30,3 @@ Users can vote on each other's contributions and earn reputation points.
 It's easy to [set up project](/code.html) from the source and
 start coding very quickly! Before you contribute, please
 let's discus the idea first, so we can work together smoothly.
-
-## Become Jodder
-
-The [Jodders](https://groups.google.com/forum/?hl=en#!forum/jodders)
-group is where the *Jodd* community meets. Asking and answering questions on the group is a great way to share knowledge about *Jodd*.

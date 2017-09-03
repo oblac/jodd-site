@@ -1,4 +1,4 @@
-# Jodd Code
+# Jodds Source Code
 
 *Jodd* is hosted on **GitHub**:
 
