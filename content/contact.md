@@ -6,6 +6,10 @@ If you need to reach us directly:
 
 Please use [Github](https://github.com/oblac/jodd).
 
+## Commercial plans
+
+Commercial support is available in form of training, consulting and development hours. Please contact us for further information: **support \[at\] jodd&#46;org**
+
 ## General Information
 
 Feel free to contact us for any reason: **info \[at\] jodd&#46;org**
