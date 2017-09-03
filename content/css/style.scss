@@ -259,6 +259,29 @@ div.button-long {
 		}
 	}
 }
+#pplane2 {
+	z-index:101;
+	left: 60px;
+	top: -60px;
+	position: relative;
+}
+#needhelp {
+	margin: 40px 50px 100px 50px;
+	color: $color-text;
+	h2 {
+		text-align: center;
+		font-family: $font-bold;
+		font-size: 22px;
+		margin: 10px 0;
+	}
+	p {
+		font-size: 18px;
+		text-align: center;
+		line-height: 20px;
+		margin: 0 10%;
+		padding-bottom: 20px;
+	}
+}
 #content article > * {
 	padding-left: 40px;
 	padding-right: 20px;
@@ -884,6 +907,9 @@ footer {
 #pplane {
 	display: none;
 }
+#pplane2 {
+	display: none;
+}
 #share {
 	a {
 		margin: 0 10px;
@@ -941,7 +967,7 @@ footer {
 #title-doc {
 	padding: 6px 0;
 }
-#shout, #main, #content, #intro, footer {
+#shout, #main, #content, #intro, footer, #needhelp {
 	.inner {
 		width: auto;
 		max-width: none;
