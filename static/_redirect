@@ -1,5 +1,5 @@
 
 # Redirect OLD documentation
 
-/doc/:name/*	/:name/:splat	301
-/doc/*			/util/:splat	301
+#/doc/:name/*	/:name/:splat	301
+#/doc/*			/util/:splat	301
