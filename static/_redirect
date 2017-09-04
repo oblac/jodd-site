@@ -1,2 +1,4 @@
 
-http://props.jodd.org/* http://jodd.org/doc/props/:splat 301!
+# Redirect OLD documentation
+
+#/doc/*/*  /:splat		301

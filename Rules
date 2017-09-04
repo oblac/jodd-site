@@ -22,17 +22,10 @@ passthrough '/y_key_*'
 passthrough '/about/*'
 passthrough '/fonts/*'
 passthrough '/gfx/*'
-passthrough '/img/*'
 passthrough '/*.zip'
 
 
 ## static
-
-compile '/static/sync-filter.txt' do ; end
-route '/static/sync-filter.txt' do
-  '/.sync-filter.txt'
-end
-
 
 compile '/static/**/*' do ; end
 route '/static/**/*' do
@@ -76,13 +69,6 @@ route '/500.shtml' do
   '/500.shtml'
 end
 
-## mailer
-
-compile '/mailer.php' do ; end
-route '/mailer.php' do
-  '/mailer.php'
-end
-
 ## htaccess
 
 compile '/htaccess.txt' do ; end
@@ -92,14 +78,14 @@ end
 
 ## javascript
 
-compile '/js/**/*' do
+compile '/assets/js/**/*' do
 end
 
 ## CSS
 
-ignore '/css/_*'
+ignore '/assets/css/_*'
 
-compile '/css/**/*' do
+compile '/assets/css/**/*' do
   if item[:extension] == 'scss'
     filter :sass, Compass.sass_engine_options.merge(
       :syntax => :scss,
@@ -108,10 +94,10 @@ compile '/css/**/*' do
   end
 end
 
-route '/css/**/*.css' do
+route '/assets/css/**/*.css' do
   item.identifier.to_s
 end
-route '/css/**/*.scss' do
+route '/assets/css/**/*.scss' do
   item.identifier.without_ext + '.css'
 end
 
@@ -145,6 +131,7 @@ end
 
 
 ## search
+
 compile '/w_js_meta.haml' do
   filter :haml
 end
@@ -152,7 +139,7 @@ route '/w_js_meta.haml' do
   '/js/data.json'
 end
 
-## final rule
+## the final rule
 
 compile '/**/*' do
   if !item.binary?

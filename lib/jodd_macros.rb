@@ -11,8 +11,16 @@ module JoddMacros
 
     value = ''
     if (javadoc_key != nil)
-      value = %[<a href="http://jodd.org/api/index.html?jodd/#{javadoc_key}/package-summary.html" target="_new" class="javadoc"><img src="/gfx/javadoc.png" alt="javadoc"/></a>]
+      value = %[<a href="http://oblac.github.io/jodd-site/javadoc/?jodd/#{javadoc_key}/package-summary.html" target="_new" class="javadoc"><img src="/gfx/javadoc.png" alt="javadoc"/></a>]
     end
+
+    value
+  end
+
+  def github_edit(item)
+
+    value = item.identifier
+    value = "https://github.com/oblac/jodd-site/edit/master" + value
 
     value
   end

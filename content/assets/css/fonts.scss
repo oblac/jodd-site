@@ -1,0 +1,80 @@
+$folder: "/assets/fonts/";
+
+@font-face {
+  font-family: 'Fjalla One';
+  font-weight: 400;
+  font-style: normal;
+  src: url($folder + 'Fjalla-One-regular/Fjalla-One-regular.eot');
+  src: url($folder + 'Fjalla-One-regular/Fjalla-One-regular.eot?#iefix') format('embedded-opentype'),
+       local('Fjalla One'),
+       local('Fjalla-One-regular'),
+       url($folder + 'Fjalla-One-regular/Fjalla-One-regular.woff2') format('woff2'),
+       url($folder + 'Fjalla-One-regular/Fjalla-One-regular.woff') format('woff'),
+       url($folder + 'Fjalla-One-regular/Fjalla-One-regular.ttf') format('truetype'),
+       url($folder + 'Fjalla-One-regular/Fjalla-One-regular.svg#FjallaOne') format('svg');
+}
+@font-face {
+  font-family: 'Lato';
+  font-weight: 300;
+  font-style: normal;
+  src: url($folder + 'Lato-300/Lato-300.eot');
+  src: url($folder + 'Lato-300/Lato-300.eot?#iefix') format('embedded-opentype'),
+       local('Lato Light'),
+       local('Lato-300'),
+       url($folder + 'Lato-300/Lato-300.woff2') format('woff2'),
+       url($folder + 'Lato-300/Lato-300.woff') format('woff'),
+       url($folder + 'Lato-300/Lato-300.ttf') format('truetype'),
+       url($folder + 'Lato-300/Lato-300.svg#Lato') format('svg');
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-weight: 300;
+  font-style: normal;
+  src: url($folder + 'Open-Sans-Condensed-300/Open-Sans-Condensed-300.eot');
+  src: url($folder + 'Open-Sans-Condensed-300/Open-Sans-Condensed-300.eot?#iefix') format('embedded-opentype'),
+       local('Open Sans Cond Light'),
+       local('Open-Sans-Condensed-300'),
+       url($folder + 'Open-Sans-Condensed-300/Open-Sans-Condensed-300.woff2') format('woff2'),
+       url($folder + 'Open-Sans-Condensed-300/Open-Sans-Condensed-300.woff') format('woff'),
+       url($folder + 'Open-Sans-Condensed-300/Open-Sans-Condensed-300.ttf') format('truetype'),
+       url($folder + 'Open-Sans-Condensed-300/Open-Sans-Condensed-300.svg#OpenSansCondensed') format('svg');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: 400;
+  font-style: normal;
+  src: url($folder + 'Source-Sans-Pro-regular/Source-Sans-Pro-regular.eot');
+  src: url($folder + 'Source-Sans-Pro-regular/Source-Sans-Pro-regular.eot?#iefix') format('embedded-opentype'),
+       local('Source Sans Pro'),
+       local('Source-Sans-Pro-regular'),
+       url($folder + 'Source-Sans-Pro-regular/Source-Sans-Pro-regular.woff2') format('woff2'),
+       url($folder + 'Source-Sans-Pro-regular/Source-Sans-Pro-regular.woff') format('woff'),
+       url($folder + 'Source-Sans-Pro-regular/Source-Sans-Pro-regular.ttf') format('truetype'),
+       url($folder + 'Source-Sans-Pro-regular/Source-Sans-Pro-regular.svg#SourceSansPro') format('svg');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: 700;
+  font-style: normal;
+  src: url($folder + 'Source-Sans-Pro-700/Source-Sans-Pro-700.eot');
+  src: url($folder + 'Source-Sans-Pro-700/Source-Sans-Pro-700.eot?#iefix') format('embedded-opentype'),
+       local('Source Sans Pro Bold'),
+       local('Source-Sans-Pro-700'),
+       url($folder + 'Source-Sans-Pro-700/Source-Sans-Pro-700.woff2') format('woff2'),
+       url($folder + 'Source-Sans-Pro-700/Source-Sans-Pro-700.woff') format('woff'),
+       url($folder + 'Source-Sans-Pro-700/Source-Sans-Pro-700.ttf') format('truetype'),
+       url($folder + 'Source-Sans-Pro-700/Source-Sans-Pro-700.svg#SourceSansPro') format('svg');
+}
+@font-face {
+  font-family: 'Inconsolata';
+  font-weight: 400;
+  font-style: normal;
+  src: url($folder + 'Inconsolata-regular/Inconsolata-regular.eot');
+  src: url($folder + 'Inconsolata-regular/Inconsolata-regular.eot?#iefix') format('embedded-opentype'),
+       local('Inconsolata Regular'),
+       local('Inconsolata-regular'),
+       url($folder + 'Inconsolata-regular/Inconsolata-regular.woff2') format('woff2'),
+       url($folder + 'Inconsolata-regular/Inconsolata-regular.woff') format('woff'),
+       url($folder + 'Inconsolata-regular/Inconsolata-regular.ttf') format('truetype'),
+       url($folder + 'Inconsolata-regular/Inconsolata-regular.svg#Inconsolata') format('svg');
+}

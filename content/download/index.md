@@ -8,7 +8,7 @@ including Linux, UNIX, Windows, MacOSX.
 license](/license.html).
 
 Please find some information how *Jodd* is organized
-into the [modules](../doc/modules.html).
+into the [modules](/documentation/modules.html).
 
 ## Maven repositories
 
