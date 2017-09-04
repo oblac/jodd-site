@@ -60,7 +60,7 @@ compile '/{4,5}0?.md' do
   layout '/error.html'
 end
 route '/40?.*' do
-  item.identifier.without_ext + '.shtml'
+  item.identifier.without_ext + '.html'
 end
 route '/500.md' do
   '/500.php'
