@@ -43,7 +43,13 @@ module JoddJsMeta
 
     items.sort_by(&:identifier).each do |item|
 
-      if (item.identifier.to_s).end_with?(".md")
+      itemIdentifier = item.identifier.to_s
+
+      if (["/401.md","/402.md","/403.md","/404.md","/400.md","/500.md"].include? itemIdentifier)
+        next
+      end
+
+      if (itemIdentifier).end_with?(".md")
         content = item.raw_content
         html = Kramdown::Document.new(content).to_html
         html = Nokogiri::HTML(html)
