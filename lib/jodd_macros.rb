@@ -20,7 +20,7 @@ module JoddMacros
   def github_edit(item)
 
     value = item.identifier
-    value = "https://github.com/oblac/jodd-site/edit/master" + value
+    value = "https://github.com/oblac/jodd-site/edit/master/content" + value
 
     value
   end
