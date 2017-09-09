@@ -63,8 +63,6 @@ Blue are mandatory dependencies, gray optional and light are 3rd party.
 
 <var>jodd-servlet</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var> <var class='dep'>jodd-upload</var>
 
-<var>jodd-swingspy</var>
-
 <var>jodd-upload</var> <var class='dep'>jodd-core</var> <var class='dep-opt'>jodd-bean</var>
 
 <var>jodd-vtor</var> <var class='dep'>jodd-core</var> <var class='dep'>jodd-bean</var>

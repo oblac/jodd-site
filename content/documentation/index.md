@@ -74,8 +74,6 @@ Cache - set of common cache implementation.
 
 [Methref](/util/methref.html) - strongly-typed method name references.
 
-[SwingSpy](/util/swingspy.html) - inspection of swing component hierarchy.
-
 ## Jodd micro-frameworks
 
 ### Madvoc
