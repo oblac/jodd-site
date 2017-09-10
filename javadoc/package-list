@@ -22,6 +22,7 @@ jodd.db.oom.sqlgen
 jodd.db.oom.sqlgen.chunks
 jodd.db.pool
 jodd.db.querymap
+jodd.db.servers
 jodd.db.type
 jodd.decora
 jodd.decora.parser

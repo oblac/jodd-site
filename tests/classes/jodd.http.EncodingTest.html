@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.786s</div>
+<div class="counter">0.367s</div>
 <p>duration</p>
 </div>
 </td>
@@ -84,7 +84,7 @@
 </tr>
 <tr>
 <td class="success">testFormParams1</td>
-<td>0.563s</td>
+<td>0.175s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -99,42 +99,42 @@
 </tr>
 <tr>
 <td class="success">testMultipart</td>
-<td>0.145s</td>
+<td>0.031s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testQueryParams1</td>
-<td>0.009s</td>
+<td>0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testQueryParams2</td>
-<td>0.009s</td>
+<td>0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testRequestEncoding1</td>
-<td>0.010s</td>
+<td>0.124s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testRequestEncoding2</td>
-<td>0.002s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testRequestEncoding3</td>
 <td>0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testRequestEncoding4</td>
+<td class="success">testRequestEncoding3</td>
 <td>0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">testRequestEncoding4</td>
+<td>0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">testUploadWithUploadable</td>
-<td>0.038s</td>
+<td>0.009s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -142,15 +142,15 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Sep 03, 2017 10:31:38 AM org.apache.coyote.AbstractProtocol init
+<pre>Sep 10, 2017 4:59:54 PM org.apache.coyote.AbstractProtocol init
 INFO: Initializing ProtocolHandler [&quot;http-bio-8173&quot;]
-Sep 03, 2017 10:31:38 AM org.apache.catalina.core.StandardService startInternal
+Sep 10, 2017 4:59:54 PM org.apache.catalina.core.StandardService startInternal
 INFO: Starting service Tomcat
-Sep 03, 2017 10:31:38 AM org.apache.catalina.core.StandardEngine startInternal
+Sep 10, 2017 4:59:54 PM org.apache.catalina.core.StandardEngine startInternal
 INFO: Starting Servlet Engine: Apache Tomcat/7.0.47
-Sep 03, 2017 10:31:38 AM org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
+Sep 10, 2017 4:59:54 PM org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
 INFO: No global web.xml found
-Sep 03, 2017 10:31:43 AM org.apache.coyote.AbstractProtocol start
+Sep 10, 2017 4:59:57 PM org.apache.coyote.AbstractProtocol start
 INFO: Starting ProtocolHandler [&quot;http-bio-8173&quot;]
 javax.servlet.ServletException: org.apache.tomcat.util.http.fileupload.FileUploadBase$InvalidContentTypeException: the request doesn't contain a multipart/form-data or multipart/form-data stream, content type header is null
 	at org.apache.catalina.connector.Request.parseParts(Request.java:2788)
@@ -176,9 +176,9 @@ javax.servlet.ServletException: org.apache.tomcat.util.http.fileupload.FileUploa
 	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
 	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
 Caused by: org.apache.tomcat.util.http.fileupload.FileUploadBase$InvalidContentTypeException: the request doesn't contain a multipart/form-data or multipart/form-data stream, content type header is null
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase$FileItemIteratorImpl.&lt;init&gt;(FileUploadBase.java:806)
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase.getItemIterator(FileUploadBase.java:261)
@@ -209,9 +209,9 @@ javax.servlet.ServletException: org.apache.tomcat.util.http.fileupload.FileUploa
 	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
 	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
 Caused by: org.apache.tomcat.util.http.fileupload.FileUploadBase$InvalidContentTypeException: the request doesn't contain a multipart/form-data or multipart/form-data stream, content type header is null
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase$FileItemIteratorImpl.&lt;init&gt;(FileUploadBase.java:806)
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase.getItemIterator(FileUploadBase.java:261)
@@ -242,9 +242,9 @@ javax.servlet.ServletException: org.apache.tomcat.util.http.fileupload.FileUploa
 	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
 	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
 Caused by: org.apache.tomcat.util.http.fileupload.FileUploadBase$InvalidContentTypeException: the request doesn't contain a multipart/form-data or multipart/form-data stream, content type header is null
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase$FileItemIteratorImpl.&lt;init&gt;(FileUploadBase.java:806)
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase.getItemIterator(FileUploadBase.java:261)
@@ -275,22 +275,22 @@ javax.servlet.ServletException: org.apache.tomcat.util.http.fileupload.FileUploa
 	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
 	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
 Caused by: org.apache.tomcat.util.http.fileupload.FileUploadBase$InvalidContentTypeException: the request doesn't contain a multipart/form-data or multipart/form-data stream, content type header is null
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase$FileItemIteratorImpl.&lt;init&gt;(FileUploadBase.java:806)
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase.getItemIterator(FileUploadBase.java:261)
 	at org.apache.tomcat.util.http.fileupload.FileUploadBase.parseRequest(FileUploadBase.java:285)
 	at org.apache.catalina.connector.Request.parseParts(Request.java:2724)
 	... 25 more
-Sep 03, 2017 10:31:43 AM org.apache.coyote.AbstractProtocol pause
+Sep 10, 2017 4:59:58 PM org.apache.coyote.AbstractProtocol pause
 INFO: Pausing ProtocolHandler [&quot;http-bio-8173&quot;]
-Sep 03, 2017 10:31:43 AM org.apache.catalina.core.StandardService stopInternal
+Sep 10, 2017 4:59:58 PM org.apache.catalina.core.StandardService stopInternal
 INFO: Stopping service Tomcat
-Sep 03, 2017 10:31:43 AM org.apache.coyote.AbstractProtocol stop
+Sep 10, 2017 4:59:58 PM org.apache.coyote.AbstractProtocol stop
 INFO: Stopping ProtocolHandler [&quot;http-bio-8173&quot;]
-Sep 03, 2017 10:31:44 AM org.apache.coyote.AbstractProtocol destroy
+Sep 10, 2017 4:59:58 PM org.apache.coyote.AbstractProtocol destroy
 INFO: Destroying ProtocolHandler [&quot;http-bio-8173&quot;]
 </pre>
 </span>
@@ -303,7 +303,7 @@ INFO: Destroying ProtocolHandler [&quot;http-bio-8173&quot;]
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 3.5.1</a> at Sep 3, 2017 12:33:55 PM</p>
+<a href="http://www.gradle.org">Gradle 4.1</a> at Sep 10, 2017 5:01:35 PM</p>
 </div>
 </div>
 </body>
