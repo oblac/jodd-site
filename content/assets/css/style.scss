@@ -278,12 +278,14 @@ div.button-long {
 #pplane2 {
 	z-index:101;
 	left: 60px;
-	top: -60px;
+	top: -90px;
 	position: relative;
 }
 #needhelp {
-	margin: 40px 50px 100px 50px;
+	margin: 0 0 80px 0;
+	padding: 30px 0;
 	color: $color-text;
+	background-color: #eee;
 	h2 {
 		text-align: center;
 		font-family: $font-bold;
@@ -296,6 +298,9 @@ div.button-long {
 		line-height: 20px;
 		margin: 0 10%;
 		padding-bottom: 20px;
+		b {
+			font-weight: bold;
+		}
 	}
 }
 #content article > * {
@@ -817,20 +822,6 @@ footer {
 	animation: rotateInUpRight 1s;
 }
 
-
-/** TWITTER **/
-
-
-#twitter {
-	background-color: #eee;
-	color: #eee;
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
-#twitter .slider {
-	margin-left: 250px;
-	margin-right: 50px;
-}
 
 
 /** MEDIUM **/
