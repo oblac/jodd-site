@@ -113,14 +113,14 @@ module JoddDocs
 		if (arr != nil)
 			str = ''
 			if (title != nil)
-				str = %[<h2 class='doc'>#{title}</h2>\n]
+				str = %[<h2 class='doc'>#{title}&nbsp;&nbsp;<i class="fa fa-cube"></i></h2>\n]
 			end
 			str << %[<ul class="doc-all">\n]
 
 			arr[1..-1].each{|it|
 				str << %[<li class="doc-item]
 				if (it == item)
-					str += " doc-this\">"
+					str += " doc-this\"><i class=\"fa fa-caret-right\"></i>&nbsp;"
 				else
 					str << %["><a href="#{it[:site_path]}">]
 				end

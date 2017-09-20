@@ -449,9 +449,12 @@ div.button-long {
 				color: $color-orange2;
 			}
 		}
+		ul.doc-all {
+			margin-bottom: 30px;
+		}
 		li.doc-this {
 			background-color: #f0f0f0;
-			padding: 4px 10px;
+			padding: 4px 4px;
 			@include border-left-radius(6px);
 			font-weight: bold;
 			margin-left: 0;
@@ -476,7 +479,7 @@ div.button-long {
 				text-transform: uppercase;
 			}
 			li {
-				font-style: italic;
+				//font-style: italic;
 			}
 			a {
 				font-size: 0.9em;
