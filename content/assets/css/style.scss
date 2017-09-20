@@ -439,7 +439,7 @@ div.button-long {
 		li {
 			list-style: none;
 			margin-bottom: 6px;
-			margin-left: 10px;
+			//margin-left: 10px;
 			margin-right: 6px;
 		}
 		a {
@@ -460,15 +460,28 @@ div.button-long {
 		li.doc-more {
 			margin-top: 6px;
 		}
-		ul.toc-1 {
-			margin-right: 10px;
-			border-bottom: 1px dotted #666;
-			margin-bottom: 30px;
-			padding-bottom: 10px;
-		}
 		li.toc-h3 {
-			margin-left: 26px;
-			font-size: 14px;
+			//margin-left: 26px;
+			//font-size: 14px;
+		}
+		#toc {
+			background-color: #fff;
+			position: relative;
+			left: -22px;
+			padding: 15px 0 20px 20px;
+			margin: 0 0 30px 0;
+			@include box-shadow(#eee 4px 4px 10px);
+			h2, h3 {
+				font-size: 1.1em;
+				text-transform: uppercase;
+			}
+			li {
+				font-style: italic;
+			}
+			a {
+				font-size: 0.9em;
+				color: #666;
+			}
 		}
 	}
 }
