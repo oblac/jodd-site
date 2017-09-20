@@ -1,54 +1,53 @@
 # Props
 
-*Props* is super `properties`; containing all what is missing in JDK:
+*Props* is super `properties`; containing all that is missing in JDK:
 UTF8 support, macros, sections, profiles, fully configurable... and
 more! Properties are stored in one or more `*.props` files, but its
 architecture is open for any type of source. Moreover, *Props* is
 compatible with Java properties.
 
 The purpose of *Props* is not to provide the ultimate configuration
-solution, but to replace Java properties with better alternative.
-So if you are using properties in you application, consider
-switching to *Props*.
+solution, but to _replace_ Java properties with the better alternative.
+If you are already using Java properties in your application,
+or just want a familiar and friendly configuration, consider *Props*.
 
-## Basic rules
+## Features
 
-Bellow is set of basic rules for `props` file format. Some of them are
-shown in the following example:
+*Props* configuration is stored in text file(s), with default extension `.props`.
+Still, *Props* is compatible with Java properties and knows to load `*.properties` as well.
+Here is screenshot of a `props` file:
 
 ![props example](props-example.png)
 {: style="text-align:center;"}
 
 ### UTF8 encoding
 
-By default, `props` files are UTF8 encoded, but can be encoded in any
-encoding. Whatever encoding is used, *Props* will still load Java
-properties using ISO 8859-1.
+By default, `props` files are **UTF-8** encoded. No matter what encoding is set,
+*Props* will always load Java's properties using ISO 8859-1.
 
 ### Trimming whitespaces
 
 Leading and trailing spaces will be trimmed from section names and
-property names. Leading and/or trailing spaces may be trimmed from
+property names. Leading and/or trailing spaces may be optionally trimmed from
 property values.
 
-### Assignment property values
+### Assignment of values
 
 Either equal sign (`=`) or colon (`:`) are used to assign property
 values.
 
-### Quick append values
+### Quick appended values
 
-Use `+=` to append values (separated with comma) of properties with
-the same name.
+Use `+=` to append values (separated by comma) of properties with the same name.
 
 ### Comments
 
 Comments begin with either a semicolon (`;`), or a sharp sign (`#`) and
-extend to the end of line. It doesn't have to be the first character.
+extend to the end of a line. It doesn't have to be the first character of a line.
 
 ### Escaping
 
-A backslash (`\`) escapes the next character (e.g., `\#` is a literal
+The backslash (`\`) escapes the next character (e.g., `\#` is a literal
 `#`, `\\` is a literal `\`).
 
 ### Multi-line values
@@ -59,9 +58,9 @@ continued on the next line with new line character included.
 ### Special characters
 
 `\\uXXXX` is encoded as character. Also `\t`, `\r` and `\f` are encoded
-as characters.
+as characters as well.
 
-### Multiline values
+### Triple quotes
 
 Use triple-quote to define multi-line values in convenient way.
 
@@ -78,20 +77,19 @@ Using *Props* is very easy. In a nutshell, properties are managed by
 ~~~~~
 
 Properties can be loaded by `Props` in many different ways: from a
-`File`, `InputStream`, `String` or `Properties`. Then props are ready
-for usage and values can be looked up using `getValue()` method. This
-method always returns a String value.
+`File`, `InputStream`, `String` or `Properties`. Once loaded, props are ready
+for usage. Values can be looked up using the `getValue()` method. This
+method always returns a `String` value.
 
 ## Sections
 
-Sections looks very much like INI file sections. In *Props*,
-section simply represents the keys prefix for following keys, until the
-section end or end of file.
+In *Props*, a section simply define a key's prefix for the following set of keys,
+until the section or file ends.
 
-Section names are enclosed between `[` and `]`. Properties following a
-section header belong to that section. Section name is added as a prefix
+Section name is enclosed between `[` and `]`. Properties following a
+section definition belong to that section. Section name is added as a prefix
 to section properties. Section ends with empty section definition `[]`
-or with new section start or end of file.
+or with a new section start or end of the file.
 
 The following example:
 
@@ -113,24 +111,24 @@ users.data.age = 63
 comment=this is base property
 ~~~~~
 
-Sections, therefore, can shorten the file and make it more readable.
+Sections can shorten the file and make it more readable.
 
 ## Profiles
 
 Often an application works in different environments and, therefore,
-require different set of (some) properties; for example: the development
-mode and deployment mode of a web application. One way how to organize
-properties is to define different profiles where the same key name takes
-different values.
+require a different set of properties. For example: the development
+mode and deployment mode of an application. One way how to organize
+properties is to define different _profiles_ where the same key name
+takes different values.
 
-*Props* supports property profiles. Profiles are defined within key
-name: profile names are enclosed between `<` and `>`. One key may
-contain one or more profile definitions. Also, profile definition can be
+*Props* supports property profiles. Profiles are defined within the key
+name: profile name is enclosed between `<` and `>`. One key may
+contain one or more profile definitions. Profile definition can exist
 anywhere in the key name, even in the middle of the word; however, it is
 a good practice to put them at the end.
 
-Properties without a profile are _base_ properties. If look up for a
-property of some profile fails, *Props* will examine the base
+Properties without a profile are _base_ properties. If lookup for a
+property of some profile fails, *Props* will then examine the base
 properties.
 
 Profiles can be considered as a 'different views' or
@@ -149,11 +147,11 @@ db.username<deploy>=app2499
 ~~~~~
 
 In this example 3 keys are defined; two keys have different values in
-two profiles (`develop` and `deploy`) and no base value.
+two profiles (`develop` and `deploy`) and have no base value.
 
 Since sections are just a prefix definition and since profile can be
-anywhere in the key name, therefore section name can contain profile
-definition as well. Above example can be written as:
+located anywhere in the key name, section name can define profile
+definition as well! Above example can be written as:
 
 ~~~~~
 db.port=3086
@@ -175,28 +173,27 @@ are active:
     String user = props.getValue("db.username", "develop");
 ~~~~~
 
-More then one profile can be specified at a time. The order
+More than one profile can be specified at a time. The order
 of specified profiles is important! When one key
-is defined in more then one active profile, the FIRST
+is defined in more than one active profile, the FIRST
 value (of first matched profile) is returned.
 {: .attn}
 
 It is also possible to lookup only for base properties
 (ignoring the profiles) - using `getBaseValue()` method.
-Base properties are those that don't belong to
-any profile.
+Base properties are those that don't belong to any profile.
 
 ### Default active profiles
 
 Usually, only one set of profiles is active during the application's
 lifetime. Instead of passing active profiles to `getValues()` methods
-each and every time, *Props* allows to define so called active profiles
+each and every time, *Props* allows to define so-called active profiles
 externally, in the same `props` files used for loading properties.
 
-Active profiles are default profiles when looking for a property using
+The active profiles are default when looking for a property using
 method `getValue(String)`.
 
-Active profiles can be set in the `props` files - this way the
+Active profiles can be defined in the `props` files - this way the
 configuration set can be changed (i.e. active profiles can be modified)
 without the need to recompile the code. Active profiles are defined
 under the special base key named `@profiles`. Example:
@@ -214,15 +211,14 @@ and the following Java code:
     String value = props.getValue("key1");
 ~~~~~
 
-would return the value `Hi!`, since active profile is `one`.
+would return the value `Hi!`, since the active profile is `one`.
 
-Active profiles can be set from Java, too, using method:
-`setActiveProfiles()`.
+Active profiles can be set from Java, too, using the method: `setActiveProfiles()`.
 
 ### Inner profiles
 
 There are situations where two ore more profiles share the most of the
-configuration and only few properties are different (or: specific) for
+configuration and only a few properties are different (or: specific) for
 one profile (i.e. configuration). To avoid repeating of all properties
 for each profile, it is possible to define properties assigned to inner
 profiles only for those differences. *Props* will first lookup keys in
@@ -238,22 +234,21 @@ key1<one.two>=Hola!
 ~~~~~
 
 This example defines two profiles. First one is named `one` and
-contains 100 properties. Second profile is an inner property named
+contains 100 properties. The second profile is an inner property named
 `one.two`. It contains only 1 property (`key1`) - but all properties
-from its upper profile are available! So what happens when Java code
+from its upper profile are available! What happens when Java code
 calls the following: `props.getValue("key1", "one.two")`? *Props* will:
 
 * lookup for property in inner profile `one.two`
-* if value is not found, `Props` will check upper profile: `one`
-* if value is not found and there are no more upper profiles, *Props* will check base properties.
+* if a value is not found, *Props* will check upper profile: `one`
+* if a value is not found and there are no more upper profiles, *Props* will check base properties.
 
-There can be many levels of inner profiles.
+There can be any levels of inner profiles.
 
 ## Macros
 
-The biggest *Props* strength are macros. Macro is a reference to some
-keys value, used in value of other key. Macros are enclosed between `${`
-and `}`. Here is a simple example:
+The biggest *Props* strength are macros. Macro is a reference to a value of some other
+key. Macros are enclosed between `${` and `}`. Here is a simple example:
 
 ~~~~~
 key1=Something ${foo}
@@ -267,12 +262,12 @@ existing property key, no matter where it is defined.
 Nested macros are also supported. Example:
 
 ~~~~~
-key1=**${key${key3}}**
+key1=!!${key${key3}}!!
 key3=2
 key2=foo
 ~~~~~
 
-Value of `key1` is `**foo**`.
+Value of `key1` is `!!foo!!`.
 
 ### Macros and profiles
 
@@ -292,7 +287,7 @@ What is the value of `data.path` when `foo` profile is set as active?
 Since `foo` is active, `root` value becomes `/foo`, therefore
 the `data.path` is going to be set to `/foo/data` value.
 
-If we turn of profiles (and use only base propertes), the `data.path`
+If we turn off profiles (and use only base propertes), the `data.path`
 value is going to be `/app/data`.
 
 It is also possible to explicitly set macro's profile:
@@ -381,8 +376,8 @@ org.jodd.action2=value2
 net.jodd.... # etc
 ~~~~~
 
-*Props* allows you to use _copy operator_: `<=` to minimize the duplicate
-props. Above props can be written as:
+*Props* allows you to use _copy operator_: `<=` to minimize duplication
+of the props. Above props can be written as:
 
 ~~~~~
 [actions]
@@ -401,7 +396,7 @@ jodd <= actions
 ~~~~~
 
 This example shows three different ways how to use copy operator, without
-sections, with partial section or with full section. All three ways
+a section, with partial section name or with full section name. All three ways
 are identical and it's up to you which one you gonna use.
 
 Remember that copied values are set as macros, so all above
@@ -417,7 +412,7 @@ All rules for resolving macros applies.
 
 ## Configuration
 
-*Props* behavior can be fine-tuned using several configuration settings:
+*Props* behavior can be fine-tuned using the following configuration settings:
 
 ### escapeNewLineValue
 
@@ -460,14 +455,14 @@ be appended and separated by comma.
 ### multilineValues
 
 When enabled (default), multi-line values may be written in more
-convenient way using triple-quote (as in python). Everything between
+convenient way using triple-quote (like in python). Everything between
 triple-quotes is considered as a value, so new line does not need to be
 escaped.
 
 ## IntelliJ IDEA plugin
 
 There is [IntelliJ IDEA plugin][1] that provides support
-for *Props* files. For now, this support is very basic, but it will be
+for *Props* files. For now, this support is basic, but it will be
 enhanced in time. Feel free to improve it :)
 
 
