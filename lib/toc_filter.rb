@@ -12,7 +12,8 @@ module Toc
       content.gsub('{{TOC}}') do
         # Find all top-level sections
         doc = Nokogiri::HTML(content)
-        headers = doc.xpath('//article//*[self::h2 or self::h3]').map do |header|
+        #headers = doc.xpath('//article//*[self::h2 or self::h3]').map do |header|
+        headers = doc.xpath('//article//*[self::h2]').map do |header|
           { :title => header.inner_html,
             :id => header['id'],
             :name => header.name

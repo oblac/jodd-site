@@ -26,8 +26,6 @@ Now you can breath out :)
 
 [Jodd micro-frameworks in 30 minutes](http://joddframework.org) - example of using *Jodd* micro-frameworks.
 
-[Jodd modules](modules.html) - learn how *Jodd* is organized into the modules.
-
 ## Jodd utilities
 
 [BeanUtil](/util/beanutil.html) - fastest bean manipulation library around.
@@ -68,7 +66,7 @@ Cache - set of common cache implementation.
 
 [Email](/util/email.html) - sending and receiving emails.
 
-[Props](/util/props.html) - enhanced `Properties` replacement.
+[Props](/props) - enhanced `Properties` replacement.
 
 [HTTP](/util/http.html) - tiny, raw HTTP client.
 
