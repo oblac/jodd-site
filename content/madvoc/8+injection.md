@@ -76,7 +76,7 @@ Example:
 Above code shows several injection features. First, property \'data\' is
 defined just as class field (no setter/getter). Then, it shows that
 *Madvoc* performs implicit type conversion to the target type. This is
-done using [`BeanUtil`](/util/beanutil.html), Madvocs bean manipulator.
+done using [`BeanUtil`](/beanutil), Madvocs bean manipulator.
 Then, second property shows how its setter will be invoked during the
 injection and will change the injection value.
 
@@ -98,7 +98,7 @@ person. If the form input fields are named in the following way:
     </form>
 ~~~~~
 
-Request parameters \'p.name\' and \'p.data\' may be mapped in the
+Request parameters `p.name` and `p.data` may be mapped in the
 following way:
 
 ~~~~~ java

@@ -19,7 +19,7 @@ central place where all type converters are registered and from where
 you can lookup for some that you need.
 
 Type converter is used all over *Jodd*. It is used by
-[BeanUtil](beanutil.html), [DB framework](/db/),
+[BeanUtil](/beanutil), [DB framework](/db/),
 [Madvoc](/madvoc/)...
 
 ## Convert utility

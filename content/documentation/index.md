@@ -28,7 +28,7 @@ Now you can breath out :)
 
 ## Jodd utilities
 
-[BeanUtil](/util/beanutil.html) - fastest bean manipulation library around.
+[BeanUtil](/beanutil) - fastest bean manipulation library around.
 
 Cache - set of common cache implementation.
 
