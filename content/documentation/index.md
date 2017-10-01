@@ -64,7 +64,7 @@ Cache - set of common cache implementation.
 
 ## Jodd tools
 
-[Email](/util/email.html) - sending and receiving emails.
+[Email](/email) - sending and receiving emails.
 
 [Props](/props) - enhanced `Properties` replacement.
 
