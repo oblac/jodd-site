@@ -68,7 +68,7 @@ Cache - set of common cache implementation.
 
 [Props](/props) - enhanced `Properties` replacement.
 
-[HTTP](/util/http.html) - tiny, raw HTTP client.
+[HTTP](/http) - tiny, raw HTTP client.
 
 [Methref](/util/methref.html) - strongly-typed method name references.
 
