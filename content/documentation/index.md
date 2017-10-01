@@ -34,7 +34,7 @@ Cache - set of common cache implementation.
 
 [Printf](/util/printf.html) - formatted value printing, as in C.
 
-[JDateTime](/util/jdatetime.html) - elegant usage and astronomical precision in one time-manipulation class.
+[JDateTime](/jdatetime) - elegant usage and astronomical precision in one time-manipulation class.
 
 [Type Converter](/util/typeconverter.html) - converting types.
 
