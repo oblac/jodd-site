@@ -395,10 +395,24 @@ div.button-long {
 			margin-left: 50px;
 			list-style: decimal;
 		}
-		ul.doc-all li {
+		ul.doc-all {
 			margin-left: 20px;
-			list-style: none;
+			margin-top: 0;
+			overflow: hidden;
+			position: relative;
+			top: -16px;
 		}
+		ul.doc-all li {
+			margin-left: 3px;
+			list-style: none;
+			float:left;
+			font-size: 0.9em;
+		}
+		ul.doc-all li:after {
+			content: "  |";
+			color: #999;
+		}
+
 		li.doc-more {
 			margin-top: 6px;
 		}
