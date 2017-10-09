@@ -118,6 +118,8 @@ module JoddDocs
 			str << %[<ul class="doc-all">\n]
 
 			arr[1..-1].each{|it|
+				next if it == nil
+
 				str << %[<li class="doc-item]
 				if (it == item)
 					str += " doc-this\"><i class=\"fa fa-caret-right\"></i>&nbsp;"
@@ -149,14 +151,26 @@ module JoddDocs
 		arr = @config[:docs][key]
 
 		if (index > 1)
-			prev = arr[index - 1]
+			# loop to find previous
+			indexPrev = index - 1
+			while (arr[indexPrev] == nil && indexPrev > 1)
+				indexPrev = indexPrev - 1
+			end
+			prev = arr[indexPrev]
+
 			str += "<a class='nav-prev' href='" + prev[:site_path] + "'>"
 			str += "<i class='fa fa-toggle-left'></i>&nbsp;Previous: " + prev[:title]
 			str += "</a>"
 		end
 
 		if (index < arr.length - 1)
-			nextt = arr[index + 1];
+			# loop to find the next
+			indexNext = index + 1
+			while (arr[indexNext] == nil && indexNext < arr.length - 1)
+				indexNext = indexNext + 1
+			end
+			nextt = arr[indexNext]
+
 			str += "<a class='nav-next' href='" + nextt[:site_path] + "'>"
 			str += "Next: " + nextt[:title] + "&nbsp;<i class='fa fa-toggle-right'></i>"
 			str += "</a>"
