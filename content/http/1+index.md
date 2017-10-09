@@ -1,3 +1,7 @@
+---
+javadoc: 'http'
+---
+
 # HTTP
 
 *HTTP* is tiny, raw HTTP client - and yet simple and convenient. It
@@ -46,7 +50,7 @@ Most important thing is how to read received response body. You may use one
 of the following methods:
 
 + `body()` - raw body content, always in ISO-8859-1 encoding.
-+ `bodyText()` - body text, ie string encoded as specified by "Content-Type" header.
++ `bodyText()` - body text, i.e. string encoded as specified by `Content-Type` header.
 + `bodyBytes()` - returns raw body as byte array, so e.g. downloaded file
 can be saved.
 
@@ -189,7 +193,9 @@ Just `unzip()` the response.
     System.out.println(response.unzip());
 ~~~~~
 
-## Use body
+The `unzip()` method is safe; it will not fail if response is not zipped.
+
+## Use the body
 
 You can set request body manually - sometimes some APIs allow to specify
 commands in it:
@@ -360,48 +366,3 @@ Both `HttpRequest` and `HttpResponse` have a method
 `readFrom(InputStream)`. Basically, you can parse input stream with
 these methods. This is, for example, how you can read request on server
 side.
-
-## HttpBrowser
-
-Sending simple requests and receiving response is not enough for situation
-when you have to emulate some 'walking' scenario through a target site. For
-example, you might need to login, like you would do that in the browser and
-than to continue browsing withing current session.
-
-`HttpBrowser` is a tool just for that. It sends requests for you; handles
-301 and 302 redirections automatically, reads cookies from the response
-and stores into the new request and so on. Usage is simple:
-
-~~~~~ java
-	HttpBrowser browser = new HttpBrowser();
-
-	HttpRequest request = HttpRequest.get("www.facebook.com");
-	browser.sendRequest(request);
-
-	// request is sent and response is received
-
-	// process the page:
-	String page = browser.getPage();
-
-	// create new request
-	HttpRequest newRequest = HttpRequest.post(formAction);
-
-	browser.sendRequest(newRequest);
-~~~~~
-
-Browser instance handles all the cookies, allowing session to be tracked while
-browsing using HTTP and supports keep-alive persistent connections.
-
-## HttpTunnel
-
-*HTTP* is so flexible that you can easily build a HTTP tunnel with it -
-small proxy between you and destination. We even give you a base class:
-`HttpTunnel` class, that provides easy HTTP tunneling. It opens server
-socket on one port and tunnels the whole HTTP traffic to some target
-address.
-
-[TinyTunnel][1] is one implementation that simply prints
-out the whole communication to the console.
-
-
-[1]: https://github.com/oblac/tools/blob/master/src/jodd/tools/http/TinyTunnel.java

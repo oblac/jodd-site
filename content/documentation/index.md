@@ -68,9 +68,14 @@ Cache - set of common cache implementation.
 
 [Props](/props) - enhanced `Properties` replacement.
 
-[HTTP](/http) - tiny, raw HTTP client.
-
 [Methref](/util/methref.html) - strongly-typed method name references.
+
+### HTTP
+
+Tiny, raw HTTP client.
+
+<%= doc_list_all(@item, '/http/') %>
+
 
 ## Jodd micro-frameworks
 
