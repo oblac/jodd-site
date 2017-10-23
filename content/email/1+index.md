@@ -1,5 +1,5 @@
 ---
-javadoc: 'email'
+javadoc: 'mail'
 ---
 
 # Email
