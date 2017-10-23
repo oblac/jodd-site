@@ -134,12 +134,14 @@ have the most control. So here it is.
     email.setTo("igorxxxx@gmail.com");
     email.setSubject("test7");
 
-    EmailMessage textMessage = new EmailMessage("Hello!", MimeTypes.MIME_TEXT_PLAIN);
+    EmailMessage textMessage =
+        new EmailMessage("Hello!", MimeTypes.MIME_TEXT_PLAIN);
     email.addMessage(textMessage);
 
     EmailMessage htmlMessage = new EmailMessage(
-        "<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">" +
-        "<body><h1>Hey!</h1><img src='cid:c.png'><h2>Hay!</h2></body></html>",
+        "<html><META http-equiv=Content-Type content=\"text/html; " +
+        "charset=utf-8\"><body><h1>Hey!</h1><img src='cid:c.png'>" +
+        "<h2>Hay!</h2></body></html>",
     MimeTypes.MIME_TEXT_HTML);
     email.addMessage(htmlMessage);
 
@@ -175,8 +177,9 @@ same example from above:
         .subject("test6")
         .addText("Hello!")
         .addHtml(
-            "<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"+
-            "<body><h1>Hey!</h1><img src='cid:c.png'><h2>Hay!</h2></body></html>")
+            "<html><META http-equiv=Content-Type content=\"text/html; " +
+            "charset=utf-8\"><body><h1>Hey!</h1><img src='cid:c.png'>" +
+            "<h2>Hay!</h2></body></html>")
         .embed(attachment().bytes(new File("/c.png")))
         .attach(attachment().file("/b.jpg"));
 ~~~~~
@@ -346,7 +349,8 @@ For POP3 connection, use `Pop3Server`:
 Again, very simply: use `Pop3SslServer` implementation. Here is how it can be used to fetch email from Google:
 
 ~~~~~ java
-    Pop3Server popServer = new Pop3SslServer("pop.gmail.com", "username", "password");
+    Pop3Server popServer =
+        new Pop3SslServer("pop.gmail.com", "username", "password");
     ReceiveMailSession session = popServer.createSession();
     session.open();
     ...
