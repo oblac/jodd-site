@@ -1,16 +1,20 @@
+---
+javadoc: 'email'
+---
+
 # Email
 
 Sending emails in Java should be easier. *Jodd* provides some nice classes
-for sending emails in an easier, practical way.
+for sending and receiving emails in an easier, practical way.
 
 ## E-mail definition
 
-E-mail is defined as simple POJO bean of type `Email`. Each part of
-e-mail message can be set separately. Moreover, `Email` supports fluent
+Email is defined as simple POJO bean of type `Email`. Each part of
+email message can be set separately. Moreover, `Email` supports fluent
 interface, so even definition of an e-mail message would look natural.
 
 `Email` supports plain text, HTML messages and any combination of both.
-When only text or HTML message is set, simple e-mail will be sent. When
+When only text or HTML message is set, simple email will be sent. When
 both text and HTML message is set, or when attachments are added,
 multipart e-mail will be sent. Actually, `Email` supports any number of
 separate messages to be sent as an email. Here are some examples using
@@ -52,8 +56,8 @@ Text and HTML email, high priority:
 
 All email addresses (from, to, cc...) may be specified in following ways:
 
-+ only by email address, eg: `some.one@jodd.com`
-+ by personal (display) name and email address in one string, eg: `John <some.one@jodd.com>`
++ only by email address, e.g.: `some.one@jodd.com`
++ by personal (display) name and email address in one string, e.g.: `John <some.one@jodd.com>`
 + by separate personal (display) name and email address
 + by providing `EmailAddress`, class that parses and validates emails per specification
 + by providing `InternetAddress` or just `Address` instance.
@@ -189,7 +193,7 @@ message! Hence the order of methods is important.
 Both ways are equally valid, just be sure to understand all consequences
 of using it.
 
-## Sending e-mails
+## Sending emails
 
 Emails are sent using `SendMailSession`. Mail session encapsulates
 process of preparing emails, opening and closing transport connection
@@ -265,7 +269,7 @@ Even the instance of the same class `ReceiveMailSession` is created by both
 POP3 and IMAP servers implementations, **not all** methods work in the same
 way! This difference depends on server type. Commonly, POP3 has less features
 (e.g. not being able to fetch all folder names for GMail account), while IMAP
-server is reacher (e.g. it supports server-side search).
+server is richer (e.g. it supports server-side search).
 {: .attn}
 
 During receiving, all emails are fetched and returned as an array of
@@ -369,7 +373,7 @@ or... simply, just works. For example, you should be able to use following metho
 
 + `getUnreadMessageCount()` - to get number of un-seen messages.
 + `getAllFolders()` - to receive all folders names
-+ server-side filtering - read next chapter
++ server-side filtering - read the next chapter
 
 
 ## Filtering emails
@@ -434,26 +438,3 @@ are downloaded. Note that searching capabilities of IMAP servers may vary.
 You can use the same filters on POP3 server, but keep in mind that
 the search is performed on the client-side, so still all messages
 have to be downloaded before the search is thrown.
-
-
-## Everything else...
-
-### Parsing EML files
-
-What if you have your emails stored in EML files. Not a problem, just use
-`EMLParser.create().parse()`. It accepts both file or files content as an input and
-returns `ReceivedEmail` of parsed EML message.
-
-### Gmail and new message count
-
-Gmail does not support the Recent flags on messages. Since the
-`getNewMessageCount()` method counts messages with the RECENT flags, *Jodd*
-will not (yet) find any such messages on Gmail servers (hence always returning
-value 0).
-
-### Email parsing and validation
-
-*Jodd* offer one great class for parsing and validating emails: `EmailAddress`.
-It works per RFC2822 standard. This class can be trusted to only
-provide authenticated results. Since the standard is quite complex,
-it is not a perfect yet, but it works much better then other solutions.
