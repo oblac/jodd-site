@@ -310,7 +310,6 @@ For POP3 connection, use `Pop3Server`:
             System.out.println("\n\n===[" + email.getMessageNumber() + "]===");
 
             // common info
-            Printf.out("%0x", email.getFlags());
             System.out.println("FROM:" + email.getFrom());
             System.out.println("TO:" + email.getTo()[0]);
             System.out.println("SUBJECT:" + email.getSubject());
