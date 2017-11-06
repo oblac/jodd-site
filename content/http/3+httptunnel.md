@@ -11,4 +11,4 @@ address.
 out the whole communication to the console.
 
 
-[1]: https://github.com/oblac/tools/blob/master/src/main/java/jodd/tools/http/TinyTunnel.java
+[1]: https://github.com/igr/tiny-tunnel
