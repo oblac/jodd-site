@@ -1,16 +1,12 @@
 # More registration
 
-More registration topics.
+Some more registration topics.
 
 ## Registering implementations
 
-*Petite* register beans by names. When working with simple POJOs, it is
-convenient to have bean names automatically generated from bean's class
-name. However, when there is an interface or abstract class to implement
-or extend with custom implementation, it is wise to name implementing
-bean with the interface name (if not with some non-related name).
+*Petite* register beans by their names. When working with simple POJOs, it is convenient to have bean names automatically generated from bean's class name. However, when there is an interface or abstract class to implement or extend with custom implementation, it is wise to name implementing bean with the interface name.
 
-Here is some business interface:
+Here is some interface:
 
 ~~~~~ java
     public interface Biz {
@@ -19,7 +15,7 @@ Here is some business interface:
 ~~~~~
 
 As said, implementation would be registered into *Petite* using
-interface name:
+interface name `biz`:
 
 ~~~~~ java
     @PetiteBean("biz")
@@ -39,7 +35,7 @@ Now injection reference may be defined simply as:
     }
 ~~~~~
 
-*Petite* will here inject annotated implementation (`DefaultBiz`).
+*Petite* will inject the implementation: `DefaultBiz`.
 
 ## Duplicated bean names
 
@@ -61,20 +57,16 @@ i.e. using manual registration.
 
 *Petite* container configuration consist of:
 
-* beans,
-* scopes,
-* init methods,
-* injection points,
-* provider definitions, and
-* properties.
++ beans,
++ scopes,
++ init methods,
++ injection points,
++ provider definitions, and
++ properties.
 
-For each part of configuration, there is at least one method that
-registers it, like: `registerPetiteBean`,
-`registerPetitePropertyInjectionPoint`, `registerPetiteInitMethods`,
-etc.
+For each part of configuration, there is at least one method that registers it, like: `registerPetiteBean`, `registerPetitePropertyInjectionPoint`, `registerPetiteInitMethods`, etc.
 
-When manually registering beans, there is one important thing to be
-aware of. There are two ways how a bean can be registered:
+When manually registering beans, there is one important thing to be aware of. There are two ways how a bean can be registered:
 
 * **default** registration - on first lookup, registered beans will
   scanned for init methods, provider definitions and injection points
@@ -86,37 +78,26 @@ aware of. There are two ways how a bean can be registered:
 
 ### PetiteRegistry
 
-Each registration method contains several optional arguments and that is
-not so developer-friendly if you do Java configuration. For this reason,
-*Petite* provides special class with only purpose to provide fluent
-registration: `PetiteRegistry`.
+*Petite* provides helper class with only purpose to provide fluent registration: `PetiteRegistry`.
 
 Here is how manual registration may look like:
 
 ~~~~~ java
 	PetiteContainer pc = new PetiteContainer();
+	PetiteRegistry r = pc.createContainerRegistry();
 
-	petite(pc).bean(SomeService.class).register();
-	petite(pc).bean(PojoBean.class).name("pojo").register();
+	r.bean(SomeService.class).register();
+	r.bean(PojoBean.class).name("pojo").register();
 
-	petite(pc).wire("pojo").ctor().bind();
-	petite(pc).wire("pojo").property("service").ref("someService").bind();
-	petite(pc).wire("pojo").method("injectService").ref("someService").bind();
-	petite(pc).init("pojo").invoke(POST_INITIALIZE).methods("init").register();
+	r.wire("pojo").ctor().bind();
+	r.wire("pojo").property("service").ref("someService").bind();
+	r.wire("pojo").method("injectService").ref("someService").bind();
+	r.init("pojo").invoke(POST_INITIALIZE).methods("init").register();
 ~~~~~
-
-Method `petite` is static factory of `PetiteRegistry`. Much more fluent
-:)
 
 ## Various ways of registration
 
-Full manual registration in plain Java may be unmaintainable and hard to
-follow. Because of *Petite* registration interface, there is unlimited
-number of ways how beans may be registered into the container. It is
-easy to build new system for beans registration, based on XML or on some
-other way, or to use different annotations and so on. Moreover, it is
-possible to influence the way how beans are registered and to utilize
-the whole process, as it will be shown next.
+Full, manual registration in plain Java may be unmaintainable and hard to follow. Because of *Petite* offers API for registration, there is unlimited number of ways how beans may be registered into the container. It is easy to build new system for beans registration, based on XML or on some other way, or to use different annotations and so on. Moreover, it is possible to influence the way how beans are registered and to utilize the whole process, as it will be shown next.
 
 One real-life example is the following situation: some module consist of
 business components that are wired together using internal *Petite*

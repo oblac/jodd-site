@@ -29,7 +29,7 @@ name starts with the bean name. Example:
 Sometimes, one parameter has to be injected in several different beans.
 In order to prevent repeating, it is possible to use parameter
 references. Parameter reference is a parameter name surrounded with
-\'`${}`\' that points to some other parameter. It can occur anywhere in
+`${}` that points to some other parameter. It can occur anywhere in
 the value string. Nested references are supported as well. Example:
 
 ~~~~~ java
@@ -51,7 +51,7 @@ Resolving references is optional and, by default, is turned on.
 parameters.
 {: .attn}
 
-References can be escaped with single \'`\`\' character, while \'`\\`\'
+References can be escaped with single `\` character, while `\\`
 removes escaping effect and are resolved to single backslash.
 
 References are resolved late, on their first injection.

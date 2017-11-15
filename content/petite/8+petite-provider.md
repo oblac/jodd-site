@@ -31,10 +31,10 @@ Lets define instance provider on this bean:
     }
 ~~~~~
 
-This *Petite* bean defines provider with name \'`planet`\'. Here the
+This *Petite* bean defines provider with name '`planet`'. Here the
 name has been specified manually. You may omit provider name in
 annotation value - the provider name will be equal to method name, with
-stripped suffix \'Provider\' (if exist).
+stripped suffix `Provider` (if exist).
 
 Providers are used by specifying their name on injection point. For
 example:
@@ -53,7 +53,7 @@ example:
     }
 ~~~~~
 
-Here we specify the injection point \'`planet`\'. Since there is no
+Here we specify the injection point '`planet`'. Since there is no
 other *Petite* bean named the same, *Petite* will lookup for provider
 and use provider method to get instance that will be injected into the
 field.
