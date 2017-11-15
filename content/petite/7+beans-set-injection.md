@@ -8,7 +8,7 @@ be injected as a `Set` collection into a target bean.
 ## Example
 
 Since this may sound a bit abstract at first sight, here is a simple
-example. Lets say we have an interface `SuperHero`\:
+example. Lets say we have an interface `SuperHero`:
 
 ~~~~~ java
     public interface SuperHero {
