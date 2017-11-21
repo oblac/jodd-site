@@ -317,21 +317,21 @@ and therefore it is reused for several requests.
 There are several ways how to do this. The easiest way is the following:
 
 ~~~~~~ java
-        HttpRequest request = HttpRequest.get("http://jodd.org");
-        HttpResponse response = request.connectionKeepAlive(true).send();
+    HttpRequest request = HttpRequest.get("http://jodd.org");
+    HttpResponse response = request.connectionKeepAlive(true).send();
 
-        // next request
-        request = HttpRequest.get("http://jodd.org/jodd.css");
-        response = request.keepAlive(response, true).send();
+    // next request
+    request = HttpRequest.get("http://jodd.org/jodd.css");
+    response = request.keepAlive(response, true).send();
 
-        ...
+    ...
 
-        // last request
-        request = HttpRequest.get("http://jodd.org/jodd.png");
-        response = request.keepAlive(response, false).send();
+    // last request
+    request = HttpRequest.get("http://jodd.org/jodd.png");
+    response = request.keepAlive(response, false).send();
 
-        // optionally
-        //response.close();
+    // optionally
+    //response.close();
 ~~~~~~
 
 This example fires several requests over the same `HttpConnection`
@@ -355,7 +355,17 @@ first connection.
 
 `HttpConnectionProvider` also allows you to specify the proxy. Just provide
 the `ProxyInfo` instance with the information about the used proxy
-(type, address, port, username, password).
+(type, address, port, username, password):
+
+~~~~~java
+    SocketHttpConnectionProvider s = new SocketHttpConnectionProvider();
+    s.useProxy(ProxyInfo.httpProxy("proxy_url", 1090, null, null));
+
+    HttpResponse response = HttpRequest
+        .get("http://jodd.org/")
+        .withConnectionProvider(s)
+        .send();
+~~~~~
 
 *HTTP* supports HTTP, SOCKS4 and SOCKE5 proxy types.
 
