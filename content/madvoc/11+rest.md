@@ -1,14 +1,19 @@
-# REST urls
+# REST
 
-*Madvoc* supports REST-alike URLs. Parts of mapped action path may
-contain **macros** - text chunk surrounded with **$\{** and **}** signs.
-Macros are used to resolve values from request action path. Values are
+*Madvoc* supports REST URLs. Parts of mapped action path may
+contain **macros** - text chunk surrounded with **{** and **}** signs.
+Macros are used to resolve values from the request action path. Values are
 injected in the action object, similarly as request parameters and
 attributes gets injected.
 
-## Examples
+Macros are always resolved in *Madvoc*.
 
-Here is a simple action class
+*Madvoc* provides `@RestAction` to specify the REST actions. This annotation defines no extension and specifies custom action configuration, i.e. custom behavior of action mapping and results rendering.
+
+
+## Macro Examples
+
+Here is a simple action class:
 
 ~~~~~ java
     @MadvocAction
@@ -16,13 +21,13 @@ Here is a simple action class
 
     	Long id;
 
-    	@Action("/user/${id}")
-    	public void viewUser() {
+    	@Action("/user/{id}")
+    	public void get() {
     	}
     }
 ~~~~~
 
-It's quite obvious: above action method is registered to set of action
+It's quite obvious: the action method is registered to the set of action
 paths that starts with `/user/`. For example, if request action path
 is `/user/173` *Madvoc* will match it to above action method. Second
 part of the request will be recognized as macros value. This value will
@@ -44,13 +49,6 @@ In this example, *Madvoc* will match whole set of request action paths:
 `/user-*.jpg` to this action method. For example, request:
 `/user-173.jpg` would be served by this method.
 
-In all above examples, `@Action` defines absolute action path. This is
-not required, i.e. action path with macros is built as usual,
-considering package, class and method annotations. However, only
-`@Action` annotation may contain macros.
-
-## Multiple macros
-
 One action path may contain multiple macros - usually separated by at
 least one character in between.
 
@@ -61,7 +59,7 @@ or wildcard pattern (default), you can narrow down request paths that
 invoke some action.
 
 Matching is usually important for the root actions. For example, macro
-`/${city}` will practically match **all** requests to one action (except
+`/{city}` will practically match **all** requests to one action (except
 explicitly defined using e.g. annotations). This means, for example,
 that even paths like `/favico.ico` or `/robots.txt` or even all `/*.png`
 will be mapped to the same action - which is probably something you
@@ -90,7 +88,7 @@ example:
 
     	Long id;
 
-    	@Action("/user/${id:^[0-9]+}")
+    	@Action("/user/{id:^[0-9]+}")
     	public void viewUser() {
     	}
     }
@@ -109,7 +107,7 @@ just letters:
 
     	String city
 
-    	@Action("/${city:^[a-z]+}")
+    	@Action("/{city:^[a-z]+}")
     	public void city() {
     	}
     }
@@ -134,15 +132,15 @@ in the result, as in following example:
 
 ~~~~~ java
 
-    	@Action("/user/${id:^[0-9]+}")
+    	@Action("/user/{id:^[0-9]+}")
     	public String viewUser() {
-    		return "#${:method}.ok";
+    		return "#{:method}.ok";
     	}
 ~~~~~
 
 Let's analyze the result value. First character is `#`, that means
 'go back', i.e. strip action method part from the end. Then we are
-adding a replacement `${:method}`, that will be replaced with the real
+adding a replacement `{:method}`, that will be replaced with the real
 method name. So, the result path of the above action method is:
 `/user/viewUser.ok`.
 
@@ -160,47 +158,21 @@ is an example:
         String id;
 
         @RestAction("${id}")
-        public void get() {}
+        public User get() {
+            return someUser;
+        }
 
         @RestAction("${id}")
         public String post() {
-            return "#post";     // don't have to do this
         }
     }
 ~~~~~
 
 With REST naming convention active (by `@RestAction`) the method `get()` is
-going to be mapped to url: `/user/${id}`, but only for GET requests.
-POST requests get mapped to method `post()` and so on. In this approach
+going to be mapped to url: `/user/${id}`, but only for `GET` requests.
+`POST` requests get mapped to method `post()` and so on. In this approach
 one action represents one REST _resource_.
 
-Resulting paths are going to be: `/user/get.jsp` and `/user/post.jsp`.
-
-This is common approach for REST apis. Still, you are able to build your
+This is common approach for REST APIs. Still, you are able to build your
 own naming convention if you like.
 
-## Use REST with JSON Action Result
-
-*Madvoc* does not provide out-of-box Action result handler that produces
-the JSON from the result. This is because there are so many ways how
-object can be serialized, how the response should look etc. We leave all
-this to you :) But at least you have good tools to make it easy.
-
-When building JSON api with *Madvoc* you probably should create your own
-JSON `ActionResult` that will handle action results and convert them into
-JSON. So your action may look like:
-
-~~~~~ java
-    @MadvocAction
-    public class BookAction {
-        @MyRestAction("${id}")
-        public Book get(@In int bookId) {
-            ...
-        }
-    }
-~~~~~
-
-Here we used custom annotation `MyRestAction` that defines your own
-action result handler for rendering returned values as JSON.
-
-Awesome!

@@ -1,23 +1,24 @@
 # Actions
 
-The three most important terms in *Madvoc* are:
+Actions in *Madvoc* are code handler for some path.
+The three most important terms regarding the actions are:
 
 + **action path** - the HTTP request path or the URL;
-+ **action** - handler method, mapped to action path, processes requests; and
++ **action** - handler method, mapped to an action path, processes requests; and
 + **result** - handler for whatever action method returns, provides
   a response (using e.g. JSP). Often results threat returned object
   as a _result path_.
 
 These three makes the whole cycle of handling request and providing
 response. Most of the configuration in *Madvoc* is done by convention,
-so always keep in mind this three dimensions of request processing.
+so always keep in mind this three dimensions of request handling.
 
 ## Action path
 
 **Action** is action _method_ defined in action class, mapped to some URL
-- the **action path**. *Madvoc* uses naming convention (CoC) and annotations
+- the **action path**. *Madvoc* uses naming convention and annotations
 to define action path from action method. By default, action path is
-built from package, class and method name of an action or its
+built from the package, class and method name of an action or its
 annotations, using the following convention:
 
 ~~~~~
@@ -34,9 +35,7 @@ annotations, using the following convention:
 * `action_package` - optional part of the action path that comes from
   action's package.
 
-By default, each part of action path is defined from method/class/package name
-so you don't have to explicitly specify anything.
-Still, each part of action path can be explicitly defined by corresponding annotation value, so you can easily override defaults.
+By default, each part of action path is defined from method/class/package name so you don't have to explicitly specify anything. Still, each part of action path can be explicitly defined by corresponding annotation value, so you can easily override defaults. Finally, you don't even have to use annotations - you can register your actions manually.
 
 ## Action class & action method
 
@@ -85,7 +84,7 @@ This action is mapped to: `/foo/boo.zoo/hello.exec.html`.
 
 One action class may contain more then one actions (action methods).
 This happens often, especially when you have set of similar
-requests over some same resource.
+requests over the same resource.
 
 ## Custom extension
 
@@ -109,11 +108,6 @@ custom extension using `@Action` annotation's element `extension`:
 
 The first action is mapped to: `/hello.world.jpg`. The second one is
 mapped to: `/hello.foo`.
-
-Action's extension is either default one or one defined by `@Action`
-element `extension`. There is no default convention in setting
-action's extension.
-{: .attn}
 
 Since *Madvoc* is very extensible, it is also possible to extend its
 component dedicated for action path registration and to implement custom
@@ -153,19 +147,21 @@ Nevertheless, it make sense to group several action paths (i.e. action
 classes) in one folder (i.e. package). *Madvoc* provides way how to
 include packages when building action paths.
 
-First, this feature must be turned on by setting the root package, one
-that will be mapped to the web root. This can be set during *Madvoc*
-initialization. One way of doing this is:
+You may do this with custom `WebApp`:
 
 ~~~~~ java
-    public class MyWebApplication extends WebApplication {
+    public class MyApp extends WebApp {
 
-    	@Override
-    	protected void init(MadvocConfig madvocConfig, ServletContext servletContext) {
-    		madvocConfig.getRootPackages().addRootPackageOf(IndexAction.class);
+		@Override
+		protected void configureMadvoc(MadvocConfig madvocConfig) {
+    		madvocConfig
+    			.getRootPackages()
+    			.addRootPackageOf(IndexAction.class);
     	}
     }
 ~~~~~
+
+Alternatively, you may add custom `@MadvocComponent` and set the same in the `Init` phase.
 
 Root package is defined by a package name and a path that package is mapped
 to. For web root you may omit the path. Also, the package name can be defined
@@ -195,16 +191,7 @@ is mapped to `/doc/hello.world.html`, if the root package is set to:
 You can specify more then one root package. Be careful not to overlap mapping
 paths!
 
-Root packages may be defined by putting an empty class named
-`MadvocRootPackage` (name is configurable) that is annotated with
-`@MadvocAction`. This class serves just as an marker for root packages.
-
-Finally, it is possible to specify custom action package using
-`@MadvocAction` annotation on package (in `package-info.java`).
-
-It is also possible to override package annotation value with
-`@MadvocAction` annotation of action class: if its value starts with
-'**/**' then package value is ignored.
+It is possible to specify custom action package using `@MadvocAction` annotation on a package (in the `package-info.java`). This will register the root package in the same way as we would do manually.
 
 Sometimes developer wants to group some action classes in separate
 subpackage, but doesn't want to change the action path (e.g. the root
@@ -221,7 +208,7 @@ in the sub-package:
 
 ## HTTP request methods
 
-By default, *Madvoc* will ignore value of HTTP request method. No matter
+By default, *Madvoc* ignores the value of HTTP request method. No matter
 if it is POST, GET or other, mapped action method will be invoked. If
 needed, *Madvoc* offers more control considering HTTP methods: it allows
 to specify one for action method, using `@Action` annotation's element
@@ -238,26 +225,8 @@ to specify one for action method, using `@Action` annotation's element
 ~~~~~
 
 This action method is mapped to `/form.store.html` and will be invoked
-only for POST HTTP request methods. GET and others will simply return
+only for `POST` HTTP request methods. `GET` and others will simply return
 error 404 (page not found).
-
-When HTTP method is specified, *Madvoc* will register such action path
-with appended HTTP method information. Action from above example is
-therefore mapped to: `/form.store.html#POST`.
-
-When looking up for the action path among registered once, *Madvoc*
-first tries to find action path with specified HTTP method. If such
-action path does not exist, *Madvoc* will lookup for action path with no
-HTTP method information.
-
-Similar as for extensions, it is possible to extend *Madvoc* to
-programatically specify HTTP method to actions that match some custom
-criteria.
-
-Nice practice is to specify the extension such as `do` using `@Action`
-annotation to all actions that are mapped to POST request (i.e. form
-submissions) and then to programatically set POST for those actions, and
-GET to all others; if it is not explicitly set different.
 
 ## Default action methods
 
@@ -279,14 +248,10 @@ ones. So, the following action:
     }
 ~~~~~
 
-is mapped simply to: `/index.html`. If more than one default method name
-is used, *Madvoc* will either take the last one, or will throw an
-exception indicating duplicated action paths (depending on
-configuration). Furthermore, default action names are part of global
-*Madvoc* configuration and can be customized as needed.
+Default action names are part of global *Madvoc* configuration and can be customized as needed.
 
-Alternatively, `@Action` annotation value element may be set to NONE
-value. Then the method name will be ignored when building action path.
+Alternatively, `@Action` annotation value element may be set to `NONE`.
+Then the method name will be ignored when building action path.
 Therefore, following action has the same action path mapping:
 
 ~~~~~ java
@@ -301,7 +266,7 @@ Therefore, following action has the same action path mapping:
 
 ## Action mapping cheat-sheet
 
-Following table summarize default behavior of `ActionMethodParser` -
+Following table summarize default behavior of the `ActionMethodParser` -
 *Madvoc* component dedicated for building action paths from registered
 actions.
 

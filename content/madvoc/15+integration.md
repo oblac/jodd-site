@@ -34,14 +34,10 @@ just matter of using `PetiteWebApplication` instead of
     <web-app ...>
 
     	...
-    	<filter>
-    		<filter-name>madvoc</filter-name>
-    		<filter-class>jodd.madvoc.MadvocServletFilter</filter-class>
-    		<init-param>
-    			<param-name>madvoc.webapp</param-name>
-    			<param-value>jodd.madvoc.petite.PetiteWebApplication</param-value>
-    		</init-param>
-    	</filter>
+		<context-param>
+			<param-name>madvoc.webapp</param-name>
+			<param-value>jodd.madvoc.petite.PetiteWebApplication</param-value>
+		</context-param>
     	...
     </web-app>
 ~~~~~
@@ -63,6 +59,7 @@ the container is created and simply auto-configured using full
 available class path at that time. However, it is easy to change this
 default behavior and even provide some external instance of *Petite*
 container.
+
 
 ## Petite and session scope
 

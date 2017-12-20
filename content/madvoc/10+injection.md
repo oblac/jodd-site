@@ -285,11 +285,6 @@ can be written as:
     }
 ~~~~~
 
-To have this approach working fine, you should have <var>jodd-proxetta</var>
-module in the project. It is needed to resolve parameter names
-as this can't be done using reflection. Otherwise, you would
-need to explicitly set the names of parameters in the annotations.
-
 There is one more thing to be careful with: you can't use
 immutable classes as output injection points. For example,
 you can't outject `int` or a `String`. All objects have to

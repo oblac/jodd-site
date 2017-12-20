@@ -23,16 +23,6 @@ Upload strategy for handling uploaded files is defined by used
 implementation of `FileUploadFactory`, as defined in global *Madvoc*
 configuration.
 
-## Different Result types
-
-Sometimes you want your action to return one result type if one condition is set
-and the other result type if some other condition is set instead.
-If both result types can be set with strings (like dispatcher and forward)
-you are fine. But if types are different classes, you have to use different
-trick.
-
-In this case just have action method return `Object`. Return any result
-class from your action and everything will still works. Nice!
 
 ## Nice URLs
 
@@ -92,31 +82,3 @@ Once registered in `WebApplication`, this custom version of
 that already doesn't explicitly specify it. So, if extension is \".do\"
 than action will be registered as a handler for POST requests; if
 extension is default \'.html\' than action is GET request handler.
-
-## Madvoc internal information
-
-*Madvoc* registers two actions for debugging purposes and inspection of
-internal *Madvoc* state. These actions are mapped to:
-`/madvoc-listAllActions.${ext}` and to `/madvoc-listAllActions.out`. All
-what they do is to prepare a sorted list of available action
-configurations (`ActionConfig`), results and interceptors. This
-information then can be used on JSP page to show more info about all
-registered actions, what is already initialized, what is registered and
-so on.
-
-Second action (`/madvoc-listAllActions.out`) does whatever the first do,
-except it print outs all results to the system output.
-
-## Configure Logger
-
-Logger should be set before `Madvoc` starts up, to capture all logs.
-You can enable your logger implementation in the constructor of
-`WebApplication`, since logger is not yet initialized.
-
-## Validation
-
-Although validation of user input is necessary part of every web
-application, *Madvoc* doesn't offer a solution for it. The reason why
-is that, in our opinion, validation is not part of just web layer, but
-instead it is spread across service layer as well. Therefore, web
-framework should not be tight so single validation framework.

@@ -18,7 +18,7 @@ with alias name and then allow 3rd party code to use it.
 
 ### Aliases defined in annotation
 
-Aliases may be defined using `@Action`\'s element `alias` on target
+Aliases may be defined using `@Action`'s element `alias` on target
 action.
 
 One of the previous examples can be re-written in the following way:
@@ -49,9 +49,7 @@ One of the previous examples can be re-written in the following way:
     }
 ~~~~~
 
-Alias is defined in the `IndexAction` class: alias name is `index`
-and value equals to the action path: `/index.html`.
-Therefore, behavior of the `OneAction#execute` action remains identical.
+Alias is defined in the `IndexAction` class: alias name is `index` and value equals to the action path: `/index.html`. Therefore, behavior of the `OneAction#execute` action remains identical.
 
 Aliases are convenient for `redirect:` results.
 {: .attn}
@@ -194,6 +192,7 @@ path.
 | /zoo/boo.foo               | (void) or (null)| /zoo/boo.foo            |
 | /zoo/boo.foo               | ##ok            | /zoo/ok                 |
 
+
 ## Custom result names
 
 Custom result handler has to extend `ActionResult` class. Since there are many
@@ -284,8 +283,7 @@ And the usage:
     }
 ~~~~~
 
-This example covers usage of custom result, and we used `@RenderWith`
-annotation.
+This example covers usage of custom result, and we used `@RenderWith` annotation.
 
 ### Better approach
 
@@ -310,5 +308,4 @@ serialize whatever is returned by the action. Simple as that ;)
 [1]: http://www.json.org/
 
 *[JSON]: JSON (JavaScript Object Notation) is a lightweight data-interchange format.
-
 [^1]: new result value is: `ok`
