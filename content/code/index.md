@@ -1,4 +1,4 @@
-# Jodds Source Code
+# Jodd's Source Code
 
 *Jodd* is hosted on **GitHub**:
 
@@ -6,13 +6,13 @@
 
 The Jodd's source code is released under the [BSD license](/license.html).
 
-## Get the Code
+## Get the Code <i class="fa fa-code-fork"></i>
 
 Clone the *Jodd* GitHub repository:
 
 	git clone https://github.com/oblac/jodd.git jodd
 
-## Build the Jodd
+## Build Jodd <i class="fa fa-cog"></i>
 
 *Jodd* is built with [Gradle](http://gradle.org) targeting **Java 1.8**.
 You don't have to install anything, the only prerequisites are
@@ -28,7 +28,7 @@ This will build all the jars and run all the unit tests. To skip the tests (for 
 
 And that's all!
 
-## Test the Jodd
+## Test Jodd <i class="fa fa-heartbeat"></i>
 
 Building the *Jodd* will run all the unit tests.
 
@@ -41,8 +41,7 @@ After that run all the tests with:
 
 	./gradlew build testAll
 
-
-## Contribute!
+## Contribute! <i class="fa fa-star"></i>
 
 Feel free to contribute! We accept patches, diffs and pure sources :)
 

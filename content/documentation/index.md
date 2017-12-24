@@ -14,7 +14,7 @@ Type conversion +
 Elegant and precise time class + Properties replacement +
 Tiny HTTP client + Many carefully selected utilities... and more!
 
-[Jodd tutorial in 30 minutes](http://joddframework.org) - micro-frameworks in action!
+[Jodd tutorial](http://joddframework.org) - micro-frameworks in action (30 min)!
 
 [Quickstart](https://github.com/oblac/jodd-quickstart) - start experiencing *Jodd* right away.
 
