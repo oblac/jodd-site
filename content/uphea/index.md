@@ -1,5 +1,7 @@
 # Uphea
 
+<%= render '/_deprecated.html' %>
+
 *Uphea* is an open-source real-world web application example built on
 *Jodd* frameworks. It presents many best-practices of using *Jodd*.
 Moreover, *Uphea* gives an excellent overview of key points and main

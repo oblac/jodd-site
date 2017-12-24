@@ -1,5 +1,7 @@
 # Working example
 
+<%= render '/_deprecated.html' %>
+
 Let's modify our webapp example. Instead of passing the name, we will
 pass the user id, then find it in the database, and print it in the jsp.
 

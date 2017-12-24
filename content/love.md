@@ -5,7 +5,7 @@ toc: false
 
 **Awesome** people loves *Jodd* :) Share your success stories with the community!
 
-## About Jodd
+## About...
 
 > Jodd is oriented more around simpler libraries for doing what people
 have oftentimes used heavyweight frameworks for
@@ -22,59 +22,28 @@ fail to that point so far. I've only ever seen application code fail in itself
 or fail due to a side effect or misunderstanding of the underlying libraries.
 
 
-## Liferay Portal
+## References
 
-The best Java open-source enterprise portal, Liferay Portal, uses few *Jodd*
-tools and utilities in it's core: *BeanUtil*, *Paramo*, *Json* etc.
+This is just a set of applications that use *Jodd* in same way.
 
-[liferay.com](http://liferay.com)
++ [Liferay Portal](http://liferay.com) - The best Java open-source enterprise portal, Liferay Portal, uses few *Jodd* tools and utilities in it's core: *BeanUtil*, *Paramo*, *Json* etc.
 
-## Apache JMeter
-
-Starting from version 2.9, this popular tool uses *Jerry* as one of the
++ [Apache JMeter](http://jmeter.apache.org/) - Starting from version 2.9, this popular tool uses *Jerry* as one of the
 extractors implementation.
 
-[jmeter.apache.org](http://jmeter.apache.org/)
++ [BookWatchr](http://www.bookwatchr.com/) - The complete website made with Jodd and nothing else by Jodd :)
 
-## BookWatchr
++ [Chasse aux Livres](https://www.chasse-aux-livres.fr/) - The complete awesome website made in Jodd.
 
-The complete website made with Jodd and nothing else by Jodd :)
++ [Webit Script](http://zqq90.github.io/webit-script/) - Template-like script and engine, with grammar similar to JavaScript and JSP; and with great performances.
 
-[www.bookwatchr.com/](http://www.bookwatchr.com/)
++ **eComm** - Set of government intranet applications for electronic communication with citizens via email, SMS or phone; working in few European countries. Uses full *Jodd* stack.
 
++ [Ihre Apotheke](http://www.ihre-apotheke.in) - Efficient pharmacy finder for Germany. Application uses *Madvoc*, *Joy*, the
+tag library, *Props* and finally the GZIP filter. Also, *Lagarto* was used for some back-end to fetch DBpedia data.
 
-## Chasse aux Livres
+### Submit your project!
 
-The complete awesome website made in Jodd.
+... and many, many more. Feel free to [contact us](/contact) with publicly available information about your project and how you used *Jodd* and we will list it here.
 
-[chasse-aux-livres.fr](https://www.chasse-aux-livres.fr/)
-
-
-## Webit Script
-
-Template-like script and engine, with grammar similar to JavaScript and JSP; and with great performances.
-
-[zqq90.github.io/webit-script](http://zqq90.github.io/webit-script/)
-
-
-## eComm
-
-Set of government intranet applications for electronic communication with
-citizens via email, SMS or phone; working in few European countries. Uses full
-*Jodd* stack.
-
-## Ihre Apotheke
-
-Efficient pharmacy finder for Germany. Application uses *Madvoc*, *Joy*, the
-tag library, *Props* and finally the GZIP filter. Also, *Lagarto* was used for
-some back-end to fetch DBpedia data.
-
-[www.ihre-apotheke.in](http://www.ihre-apotheke.in)
-
-
-## Submit your project!
-
-... and many, many more. Feel free to contact us with publicly available
-information about your project and how you used *Jodd* and we will list it here.
-
-Share your love with the world!
+[Share](/contact) your love with the world!

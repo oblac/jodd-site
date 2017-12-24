@@ -1,5 +1,7 @@
 # Tx with Proxetta
 
+<%= render '/_deprecated.html' %>
+
 Up to now, all database statements were executed in auto-commit mode
 (inside `DbSession`).
 This is not how it should be in practice. Services must ensure atomicity

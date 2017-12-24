@@ -1,5 +1,7 @@
 # Auth with interceptors
 
+<%= render '/_deprecated.html' %>
+
 Lets control page access using *Madvoc* interceptors. If user is not yet
 authenticated, it will be redirected to the login page. After the
 successful login, user continues with the requested page.

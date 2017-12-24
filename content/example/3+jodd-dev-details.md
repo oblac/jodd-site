@@ -1,5 +1,7 @@
 # Jodd development in details
 
+<%= render '/_deprecated.html' %>
+
 Next pages will describe development of web applications in more details.
 Here we will not use *Jodd* *Joy* application template. Instead, we will
 build it from the scratch.

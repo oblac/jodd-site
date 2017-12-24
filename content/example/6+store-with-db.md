@@ -1,5 +1,7 @@
 # Store with Db
 
+<%= render '/_deprecated.html' %>
+
 After setting the presentation layer and the service layer, we are
 ready to dive into the database. The first thing is connecting to one.
 As expected, we will initialize database connection in `AppCore`. But

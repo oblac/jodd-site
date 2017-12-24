@@ -1,6 +1,8 @@
 # Tx over actions
 
-Up to now we have used something what is consider as \'default\' layout
+<%= render '/_deprecated.html' %>
+
+Up to now we have used something what is consider as 'default' layout
 for three-tier web application. Actions uses services, transaction is
 started, services uses DAOs, result is returned.
 
@@ -15,10 +17,10 @@ code is dull and often one service has to return more results at once.
 
 Lets take different approach to make development more pragmatic. Since
 *Madvoc* actions are POJOs, we can say that our service starts with
-action\'s method invocation that stores results in the action object
+action's method invocation that stores results in the action object
 instead of returning them. So, *Madvoc* itself will be a presentation
 layer, not our actions. Our previous service layer now becomes a
-fine-grained business layer with \'thinner\' functions that can be
+fine-grained business layer with 'thinner' functions that can be
 combined together to make some real work done.
 
 In practice this means that we have to enable transactions over action

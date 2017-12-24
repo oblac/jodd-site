@@ -1,5 +1,7 @@
 # View with Madvoc
 
+<%= render '/_deprecated.html' %>
+
 The first step of this example will be to just enable *Madvoc* and prepare it for future enhancements.
 
 ## web.xml

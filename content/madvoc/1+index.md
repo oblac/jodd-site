@@ -12,6 +12,9 @@ technology and so on... What's best is that its developer friendly:
 *Madvoc* offers several ways how it can be configured or used,
 so you can use whatever matches your coding preferences.
 
+If you just want to start right-away, check [Joy](/joy).
+{: .attn}
+
 ## One minute tutorial
 
 This is a simple *Madvoc* action:
@@ -61,7 +64,7 @@ an *Madvoc* action:
 This time the mappings is:
 
 ~~~~~
-GET /book/123 → BookAction#get() → jsonOf(Book)
+GET /book/123 → BookAction#get() → Book.json
 ~~~~~
 
 Make and use _your own_ *Madvoc* conventions, easily!

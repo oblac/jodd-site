@@ -1,5 +1,7 @@
 # Serve with Petite
 
+<%= render '/_deprecated.html' %>
+
 We have two goals in this chapter: to build service layer with *Petite* container
 and to merge it with the our *Madvoc* web application. Of course, it is
 important to have Petite completely decoupled from the web layer.
