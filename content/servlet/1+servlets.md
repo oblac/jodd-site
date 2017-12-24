@@ -1,4 +1,4 @@
-# Jodd Servlets tools
+# Jodd Servlets utilities
 
 *Jodd* provides many Servlet and JSP-related tools.
 

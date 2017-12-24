@@ -175,42 +175,6 @@ snippet (from [Liferay](http://www.liferay.com) portal) shows the usage:
 
 ## BeanUtilBean
 
-`BeanUtil` is just an intreface. `BeanUtilBean` is the class that contains
+`BeanUtil` is just an interface. `BeanUtilBean` is the class that contains
 all the logic. You can create your variant of bean utilities and share it in
 your code. It should be thread-safe.
-
-## BeanCopy
-
-There is more: `BeanCopy` class offers copying functionality. It copies
-properties from source to destination bean.
-
-## BeanTemplateParser
-
-`BeanTemplateParser` is based on
-[StringTemplateParser](stringtemplateparser.html). a string template
-with JSP-alike markers that indicates where provided context values will
-be injected. Usage is quite simple:
-
-~~~~~ java
-    // prepare template
-    String template = "Hello ${user.name}. Today is ${dayName}.";
-    ...
-
-    // prepare context
-    Foo foo = new Foo();
-    foo.getUser().setName("John Doe");
-    foo.setDayName("Saturday");
-    ...
-    // parse
-    BeanTemplateParser btp = new BeanTemplateParser();
-    String result = btp.parse(template, foo);
-    // result == "Hello John Doe. Today is Saturday."
-~~~~~
-
-## Performance test
-
-`BeanUtil` seems almost 20% faster compared to
-[Commons BeanUtils v1.8](http://commons.apache.org/beanutils/).
-However, the performance is not the only reason why `BeanUtil` is a good choice, as seen above.
-
-![BeanUtil performance test](beanutil-benchmark.png)

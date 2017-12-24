@@ -1,6 +1,3 @@
------
-toc: false
------
 # Printf
 
 Remember C and sprintf? It was a long time ago:) That was very useful

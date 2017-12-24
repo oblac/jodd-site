@@ -458,12 +458,3 @@ When enabled (default), multi-line values may be written in more
 convenient way using triple-quote (like in python). Everything between
 triple-quotes is considered as a value, so new line does not need to be
 escaped.
-
-## IntelliJ IDEA plugin
-
-There is [IntelliJ IDEA plugin][1] that provides support
-for *Props* files. For now, this support is basic, but it will be
-enhanced in time. Feel free to improve it :)
-
-
-[1]: http://plugins.intellij.net/plugin/?idea&id=5984

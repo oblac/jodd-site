@@ -40,14 +40,14 @@ new method name is required.
 Two important things to remember:
 
 1.  Although there is a target method invocation, **method code is NOT
-    executed**! Proxy just returns <code>null</code> or a method name
-    if methods return type is a <code>String</code>.
+    executed**! Proxy just returns `null` or a method name
+    if methods return type is a `String`.
 2.  *Methref* instances are not thread safe and should be not shared;
     create new `Methref` where needed.
 
 ## Methods that return String
 
-When method returns a <code>String</code> there is even a shortcut!
+When method returns a `String` there is even a shortcut!
 Such methods will return method name as a result. For example:
 
 ~~~~~ java

@@ -102,3 +102,8 @@ Escape character may be used to prefix boundaries so they can be
 ignored. Double escaped regions will be found, and first index of the
 result will be decreased to include one escape character. If region is
 not founded, `null` is returned.
+
+## And more!
+
+Obviously, this is just a subset of ever-growing number of utilities we provide in the `StringUtil`. Please check the code or the javadocs :)
+

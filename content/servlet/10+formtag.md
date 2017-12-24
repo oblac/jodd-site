@@ -6,8 +6,6 @@ HTML-encoded, then there are checkboxes and radios, select boxes with
 options and so on. `Jodd` offers one very simple way how to populate
 forms.
 
-## Usage
-
 It is trivial: just wrap form with `Form` tag. That is all. Example:
 
 ~~~~~ html
