@@ -4,39 +4,44 @@ Once when pointcuts and advices are defined, it is easy to define a
 proxy aspect itself:
 
 ~~~~~ java
-    ProxyAspect aspect = new ProxyAspect(LogProxyAdvice.class, pointcut);
+    ProxyAspect aspect = ProxyAspect.of(LogProxyAdvice.class, pointcut);
 ~~~~~
 
-`ProxyAspect` is just a simple holder of advice and pointcuts, used for
-creating `Proxetta` implementations.
+`ProxyAspect` is nothing but a simple holder of the advice and pointcuts, used for creating `Proxetta` implementations.
 
-This page explains `ProxyProxetta`, but many things here are common for
-other *Proxetta* types as well.
+This page describes `ProxyProxetta` type of proxies, but many things here are common for other *Proxetta* types as well.
 {: .attn}
 
-## Creating Proxetta
+## Creating Proxetta (step 1)
 
-First step is to create and configure *Proxetta*. For the simplicity,
-all *Proxetta* implementations have static builder methods:
-`withAspects()`.
-
-So, lets create new `ProxyProxetta`:
+For each type of *Proxetta*, there is a static factory method (yes, you can use `new` instead if that is your thing):
 
 ~~~~~ java
-    ProxyProxetta proxetta = ProxyProxetta.withAspects(aspect);
+    Proxetta.proxyProxetta();
+    Proxetta.wrapperProxetta();
+    Proxetta.invokeProxetta();
 ~~~~~
 
-Of course, you could use the constructor instead.
+Each method returns specific *Proxetta* builder. Just continue using it by following the fluent interface. Yes, it's that simple.
 
-Now it's time to configure created *Proxetta*.
+Let's create a new `ProxyProxetta`:
 
-## Proxetta configuration
+~~~~~ java
+    ProxyProxetta proxetta =  Proxetta
+            .proxyProxetta()
+            .withAspect(aspect1)
+            .withAspect(aspect2);
+~~~~~
+
+Now it's time to configure created *ProxyProxetta* - or you can just skip the next step and go with the defaults.
+
+## Proxetta configuration (step 2)
 
 Each `Proxetta` implementation share the same set of properties.
 
 ### forced
 
-Specifies \'forced\' mode. If `true`, the new proxy class will be
+Specifies 'forced' mode. If `true`, the new proxy class will be
 created even if there are no matching pointcuts. Otherwise, new proxy
 class will be created only if there is at least one matching pointcut.
 
@@ -60,40 +65,32 @@ Defines class name suffix of generated classes.
 When debug folder is set, *Proxetta* will save all classes upon their
 creation into that folder. Very useful for debugging purposes!
 
-## Creating Builder
+## Creating Proxy (step 3)
 
-Once when `Proxetta` is created and configured, we can use it multiple
-times to create a **builder**. *Proxetta* builders are responsible for
-creating classes using bytecode manipulation.
+Finally, once when `Proxetta` is created and configured, we can re-use it multiple times to create a **factory** for proxies. *Proxetta* proxy factories are responsible for creating proxy classes using bytecode manipulation.
 
-*Proxetta* builder is created with method `builder()`.
-
-For the builder we must first define the target class/name or target
-input stream that will be processed. This is done by set of
-`setTarget()` methods. Once target is defined, builder can build a
-proxy.
-
-For the simplicity, there are shortcuts: overloaded `builder` methods,
-that batch invocation of `builder` and `setTarget` methods.
-
-## Generating class
-
-The following builder methods are available for creating class:
-
-* `create` - generates class and returns its `byte[]` content.
-* `define` - loads created class bytes and returns as a `Class`.
-* `newInstance` - instantiates default constructor for defined class.
-
-Finally, lets continue our example:
+The proxy factory then can be applied to the target class:
 
 ~~~~~ java
-    Class fooClass = proxetta.builder(Foo.class).define();
+    proxetta.proxy().setTarget(targetClass);
+~~~~~
+
+The following factory methods are available for creating a proxy class:
+
+* `create()` - generates class and returns its `byte[]` content.
+* `define()` - loads created class bytes and returns as a `Class`.
+* `newInstance()` - instantiates default constructor for defined class.
+
+So the previous line becomes:
+
+~~~~~ java
+    Class fooClass = proxetta.proxy().setTarget(Foo.class).define();
 ~~~~~
 
 or, directly an instance:
 
 ~~~~~ java
-    Foo foo = proxetta.builder(Foo.class).newInstance();
+    Foo foo = proxetta.proxy().setTarget(Foo.class).newInstance();
 ~~~~~
 
 Note: generated classes do not contain any debug information to avoid
@@ -105,7 +102,7 @@ local variable information.
 
 ![proxy proxetta](ProxyProxetta.png)
 
-`ProxyProxetta` extends target class. Pointcut method are overriden in
+`ProxyProxetta` extends a target class. Pointcut method are overridden in
 proxy. During the execution of adviced code in generated method, target
 method is called using `super` reference. Proxy methods has the same
 annotations as the target methods.
@@ -151,40 +148,6 @@ It is easy to apply aspects on beans registered in the
 [*Petite*](/petite/) container transparently. *Petite* has
 single point method for beans registration. User may override this
 method and create proxy for each bean type before it is actually
-registered in the container:
+registered in the container.
 
-~~~~~ java
-    public class MyPetiteContainer extends PetiteContainer {
-
-    	protected final ProxyProxetta proxetta;
-    	public MyPetiteContainer(ProxyProxetta proxetta) {
-    		this.proxetta = proxetta;
-    	}
-
-    	@Override
-    	protected BeanDefinition registerPetiteBean(
-    			String name,
-    			Class type,
-    			Class<? extends Scope> scopeType,
-    			WiringMode wiringMode) {
-
-    		if (name == null) {
-    			name = PetiteUtil.resolveBeanName(type);
-    		}
-
-    		ProxyProxettaBuilder builder = proxetta.builder();
-    		builder.setTarget(type);
-    		type = builder.define();
-
-    		return super.registerPetiteBean(name, type, scopeType, wiringMode);
-    	}
-    }
-~~~~~
-
-Attention with bean name: since `Proxetta` modifies the name of class
-that will be modified, bean name has to be resolved **before** proxy is
-defined on the type.
-{: .attn}
-
-Here *Proxetta* instance as well as advices and pointcuts are created
-outside the container.
+There is already a class that does that: `ProxettaAwarePetiteContainer`.

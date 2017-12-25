@@ -19,25 +19,20 @@ should be invoked instead.
 Here is an example of proxy creation:
 
 ~~~~~ java
-    Proxetta proxetta = InvokeProxetta.withAspects(
-    		new InvokeAspect() {
-    			@Override
-    			public InvokeReplacer pointcut(InvokeInfo invokeInfo) {
-    				if (invokeInfo.getMethodName().equals("foo")) {
-    					return InvokeReplacer.with(Replacer.class, "bar");
-    				}
-    				return null;
-    			}
-    		}
-    	};
+    Proxetta proxetta = Proxy.invokeProxetta().withAspect(
+		invokeInfo -> {
+			if (invokeInfo.getMethodName().equals("foo")) {
+				return InvokeReplacer.with(Replacer.class, "bar");
+			}
+			return null;
+		}
+	};
 ~~~~~
 
-Invoke aspect from the example is set on all invocations of method
-called `foo()`. Invocations will be replaced with the static method
-`Replacer.bar()`. Now, lets apply the proxy:
+Invoke aspect is set here on all invocations of method named `foo()`. Invocations will be replaced with the static method `Replacer.bar()`. Now, lets apply the proxy:
 
 ~~~~~ java
-    One one = proxetta.builder(One.class).newInstance();
+    One one = proxetta.proxy().setTarget(One.class).newInstance();
 ~~~~~
 
 Instance of `One` is now proxified. If class `One` looks like this:
@@ -140,12 +135,9 @@ Because replacement method is defined as a string, we can build them
 dynamically, as in following example:
 
 ~~~~~ java
-	new InvokeAspect() {
-		@Override
-		public InvokeReplacer pointcut(InvokeInfo invokeInfo) {
-			return InvokeReplacer.with(Replacer.class,
-				invokeInfo.getMethodName() + invokeInfo.getArgumentsCount());
-		}
+	invokeInfo -> {
+		return InvokeReplacer.with(Replacer.class,
+			invokeInfo.getMethodName() + invokeInfo.getArgumentsCount());
 	}
 ~~~~~
 
@@ -204,26 +196,23 @@ feature. Lets take an example:
     }
 ~~~~~
 
-If we call method `One#example()` it would, obviously, print \'`null`\'.
-Now, lets replace constructor call with *Proxetta*\:
+If we call method `One#example()` it would, obviously, print "`null`".
+Now, lets replace constructor call with *Proxetta*:
 
 ~~~~~ java
-    InvokeProxetta proxetta = InvokeProxetta.withAspects(
-    		new InvokeAspect() {
-    			@Override
-    			public InvokeReplacer pointcut(InvokeInfo invokeInfo) {
-    				if (invokeInfo.getMethodName().equals("<init>")) {
-    					return InvokeReplacer.with(Replacer.class,
-    						"new" + invokeInfo.getClassShortName());
-    				} else {
-    					return null;
-    				}
-    			}
-    		});
+    InvokeProxetta proxetta = Proxy.invokeProxetta.proxy().withAspect(
+    		invokeInfo -> {
+				if (invokeInfo.getMethodName().equals("<init>")) {
+					return InvokeReplacer.with(Replacer.class,
+						"new" + invokeInfo.getClassShortName());
+				} else {
+					return null;
+				}
+			}
+    	);
 ~~~~~
 
-Now we are replacing **all** constructors with
-`Replacer#new${ClassName}` methods. For example:
+Now we are replacing **all** constructors with `Replacer#new${ClassName}` methods. For example:
 
 ~~~~~ java
     public class Replacer {
@@ -236,7 +225,7 @@ Now we are replacing **all** constructors with
 ~~~~~
 
 If we run proxified class `One`, this time we will have the result
-\'`hello`\'. And we didn\'t touch the source of `One`!
+"`hello`". And we didn't touch the source of `One`!
 
 ## Additional arguments
 

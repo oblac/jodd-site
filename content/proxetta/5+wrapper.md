@@ -14,19 +14,19 @@ the instance - you must inject the target instead into it, too.
 
 There are 3 ways how to build a wrapper.
 
-### wrapper over class
+### Wrapper over class
 
 Resulting object is custom type that implements all interfaces of the
 target. All target methods are wrapped.
 
-### wrapper over class, casted to interface
+### Wrapper over class, casted to interface
 
 Similar as above, except the resulting type implements one interface
 (provided by user). Still, all target methods are wrapped, even those
 that does not belong to the interface. They can be invoked using e.g.
 reflection.
 
-### wrapper over interface
+### Wrapper over interface
 
 Resulting object has one interface, and only interface methods are
 wrapped.
@@ -37,8 +37,14 @@ Here is an example how to create wrapper class and inject target
 instance into it.
 
 ~~~~~ java
-    WrapperProxetta proxetta = WrapperProxetta.withAspects(aspect);
-    WrapperProxettaBuilder builder = proxetta.builder(calculatorClass, Calc.class);
-    Calc calc = builder.newInstance();
-    builder.injectTargetIntoWrapper(calc, calculatorObject);
+    WrapperProxetta proxetta = Proxetta
+    		.wrapperProxetta()
+    		.withAspect(aspect);
+    WrapperProxettaFactory factory = proxetta
+			.proxy()
+			.setTarget(calc.getClass())
+			.setTargetInterface(Calc.class);
+
+    Calc calc = factory.newInstance();
+    factory.injectTargetIntoWrapper(calc, calculatorObject);
 ~~~~~
