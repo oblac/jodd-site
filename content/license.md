@@ -5,7 +5,11 @@ toc: false
 
 *Jodd* software is released under **Simplified BSD License**.
 
+<br>
+
 ---
+
+<br>
 
 Copyright (c) 2003-<%= Time.now.year %>, Jodd Team
 All rights reserved.
@@ -31,5 +35,7 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+<br>
 
 ---

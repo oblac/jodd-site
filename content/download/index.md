@@ -7,13 +7,9 @@ including Linux, UNIX, Windows, MacOSX.
 *Jodd* is **FREE** software released under the terms of the [BSD
 license](/license.html).
 
-Please find some information how *Jodd* is organized
-into the [modules](/documentation/modules.html).
-
-## Maven repositories
+## Maven repositories <i class="fa fa-arrow-circle-o-down"></i>
 
 *Jodd* jars are published on **Maven central** and **jCenter** repository.
-Snapshots are released on **jCenter** only.
 
 ### Maven
 
@@ -43,7 +39,7 @@ libraryDependencies += "org.jodd" % "jodd-xxx" % "<%=@config[:jodd][:version]%>"
 	<dependency org="org.jodd" name="jodd-xxx" rev="<%=@config[:jodd][:version]%>"/>
 ~~~
 
-## All-in-One Bundle
+## All-in-One Bundle <i class="fa fa-paper-plane-o"></i>
 
 We also provide *Jodd* bundle: `jodd-all`. It is available on Maven central
 repository. But you can also download it from here with just one click:
