@@ -45,17 +45,20 @@ svg#downTriangleColor {
 				<%= render '/_social.html' %>
 			</div>
 
-			<img id="pplane" src="/jodd-pp-128.png">
-
+			<div style='float:right; width: 0px;'>
+			<div id="pplane">
+			<img src="/jodd-pp-128.png" style="position:relative;top:-84px; right:-90px;">
+			</div>
+			</div>
+			
 		</div>
 	</section>
 
-	<section id="shout" class="ss-style-bigtriangle">
+	<section id="shout" class="ss-style-bigtriangle">			
 		<div class="inner">
-			<%= yield %>
+			<%= yield %>			
 		</div>
 	</section>
-
 	<svg id="bigTriangleColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
 	<path d="M0 0 L50 100 L100 0 Z" />
 	</svg>
@@ -205,26 +208,6 @@ svg#downTriangleColor {
 <p>
 <b>Jodd</b> is oriented around simpler libraries for doing what people have often times used heavyweight frameworks for: not in terms of performance though necessarily, but in terms of mental efforts and scaffolding required to get an MVP out the door. The very point of minimalism from a reliability perspective is to reduce points of failure in code with simply fewer parts.
 </p>
-
-<p>
-<b>Jodd</b> tools and microframeworks tries to make things as simple as possible, but no simpler.
-</p>
-
-<a id="scs"></a>
-<h2>Simple Common Sense principle</h2>
-
-<p>
-Being <i>Too Smart</i>, programmers introduce various kinds of <i>Magic</i> into their software.
-This will usually lead to a software design that is more generic, dynamic and flexible than is needed,
-has more features than is needed, and is hence much more complex than is needed.
-Also, generally, complex solutions will be slower than simple counterparts,
-will be more prone to containing bugs, will be more difficult to debug,
-more difficult to maintain, more difficult to explain,
-and more difficult to learn. Which are, generally, bad things.
-</p>
-
-<p><b>Jodd</b>, instead, is designed to follow simple common sense.</p>
-
 		</div>
 	</section>
 

@@ -2,10 +2,11 @@
 layout: '/jodd.html'
 ---
 
-*Jodd* is set of Java **microframeworks**, **tools** and **utilities**, under
-[**<%= @config[:jodd][:size] %> MB**](#small).
+Jodd is **developer-friendly** set of Java
 
-We believe in [common sense](#scs) to make things simple, but not simpler.
+**microframeworks**, **tools** and **utilities**, under [**<%= @config[:jodd][:size] %> MB**](#small).
+
+Build  with _common sense_ to make things simple, but not simpler.
 
 Get things done! Make your ideas! Kickstart your startup!
 

@@ -135,6 +135,17 @@ div.button-long {
 	display:block;
 }
 
+#pplane {
+	z-index:101;
+	position: absolute;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
 #intro {
 	background: url(/vs.jpg) no-repeat fixed;
 	background-size: 100% auto;
@@ -142,19 +153,6 @@ div.button-long {
 
 	header {
 		background-color: #fff;
-	}
-	#pplane {
-		float:right;
-		z-index:100;
-		position: relative;
-		top: -82px;
-		left: 40px;
-		-moz-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
 	}
 }
 
