@@ -304,5 +304,3 @@ DST is supported only partially, for now. By default, DST tracking is
 off (flag: `trackDST`). When DST tracking is on, JDateTime will track
 DST only during adding/subtracting the time. What remains is that it is
 still possible to set invalid time (that, for example, doesn't exist).
-
-![jdatetime performace test](jdate-benchmark.png)

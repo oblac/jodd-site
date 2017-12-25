@@ -25,11 +25,11 @@ module Toc
         end
 
         # Build table of contents
-        res = %[<div id="toc"><h2>Page Content&nbsp;&nbsp;<i class="fa fa-file-text-o"></i></h2>\n<ul class="toc-1">]
+        res = %[<div id="toc"><div id="xtoc"><h2>Page Content&nbsp;&nbsp;<i class="fa fa-file-text-o"></i></h2>\n<ul class="toc-1">]
         headers.each do |header|
           res << %[<li class="toc-#{header[:name]}"><a href="##{header[:id]}">#{header[:title]}</a></li>]
         end
-        res << '</ul></div>'
+        res << '</ul></div></div>'
 
         res
       end

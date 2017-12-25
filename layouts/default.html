@@ -3,6 +3,17 @@
 <head>
 	<title><%= 'Jodd | ' + (@item[:title] ? @item[:title] : @config[:site][:slogan]) %></title>
 	<%= render '/_head.html' %>
+	<script>
+$(window).scroll(function () {
+	if ($(window).scrollTop() > 180) {
+		$("#xtoc").addClass("fixed");
+		$('#content aside').css('padding-top', $("#xtoc").height());
+	} else {
+		$("#xtoc").removeClass("fixed");
+		$('#content aside').css('padding-top', '0');
+	}
+});	
+	</script>
 </head>
 <body>
 	<%= render '/_search.html' %>

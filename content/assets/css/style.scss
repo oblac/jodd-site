@@ -483,14 +483,28 @@ div.button-long {
 		li.toc-h3 {
 			//margin-left: 26px;
 			//font-size: 14px;
+		
 		}
-		#toc {
+		#xtoc {
+			padding-left: 20px;
+		}
+		.fixed {
+			position:fixed !important;
+			top:0;
 			background-color: #fff;
-			position: relative;
-			left: -22px;
 			padding: 15px 0 20px 20px;
 			margin: 0 0 30px 0;
 			@include box-shadow(#eee 4px 4px 10px);
+			width: 240px;
+			z-index: 111;
+		}		
+		#toc {
+			background-color: #fff;
+			padding: 15px 0 20px 0;
+			margin: 0 0 30px 0;
+			@include box-shadow(#eee 4px 4px 10px);
+			position: relative;
+			left: -22px;
 			h2, h3 {
 				font-size: 1.1em;
 				text-transform: uppercase;
@@ -893,10 +907,14 @@ footer {
     top: -40px;
 }
 #content {
+	#toc {
+		display: none;
+	}
 	aside {
 		position: static;
 		width: auto;
 		padding: 20px;
+		padding-top: 40px !important;
 	}
 	article {
 		padding-right: 20px;
