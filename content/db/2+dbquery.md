@@ -163,3 +163,20 @@ You could also use `q.setGeneratedKey()` instead of
 `q.setGeneratedColumns()` in the first example, if that sounds better to
 you :) Please note that some old database drivers does not support this
 feature (like HSQLDB 1.x).
+
+## Stored Procedures
+
+`DbQuery` supports calling stored procedures. The result of the stored procedure is encapsulated in `DbCallResult`.
+
+~~~~~ java
+    DbQuery query = new DbQuery(connection, "{ :upp = call upper( :str ) }");
+    query.setDebugMode();
+    query.setString("str", "some lowercase value");
+    query.outString("upp");
+    
+    DbCallResult callResult = query.executeCall();
+    // now work with result from stored procedure via DbCallResult
+    String str = callResult.getString("upp")
+
+    query.close();
+~~~~~
