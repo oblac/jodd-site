@@ -59,25 +59,3 @@ the container is created and simply auto-configured using full
 available class path at that time. However, it is easy to change this
 default behavior and even provide some external instance of *Petite*
 container.
-
-
-## Petite and session scope
-
-To enable session scoped *Petite* beans, it is required to register
-the following listener:
-
-~~~~~ xml
-    <web-app ...>
-    	...
-    	<listener>
-    		<listener-class>
-                jodd.servlet.RequestContextListener
-            </listener-class>
-    	</listener>
-    	...
-    </web-app>
-~~~~~
-
-`RequestContextListener` store request in the current thread and all
-child threads, so it can be easily accessible. It also keep
-track of sessions.

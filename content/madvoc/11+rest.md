@@ -1,17 +1,13 @@
 # REST
 
-*Madvoc* supports REST URLs. Parts of mapped action path may
-contain **macros** - text chunk surrounded with **{** and **}** signs.
-Macros are used to resolve values from the request action path. Values are
-injected in the action object, similarly as request parameters and
-attributes gets injected.
+*Madvoc* supports REST APIs as well! Common thing with mapping REST endpoints is to specify _macros_: parts of request path that represents an ID - or input parameter, in general. Of course, you can use macros on any request, not only for the REST apis.
 
-Macros are always resolved in *Madvoc*.
+To simplify building the REST apis, *Madvoc* provides `@RestAction` annotation that does two things:
 
-*Madvoc* provides `@RestAction` to specify the REST actions. This annotation defines no extension and specifies custom action configuration, i.e. custom behavior of action mapping and results rendering.
+1. it changes the naming strategy for REST apis, and
+2. renders the result object as JSON.
 
-
-## Macro Examples
+## Path Macros
 
 Here is a simple action class:
 
@@ -52,34 +48,9 @@ In this example, *Madvoc* will match whole set of request action paths:
 One action path may contain multiple macros - usually separated by at
 least one character in between.
 
-## Matching
-
-*Madvoc* supports macros matching, too. By defining regular expression
-or wildcard pattern (default), you can narrow down request paths that
-invoke some action.
-
-Matching is usually important for the root actions. For example, macro
-`/{city}` will practically match **all** requests to one action (except
-explicitly defined using e.g. annotations). This means, for example,
-that even paths like `/favico.ico` or `/robots.txt` or even all `/*.png`
-will be mapped to the same action - which is probably something you
-didn't want. Therefore we have to filter out requests that we don't
-need.
-
-### Wildcard matching
-
-By default, paths are matched using wildcards. It's simple and fast.
-
 ### RegExp matching
 
-For advanced use cases, user may turn on regular expression.
-
-In above examples there are no checking if the macro value is a number -
-so, even invalid action paths (e.g. `/user/huh`) will be invoked by
-mapped action methods.
-
-*Madvoc* provides regular expression matching of the macro values.
-RegExp pattern can be defined after the macro name, as in the following
+By default, *Madvoc* uses regular expression when mapping paths. RegExp pattern can be defined after the macro name, as in the following
 example:
 
 ~~~~~ java
@@ -98,8 +69,7 @@ This action method is mapped on all request action paths that starts
 with `/user/` and have a number appended as a macro value. Invalid urls
 will be simply ignored and error 404 will be raised.
 
-Here is another result how to filter out all paths that does not contain
-just letters:
+Here is another result how to filter out all paths that does not contain just letters:
 
 ~~~~~ java
     @MadvocAction
@@ -117,38 +87,19 @@ Since in root, this macro will successfully filter out requests like
 `/favico.ico` or all images, and this action will be invoked only for
 cities.
 
+## Wildcard matching
+
+Alternatively, paths may be matched using wildcards. It's simple and fast.
+
 ### Custom matching
 
 Of course, it is possible to create custom path macro definition - one
 that may be more complex then regular expression, or more specific
-to your needs. See the code for how :)
+to your needs.
 
-## Result path
+## REST annotation
 
-Result path is build from the action path. When action path contains
-RegExp pattern, resulting path may not be a valid file name (for
-dispatching to, for example). For such situation we can use replacements
-in the result, as in following example:
-
-~~~~~ java
-
-    	@Action("/user/{id:^[0-9]+}")
-    	public String viewUser() {
-    		return "#{:method}.ok";
-    	}
-~~~~~
-
-Let's analyze the result value. First character is `#`, that means
-'go back', i.e. strip action method part from the end. Then we are
-adding a replacement `{:method}`, that will be replaced with the real
-method name. So, the result path of the above action method is:
-`/user/viewUser.ok`.
-
-## REST annotation naming convention
-
-But there are even more REST in *Madvoc*: REST naming convention.
-It is just a different convention how action paths are built. Here
-is an example:
+Example of an REST endpoints:
 
 ~~~~~ java
     @MadvocAction
@@ -157,22 +108,17 @@ is an example:
         @InOut
         String id;
 
-        @RestAction("${id}")
-        public User get() {
+        @RestAction("${id}") @GET
+        public User findUser() {
             return someUser;
         }
 
         @RestAction("${id}")
-        public String post() {
+        public String post(
+            @In @Scope(BODY) User user) {
+                ...
         }
     }
 ~~~~~
 
-With REST naming convention active (by `@RestAction`) the method `get()` is
-going to be mapped to url: `/user/${id}`, but only for `GET` requests.
-`POST` requests get mapped to method `post()` and so on. In this approach
-one action represents one REST _resource_.
-
-This is common approach for REST APIs. Still, you are able to build your
-own naming convention if you like.
-
+`@RestAction` comes with custom name convention. First, you can use method names to specify the HTTP method - if a method name starts with it. In above example, the second method `post()` will be invoked only for `POST` requests. Of course, you can still use the specific annotations for that.

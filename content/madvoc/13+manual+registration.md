@@ -8,45 +8,25 @@ lost without a nice overview of what is actually registered.
 For that reason, it is possible to register _everything_ in *Madvoc*
 manually. Here is how.
 
-## MadvocApp
+## The Router
 
-Meet the `MadvocApp` class, the one that provides manual registration of the *Madvoc*!
-This is an abstract class, so if you want to use it you have to extend it.
-
-First, define custom madvoc application (manually):
+`WebApp` provides a _router_ - way to specify action handlers in an easy, developer-friendly way. One way to get to the router is by extending the `WebApp`:
 
 ~~~~~ java
-    public class MyApp extends MadvocApp {
+    public class MyApp extends WebApp {
         @Override
-        public void start() {
-
-            result(TextResult.class);
-
-            action()
-                    .path("/hello")
-                    .mapTo(BooAction.class, "foo1")
-                    .bind();
-
-            action()
-                    .path("/world")
-                    .mapTo(BooAction.class, "foo2")
-                    .interceptedBy(EchoInterceptor.class)
-                    .extension(NONE)
-                    .bind();
-
-            interceptor(EchoInterceptor.class, i->i.setPrefixIn("====> "));
+        protected void initialized() {
+            route()
+                .path("/hello")
+                .mapTo(BooAction.class, "foo1")
+                .bind()
+            .get("/world")
+                .mapTo(BooAction.class, "foo2")
+                .interceptBy(EchoInterceptor.class)
+                .bind()
+            .interceptor(EchoInterceptor.class, i->i.setPrefixIn("====> "));
         }
     }
-~~~~~
-
-This class now has to be registered in the `WebApp`:
-
-
-~~~~~ java
-    WebApp webApp = WebApp
-        .createWebApp()
-        .registerComponent(MyApp.class)
-        .start();
 ~~~~~
 
 ## Inline
@@ -57,13 +37,11 @@ But wait, you can have the same using inline registration:
     WebApp webApp = WebApp
         .createWebApp()
         .start(madvoc -> madvoc
-            .result(TextResult.class)
-            .action()
+            .route()
                 .path("/hello")
                 .mapTo(BooAction.class, "foo1")
                 .bind()
-            .action()
-                .path("/world")
+            .get("/world")
                 .mapTo(BooAction.class, "foo2")
                 .interceptBy(EchoInterceptor.class)
                 .bind()

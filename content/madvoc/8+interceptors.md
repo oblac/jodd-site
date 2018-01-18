@@ -10,10 +10,6 @@ pluggable; they can be logically grouped in **interceptor stacks**, for
 more convenient configuration. Interceptor stack is just an simple array
 of interceptor references.
 
-Interceptors have unique instances (singletons) within single *Madvoc*
-web application. In the code, interceptors are referenced with their
-class references.
-
 ## Intercepting an action
 
 To define an action interceptor, action method must be marked with
@@ -152,12 +148,6 @@ default interceptors without repeating the whole default stack:
 This action is intercepted with 5 interceptors and `LogInterceptor` will
 be invoked before all four from default stack.
 
-## EchoInterceptor
-
-Echo interceptor prints to system out some debugging information before
-and after action execution: action path, result value and execution
-time. It make sense to be the very first interceptor in the stack.
-
 ## ServletConfigInterceptor
 
 This is the most important interceptor and contains part of the core
@@ -202,24 +192,9 @@ result value, calculates execution time of action (and all inner
 interceptors). Calculation time excludes result rendering, since result
 is rendered after the interceptors execution.
 
-## PrepareInterceptor
+## AnnotatedPropertyInterceptor
 
-Prepares the action by invoking `prepare()` method before action method
-execution. Action must implement `Preparable` interface to be prepared
-by this interceptor. A typical use of this is to run some logic to load
-an object from the database, so that when parameters are set they can be
-set on this object.
-
-## IdRequestInjectorInterceptor
-
-Injects only request parameters and attributes that ends with \'.id\'.
-It may be used before `PrepareInterceptor`, just to create objects and
-populate id fields, so later in the `prepare()`this entity objects can
-be fetched from the database (since id is known).
-
-## AnnotatedFieldsInterceptor
-
-Performs some operation on all fields annotated with provided
+Performs some operation on all properties annotated with provided
 annotation. It is an abstract template, so it has to be customized for
 specific usage.
 

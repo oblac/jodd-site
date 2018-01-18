@@ -1,11 +1,11 @@
 
 # Madvoc Overview
 
-Here are some core concepts of how *Madvoc* works and it's infrastructure.
+We are gonna discuss now some core concepts of how *Madvoc* works and it's infrastructure.
 
-## Start Madvoc
+## Starting Madvoc
 
-It all starts with registering `MadvocContextListener`: either in `web.xml`, either by extending it and using `@WebFilter`. Then, register a `MadvocServletFilter` filter. There are three optional context parameters you may use:
+It all starts with registering `MadvocContextListener`: either in `web.xml`, either by extending it and using `@WebFilter` annotation. Then, register a `MadvocServletFilter` filter. There are three optional context parameters you may use:
 
 * `madvoc.webapp` - class name of *Madvoc* web application. Default is `jodd.madvoc.WebApp`. May be used for configuring various components of *Madvoc*.
 * `madvoc.configurator` - class name of *Madvoc* configurator: default is
@@ -31,6 +31,10 @@ Example from `web.xml`:
 	</filter-mapping>
 ~~~~~
 
+If you use other *Jodd* frameworks in your app, consider using [Joy](/joy). It is even easier to start with.
+{: .attn}
+
+
 ## WebApp
 
 `WebApp` is the central point for running *Madvoc* components. It is the very first object created by *Madvoc*. `WebApp` class is very extensible, so writing custom web applications is piece of cake.
@@ -38,16 +42,16 @@ Example from `web.xml`:
 
 ## Madvoc Components
 
-The whole *Madvoc* infrastructure is split into the components. Almost any feature is extracted and encapsulated into a separate component; this makes *Madvoc* developer friendly. You can simply override any existing component or register a new one.
+The whole *Madvoc* infrastructure is split into the components. Almost any feature is extracted and encapsulated into a separate component; this makes *Madvoc* developer friendly. You can simply override any existing component or register a new one if you need so.
 
 *Madvoc* components are marked with `@MadvocComponent` and, by default, they are registered automatically from the classpath. Any class annotated with this annotation becomes a *Madvoc* component. You can have as many components as you want. So what you can with *Madvoc* components? Like we said, you can override existing components to change the default behavior. Or you can add new components that simply configure existing ones. Custom *Madvoc* component may be also used for registering the _web components_. And so on - practically, you have the full power over the *Madvoc* infrastructure.
 
- Madvoc uses Petite container internally for storing and wiring *Madvoc* components. This means that they can be easily injected into each other: just use `@PetiteInject` annotation and the instance of referenced component will be injected once when component instance is created.
+*Madvoc* uses *Petite* container internally for storing and wiring *Madvoc* components. This means that *Madvoc* components can be easily injected into each other: just use `@PetiteInject` annotation and the instance of referenced component will be injected once when component instance is created.
 
 
-## Web components
+## Web Components
 
-While *Madvoc* components are designed for the infrastructure, the so-called "web components" are meant for the user's web application. Web components are actions, filters, interceptors... that compose together the web application. Here is a diagram how they are related.
+While *Madvoc* components are designed for the infrastructure, the so-called "_web components_" are meant for the user's web application. Web components are actions, filters, interceptors... that compose together the web application. Here is a diagram how they are related.
 
 <div class="clearfix">
 
@@ -73,16 +77,18 @@ While *Madvoc* components are designed for the infrastructure, the so-called "we
 
 </div>
 
-`MadvocController` is a *Madvoc* component that receives a HTTP request and lookups for the `Action` instance for requested action path. If action path is registered, `MadvocController` instantiates new `ActionRequest` - encapsulation of action request and action method proxy.
+`MadvocController` is a *Madvoc* component that receives a HTTP request and lookups for the `Action` instance for requested action path. If action path is registered, `MadvocController` instantiates new `ActionRequest` - encapsulation of the actual request and action's method proxy.
 
-Interceptors intercept the request being sent to and returning from the action. In some cases, interceptor might disable execution of an action. Interceptors can also change the state of an action before it executes.
+_Interceptors_ intercept the requests before it comes to an action and after the action has finished the handling. In some cases, interceptor might disable execution of an action. Interceptors can also change the state of an action before it executes.
 
-Once execution of the action and all interceptors is complete, the action request is sent to result to render the results.
+Once execution of the action and all interceptors is complete, the action request is sent to an _result_ handler to render the results.
+
+_Filters_ works similar as interceptors, except they wrap execution of both actions and results. They are similar to servlet filters.
 
 
 ## Component Lifecycle
 
-Each component may go through the following phases of a component lifecycle. Note an important difference: when a component is registered as part of the lifecycle, it will be instantiated before it will be actually used.
+Each component may go through the following phases of a component's lifecycle. Note an important difference: when a component is registered as part of the lifecycle, it will be instantiated before it will be actually used!
 
 + `Init` - during the initialization phase *Madvoc* components are being registered. If your component depends on the other components, this is **not** a phase you want to use: dependent components may be not initialized yet!
 

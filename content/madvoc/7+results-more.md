@@ -18,8 +18,7 @@ with alias name and then allow 3rd party code to use it.
 
 ### Aliases defined in annotation
 
-Aliases may be defined using `@Action`'s element `alias` on target
-action.
+Aliases may be defined using `@Action`'s element `alias` on target action.
 
 One of the previous examples can be re-written in the following way:
 
@@ -51,7 +50,7 @@ One of the previous examples can be re-written in the following way:
 
 Alias is defined in the `IndexAction` class: alias name is `index` and value equals to the action path: `/index.html`. Therefore, behavior of the `OneAction#execute` action remains identical.
 
-Aliases are convenient for `redirect:` results.
+Aliases are convenient for redirection results.
 {: .attn}
 
 ### Default aliases
@@ -65,15 +64,13 @@ This way you can reach to any action method in your application.
 
 ### Aliases defined by ActionsManager
 
-Aliases also may be registered manually by using `ActionsManager`
-component:
+Aliases also may be registered manually by using `ActionsManager` component:
 
 ~~~~~ java
     actionsManager.registerPathAlias("/hello.all.html", "/hi-all");
 ~~~~~
 
-This gives even more flexibility! You can rewrite the whole result path
-and make action go to totally different target JSP.
+This gives even more flexibility! You can rewrite the whole result path and make action go to totally different target JSP.
 
 ## Overriding action path within result path
 
@@ -191,121 +188,3 @@ path.
 | /zoo/boo.foo               | #doo..ok        | /zoo/boo.doo.ok [^1]    |
 | /zoo/boo.foo               | (void) or (null)| /zoo/boo.foo            |
 | /zoo/boo.foo               | ##ok            | /zoo/ok                 |
-
-
-## Custom result names
-
-Custom result handler has to extend `ActionResult` class. Since there are many
-ways how *Madvoc* resolves action result, you may configure your implementation
-to match how you plan to use it.
-
-That being said, you may provide result _name_ if you want your action result
-handler to be specified in strings of actions returned values. Or you
-can specify a type if you your handler is just for certain returning type.
-Or you can omit specifying either and use your action result in annotation
-or `Result` class.
-
-In any case, your action result must to implement the `render()` method.
-Here is an real-life example of custom result handler for generating
-[JSON][1] results.
-
-Generating JSON from existing objects might be not so easy sometimes:
-some object values has to be omitted, or objects come from ORM mapper
-that uses lazy initialization, so using reflection and deep-scanning is
-not enough or may produce unexpected results. Idea is to manually
-control what to serialize in action method. So, this example will use
-result objects, similar to 'raw' result names.
-
-First thing is to create `JsonData`, wrapper for
-our `JsonSerializer` or any other JSON serializer (simplified version):
-
-~~~~~ java
-    @RenderWith(JsonResult.class)
-    public class JsonData {
-    	private final JsonSerializer jsonSerializer;
-    	private final Object target;
-
-    	public JsonData(Object target) {
-    		this.target = target;
-    		jsonSerializer = new JsonSerializer();
-    	}
-
-    	public JsonData include(String... includes) {
-    		jsonSerializer.include(includes);
-    		return this;
-    	}
-
-    	public JsonData exclude(String... excludes) {
-    		jsonSerializer.exclude(excludes);
-    		return this;
-    	}
-
-    	public String toJsonString() {
-    		return jsonSerializer.serialize(target);
-    	}
-    }
-~~~~~
-
-Here is the code for `JsonResult` action result handler (simplified version):
-
-~~~~~ java
-    public class JsonResult extends BaseActionResult<JsonData> {
-
-    	@Override
-    	public void render(
-                ActionRequest request, JsonData jsonData) throws Exception {
-
-    		// write output
-    		HttpServletResponse response = request.getHttpServletResponse();
-    		response.setContentType(MimeTypes.MIME_TEXT_PLAIN);
-    		PrintWriter writer = null;
-    		try {
-    			writer = response.getWriter();
-    			writer.println(jsonData.toJsonString());
-    		} finally {
-    			StreamUtil.close(writer);
-    		}
-    	}
-    }
-~~~~~
-
-And the usage:
-
-~~~~~ java
-    @MadvocAction
-    public class HelloAction {
-
-    	@Action
-    	public JsonData view() {
-    		Object foo = ... // get object somehow
-    		return new JsonData(foo).exclude("address");
-    	}
-    }
-~~~~~
-
-This example covers usage of custom result, and we used `@RenderWith` annotation.
-
-### Better approach
-
-Maybe better approach would be not to have `JsonData` wrapper and instead just
-return objects that needs to be rendered into JSON:
-
-~~~~~ java
-    @MadvocAction
-    public class HelloAction {
-
-        @Action(result = JsonResult.class)
-        public Book view() {
-            Book foo = ... // get object somehow
-            return foo;
-        }
-    }
-~~~~~
-
-Now your action is clean of custom wrapper and your `JsonResult` may
-serialize whatever is returned by the action. Simple as that ;)
-
-[1]: http://www.json.org/
-
-*[JSON]: JSON (JavaScript Object Notation) is a lightweight data-interchange format.
-[^1]: new result value is: `ok`

@@ -32,25 +32,26 @@ bit later.
 
 ## Scopes
 
-*Madvoc* recognize following scopes:
+*Madvoc* recognize following scopes, defined by `ScopeType`:
 
-* `ScopeType.REQUEST` - HTTP request scope: request attributes and
+* `REQUEST` - HTTP request scope: request attributes and
   parameters. *Madvoc* detects multi-part requests and encapsulates
   uploaded files.
-* `ScopeType.SESSION` - HTTP session scope: session attributes.
-* `ScopeType.APPLICATION` - servlet context scope.
-* `ScopeType.SERVET` - special scope for injecting servlet-related
+* `SESSION` - HTTP session scope: session attributes.
+* `COOKIE` - read/set cookies.
+* `BODY` - read HTTP body.
+* `APPLICATION` - servlet context scope.
+* `SERVLET` - special scope for injecting servlet-related
   objects (request, session...). Servlet objects may be used directly or
   via map adapter.
-* `ScopeType.CONTEXT` - special scope for injecting *Madvoc* components.
+* `CONTEXT` - special scope for injecting *Madvoc* components.
+
+Scope is defined with `@Scope` annotation.
 
 ## @In
 
 Properties annotated with `@In` annotation are marked as injection
-targets. This annotation has the following elements:
-
-* `value` - name of scope value, if different then property name;
-* `scope` - indicates the scope, default is `ScopeType.REQUEST`.
+targets.
 
 Example:
 
@@ -73,12 +74,7 @@ Example:
     }
 ~~~~~
 
-Above code shows several injection features. First, property \'data\' is
-defined just as class field (no setter/getter). Then, it shows that
-*Madvoc* performs implicit type conversion to the target type. This is
-done using [`BeanUtil`](/beanutil), Madvocs bean manipulator.
-Then, second property shows how its setter will be invoked during the
-injection and will change the injection value.
+Above code shows several injection features. First, property `data` is defined just as class field (no setter/getter). Notice that *Madvoc* performs implicit type conversion to the target type. Ssecond property shows how its setter will be invoked during the injection and will change the injection value.
 
 ### Entity mapping
 
@@ -117,13 +113,13 @@ following way:
 Request injectors will create a new instance of `Person` (since `create`
 element of `@In` is `true` by default) and inject values for name and
 data properties. Of course, in the real life, input fields would be
-named more meaningfully as 'person.xxx' instead of 'p.xxx'.
+named more meaningfully as `person.xxx` instead of `p.xxx`.
 
 ### Entity list mapping
 
 *Madvoc* offers way to map list of entity data in similar manner. For
 example, some input form may contain list of `Person` objects, where
-each person element is named as: \'ppp\[index\].xxx\':
+each person element is named as: `ppp[index].xxx`:
 
 ~~~~~ html
     <form action="...">
@@ -159,13 +155,11 @@ This form may be mapped in the several ways:
 
 *Madvoc* recognizes correct type from generics declaration! Of course,
 in the real-life, input fields would be named more meaningfully as
-'person.xxx' instead of 'ppp.xxx'.
+`person.xxx` instead of `ppp.xxx`.
 
 ### Context and Servlet scope
 
-*Madvoc* context and servlet scope are special scopes. Their purpose is
-to provide special data to the action object. It allows to inject the
-following:
+*Madvoc* context and servlet scopes provide more data to the action object. It allows to inject the following:
 
 * servlet objects: when `@In` property is type of `HttpServletRequest`,
   `HttpSession`, `ServletContext`. Property name is ignored, just
@@ -183,16 +177,16 @@ Example:
     @MadvocAction
     public class MiscAction {
 
-    	@In(scope = ScopeType.SERVLET)
+    	@In @Scope(SERVLET)
     	Map<String, Object> sessionMap;
 
-    	@In(value="requestMap", scope = ScopeType.SERVLET)
+    	@In("requestMap") @Scope(SERVLET)
     	Map<String, Object> rmap;
 
-    	@In(scope = ScopeType.SERVLET)
+    	@In @Scope(SERVLET)
     	Map<String, Object> contextMap;
 
-    	@In(scope = ScopeType.SERVLET)
+    	@In @Scope(SERVLET)
     	HttpServletResponse servletResponse;
 
     	...
@@ -211,21 +205,11 @@ scopes.
 Similar as for injection, `@Out` annotation is used on action object
 properties that has to be outjected to the scopes.
 
-## @InOut
-
-Just a shortcut for both `@In` and `@Out` annotations. May be useful
-when property name differs from scope value name.
-
 ## Injection points in inner classes
 
-When your action has more then one action method, the number of `@In` and `@Out`
-properties may be big, and usually, some fields are shared for both methods.
-Such action class does not look pretty and you might loose a track what
-is injected/outjected for each action method.
+When your action has more then one action method, the number of `@In` and `@Out` properties may be big, and usually, some fields are shared for both methods. Such action class does not look pretty and you might loose a track what is injected/outjected for each action method.
 
-For this reason, *Madvoc* supports to group `@In` and `@Out` properties into
-separated classes that will be parameter(s) for action method. In other words,
-you may do the following refactoring, from this:
+For this reason, *Madvoc* supports to group `@In` and `@Out` properties into separated classes that will be parameter(s) for action method. In other words, you may do the following refactoring, from this:
 
 ~~~~~ java
 	@MadvocAction
@@ -252,17 +236,13 @@ to this:
 	}
 ~~~~~
 
-We just made an inner class that simply groups parameters of one action method.
-This way you can separate input and outputs between action methods in the same
-action class.
+We just made an inner class that simply groups parameters of one action method. This way you can separate input and outputs between action methods in the same action class.
 
-You may have more the one action method parameter. And you can use inner classes
-or static classes, or even separate classes for grouping parameters.
+You may have more the one action method parameter. And you can use inner classes or static classes, or even separate classes for grouping parameters.
 
 ## Injection points as action method parameters
 
-Finally, you can use action method parameters as injection points. Example
-from above:
+Finally, you can use action method parameters as injection points. Example from above:
 
 ~~~~~ java
     @MadvocAction
@@ -285,10 +265,4 @@ can be written as:
     }
 ~~~~~
 
-There is one more thing to be careful with: you can't use
-immutable classes as output injection points. For example,
-you can't outject `int` or a `String`. All objects have to
-be created before method is called, so any change after
-is simply not visible to outside of the method. Thats why
-we had to use here `MutableInteger` as we can change its value
-during the method execution.
+There is one more thing to be careful with: you can't use immutable classes as output injection points. For example, you can't outject `int` or a `String`. All objects have to be created before method is called, so any change after is simply not visible to outside of the method. Thats why we had to use here `MutableInteger` as we can change its value during the method execution.

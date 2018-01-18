@@ -28,7 +28,7 @@ configuration.
 
 *Madvoc* component `ActionPathRewriter` offers URL rewrite
 functionality. By overriding method `rewrite()` it is possible to change
-the \'nice\' action path (i.e. nice url) to real one and to add
+the 'nice' action path (i.e. nice url) to real one and to add
 additional attributes. By default, there is no special parsing and/or
 mapping mechanism behind `ActionPathRewriter` component: resolving of
 nice url can be implemented in any desired way: using regular
@@ -41,7 +41,7 @@ request, since they will be injected in the same way as parameters.
 
 ## Auto HTTP method definition
 
-If not specified differently by `@Action` annotation, HTTP method name
+If not specified differently by the annotation, HTTP method name
 (POST, GET, DELETE...) is ignored. This means that forms, for example,
 may be submitted also by invoking GET request.
 
@@ -79,6 +79,6 @@ read (from annotation or using corresponding names). Custom version of
 
 Once registered in `WebApplication`, this custom version of
 `ActionMethodParser` component will set HTTP method name for all methods
-that already doesn't explicitly specify it. So, if extension is \".do\"
+that already doesn't explicitly specify it. So, if extension is `.do`
 than action will be registered as a handler for POST requests; if
-extension is default \'.html\' than action is GET request handler.
+extension is default `.html` than action is GET request handler.

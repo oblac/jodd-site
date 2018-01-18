@@ -3,31 +3,27 @@
 Let's continue with some more action-related features.
 
 
-## Custom action configuration.
+## Custom action configuration
 
-For each action you can define a custom set of 'action configuration' - set of configuration and *Madvoc* components that defines the _behavior_ of an action. This set is simply stored in `ActionConfig` class. If you need a custom set, you would need to extend this class and change it (as for any other *Madvoc* component).
+For each action you can define a custom set of 'action configuration' - set of configuration and *Madvoc* components that defines the _behavior_ of an action. This set is stored in `ActionConfig` class. If some of your actions require a custom configuration, you would need to extend this class and change it (as for any other *Madvoc* component). If all actions require different configuration, just set it in `MadvocConfig`.
 
-To apply the custom action configuration, use `@ActionConfiguredBy` on the action.
+To apply the custom action configuration on actions, use `@ActionConfiguredBy` on the action with your implementation of `ActionConfig`.
 
 
 ## Custom action method annotations
 
-Now this is super cool - you may use your own annotations! Why? Because you can bind your own configuration to it.
+Now something super cool - you may use your own annotations! Why? Because you can bind your own configuration to it. And not repeat all over again.
 
-For example, let's say that your `POST` actions must have the `.do` extension. In that case you could define something like:
+For example, let's say that action method names must be always resolved as `process.do`, regardless the action method name. In that case you could define something like:
 
 ~~~~~ java
     @Retention(RetentionPolicy.RUNTIME)
     @Target({ElementType.METHOD})
-    public @interface MyPostAction {
+    public @interface ProcessAction {
 
-    	String value() default "";
-
-    	String extension() default "do";
+    	String value() default "process.do";
 
     	String alias() default "";
-
-    	String method() default "POST";
 
     }
 ~~~~~
@@ -35,14 +31,14 @@ For example, let's say that your `POST` actions must have the `.do` extension. I
 Now, when an action method is annotated with this custom annotation:
 
 ~~~~~ java
-    @MyPostAction
-    public void someAction() {}
+    @ProcessAction
+    public void someMethod() {}
 ~~~~~
 
-it will be equivalent to the:
+it would be equivalent to:
 
 ~~~~~ java
-    @Action(extension = "do", method = "POST")
+    @Action("process.do")
     public void someAction() {}
 ~~~~~
 
@@ -55,41 +51,35 @@ Custom annotations are registered in `MadvocConfig`, either in pure Java or in p
 
 ## Asynchronous actions
 
-*Madvoc* actions can become `asynchronous` (in Servlets 3.0 terms) by simply setting the annotation element `async` to `true`. That is all!
+*Madvoc* actions can become _asynchronous_ (in Servlets 3.0 terms) by simply annotating them as `@Async`. That is all!
+
+What happens in the bcakground? When at least one async action handler is registered, *Madvoc* will create a worker thread pool. It's `AsyncActionExecutor` component, that you, again, can easily replace. Anyhow, when async action is called, *Madvoc* will take the request, start the async execution and execute the action using the worker thread pool.
 
 
 ## Name replacements
 
-It is possible to reference class and method names in name values of the
-*Madvoc* annotations. For example, when specifying the full action path
-it is possible to reference the default extension, allowing it to be no
-more hard-coded in the action string:
+It is possible to reference class and method names in `@Action` annotations. For example, when specifying the full action path, it is possible to reference the default method name, prevent it to be hardcoded:
 
 ~~~~~ java
     @MadvocAction
     public class HelloAction {
 
-    	@Action("/bonjour-monde.{:ext}")
-    	public void world() {
+    	@Action("/bonjour-{:name}.html")
+    	public void monde() {
     	}
     }
 ~~~~~
 
-In this action path value, extension `{:ext}` will be replaced with
-default *Madvoc* extension. The following replacements are available:
+Such action would be mapped to: `/bonjour-monde.html`. The following replacements are available:
 
-* `{:package}` - replaces default package name in package annotations;
-* `{:class} `- replaces default class name in class annotations;
-* `{:method}` - replaces default method name in method annotations;
-* `{:ext}` - replaces default extension in `extension` and `value`
-  elements of method annotations.
-* `{:http-method}` - replaces default HTTP method in method annotations;
+* `{:package}` - replaces default package name;
+* `{:class} `- replaces default class name;
+* `{:name}` - replaces default method name;
+* `{:method}` - replaces default HTTP method;
 
 
 ## Action naming strategies
 
-One way to control the convention of building action paths is to use
-action name strategy. Default naming strategy is already defined.
-It uses action class and action method name to build action path.
+We figured that is very important for users which naming convention is going to be used. Therefore *Madvoc* provides several ways how action names are defined. The final way on how action names are created is  to use _action name strategy_. The strategy is defined as an implementation of the `ActionNamingStrategy` interface.
 
 Action naming strategy is a part of action configuration.

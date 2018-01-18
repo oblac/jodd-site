@@ -4,20 +4,14 @@ javadoc: 'madvoc'
 
 # Madvoc
 
-*Madvoc* is MVC framework that uses conventions and annotations in a pragmatic
-way to simplify web application development. It is really easy to use; a significant
-effort is put into making usage simple. There are no external (xml)
-configurations, actions are simple POJOs, it is compatible with any view
-technology and so on... What's best is that its developer friendly:
-*Madvoc* offers several ways how it can be configured or used,
-so you can use whatever matches your coding preferences.
+*Madvoc* is a MVC framework that uses conventions and annotations in a pragmatic way to simplify the development of web applications. A significant effort is put into making usage of *Madvoc* simple. There are no external (xml) configurations, actions are simple POJOs, it is compatible with any view technology and so on... What's best is that it is _developer friendly_: *Madvoc* offers several ways how it can be configured and used, so you can use whatever matches your coding preferences.
 
-If you just want to start right-away, check [Joy](/joy).
+In the hurry? Want to start right-away? Check [Joy](/joy).
 {: .attn}
 
 ## One minute tutorial
 
-This is a simple *Madvoc* action:
+Here is a simple *Madvoc* _action_ (request handler):
 
 ~~~~~ java
     @MadvocAction
@@ -37,19 +31,15 @@ This is a simple *Madvoc* action:
     }
 ~~~~~
 
-This action class and a method defines the following mappings:
+This action class and a method define the following mapping:
 
 ~~~~~
-/hello.world.html → HelloAction#world() → /hello.world.ok.jsp
+/hello.world → HelloAction#world() → /hello.world.ok.jsp
 ~~~~~
 
-The action method takes one input request parameter (`name`) and prepares
-one request attribute for the output (`value`). Action is also intercepted
-by default interceptor stack.
+The action method takes one input request parameter (`name`) and prepares one request attribute for the output (`value`). Action is also intercepted by default interceptor stack (default configuration is defined outside of actions).
 
-This action uses only default configuration; but everything can be
-configured to work differently. For example, the following action is also
-an *Madvoc* action:
+While this action uses only default configuration; almost everything can be configured to work differently. For example, the following action is also an *Madvoc* action - this time one that defines a REST endpoint:
 
 ~~~~~ java
     @MadvocAction
@@ -61,10 +51,10 @@ an *Madvoc* action:
     }
 ~~~~~
 
-This time the mappings is:
+The REST mappings is:
 
 ~~~~~
 GET /book/123 → BookAction#get() → Book.json
 ~~~~~
 
-Make and use _your own_ *Madvoc* conventions, easily!
+Quite simple, yet powerful. Go and make _your own_ *Madvoc* conventions, easily!
