@@ -27,7 +27,7 @@ Plain-text email:
         .from("...@jodd.org")
         .to("...@jodd.org")
         .subject("Hello!")
-        .addText("A plain text message...");
+        .textMessage("A plain text message...");
 ~~~~~
 
 HTML email:
@@ -37,7 +37,7 @@ HTML email:
         .from("...@jodd.org")
         .to("...@jodd.org")
         .subject("Hello HTML!")
-        .addHtml("<b>HTML</b> message...");
+        .htmlMessage("<b>HTML</b> message...");
 ~~~~~
 
 Text and HTML email, high priority:
@@ -47,8 +47,8 @@ Text and HTML email, high priority:
         .from("...@jodd.org")
         .to("...@jodd.org")
         .subject("Hello!")
-        .addText("text message...")
-        .addHtml("<b>HTML</b> message...")
+        .textMessage("text message...")
+        .htmlMessage("<b>HTML</b> message...")
         .priority(PRIORITY_HIGHEST);
 ~~~~~
 
@@ -65,45 +65,42 @@ All email addresses (from, to, cc...) may be specified in following ways:
 Consider using personal names as it is less likely your message is
 going to be marked as spam ;)
 
-Multiple email addresses are specified by repeated call to relevant method:
+Multiple email addresses are specified using arrays:
 
 ~~~~~ java
     Email email = Email.create()
         .from("...@jodd.org")
-        .to("adr1@jodd.org")
-        .to("adr2@jodd.org")
-        .cc("xxx@bar.com")
-        .cc("zzz@bar.com")
+        .to("adr1@jodd.org", "adr2@jodd.org")
+        .cc("xxx@bar.com", "zzz@bar.com")
         .subject("Hello HTML!")
-        .addHtml("<b>HTML</b> message");
+        .htmlMessage("<b>HTML</b> message");
 ~~~~~
 
-Alternatively you may pass an array of strings, `EmailAddress` or
-`InternetAddress`. In this case, the addresses will not be appended,
-but replaced!
+Alternatively you may use multiple `to()` or `cc()` calls to append email addresses.
 
 ## Attachments
 
 There are several attachment types that can be added:
 
-* bytes attachment (`ByteArrayAttachment`), when byte content is added
-  as attachment,
-* input stream attachment (`InputStreamAttachment`), when input stream
-  will be read on sending,
-* file attachment (`FileAttachment`), for files,
-* and generic `DataSource` based attachment.
++ from memory byte array,
++ from input stream,
++ from a file,
++ from generic `DataSource`.
 
 One note for file attachments - they depend on `javax.mail` content type
 resolution (that might not work for you). You can always attach files as
 byte or input stream attachment.
 {: .attn}
 
-Adding attachments is also easy - just create an attachment class and
-`attach()` it.
+Attachments are created using the `EmailAttachment` class:
 
-However, there is an alternative way of building attachment classes,
-more convenient one, using `EmailAttachmentBuilder`. It is sufficient
-for most cases and easier to use (see examples in next section).
+~~~~~ java
+    .attachment(EmailAttachment.with()
+        .name("some name")
+        .content(bytesOfImage)
+~~~~~
+
+The `content()` method accepts different attachment types.
 
 ### Embedded (inline) attachments
 
@@ -119,101 +116,35 @@ inline attachments related to some message.
 
 ## Example
 
-Here is an example of creating the same message, but using two ways of
-building the `Email`.
-
-### Email using common API
-
-This is default way of building `Email`. It is very verbose, but you
-have the most control. So here it is.
-
-~~~~~ java
-    Email email = new Email();
-
-    email.setFrom("infoxxx@jodd.org");
-    email.setTo("igorxxxx@gmail.com");
-    email.setSubject("test7");
-
-    EmailMessage textMessage =
-        new EmailMessage("Hello!", MimeTypes.MIME_TEXT_PLAIN);
-    email.addMessage(textMessage);
-
-    EmailMessage htmlMessage = new EmailMessage(
-        "<html><META http-equiv=Content-Type content=\"text/html; " +
-        "charset=utf-8\"><body><h1>Hey!</h1><img src='cid:c.png'>" +
-        "<h2>Hay!</h2></body></html>",
-    MimeTypes.MIME_TEXT_HTML);
-    email.addMessage(htmlMessage);
-
-    EmailAttachment embeddedAttachment =
-        new ByteArrayAttachment(
-            FileUtil.readBytes("/c.png"), "image/png", "c.png", "c.png");
-    embeddedAttachment.setEmbeddedMessage(htmlMessage);
-    email.attach(embeddedAttachment);
-
-    EmailAttachment attachment = new FileAttachment(
-        new File("/b.jpg"), "b.jpg", "image/jpeg");
-    email.attach(attachment);
-~~~~~
-
-Let's analyze. We create empty `Email` and then set from, to and
-subject. Then, in lines #7 and #8 we create plain text message. Few rows
-later (#10 - #14) we create HTML message. This message uses one inline
-attachment referred as `c.png`. So we create inline
-`ByteArrayAttachment` - it's inline because we have specified the
-ContentID (last argument). This inline attachment has to be embedded to
-a message (line #18). Finally, we create a regular attachment and attach
-it to the email.
-
-### Email using fluent API
-
-Fluent API is less verbose and, therefore, more convenient. Here is the
-same example from above:
-
 ~~~~~ java
     Email email = Email.create()
-        .from("infoxxxx@jodd.org")
-        .to("igorxxxxxx@gmail.com")
+        .from("inf0@jodd.org")
+        .to("ig0r@gmail.com")
         .subject("test6")
-        .addText("Hello!")
-        .addHtml(
+        .textMessage("Hello!")
+        .htmlMessage(
             "<html><META http-equiv=Content-Type content=\"text/html; " +
             "charset=utf-8\"><body><h1>Hey!</h1><img src='cid:c.png'>" +
             "<h2>Hay!</h2></body></html>")
-        .embed(attachment().bytes(new File("/c.png")))
-        .attach(attachment().file("/b.jpg"));
+        .embeddedAttachment(EmailAttachment.with()
+            .content(new File("/c.png")))
+        .attachment(EmailAttachment.with()
+            .content("/b.jpg"));
 ~~~~~
-
-As you see, it's really less code:) Biggest difference here is that
-instead of creating email attachments using constructors, we have been
-using `EmailAttachment.attachment()` helper - a smart factory for email
-attachment classes.
-
-Important note: `embed()` method embeds attachment to the **last**
-message! Hence the order of methods is important.
-{: .attn}
-
-Both ways are equally valid, just be sure to understand all consequences
-of using it.
 
 ## Sending emails
 
 Emails are sent using `SendMailSession`. Mail session encapsulates
 process of preparing emails, opening and closing transport connection
-and sending emails. Mail sessions should be created by some
-`SendMailSessionProvider`. One such provider already exist:
-`SmtpServer`. It encapsulates SMTP server that might use simple
-authentication.
+and sending emails.
 
-With send mail session it is possible to send several emails at once,
-using just one connection. This is significantly faster then to opening
-session for each email.
-
-Here is an example of sending previously defined emails:
+Mail session is created by the `MailServer`.
 
 ~~~~~ java
-    SmtpServer smtpServer = SmtpServer.create("mail.jodd.org")
-                .authenticateWith("user", "password");
+    SmtpServer smtpServer = MailServer.create()
+            .host("http://mail.com")
+            .port(21)
+            .buildSmtpMailServer();
     ...
     SendMailSession session = smtpServer.createSession();
     session.open();
@@ -226,31 +157,20 @@ Since opening session and sending emails may produce `EmailException`,
 it is necessary to wrap methods in `try`-`catch` block and closing the
 session in the `finally` block.
 
-`SmtpServer` uses fluent interface so you can easily specify different
-configuration. For example:
-
-~~~~~ java
-        SmtpServer smtpServer = SmtpServer
-                .create("some.host.com", 587)
-                .authenticateWith("test", "password")
-                .timeout(10)
-                .properties(overridenProperties);
-~~~~~
-
-Here we specified the timeout value and provide additional mail properties
-for the SMTP server.
-
 ## Sending using SSL
 
 Preferred way for sending e-mails is using SSL protocol. *Jodd* supports
-secure e-mail sending with `SmtpSslServer`, a subclass of `SmtpServer`.
+secure e-mail sending. Just set the `ssl()` flag while creating the server.
+
 Here is an example of sending e-mail via [Gmail](http://gmail.com) (port
 465 is set by default):
 
 ~~~~~ java
-    SmtpServer smtpServer = SmtpSslServer
-            .create("smtp.gmail.com")
-            .authenticateWith("user@gmail.com", "password");
+    SmtpServer smtpServer = MailServer.create()
+            .ssl(true)
+            .host("smtp.gmail.com")
+            .auth("user@gmail.com", "password")
+            .buildSmtpMailServer();
     ...
     SendMailSession session = smtpServer.createSession();
     session.open();
@@ -299,8 +219,11 @@ Most probably you will need `receiveEmailAndMarkSeen()` or `receiveEmailAndDelet
 For POP3 connection, use `Pop3Server`:
 
 ~~~~~ java
-    Pop3Server popServer = new Pop3Server("pop3.jodd.org",
-            new SimpleAuthenticator("username", "password"));
+    Pop3Server popServer = MailServer.create().
+            host("pop3.jodd.org",
+            auth("username", "password")
+            .buildPop3MailServer();
+
     ReceiveMailSession session = popServer.createSession();
     session.open();
     System.out.println(session.getMessageCount());
@@ -310,12 +233,12 @@ For POP3 connection, use `Pop3Server`:
             System.out.println("\n\n===[" + email.getMessageNumber() + "]===");
 
             // common info
-            System.out.println("FROM:" + email.getFrom());
-            System.out.println("TO:" + email.getTo()[0]);
-            System.out.println("SUBJECT:" + email.getSubject());
-            System.out.println("PRIORITY:" + email.getPriority());
-            System.out.println("SENT DATE:" + email.getSentDate());
-            System.out.println("RECEIVED DATE: " + email.getReceiveDate());
+            System.out.println("FROM:" + email.from());
+            System.out.println("TO:" + email.to()[0]);
+            System.out.println("SUBJECT:" + email.subject());
+            System.out.println("PRIORITY:" + email.priority());
+            System.out.println("SENT DATE:" + email.sentDate());
+            System.out.println("RECEIVED DATE: " + email.receiveDate());
 
             // process messages
             List messages = email.getAllMessages();
@@ -345,11 +268,15 @@ For POP3 connection, use `Pop3Server`:
 
 ### Receiving emails using SSL
 
-Again, very simply: use `Pop3SslServer` implementation. Here is how it can be used to fetch email from Google:
+Again, very simply: use the very same `ssl()` flag. Here is how it can be used to fetch email from Google:
 
 ~~~~~ java
-    Pop3Server popServer =
-        new Pop3SslServer("pop.gmail.com", "username", "password");
+    Pop3Server popServer = MailServer.create()
+        .host("pop.gmail.com")
+        .ssl(true)
+        .auth("username", "password")
+        .buildPop3MailServer();
+
     ReceiveMailSession session = popServer.createSession();
     session.open();
     ...
@@ -361,8 +288,12 @@ Again, very simply: use `Pop3SslServer` implementation. Here is how it can be us
 Above example can be converted to IMAP usage very easily:
 
 ~~~~~ java
-    ImapServer imapServer =
-        new ImapSslServer("imap.gmail.com", "username", "password");
+    imapServer popServer = MailServer.create()
+        .host("pop.gmail.com")
+        .ssl(true)
+        .auth("username", "password")
+        .buildImapMailServer();
+
     ReceiveMailSession session = imapServer.createSession();
     session.open();
     ...
@@ -371,8 +302,7 @@ Above example can be converted to IMAP usage very easily:
 
 Can't be easier:)
 
-As said above, when working with IMAP server, many methods of `ReceiveMailSession` works better
-or... simply, just works. For example, you should be able to use following methods:
+As said above, when working with IMAP server, many methods of `ReceiveMailSession` works better or... simply, just works. For example, you should be able to use following methods:
 
 + `getUnreadMessageCount()` - to get number of un-seen messages.
 + `getAllFolders()` - to receive all folders names
