@@ -31,3 +31,14 @@ it is not a perfect yet, but it works much better then other solutions.
 It may happens that email receiving fails if you have different java-mail libraries on your classpath.
 For example, on Apache CXF there is `geronimo-javamail_1.4_spec-1.7.1.jar` and it conflicts
 with the *Jodd* *Email*.
+
+
+## Is embed attachment always supposed to be inline?
+
+Here is how we see it:
+
++ `inline` and `content-ID` can be set separately.
++ embedded images should be set using `Content-Disposition`. Of course, setting `content-ID` is required if you want to use them.
++ we could not find any reference of `inline` without a `content-ID`.
+
+The answer is Yes - embedded attachment sets both `content-ID` and `inline`.

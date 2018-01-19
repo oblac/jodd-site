@@ -183,8 +183,8 @@ path.
 | /zoo/boo.foo               | doo.ok          | /zoo/boo.foo.doo.ok     |
 | /zoo/boo.foo               | #               | /zoo/boo                |
 | /zoo/boo.foo               | #ok             | /zoo/boo.ok             |
-| /zoo/boo.foo               | #.ok            | /zoo/boo.ok [^1]        |
+| /zoo/boo.foo               | #.ok            | /zoo/boo.ok             |
 | /zoo/boo.foo               | #doo.ok         | /zoo/boo.doo.ok         |
-| /zoo/boo.foo               | #doo..ok        | /zoo/boo.doo.ok [^1]    |
+| /zoo/boo.foo               | #doo..ok        | /zoo/boo.doo.ok         |
 | /zoo/boo.foo               | (void) or (null)| /zoo/boo.foo            |
 | /zoo/boo.foo               | ##ok            | /zoo/ok                 |
