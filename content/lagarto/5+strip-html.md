@@ -10,7 +10,7 @@ reducing the size of HTML pages by removing all unnecessary characters.
 
 Note that javascript blocks are not stripped by this tag adapter.
 
-## Using StipHtml
+## Using StripHtml
 
 There are several way how to use `StripHtml`.
 
