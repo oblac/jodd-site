@@ -16,6 +16,7 @@ RUN echo "$(ruby -e 'puts RUBY_VERSION')" > /site/dependencies/.ruby-version
 # Install dependencies
 RUN echo 'gem: --no-document' >> /etc/gemrc
 RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle update
 RUN bundle install
 
 # Ensure all bundle commands use this Gemfile
