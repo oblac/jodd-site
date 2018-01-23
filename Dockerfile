@@ -9,14 +9,12 @@ RUN apk update && \
 # Gemfile setup
 RUN mkdir -p /site/dependencies
 WORKDIR /site/dependencies
-COPY Gemfile /site/dependencies
-COPY Gemfile.lock /site/dependencies
+COPY Gemfile Gemfile.lock* /site/dependencies
 RUN echo "$(ruby -e 'puts RUBY_VERSION')" > /site/dependencies/.ruby-version
 
 # Install dependencies
 RUN echo 'gem: --no-document' >> /etc/gemrc
 RUN bundle config build.nokogiri --use-system-libraries
-RUN bundle update
 RUN bundle install
 
 # Ensure all bundle commands use this Gemfile
