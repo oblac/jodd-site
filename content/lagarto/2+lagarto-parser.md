@@ -8,7 +8,7 @@ To parse HTML/XML content with *Lagarto* you must do just two steps:
 In other words:
 
 ~~~~~ java
-    LagartoParser lagartoParser = new LagartoParser(htmlContent, false);
+    LagartoParser lagartoParser = new LagartoParser(htmlContent);
     TagVisitor tagVisitor = new FooTagVisitor();
     lagartoParser.parse(tagVisitor);
 ~~~~~
@@ -69,25 +69,6 @@ body.
 
 See javadoc for other callback methods. Also, you can use
 `EmptyTagVisitor` to write your own visitors in more convenient ways.
-
-## Emit strings while parsing
-
-`LagartoParser` emits all the text as `CharSequence`. By default, we are
-using `CharBuffer` for `CharSequence` implementation. If the `CharSequence`
-interface works for you, then you are set - and you will have great performances.
-
-However, sometimes `CharSequence` API is not enough, or you simply need strings.
-For example, to build our DOM tree we store all texts as strings. To get strings,
-we call `toString()` on char sequences (implemented by char buffers). Overall
-that is _less performant_ - because char buffer is created first and then a string.
-
-If you know that you gonna need strings, you can enable option to emit `String`
-as implementation for `CharSequence` (instead of `CharBuffer`).
-Then calling `toString()` will have no performance penalties.
-
-To recap: `emitStrings` flag determines the implementation of `CharSequence`:
-`CharBuffer` of `String`, so you can have the best performances depending on
-your usage.
 
 ## Errors in HTML
 
