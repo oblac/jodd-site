@@ -7,8 +7,7 @@ Finding one or many classes or resources on the classpath is often needed.
 {: .attn}
 
 `ClassScanner` scans JARs (including those linked via `Manifest.MF` file)
-and filter founded entities. When matched class or resource (i.e. entry) is found,
-callback method is fired.
+and filter founded entities. When matched class or resource (i.e. entry) is found, callback method is fired.
 
 Example:
 
@@ -17,7 +16,8 @@ Example:
     classScanner.onEntry(entryData -> {
         // process entry data
     })
-    .scan(classpathFiles);
+    .scan(classpathFiles)
+    .start();
 ~~~~~
 
 `EntryData` that represents single element of scanning, basically a founded class. Note that class is **not** loaded! This is only a reference to a class file! You don't have to load class in order to match it; you can simply find the bytecode signature in it (util method provided: `bytecodeSignatureOfType`).
@@ -33,7 +33,8 @@ Example:
         }
     })
     .includeResources(true);
-    .scan("/some/classpath");
+    .scan("/some/classpath")
+    .start();
 ~~~~~
 
 ## Configuration
@@ -50,13 +51,8 @@ Example:
 
 Rules for `include*` and `exclude*` are powered by our powerful `InExRules` engine.
 
-Besides these properties, user can change the filtering behavior
-by overriding methods `acceptJar()` and `acceptEntry()`.
+Besides these properties, user can change the filtering behavior by overriding methods `acceptJar()` and `acceptEntry()`.
 
-Scanning is invoked by calling one of `scanUrls` or `scanPaths` methods.
-Note that all these methods are protected, because `ClassFinder` is
-designed to be used as a base scanning class for custom scanners.
+Scanning is invoked by calling one of `scanUrls` or `scanPaths` methods. Note that all these methods are protected, because `ClassFinder` is designed to be used as a base scanning class for custom scanners.
 
-`ClassFinder` is used internally by many *Jodd* frameworks, for
-automatic configurations. It usually reads classes on classpath and
-scans them for some annotations.
+`ClassFinder` is used internally by many *Jodd* frameworks, for automatic configurations. It usually reads classes on classpath and scans them for some annotations.
