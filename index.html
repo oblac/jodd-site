@@ -18,21 +18,23 @@ h1 {
 
 nav {
   width: 500px;
-  margin: auto;
+  display: table;
+  margin: 0 auto;
   margin-top: 100px;
 }
 
 ul {
   overflow: none;
   list-style-type: none;
+  text-align: center;
 }
 
 li {
   height: 25px;
-  float: left;
   margin-right: 0px;
   border-right: 1px solid #aaa;
   padding: 0 20px;
+  display: inline;
 }
 
 li:last-child {
@@ -63,7 +65,8 @@ li.active a {
   <nav>
   <ul>
   	<li><a href="javadoc/index.html">Javadoc</a></li>
-  	<li><a href="tests/index.html">Tests</a></li>
+  	<li><a href="https://travis-ci.org/oblac/jodd">Tests</a></li>
+    <li><a href="https://codecov.io/gh/oblac/jodd">Coverage</a></li>
   </ul>
   </nav>
 

@@ -13,7 +13,6 @@ jodd.db.connection
 jodd.db.debug
 jodd.db.jtx
 jodd.db.oom
-jodd.db.oom.config
 jodd.db.oom.dao
 jodd.db.oom.mapper
 jodd.db.oom.meta
@@ -65,13 +64,12 @@ jodd.madvoc.petite
 jodd.madvoc.proxetta
 jodd.madvoc.result
 jodd.mail
-jodd.mail.att
 jodd.methref
 jodd.mutable
 jodd.paramo
 jodd.pathref
 jodd.petite
-jodd.petite.config
+jodd.petite.def
 jodd.petite.meta
 jodd.petite.proxetta
 jodd.petite.resolver
@@ -94,8 +92,14 @@ jodd.upload
 jodd.upload.impl
 jodd.upload.typeconverter
 jodd.util
+jodd.util.annotation
 jodd.util.buffer
 jodd.util.cl
 jodd.util.collection
+jodd.util.concurrent
+jodd.util.crypt
+jodd.util.inex
+jodd.util.net
+jodd.util.template
 jodd.vtor
 jodd.vtor.constraint
