@@ -7,7 +7,7 @@ do
   echo "${var}"
   rm -rf $var
   mkdir $var
-	cp -r ../jodd/build/reports/$var/ ./$var
+  cp -r ../jodd/build/reports/$var/ ./$var
 done
 
 git add --all
