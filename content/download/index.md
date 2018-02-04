@@ -46,17 +46,17 @@ libraryDependencies += "org.jodd" % "jodd-xxx" % "<%=@config[:jodd][:version]%>"
 If you use other *Jodd* components, you will need to exclude default dependency on `jodd-core` and use the `jre9` version. Here is how this can be done in _Gradle_:
 
 ~~~groovy
-    compile ('org.jodd:jodd-core:4.1.3:jre9') {
+    compile ('org.jodd:jodd-core:<%=@config[:jodd][:version]%>:jre9') {
         force = true
     }
-    compile ('org.jodd:jodd-joy:4.1.3') {
+    compile ('org.jodd:jodd-joy:<%=@config[:jodd][:version]%>') {
         exclude group: 'org.jodd', module:'jodd-core'
     }
 ~~~
 
 With above code we force the usage of `jre9` classifier and exclude default transitive dependency on `jodd-core`.
 
-## BOM (Bill Of Material)
+## BOM (Bill Of Material) <i class="fa fa-list-alt"></i>
 
 *Jodd* BOM is provided as `org.jodd:jodd-bom`.
 
