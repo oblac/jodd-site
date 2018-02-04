@@ -56,7 +56,21 @@ removes escaping effect and are resolved to single backslash.
 
 References are resolved late, on their first injection.
 
-## Loading from map
+## Loading from Map
 
 It is possible to load parameters from any `Map` implementation, such as
 `Properties`.
+
+~~~~~ java
+    Properties myProperties = ....;
+    pc.defineParameters(myProperties);
+~~~~~
+
+## Loading from Props
+
+It is possible to load parameters from [*Props*](/props), too:
+
+~~~~~ java
+    Props myProps = ....;
+    pc.defineParameters(myProps);
+~~~~~
