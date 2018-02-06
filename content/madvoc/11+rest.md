@@ -144,7 +144,9 @@ A common way for using REST endpoints is to have parameters injected as method a
         }
 
         @PATCH @RestAction("/{id}")
-        public TodoEntry update(@In int id, @In @Scope(BODY) TodoEntry todoEntryPatch) {
+        public TodoEntry update(
+                @In int id,
+                @In @Scope(BODY) TodoEntry todoEntryPatch) {
             return todoDb.get().patch(id, todoEntryPatch);
         }
     }
