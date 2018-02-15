@@ -150,7 +150,7 @@ the bean name (since we do not work on a bean anymore):
 ## Type conversion
 
 When setting properties, *BeanUtil* converts type of provided value to
-match the destination. For this purpose it uses *Jodd*s [type converter](typeconverter.html) utility.
+match the destination. For this purpose it uses *Jodd*s [type converter](/util/typeconverter.html) utility.
 
 Getting properties always returns an `Object`. If you need to cast it to
 some type, you can use `TypeConverterManager#convertType`. The following
