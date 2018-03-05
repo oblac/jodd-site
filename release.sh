@@ -1,6 +1,6 @@
 #!/bin/sh
 
-reports=( javadoc tests )
+reports=( javadoc )
 
 for var in "${reports[@]}"
 do
