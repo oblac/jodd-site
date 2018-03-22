@@ -9,7 +9,7 @@ RUN apk update && \
 # Gemfile setup
 RUN mkdir -p /site/dependencies
 WORKDIR /site/dependencies
-COPY Gemfile Gemfile.lock* /site/dependencies
+COPY Gemfile Gemfile.lock* /site/dependencies/
 RUN echo "$(ruby -e 'puts RUBY_VERSION')" > /site/dependencies/.ruby-version
 
 # Install dependencies
