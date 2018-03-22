@@ -181,7 +181,7 @@ actions.
 
 *Jodd DB* offers to easily map database columns to various entity types.
 As seen in the `User` class, columns may be mapped to all common Java
-types, including primitives and Jodds types (such `JDateTime`).
+types, including primitives and Jodds types.
 Moreover, it is very easy to add custom mappings, such as for custom
 enumeration (see `UserLevel`).
 

@@ -29,12 +29,6 @@ Super-fast and powerful bean-util library.
 
 <%= doc_list_all(@item, '/beanutil/') %>
 
-### JDateTime
-
-Elegant date/time class with astronomical precision.
-
-<%= doc_list_all(@item, '/jdatetime/') %>
-
 ### Email
 
 Developer-friendly sending and receiving emails.

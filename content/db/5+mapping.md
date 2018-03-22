@@ -114,10 +114,10 @@ public class Foo {
     public BigDecimal decimal2;
 
     @DbColumn
-    public JDateTime jdt1;
+    public LocalDateTime jdt1;
 
     @DbColumn
-    public JDateTime jdt2;
+    public LocalDateTime jdt2;
 }
 ~~~~~
 </td><td width="200px" markdown="1">
@@ -280,5 +280,5 @@ conversion on every access.
 ### Other mappings
 
 Other mappings from the example are also straightforward. It is
-interesting to notice that `JDateTime` is stored as number of milliseconds
+interesting to notice that `LocalDateTime` is stored as number of milliseconds
 (compatible with `System.currentTimeMillis()`).

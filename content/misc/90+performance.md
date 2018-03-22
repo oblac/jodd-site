@@ -17,8 +17,6 @@ All benchmarks are made using **bb.jar** benchmark library.
 
 ![beanutil performance](beanutil-benchmark.png)
 
-![jdatetime performance](jdate-benchmark.png)
-
 ![proxetta performance](/proxetta/proxetta-benchmark.png)
 
 ![stringbundler performance](stringband-benchmark.png)
