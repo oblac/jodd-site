@@ -157,23 +157,16 @@ div.button-long {
 }
 
 #shout {
-	font-size: 20px;
+	font-size: 24px;
 	text-align: center;
 	color: #fff;
 	background-color: $color-orange;
-	padding: 20px 0 10px 0;
+	padding: 30px 0 10px 0;
 	strong {
 		font-weight: bold;
 	}
 	p {
 		margin-bottom: 8px;
-	}
-	a {
-		color: #fff;
-		border-bottom: 1px dotted #fff;
-		&:hover {
-			border-bottom: 1px solid #fff;
-		}
 	}
 }
 
@@ -483,7 +476,7 @@ div.button-long {
 		li.toc-h3 {
 			//margin-left: 26px;
 			//font-size: 14px;
-		
+
 		}
 		#xtoc {
 			padding-left: 20px;
@@ -497,7 +490,7 @@ div.button-long {
 			@include box-shadow(#eee 4px 4px 10px);
 			width: 240px;
 			z-index: 111;
-		}		
+		}
 		#toc {
 			background-color: #fff;
 			padding: 15px 0 20px 0;
@@ -571,14 +564,19 @@ pre code {
 	padding: 0;
 }
 
-#badges {
-	@extend .clearfix;
+.badges {
+//	@extend .clearfix;
 	width: 820px;
 	margin: 0 auto;
+	display: grid;
+	grid-auto-columns: 200px;
+	grid-template-areas: "a a a a";
+  	grid-gap: 10px;
+  	margin-bottom: 40px;
 }
 .badge-frame {
 	font-family: $font-head;
-	float: left;
+//	float: left;
 	width: 180px;
 	text-align: center;
 	margin: 10px;
@@ -886,8 +884,10 @@ footer {
 .br1 {
 	display: none;
 }
-#badges {
+.badges {
 	width: 610px;
+	grid-auto-columns: 30%;
+	grid-template-areas: "a a a";
 }
 #top {
 	width: $width-page2;
@@ -954,10 +954,12 @@ footer {
 #content #social {
 	display: none;
 }
-#badges {
+.badges {
 	//width: 200px;
 	width: inherit;
 	margin: 0;
+	grid-auto-columns: 100%;
+	grid-template-areas: "a";
 }
 .br2 {
 	display: none;
