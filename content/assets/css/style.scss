@@ -446,6 +446,12 @@ div.button-long {
 			margin-top: 20px;
 			margin-bottom: 6px;
 		}
+		ul.float {
+			@extend .clearfix;
+		}
+		ul.float li {
+			float: left;
+		}
 		li {
 			list-style: none;
 			margin-bottom: 6px;

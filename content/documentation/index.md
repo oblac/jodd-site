@@ -1,25 +1,12 @@
 # Documentation
 
-What is *Jodd*?
+**Jodd** is set of micro-frameworks and developer-friendly tools and utilities.
 
-> Developer-friendly experience + Excellent performance +
-Small memory footprint and code-base; under <%= @config[:jodd][:size] %> MB +
-Fast redeployments, matter of seconds + Web framework +
-Lightweight DI container + Unique proxy creator +
-Thin database layers + Template SQL + Transactions manager +
-JSON (de)serialization +
-Validation framework + HTML parser +
-Decoration framework + Fastest bean library +
-Type conversion +
-Elegant and precise time class + Properties replacement +
-Tiny HTTP client + Many carefully selected utilities... and more!
+Simple code. Small size. Good performances. Whatever.
+
+_Use what you like._
 
 [Jodd tutorial](http://joddframework.org) - micro-frameworks in action (30 min)!
-
-[Quickstart](https://github.com/oblac/jodd-quickstart) - start experiencing *Jodd* right away.
-
-[About Jodd](/about) - an effective one-page you will love :)
-
 
 ## Jodd tools
 
