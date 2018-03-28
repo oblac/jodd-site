@@ -298,6 +298,13 @@ div.button-long {
 	padding-left: 40px;
 	padding-right: 20px;
 }
+
+#main h2 {
+	margin-top: 60px 30px 10px 30px;
+	padding: 10px;
+	background-color: #f7f7f7;
+	@include border-radius(10px);
+}
 #content {
 	margin: 40px 0 0 0;
 	color: $color-text;
@@ -603,6 +610,9 @@ pre code {
 	&:hover { background-color: $color-back; color: $color-text;}
 	//&:hover div { background-color: $color-back;}
 }
+.badge.push {
+	 grid-column-start: 2;
+}
 .circle {
 	width: 100px;
 	@include border-radius(50px);
@@ -886,9 +896,6 @@ footer {
 #title h2 {
 	font-size: 25px;
 }
-.br1 {
-	display: none;
-}
 .badges {
 	width: 610px;
 	grid-auto-columns: 30%;
@@ -966,8 +973,8 @@ footer {
 	grid-auto-columns: 100%;
 	grid-template-areas: "a";
 }
-.br2 {
-	display: none;
+.badge.push {
+	 grid-column-start: 1;
 }
 #pplane {
 	display: none;
