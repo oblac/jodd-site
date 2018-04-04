@@ -6,8 +6,6 @@ jodd.cache
 jodd.core
 jodd.csselly
 jodd.csselly.selector
-jodd.datetime
-jodd.datetime.format
 jodd.db
 jodd.db.connection
 jodd.db.debug
@@ -26,7 +24,6 @@ jodd.db.type
 jodd.decora
 jodd.decora.parser
 jodd.exception
-jodd.format
 jodd.htmlstapler
 jodd.http
 jodd.http.net
@@ -34,6 +31,8 @@ jodd.http.up
 jodd.introspector
 jodd.io
 jodd.io.findfile
+jodd.io.upload
+jodd.io.upload.impl
 jodd.io.watch
 jodd.jerry
 jodd.json
@@ -88,9 +87,6 @@ jodd.servlet.upload
 jodd.servlet.wrapper
 jodd.typeconverter
 jodd.typeconverter.impl
-jodd.upload
-jodd.upload.impl
-jodd.upload.typeconverter
 jodd.util
 jodd.util.annotation
 jodd.util.buffer
