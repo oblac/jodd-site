@@ -288,7 +288,7 @@ Again, very simply: use the very same `ssl()` flag. Here is how it can be used t
 Above example can be converted to IMAP usage very easily:
 
 ~~~~~ java
-    imapServer popServer = MailServer.create()
+    ImapServer imapServer = MailServer.create()
         .host("pop.gmail.com")
         .ssl(true)
         .auth("username", "password")
