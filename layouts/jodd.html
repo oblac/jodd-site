@@ -8,15 +8,6 @@ $(document).ready(function() {
 });
 </script>
 <style>
-/* Big Triangle */
-svg#bigTriangleColor {
-	pointer-events: none;
-}
-#bigTriangleColor path {
-	fill: #f16522;
-	stroke: #f16522;
-	stroke-width: 2;
-}
 svg#downTriangleColor {
 	pointer-events: none;
 }
@@ -28,6 +19,7 @@ svg#downTriangleColor {
 </style>
 </head>
 <body>
+	<%= render '/_important.html' %>
 	<%= render '/_search.html' %>
 	<section id="intro">
 		<%= render '/_header.html' %>
@@ -35,7 +27,7 @@ svg#downTriangleColor {
 		<div class="inner">
 			<div id="button-jodd"><a href="/download">
 				Jodd v<%= @config[:jodd][:version] %>
-				<div class="sub">Released: <%= @config[:jodd][:release_date] %></div>
+				<div class="sub"><%= @config[:jodd][:release_date] %></div>
 			</a></div>
 			<div id="title">
 				<h1>Jodd</h1>
@@ -54,14 +46,11 @@ svg#downTriangleColor {
 		</div>
 	</section>
 
-	<section id="shout" class="ss-style-bigtriangle">
+	<section id="shout">
 		<div class="inner">
 			<%= yield %>
 		</div>
 	</section>
-	<svg id="bigTriangleColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
-	<path d="M0 0 L50 100 L100 0 Z" />
-	</svg>
 
 	<section id="main">
 		<div class="inner">
@@ -71,44 +60,44 @@ svg#downTriangleColor {
 			<div class="badges">
 
 				<a href="/json/" class="badge br2 radial-out">
-					<div class="circle topic-icon bg-col4">S</div>
+					<div class="topic-head topic-icon bg-col-1">Json</div>
 					<div class="desc topic-title">
-						<span>Json</span> - parsing JSON to objects and serializing objects back to JSON.
+						Parsing JSON to objects and serializing objects back to JSON.
 					</div>
 				</a>
 
 				<a href="/lagarto/" class="badge br2 radial-out">
-					<div class="circle topic-icon bg-col3">L</div>
+					<div class="topic-head topic-icon bg-col-1">Lagarto</div>
 					<div class="desc topic-title">
-						<span>Lagarto</span> - all-purpose HTML parser and DOM builder.
+						All-purpose HTML parser and DOM builder.
 					</div>
 				</a>
 
 				<a href="/http/" class="badge br2 radial-out">
-					<div class="circle topic-icon bg-col2">H</div>
+					<div class="topic-head topic-icon bg-col-1">Http</div>
 					<div class="desc topic-title">
-						<span>HTTP</span> - Tiny and raw HTTP client, helps talking to servers.
+						Tiny and raw HTTP client, helps talking to servers.
 					</div>
 				</a>
 
 				<a href="/email" class="badge br1 radial-out">
-					<div class="circle topic-icon">E</div>
+					<div class="topic-head topic-icon bg-col-1">Email</div>
 					<div class="desc topic-title">
-						<span>Email</span> - sending and receiving emails for busy developers.
+						Sending and receiving emails for busy developers.
 					</div>
 				</a>
 
 				<a href="/jerry/" class="badge radial-out push">
-					<div class="circle topic-icon">J</div>
+					<div class="topic-head topic-icon bg-col-1">Jerry</div>
 					<div class="desc topic-title">
-						<span>Jerry</span> - jQuery-friendly HTML parser with CSS3 selectors support.
+						jQuery-friendly HTML parser with CSS3 selectors support.
 					</div>
 				</a>
 
 				<a href="/paramo/" class="badge radial-out">
-					<div class="circle topic-icon">O</div>
+					<div class="topic-head topic-icon bg-col-1">Paramo</div>
 					<div class="desc topic-title">
-						<span>Paramo</span> - method parameters resolver.
+						Method parameters resolver.
 					</div>
 				</a>
 
@@ -119,34 +108,34 @@ svg#downTriangleColor {
 			<div class="badges">
 
 				<a href="/madvoc/" class="badge radial-out">
-					<div class="circle topic-icon">M</div>
+					<div class="topic-head topic-icon bg-col-2">Madvoc</div>
 					<div class="desc topic-title">
-						<span>Madvoc</span> - MVC framework based on
+						MVC framework based on
 						CoC and annotations for pragmatic web development.
 					</div>
 				</a>
 
 				<a href="/petite/" class="badge radial-out">
-					<div class="circle topic-icon bg-col3">P</div>
+					<div class="topic-head topic-icon bg-col-2">Petite</div>
 					<div class="desc topic-title">
-						<span>Petite</span> - DI container
+						DI container
 						that supports sufficient most of features
 						offered by other containers.
 					</div>
 				</a>
 
 				<a href="/db/" class="badge radial-out">
-					<div class="circle topic-icon bg-col4">D</div>
+					<div class="topic-head topic-icon bg-col-2">DbOom</div>
 					<div class="desc topic-title">
-						<span>DbOom</span> - thin database layers,
+						Thin database layers,
 						object mapper and Template-SQL that simplifies database code.
 					</div>
 				</a>
 
 				<a href="/proxetta/" class="badge radial-out">
-					<div class="circle topic-icon">X</div>
+					<div class="topic-head topic-icon bg-col-2">Proxetta</div>
 					<div class="desc topic-title">
-						<span>Proxetta</span> - the fastest proxy creator with new, unique
+						The fastest proxy creator with new, unique
 						approach for making pointcuts and different type of advices.
 					</div>
 				</a>
@@ -157,36 +146,37 @@ svg#downTriangleColor {
 			<div class="badges">
 
 				<a href="/beanutil" class="badge radial-out">
-					<div class="circle topic-icon">B</div>
+					<div class="topic-head topic-icon bg-col-3">BeanUtil</div>
 					<div class="desc topic-title">
-						<span>BeanUtil</span> - fast bean library, type introspection
+						Fast bean library, type introspection
 						and type conversion tools with some unique features.
 					</div>
 				</a>
 
 				<a href="/props" class="badge br1 radial-out">
-					<div class="circle topic-icon bg-col1">R</div>
+					<div class="topic-head topic-icon bg-col-3">Props</div>
 					<div class="desc topic-title">
-						<span>Props</span> - properties replacement,
+						Properties replacement,
 						featuring: UTF8, sections, profiles, macros and more.
 					</div>
 				</a>
 
 				<a href="/decora/" class="badge br1 radial-out">
-					<div class="circle topic-icon">C</div>
+					<div class="topic-head topic-icon bg-col-3">Decora</div>
 					<div class="desc topic-title">
-						<span>Decora</span> - decoration framework for web pages based on templates.
+						Decoration framework for web pages based on templates.
 					</div>
 				</a>
 
 				<a href="/htmlstapler/" class="badge br1 radial-out">
-					<div class="circle topic-icon bg-col1">A</div>
+					<div class="topic-head topic-icon bg-col-3">Stapler</div>
 					<div class="desc topic-title">
-						<span>HtmlStapler</span> - auto packaging of web resources included by HTML page.
+						Auto packaging of web resources included by HTML page.
 					</div>
 				</a>
 			</div>
-			<h2>Think Lightweight, Be Awesome, Get Things Done!</h2>
+
+			<h2 style="margin-top: 60px;">Think Lightweight, Be Awesome, Get Things Done!</h2>
 			<img id="pplane2" src="/jodd-pp-128.png">
 		</div>
 	</section>

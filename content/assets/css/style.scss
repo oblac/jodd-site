@@ -13,16 +13,19 @@ $width-page2: 640px;
 
 $color-code: #444;
 $color-dark: #222;
-$color-orange: #f16522;
+$color-orange: #FF4136;
 $color-orange0: #f5ede1;
 $color-orange1: #ecdcc4;
-$color-orange2: #f9a748;
-$color-footer1: #454545;
-$color-footer2: #343434;
-$color-attn: #fff7d6;
+$color-hover: #DDDDDD;
+$color-hover2: #fff;
+$color-footer1: #aaa;
+$color-footer2: #111;
+
+$color-attn: #FFDC00;
 $color-back: #f5f5f5;
 $color-red: #b6421a;
 $color-text: #444;
+
 
 body {
 	font-family: $font-text;
@@ -79,7 +82,7 @@ div.button {
 		display: block;
 		width: 200px;
 		text-decoration: none;
-		&:hover { color: #fff; background-color: $color-orange2; }
+		&:hover { color: #111; background-color: $color-hover; }
 
 		div.sub {
 			font-family: $font-cond;
@@ -96,13 +99,12 @@ div.button-long {
 
 /* header */
 #social {
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-right: 80px;
 	float: right;
 }
 #social a {
-	font-size: 25px;
-	color: $color-orange1;
+	font-size: 30px;
 	margin-right: 10px;
 	position: relative;
 	&:hover {color: #fff;}
@@ -115,7 +117,7 @@ div.button-long {
 	right:0;
 	padding:3px 6px;
 	background:#454545; color:#fff;
-	font-size:12px;
+	font-size:14px;
 	font-family: $font-cond;
 	font-weight:bold;
 	letter-spacing:0;
@@ -147,10 +149,10 @@ div.button-long {
 }
 
 #intro {
-	background: url(/vs.jpg) no-repeat fixed;
+	background-color: $color-orange;
 	background-size: 100% auto;
 	padding-top: 6px;
-
+	border-bottom: 40px solid #FFDC00;
 	header {
 		background-color: #fff;
 	}
@@ -159,14 +161,14 @@ div.button-long {
 #shout {
 	font-size: 24px;
 	text-align: center;
-	color: #fff;
-	background-color: $color-orange;
-	padding: 30px 0 10px 0;
+	color: #111;
+	background-color: #FFDC00;
+	padding: 0 0 20px 0;
 	strong {
 		font-weight: bold;
 	}
 	p {
-		margin-bottom: 8px;
+		padding-bottom: 4px;
 	}
 }
 
@@ -223,7 +225,8 @@ div.button-long {
 	margin-right: 100px;
 	margin-bottom: 0;
 	a {
-		color: $color-orange0;
+		color: white;
+		background-color: #111;
 	}
 }
 
@@ -232,7 +235,11 @@ div.button-long {
 #content article #github_edit {
 	margin: 40px 0 20px 0;
 	a {
-		color: #666;
+		color: #aaa;
+		&:hover {
+			background-color: #fff;
+			text-decoration: underline;
+		}
 	}
 
 	text-align: center;
@@ -302,11 +309,10 @@ div.button-long {
 #main h2 {
 	margin-top: 60px 30px 10px 30px;
 	padding: 10px;
-	background-color: #f7f7f7;
 	@include border-radius(10px);
 }
 #content {
-	margin: 40px 0 0 0;
+	margin: 0;
 	color: $color-text;
 	position: relative;
 
@@ -314,7 +320,8 @@ div.button-long {
 		margin-top: -40px;
 		margin-right: 20px;
 		a {
-			color: $color-orange1;
+			color: #111;
+			&:hover {color: #fff;}
 		}
 	}
 
@@ -334,14 +341,20 @@ div.button-long {
 		padding: 20px 0;
 
 		a {
+			padding: 0 4px;
 			color: $color-orange;
 			&:hover {
-				text-decoration: underline;
-				color: $color-orange2;
+				text-decoration: none;
+				color: $color-hover2;
+				background-color: $color-orange;
+				@include border-radius(4px);
 			}
 		}
 		a.javadoc {
 			float:right;
+			&:hover {
+				background-color: #fff;
+			}
 		}
 		hr {
 			margin: 10px 10px 10px 0;
@@ -371,8 +384,10 @@ div.button-long {
 			margin-bottom: 18px;
 		}
 		p.attn {
-			padding: 10px 40px !important;
-			background-color: $color-attn;
+			padding: 10px 40px 10px 10px !important;
+			background-color: #ddd;
+			color: #000;
+			border-left: 30px solid $color-attn;
 		}
 		strong {
 			font-weight: bold;
@@ -382,8 +397,8 @@ div.button-long {
 		}
 		em.jodd {
 			font-style: normal;
-			background-color: #fef3ee;
-			padding: 0 1px;
+			font-weight: bold;
+			padding: 0 1px 0 1px;
 		}
 		ul li {
 			margin-left: 50px;
@@ -466,10 +481,11 @@ div.button-long {
 			margin-right: 6px;
 		}
 		a {
-			color: $color-orange;
+			// color: $color-orange;
+			color: #111;
 			&:hover {
-				text-decoration: underline;
-				color: $color-orange2;
+				text-decoration: none;
+				color: $color-orange;
 			}
 		}
 		ul.doc-all {
@@ -593,19 +609,21 @@ pre code {
 	width: 180px;
 	text-align: center;
 	margin: 10px;
-	padding: 10px 0;
+	padding: 40px 0 20px 0;
 }
 
 .badge {
 	@extend .badge-frame;
 	@include border-radius(10px);
+	border: 1px solid #ddd;
+	background-color: #efefef;
+	-webkit-box-shadow: 0px 10px 0px -1px #ddd;
+    -moz-box-shadow: 0px 10px 0px -1px #ddd;
+    box-shadow: 0px 10px 0px -1px #ddd;
 	.desc {
+		margin: 0 6px;
 		font-family: $font-text;
-		font-size: 15px;
-		span {
-			font-weight: bold;
-			font-size: 20px;
-		}
+		font-size: 17px;
 	}
 	&:hover { background-color: $color-back; color: $color-text;}
 	//&:hover div { background-color: $color-back;}
@@ -613,13 +631,33 @@ pre code {
 .badge.push {
 	 grid-column-start: 2;
 }
+.topic-head {
+	background-color: #ee7985;
+	font-size: 46px;
+	letter-spacing: -2px;
+	line-height: 100px;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-decoration: none;
+}
+.bg-col-1 {
+	background-color: #AAAAAA;
+}
+.bg-col-2 {
+	background-color: #AAAAAA;
+}
+.bg-col-3 {
+	background-color: #AAAAAA;
+}
 .circle {
 	width: 100px;
 	@include border-radius(50px);
-	background-color: $color-orange1;
+	background-color: #ee7985;
 	font-size: 60px;
 	line-height: 100px;
-	color: #777;
+	color: #fff;
 	text-align: center;
 	font-weight: bold;
 	margin-left: 40px;
@@ -722,6 +760,31 @@ var.lib {
 	background-color: $color-orange1;
 }
 
+/* prev-next */
+
+.nav {
+	margin: 20px 0;
+	background-color: #fffce7;
+	padding: 20px 0;
+	@extend .clearfix;
+	a {
+		color: #666 !important;
+		display: block;
+		font-size: 16px;
+		&:hover {
+			background-color: #fffce7 !important;
+			text-decoration: underline !important;
+		}
+	}
+	a.nav-next {
+		float:right;
+	}
+	a.nav-prev {
+		float:left;
+	}
+}
+
+
 /* release */
 
 dl.release {
@@ -786,30 +849,6 @@ tbody {
 	td:hover {background-color: #FFE3CA;}
 }
 
-/* prev-next */
-
-.nav {
-	margin: 20px 0;
-	background-color: $color-attn;
-	padding: 20px 0;
-	@extend .clearfix;
-	a {
-		color: #666 !important;
-		display: block;
-		font-size: 16px;
-		&:hover {
-			text-decoration: none !important;
-		}
-	}
-	a.nav-next {
-		float:right;
-	}
-	a.nav-prev {
-		float:left;
-	}
-}
-
-
 /* footer */
 
 #ohloh {
@@ -825,9 +864,10 @@ footer {
 #support {
 	background-color: $color-footer1;
 	padding: 20px 10px;
-	color: #bbb;
+	color: #111;
 	a {
-		color: #eee;
+		color: #111;
+		text-decoration: underline;
 	}
 }
 #overview {
@@ -994,14 +1034,20 @@ footer {
 .badge {
 	float: left;
 	width: inherit;
-	margin: 0 10px;
-
+	margin: 0 10px 10px 10px;
+	padding: 0 0 10px 0;
+	@include box-shadow(0 0 0 0);
 	span {
 		font-size: 18px;
 	}
+	.topic-head {
+		font-size: 30px;
+		padding: 10px 0;
+		line-height: 20px;
+	}
 	.desc {
 		text-align: left;
-		padding: 10px 20px 0 90px;
+		padding: 10px 20px 0 10px;
 	}
 
 	.circle, .square, .hexagon {
@@ -1049,11 +1095,12 @@ footer {
 	}
 }
 #shout {
-	font-size: 14px;
+	font-size: 15px;
 }
 #intro {
 	background-image: none;
-	background-color: $color-red;
+	border-bottom-width: 10px;
+	padding-bottom: 10px;
 }
 div.button-long {
 	a {

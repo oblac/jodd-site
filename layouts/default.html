@@ -12,10 +12,11 @@ $(window).scroll(function () {
 		$("#xtoc").removeClass("fixed");
 		$('#content aside').css('padding-top', '0');
 	}
-});	
+});
 	</script>
 </head>
 <body>
+	<%= render '/_important.html' %>
 	<%= render '/_search.html' %>
 	<section id="intro">
 		<%= render '/_header.html' %>
