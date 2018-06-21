@@ -68,15 +68,14 @@ a {
 	&:hover { color: $color-orange; }
 }
 
-/* main */
-div.button {
+.base_button {
 	margin-bottom: 20px;
 	a {
-		background-color: $color-orange;
+		background-color: #111;
 		@include border-radius(10px);
-		color: $color-dark;
+		color: #fff;
 		font-family: $font-bold;
-		padding: 20px 20px;
+		padding: 40px;
 		text-align: center;
 		font-size: 26px;
 		display: block;
@@ -91,16 +90,13 @@ div.button {
 		}
 	}
 }
-div.button-long {
-	a {
-		width: 500px;
-	}
-}
+
+
 
 /* header */
 #social {
 	margin-top: 15px;
-	margin-right: 80px;
+	margin-right: 90px;
 	float: right;
 }
 #social a {
@@ -189,7 +185,7 @@ div.button-long {
 #logo {
 	float: left;
 	background-color: $color-orange;
-	color: #fff;
+	color: #000;
 	padding: 4px 10px;
 	font-size: 20px;
 	@include border-bottom-radius(6px);
@@ -219,7 +215,7 @@ div.button-long {
 }
 
 #button-jodd {
-	@extend div.button;
+	@extend .base_button;
 	float: right;
 	margin-top: 60px;
 	margin-right: 100px;
@@ -430,12 +426,6 @@ div.button-long {
 			margin-top: 6px;
 		}
 
-		div.button {
-			a {
-				color: $color-orange1;
-				&:hover { color: #fff; text-decoration: none;}
-			}
-		}
 		blockquote p {
 			font-style: italic;
 			margin-left: 20px;
@@ -443,6 +433,12 @@ div.button-long {
 			border-left: 4px solid #f0f0f0;
 			margin-right: 30px;
 		}
+
+		/* main */
+		.button {
+			@extend .base_button
+		}
+
 	}
 
 	aside {
@@ -537,6 +533,9 @@ div.button-long {
 			a {
 				font-size: 0.9em;
 				color: #666;
+				&:hover {
+					color: $color-orange;
+				}
 			}
 		}
 	}
@@ -650,33 +649,6 @@ pre code {
 }
 .bg-col-3 {
 	background-color: #AAAAAA;
-}
-.circle {
-	width: 100px;
-	@include border-radius(50px);
-	background-color: #ee7985;
-	font-size: 60px;
-	line-height: 100px;
-	color: #fff;
-	text-align: center;
-	font-weight: bold;
-	margin-left: 40px;
-	margin-bottom: 15px;
-	display: block;
-	text-decoration: none;
-}
-
-.square {
-	width: 100px;
-	background-color: $color-orange1;
-	font-size: 60px;
-	line-height: 100px;
-	color: #777;
-	text-align: center;
-	font-weight: bold;
-	margin-left: 40px;
-	margin-bottom: 15px;
-	display: block;
 }
 
 .radial-out {
@@ -1101,13 +1073,6 @@ footer {
 	background-image: none;
 	border-bottom-width: 10px;
 	padding-bottom: 10px;
-}
-div.button-long {
-	a {
-		width: auto;
-		font-size: 16px;
-		padding: 10px;
-	}
 }
 #main {
 	h2 {

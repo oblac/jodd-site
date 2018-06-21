@@ -7,7 +7,7 @@ including Linux, UNIX, Windows, MacOSX.
 *Jodd* is **FREE** software released under the terms of the [BSD
 license](/license.html).
 
-## Maven repositories <i class="fa fa-arrow-circle-o-down"></i>
+## Maven repositories
 
 *Jodd* jars are published on **Maven central** repository.
 
@@ -39,7 +39,7 @@ libraryDependencies += "org.jodd" % "jodd-xxx" % "<%=@config[:jodd][:version]%>"
 	<dependency org="org.jodd" name="jodd-xxx" rev="<%=@config[:jodd][:version]%>"/>
 ~~~
 
-## Java 9 <i class="fa fa-coffee"></i>
+## Java 9
 
 *Jodd* can run on **Java 9**, too. However, you have to use the `jre9` version of `jodd-core` component. It is published as the same artifact, but with the _classifier_.
 
@@ -56,11 +56,11 @@ If you use other *Jodd* components, you will need to exclude default dependency 
 
 With above code we force the usage of `jre9` classifier and exclude default transitive dependency on `jodd-core`.
 
-## BOM (Bill Of Material) <i class="fa fa-list-alt"></i>
+## BOM (Bill Of Material)
 
 *Jodd* BOM is provided as `org.jodd:jodd-bom`.
 
-## All-in-One Bundle <i class="fa fa-paper-plane-o"></i>
+## All-in-One Bundle
 
 We also provide *Jodd* bundle: `jodd-all`. It is available on Maven central
 repository as well (`org.jodd:jodd-all`). You can download it from here:
