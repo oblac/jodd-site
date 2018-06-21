@@ -16,9 +16,9 @@ $color-dark: #222;
 $color-orange: #FF4136;
 $color-orange0: #f5ede1;
 $color-orange1: #ecdcc4;
-$color-hover: #DDDDDD;
+$color-hover: #ddd;
 $color-hover2: #fff;
-$color-footer1: #aaa;
+$color-footer1: #ddd;
 $color-footer2: #111;
 
 $color-attn: #FFDC00;
@@ -283,7 +283,7 @@ div.button-long {
 	margin: 0 0 80px 0;
 	padding: 30px 0;
 	color: $color-text;
-	background-color: #eee;
+	background-color: #FFDC00;
 	h2 {
 		text-align: center;
 		font-family: $font-bold;
