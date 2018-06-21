@@ -603,6 +603,16 @@ pre code {
   	grid-gap: 10px;
   	margin-bottom: 40px;
 }
+.badges-small {
+	width: 820px;
+	margin: 0 auto;
+	display: grid;
+	grid-auto-columns: 130px;
+	grid-template-areas: "a a a a a a";
+  	grid-gap: 10px;
+  	margin-bottom: 40px;
+}
+
 .badge-frame {
 	font-family: $font-head;
 //	float: left;
@@ -642,6 +652,20 @@ pre code {
 	margin-bottom: 15px;
 	text-decoration: none;
 }
+.badges-small {
+	.badge {
+		width:120px;
+		padding-top: 0;
+	}
+	.topic-head {
+		font-size: 30px;
+		letter-spacing: -1px;
+	}
+	.desc {
+		font-size: 14px;
+	}
+}
+
 .bg-col-1 {
 	background-color: #AAAAAA;
 }
