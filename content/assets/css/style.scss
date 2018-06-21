@@ -381,9 +381,10 @@ a {
 		}
 		p.attn {
 			padding: 10px 40px 10px 10px !important;
-			background-color: #ddd;
 			color: #000;
 			border-left: 30px solid $color-attn;
+			border-top: 2px solid $color-attn;
+			border-bottom: 2px solid $color-attn;
 		}
 		strong {
 			font-weight: bold;
@@ -735,7 +736,7 @@ var.lib {
 /* prev-next */
 
 .nav {
-	margin: 20px 0;
+	margin: 100px 0 20px 0;
 	background-color: #fffce7;
 	padding: 20px 0;
 	@extend .clearfix;

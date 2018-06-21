@@ -1,4 +1,4 @@
-# Miscellaneous JSON
+# Miscellaneous
 
 *Jodd* *Json* has more tricks in its sleeves.
 
@@ -52,10 +52,3 @@ This can be handy when e.g. you need to wrap your serialized JSON
 into another simple map. Instead of creating a new `Map` object
 you can simply use the writer with the JSON result to create the
 same thing, but faster.
-
-## Global configuration
-
-Most of the configurations for `JsonSerializer` and `JsonParser` can be set
-on global level, too. Class `JoddJson` holds the default configuration.
-
-Enjoy!
