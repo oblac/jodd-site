@@ -122,6 +122,10 @@ class MarkdownCodeFenceColorize < Nanoc::Filter
 		%[<em>Json</em>],
 		%[<em class="jodd">Json</em>])
 
+	content = content.gsub(
+		%[<em>CLI</em>],
+		%[<em class="jodd">CLI</em>])
+
 	content
   end
 end

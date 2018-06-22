@@ -34,6 +34,11 @@ Enhanced `Properties` replacement.
 
 <%= doc_list_all(@item, '/props/') %>
 
+### Cli
+
+Simple command-line parser.
+
+<%= doc_list_all(@item, '/cli/') %>
 
 ### Ref
 
