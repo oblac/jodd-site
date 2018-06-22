@@ -159,7 +159,7 @@ module JoddDocs
 			prev = arr[indexPrev]
 
 			str += "<a class='nav-prev' href='" + prev[:site_path] + "'>"
-			str += "<i class='fa fa-toggle-left'></i>&nbsp;Previous: " + prev[:title]
+			str += "<i class='fa fa-chevron-circle-left'></i>&nbsp;Previous: " + prev[:title]
 			str += "</a>"
 		end
 
@@ -172,7 +172,7 @@ module JoddDocs
 			nextt = arr[indexNext]
 
 			str += "<a class='nav-next' href='" + nextt[:site_path] + "'>"
-			str += "Next: " + nextt[:title] + "&nbsp;<i class='fa fa-toggle-right'></i>"
+			str += "Next: " + nextt[:title] + "&nbsp;<i class='fa fa-chevron-circle-right'></i>"
 			str += "</a>"
 		end
 
