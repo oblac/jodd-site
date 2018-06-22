@@ -5,8 +5,7 @@ javadoc: 'http'
 # HTTP
 
 *HTTP* is tiny, raw HTTP client - and yet simple and convenient. It
-offers a simple way to send requests and read responses. The goal is to
-make things simple for everyday use; this can make developers happy :)
+offers a simple way to send requests and read responses - so to please developers.
 
 The best way to learn about *HTTP* is through examples.
 
@@ -49,7 +48,7 @@ You can use response for various stuff. You can get the `statusCode()` or
 Most important thing is how to read received response body. You may use one
 of the following methods:
 
-+ `body()` - raw body content, always in ISO-8859-1 encoding.
++ `body()` - raw body content, always in `ISO-8859-1` encoding.
 + `bodyText()` - body text, i.e. string encoded as specified by `Content-Type` header.
 + `bodyBytes()` - returns raw body as byte array, so e.g. downloaded file
 can be saved.
@@ -60,25 +59,22 @@ on the HTML page), you _must_ specify the encoding with `charset()`
 method before calling `bodyText()`.
 {: .attn}
 
-Don't forget this :)
-
-
 ## Query parameters
 
 Query parameters may be specified in the URL line (but then they have to
-be correctly encoded).
+be encoded correctly):
 
 ~~~~~ java
     HttpResponse response = HttpRequest
-		.get("http://srv:8080/api/jsonws/user/get-user-by-id?userId=10194")
+		.get("http://srv:8080/api/user/get-user-by-id?userId=10194")
 		.send();
 ~~~~~
 
-Other way is by using `query()` method:
+Better and recommended way is with the `query()` method:
 
 ~~~~~ java
     HttpResponse response = HttpRequest
-		.get("http://srv:8080/api/jsonws/user/get-user-by-id")
+		.get("http://srv:8080/api/user/get-user-by-id")
 		.query("userId", "10194")
 		.send();
 ~~~~~
@@ -101,17 +97,23 @@ parameters:
     httpParams.put("userId", new String[] {"10194"});
 ~~~~~
 
-## Basic Authentication
+## Authentication
 
 Basic authentication is made easy:
 
 ~~~~~ java
-    request.basicAuthentication("test", "test");
+    request.basicAuthentication("user", "password");
+~~~~~
+
+Token-based authentication:
+
+~~~~~ java
+    request.tokenAuthentication("M4ORM....");
 ~~~~~
 
 ## POST and form parameters
 
-Looks very similar:
+Similarly:
 
 ~~~~~ java
     HttpResponse response = HttpRequest
@@ -120,8 +122,7 @@ Looks very similar:
 		.send();
 ~~~~~
 
-As you can see, use `form()` in the same way to specify form parameters.
-Everything what is said for `query()` applies to the `form()`.
+Use `form()` in the same way as `query()` to specify form parameters. Everything what is said for `query()` applies to the `form()`.
 
 ## Upload files
 
@@ -130,7 +131,7 @@ example:
 
 ~~~~ java
     HttpRequest httpRequest = HttpRequest
-		.post("http://srv:8080/api/jsonws/dlapp/add-file-entry")
+		.post("http://srv:8080/api/dlapp/add-file-entry")
 		.form(
 			"repositoryId", "10178",
 			"folderId", "11219",
@@ -144,8 +145,6 @@ example:
 
 	HttpResponse httpResponse = httpRequest.send();
 ~~~~~
-
-And that's really all!
 
 ### Monitor upload progress
 
@@ -180,13 +179,18 @@ Add or reach header parameters with method `header()`. Some common
 header parameters are already defined as methods, so you will find
 `contentType()` etc.
 
+There are some shortcut methods that are commonly used:
+
++ `contentTypeJson()` - specifies JSON content type
++ `acceptJson()` - accepts JSON content.
+
 ## GZipped content
 
 Just `unzip()` the response.
 
 ~~~~~ java
     HttpResponse response = HttpRequest
-		.get("http://www.liferay.com")
+		.get("http://jodd.org")
 		.acceptEncoding("gzip")
 		.send();
 
@@ -195,24 +199,20 @@ Just `unzip()` the response.
 
 The `unzip()` method is safe; it will not fail if response is not zipped.
 
-## Use the body
+## Set the body
 
-You can set request body manually - sometimes some APIs allow to specify
-commands in it:
+You can set request body manually:
 
 ~~~~~ java
     HttpResponse response = HttpRequest
 		.get("http://srv:8080/api/jsonws/invoke")
-		.body("{'$user[userId, screenName] = /user/get-user-by-id' : {'userId':'10194'}}")
+		.body("{'a':1 23, 'b': 'hi'}")
 		.basicAuthentication("test", "test")
 		.send();
 ~~~~~
 
 Setting the body discards all previously set `form()` parameters.
 {: .attn}
-
-However, using `body()` have more sense on `HttpResponse` object, to see
-the received content.
 
 ## Charsets and Encodings
 
@@ -236,6 +236,13 @@ With received content, `body()` method always returns the **raw** string
 `bodyText()`. This method uses provided **charset** from
 "Content-Type" header and encodes the body string.
 
+## Following redirection
+
+By default `HttpRequest` does not follow redirection response. This can be changed by setting the `followRedirects(true)`. Now redirect responses are followed. When redirection is enabled, the original URL will NOT be preserved in the request object!
+
+## Asynchronous sending
+
+When `send()` is called, the program blocks until the response is received. By using `sendAsync()` the execution of the sending is passed to Javas fork-join pool, and will be executed asynchronously. Method returns `CompletableFuture<Response>`.
 
 ## HttpConnection
 
@@ -255,7 +262,7 @@ Alternatively, you many even provide instance of `HttpConnection` directly,
 without any provider.
 
 
-## Socket
+### Socket
 
 As said, default communication goes through the plain `Socket`. Since it is
 a common need to tweak socket behavior before sending data, here are two
