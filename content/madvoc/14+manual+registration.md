@@ -1,12 +1,8 @@
-# Manual registration
+# Manual Registration
 
-By default, *Madvoc* registers all actions by scanning the classpath
-and looking for the appropriate annotations. On the one hand,
-this is very developer friendly, but on the other hand, user may get
-lost without a nice overview of what is actually registered.
+By default, *Madvoc* registers all actions by scanning the classpath and looking for the appropriate annotations. On the one hand, this is very developer friendly, but on the other hand, user may get lost without a nice overview of what is actually registered.
 
-For that reason, it is possible to register _everything_ in *Madvoc*
-manually. Here is how.
+For that reason, it is possible to register _everything_ in *Madvoc* manually. Here is how.
 
 ## The Router
 

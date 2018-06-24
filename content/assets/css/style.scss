@@ -14,8 +14,6 @@ $width-page2: 640px;
 $color-code: #444;
 $color-dark: #222;
 $color-orange: #FF4136;
-$color-orange0: #f5ede1;
-$color-orange1: #ecdcc4;
 $color-hover: #ddd;
 $color-hover2: #fff;
 $color-footer1: #ddd;
@@ -754,24 +752,21 @@ var.dep-opt {
 	background-color: #909090;
 }
 var.lib {
-	background-color: $color-orange1;
+	background-color: $color-orange;
 }
 
 /* prev-next */
 
 .nav {
 	margin: 100px 0 20px 0;
-	background-color: #fffce7;
-	padding: 20px 0;
 	@extend .clearfix;
 	a {
-		color: #666 !important;
+		// background-color: #111;
+		// color: #fff !important;
 		display: block;
-		font-size: 16px;
-		&:hover {
-			background-color: #fffce7 !important;
-			text-decoration: underline !important;
-		}
+		font-size: 18px;
+		letter-spacing: -1px;
+		padding: 10px 0 10px 20px;
 	}
 	a.nav-next {
 		float:right;

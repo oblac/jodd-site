@@ -2,7 +2,7 @@
 
 *Madvoc* supports REST APIs as well! Common thing with mapping REST endpoints is to specify _macros_: parts of request path that represents an ID - or input parameter, in general. Of course, you can use macros on any request, not only for the REST apis.
 
-To simplify building the REST apis, *Madvoc* provides `@RestAction` annotation that does two things differently:
+To simplify building the REST apis, *Madvoc* provides `@RestAction` annotation that does two things specifically to the REST:
 
 1. it changes the naming strategy for REST apis, and
 2. renders the result object as JSON.
@@ -90,9 +90,9 @@ Since in root, this macro will successfully filter out requests like
 `/favico.ico` or all images, and this action will be invoked only for
 cities.
 
-## Wildcard matching
+### Wildcard matching
 
-Alternatively, paths may be matched using wildcards. It's simple and fast.
+Alternatively, paths may be matched using wildcards.
 
 ### Custom matching
 

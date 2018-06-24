@@ -1,7 +1,6 @@
 # Actions
 
-Action in *Madvoc* is a user code that handles some request.
-The three most important terms regarding the actions are:
+Action in *Madvoc* is a user code that handles some request. The three most important terms regarding the actions are:
 
 + **action path** - the HTTP request path, i.e. the URL path (server name stripped);
 + **action** - handler method, mapped to an action path, processes requests; and
@@ -9,11 +8,12 @@ The three most important terms regarding the actions are:
   a response (using e.g. JSP). Often results threat returned object
   as a _result path_.
 
-These three makes the whole magic of handling request and providing response. Most of the configuration in *Madvoc* is done by convention, so always keep in mind this three dimensions of request handling.
+Most of the configuration in *Madvoc* is done by convention. Remember that *Madvoc* provides equally valid way to defined everything by hand - or by custom convention.
+{: .attn}
 
 ## Action path
 
-**Action** is action _method_ defined in action class, mapped to some URL - the **action path**. *Madvoc* uses naming convention and annotations to define action path from action method. By default, action path is built from the package, class and method name of an action or its annotations, using the following convention:
+**Action** is action _method_ defined in action class, mapped to some URL - the **action path**. *Madvoc* uses naming convention and annotations to define action path from action method. By default, action path is built from the package name, class name and method name of an action or its annotations, using the following convention:
 
 ~~~~~
     action path = /<action_package>/<action_class>.<action_method>
@@ -27,7 +27,7 @@ These three makes the whole magic of handling request and providing response. Mo
 * `action_package` - optional part of the action path that comes from
   action's package.
 
-By default, each part of action path is defined from method/class/package name so you don't have to explicitly specify anything. Still, each part of action path can be explicitly defined by corresponding annotation value, so you can easily override default names. Finally, you don't even have to use annotations - you can register your actions manually.
+This behavior is simple to change: either globally, either for specific action method.
 
 ## Action class & action method
 
@@ -73,11 +73,13 @@ One action class may contain more then one actions (action methods). This happen
 
 ### Action path extensions
 
-*Madvoc* does not know about the action path extensions (`html`, `jpg`...). You have to map the full path you need to an action.
+*Madvoc* does not know about the action path extensions (`.html`, `.jpg`...). You have to map the full path you need to an action.
 
-The good thing is that *Madvoc* is smart: when user requests `/hello.world.html`, *Madvoc* will find that there is no action registered to this path and will strip the last "dot-word" from the path and try again. The second guess, therefore, would be: `/hello.world` and the action would be found. *Madvoc* performs this guessing only once.
+By default, *Madvoc* strips the `.html` from requested path if exact mapping is not found. For example, when user requests `/hello.world.html`, *Madvoc* will not find action for it and will use: `/hello.world` instead.
 
-Finally, it is very easily to add your own mapping convention.
+There is a configuration option that configures this behavior. You can set *Madvoc* to be strict and not strip `.html` by default. Or you can change which extensions should be stripped.
+
+Why this? We could not find any reasonable convention that would define the extension value. If you think of one, let us know.
 
 ## Full action path
 
@@ -155,7 +157,7 @@ Sometimes developer wants to group some action classes in separate subpackages, 
 
 ## HTTP request methods
 
-By default, *Madvoc* ignores the value of HTTP request method. No matter if it is POST, GET or any other, the same mapped action method will be invoked. If needed (a common thing with the REST apis), *Madvoc* offers more control considering HTTP methods: it allows users to specify one for action method:
+By default, *Madvoc* ignores the value of HTTP request method. No matter if it is a POST, GET or any other method, the same mapped action method will be invoked. To map only certain HTTP method, use *Madvoc* annotations, like this:
 
 ~~~~~ java
     @MadvocAction
@@ -171,7 +173,7 @@ This action method is mapped to `/form.store` and will be invoked only for `POST
 
 ## Default action methods
 
-As seen, *Madvoc* uses action method name (or annotation value) for creating action path. Moreover, it is possible to have action path that doesn't include action method name - what is often needed for 'common' pages (such as `index.html`, `about.html`, `error.html`). By default, *Madvoc* will ignore action method name for methods named as `execute` and `view`. Such action methods are so-called the **default** ones. So, the following action:
+As seen, *Madvoc* uses action method name (or annotation value) for creating the action path. It is possible to have action path that doesn't include action method name - what is often case for 'common' pages (such as `index.html`, `about.html`, `error.html`). By default, *Madvoc* will ignore action method name for methods named as `execute` and `view`. Such action methods are so-called the **default** ones. So, the following action:
 
 ~~~~~ java
     @MadvocAction
@@ -185,11 +187,9 @@ As seen, *Madvoc* uses action method name (or annotation value) for creating act
 
 is just mapped to `/index` (if you remember, `/index.html` would work as well).
 
-Default action names are part of global *Madvoc* configuration and can be customized when needed.
+Default action names are part of *Madvoc* configuration and can be customized.
 
-Alternatively, `@Action` annotation value element may be set to `NONE`.
-Then the method name will be ignored when building action path.
-Therefore, following action has the same action path mapping:
+Alternatively, `@Action` annotation value element may be set to `NONE`. Then the method name will be ignored when building action path. Therefore, following action has the same action path mapping:
 
 ~~~~~ java
     @MadvocAction
@@ -213,4 +213,3 @@ Following table summarizes the default behavior of `ActionMethodParser` - a *Mad
 | (none)  | boo     | view/execute  | /boo              |
 | /zoo    | boo     | foo           | /zoo/boo.foo      |
 
-(if not set explicitly, extensions like `html`, `jpg` etc. will be ignored)

@@ -2,13 +2,12 @@
 
 **Action Result** is a handler that process (i.e. renders) a return value of an action method (also known as **result object**). The result object can be of any type and for any purpose; *Madvoc* uses action results to _render_ the response. Results handlers are defined as implementations of `ActionResult`.
 
-*Madvoc* offers many ways how to specify action result handler! You will be
-surprised:
+*Madvoc* offers many ways how to specify action result handler:
 
 + action returns an object annotated with `@RenderWith` annotation;
 + action has a `@RenderWith` annotation;
-+ actions returns a `PathResult` helper object;
-+ action specify the result in the action configuration.
++ action returns implementation of `PathResult`;
++ action specify the result in the action configuration (and annotation).
 
 So many choices! Let's see each of these in action.
 
@@ -78,7 +77,7 @@ Finally:
 
 Here the `@BookAction` is configured to use the `BookActionResult` for rendering a book. Good thing here is that you may use the same action result for different types. You can render books, comics, novel etc with the very same action result.
 
-## ResultPath
+## PathResult
 
 *Madvoc* provides several classes that uses human-readable fluent API to specify the common results.
 

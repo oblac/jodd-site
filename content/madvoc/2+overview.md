@@ -5,14 +5,9 @@ We are gonna discuss now some core concepts of how *Madvoc* works and it's infra
 
 ## Starting Madvoc
 
-It all starts with registering `MadvocContextListener`: either in `web.xml`, either by extending it and using `@WebFilter` annotation. Then, register a `MadvocServletFilter` filter. There are three optional context parameters you may use:
+Madvoc is servlet web application.
 
-* `madvoc.webapp` - class name of *Madvoc* web application. Default is `jodd.madvoc.WebApp`. May be used for configuring various components of *Madvoc*.
-* `madvoc.configurator` - class name of *Madvoc* configurator: default is
-  `jodd.madvoc.config.AutomagicMadvocConfigurator`. It's purpose is to register all web components.
-* `madvoc.params` - wildcard pattern of *Madvoc* properties files on classpath.
-
-Example from `web.xml`:
+It all starts with registering `MadvocContextListener`: either in `web.xml`, using annotation or manually. Next step: register a `MadvocServletFilter` filter.
 
 ~~~~~ xml
 	<listener>
@@ -31,7 +26,7 @@ Example from `web.xml`:
 	</filter-mapping>
 ~~~~~
 
-If you use other *Jodd* frameworks in your app, consider using [Joy](/joy). It is even easier to start with.
+If you use other *Jodd* frameworks in your app, consider using [Joy](/joy). It is full-featured web app bootstrap.
 {: .attn}
 
 
@@ -39,19 +34,24 @@ If you use other *Jodd* frameworks in your app, consider using [Joy](/joy). It i
 
 `WebApp` is the central point for running *Madvoc* components. It is the very first object created by *Madvoc*. `WebApp` class is very extensible, so writing custom web applications is piece of cake.
 
+`WebApp` is used to register all *Madvoc* components, define parameters, set routes... You may use it to configure almost everything in the application. However, most of the things can be registered and configured using just annotations and without touching the `WebApp`. Which way to use is up to you.
+
+### Custom WebApp
+
+To provide custom implementation of `WebApp`, just set the context parameter in `web.xml` named: `madvoc.webapp`.
 
 ## Madvoc Components
 
-The whole *Madvoc* infrastructure is split into the components. Almost any feature is extracted and encapsulated into a separate component; this makes *Madvoc* developer friendly. You can simply override any existing component or register a new one if you need so.
+The whole *Madvoc* infrastructure consist of the _components_. Almost any feature is extracted and encapsulated into a separate component. You can simply override any existing component or register a new one if you need so.
 
-*Madvoc* components are marked with `@MadvocComponent` and, by default, they are registered automatically from the classpath. Any class annotated with this annotation becomes a *Madvoc* component. You can have as many components as you want. So what you can with *Madvoc* components? Like we said, you can override existing components to change the default behavior. Or you can add new components that simply configure existing ones. Custom *Madvoc* component may be also used for registering the _web components_. And so on - practically, you have the full power over the *Madvoc* infrastructure.
+*Madvoc* components are marked with `@MadvocComponent` and, by default, they are registered automatically from the classpath. Any class annotated with this annotation becomes a *Madvoc* component. You can have as many components as you want. So what you can do with *Madvoc* components? Like we said, you can override existing components to change the default behavior. Or you can add new components that simply configure existing ones. Custom *Madvoc* component may be also used for registering the _web components_. And so on - practically, you have the full power over the *Madvoc* infrastructure.
 
 *Madvoc* uses *Petite* container internally for storing and wiring *Madvoc* components. This means that *Madvoc* components can be easily injected into each other: just use `@PetiteInject` annotation and the instance of referenced component will be injected once when component instance is created.
 
 
 ## Web Components
 
-While *Madvoc* components are designed for the infrastructure, the so-called "_web components_" are meant for the user's web application. Web components are actions, filters, interceptors... that compose together the web application. Here is a diagram how they are related.
+While *Madvoc* components are designed for the infrastructure, the so-called "_web components_" are meant for the user's web application. Web components are actions, filters, interceptors... that compose together the web application. Here is a diagram how they are related:
 
 <div class="clearfix">
 
@@ -77,7 +77,7 @@ While *Madvoc* components are designed for the infrastructure, the so-called "_w
 
 </div>
 
-`MadvocController` is a *Madvoc* component that receives a HTTP request and lookups for the `Action` instance for requested action path. If action path is registered, `MadvocController` instantiates new `ActionRequest` - encapsulation of the actual request and action's method proxy.
+`MadvocController` is the *Madvoc* component that receives a HTTP request and lookups for the `Action` instance for requested action path. If action path is registered, `MadvocController` instantiates new `ActionRequest` - encapsulation of the actual request and action's method proxy.
 
 _Interceptors_ intercept the requests before it comes to an action and after the action has finished the handling. In some cases, interceptor might disable execution of an action. Interceptors can also change the state of an action before it executes.
 

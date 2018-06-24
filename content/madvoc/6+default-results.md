@@ -1,6 +1,6 @@
 # Default Action Results
 
-Here goes the list of all *Madvoc* Action results. Vast number of these results handlers work in the same way: they create a _result path_ based on action path and specified string value. Result path is then used for actual redirection/fowarding and so on.
+Here goes the list of all *Madvoc* Action results. Vast number of these results handlers work in the same way: they create a _result path_ based on action path and specified string value. Result path is then used for actual redirection/forwarding and so on.
 
 
 ## Dispatcher result ('Forward')
@@ -88,11 +88,7 @@ it works just like redirect result.
 
 ## Chain result ('Chain')
 
-Chaining actions is similar to forwarding, except it is done by `Madvoc`
-and not by servlet container. Chain result handler takes result
-value as the next action path. Chaining to the next action happens after
-the complete execution of first action, including all interceptors
-(but not filters!). The following example illustrates this:
+Chaining actions is similar to forwarding, except it is done by `Madvoc` and not by servlet container. Chain result handler takes result value as the next action path. Chaining to the next action happens after the complete execution of first action, including all interceptors (but not filters!). The following example illustrates this:
 
 ~~~~~ java
     @MadvocAction
@@ -109,23 +105,15 @@ the complete execution of first action, including all interceptors
     }
 ~~~~~
 
-First action is mapped to the `/hello.chain.html`. After the execution
-of this action finishes, *Madvoc* will continue to the next action,
-`/hello.link.html`. When the send action is invoked, it is executed in
-the very same way as it would be if the request would come from the
-outside. There is no difference between chained execution and regular
-one.
+First action is mapped to the `/hello.chain.html`. After the execution of this action finishes, *Madvoc* will continue to the next action, `/hello.link.html`. When the send action is invoked, it is executed in the very same way as it would be if the request would come from the outside. There is no difference between chained execution and regular one.
 
-When chaining, first action may send custom data to the next action by
-setting values in various scopes (request, session, etc).
+When chaining, first action may send custom data to the next action by setting values in various scopes (request, session, etc).
 
-## No results
+## No results ('NoResult')
 
-There are situations when data needs to be sent directly to the output
-stream of HTTP response. In that case, action method is responsible for
-sending the full response.
+There are situations when data needs to be sent directly to the output stream of HTTP response. In that case, action method is responsible for sending the full response.
 
-## TextResult
+## Text result ('TextResult')
 
 Allows to simply define text that has to be written back to the output stream:
 
@@ -136,7 +124,7 @@ Allows to simply define text that has to be written back to the output stream:
     }
 ~~~~~
 
-## RawData
+## Raw content ('RawData')
 
 The `RawData` result specifies byte content (from file or memory) that has to be returned.
 
@@ -150,3 +138,7 @@ Example:
 ~~~~~
 
 This action returns a GIF content, but also specifies mime type common to the `gif` extension.
+
+## JSON data ('JsonResult')
+
+Prepares JSON string that will be returned as response body.

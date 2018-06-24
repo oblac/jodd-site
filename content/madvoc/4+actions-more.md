@@ -2,19 +2,20 @@
 
 Let's continue with some more action-related features.
 
+## Action Configurations
 
-## Custom action configuration
+Each action in *Madvoc* is defined by it's action configuration, represented in `ActionConfig` class. Action configuration defines things like action interceptors, filters, the type of action result and, very important, a naming strategy.
 
-For each action you can define a custom set of 'action configuration' - set of configuration and *Madvoc* components that defines the _behavior_ of an action. This set is stored in `ActionConfig` class. If some of your actions require a custom configuration, you would need to extend this class and change it (as for any other *Madvoc* component). If all actions require different configuration, just set it in `MadvocConfig`.
+There are several ways how you can set custom action configuration to an action. Maybe the easiest way is to use custom action annotation (explained next). Simply define new annotation, annotate it with `@ActionConfiguredBy` and use it instead of default `@Action` annotation.
 
-To apply the custom action configuration on actions, use `@ActionConfiguredBy` on the action with your implementation of `ActionConfig`.
+Alternatively you can use `@ActionConfiguredBy` directly on a action method. Or you can forget all about annotations and configure everything using just fluent *Madvoc* api.
 
 
 ## Custom action method annotations
 
-Now something super cool - you may use your own annotations! Why? Because you can bind your own configuration to it. And not repeat all over again.
+Now something super cool - you may use your own annotations! Why? Because you can bind your own configuration to it - and not repeat all over again. This is very convenient way to have action that are configured differently. Even *Madvoc* provides two annotations: `@Action` and `@RestAction`.
 
-For example, let's say that action method names must be always resolved as `process.do`, regardless the action method name. In that case you could define something like:
+Custom annotation is created to contain _everything_ you would use on the annotation place. For example, let's say that action method names must be always resolved as `process.do`, regardless the action method name. In that case you could define something like:
 
 ~~~~~ java
     @Retention(RetentionPolicy.RUNTIME)
@@ -46,14 +47,12 @@ Custom annotation reduces the amount of repeated code.
 
 But this is not the best part yet - you can even specify custom action configuration for the custom annotation, too! By using the same annotation `@ActionConfiguredBy` you can change default behavior. For example, the `@RestAction` uses different behavior, as it has to return an JSON instead to render a view.
 
-Custom annotations are registered in `MadvocConfig`, either in pure Java or in properties file.
-
 
 ## Asynchronous actions
 
 *Madvoc* actions can become _asynchronous_ (in Servlets 3.0 terms) by simply annotating them as `@Async`. That is all!
 
-What happens in the bcakground? When at least one async action handler is registered, *Madvoc* will create a worker thread pool. It's `AsyncActionExecutor` component, that you, again, can easily replace. Anyhow, when async action is called, *Madvoc* will take the request, start the async execution and execute the action using the worker thread pool.
+What happens in the bcakground? When at least one async action handler is registered, *Madvoc* will create a worker thread pool (in `AsyncActionExecutor` component). When async action is called, *Madvoc* will take the request, start the async execution and execute the action using the worker thread pool.
 
 
 ## Name replacements
@@ -80,6 +79,6 @@ Such action would be mapped to: `/bonjour-monde.html`. The following replacement
 
 ## Action naming strategies
 
-We figured that is very important for users which naming convention is going to be used. Therefore *Madvoc* provides several ways how action names are defined. The final way on how action names are created is  to use _action name strategy_. The strategy is defined as an implementation of the `ActionNamingStrategy` interface.
+We figured that is very important for users which naming convention is going to be used. Therefore *Madvoc* provides several ways how action names are defined. The final way how action names are created is by some _action name strategy_. The strategy is defined as an implementation of the `ActionNamingStrategy` interface.
 
-Action naming strategy is a part of action configuration.
+Naming strategy is part of the action configuration (explained above).

@@ -1,20 +1,12 @@
 # Interceptors
 
-**Action interceptor** executes some code _before_ and _after_ an action
-method is invoked. Interceptors encapsulates common concerns of actions.
-One action method may be intercepted by many interceptors. Some core
-*Madvoc* functionality is implemented using interceptors.
+**Action interceptor** executes some code _before_ and _after_ an action method is invoked. Interceptors encapsulates common concerns of actions. One action method may be intercepted by many interceptors. Some core *Madvoc* functionality is implemented using interceptors.
 
-Besides the fact that interceptors are easy to configure and are very
-pluggable; they can be logically grouped in **interceptor stacks**, for
-more convenient configuration. Interceptor stack is just an simple array
-of interceptor references.
+Besides the fact that interceptors are easy to configure and are very pluggable; they can be logically grouped in **interceptor stacks**, for more convenient configuration. Interceptor stack is just an simple array of interceptor references.
 
 ## Intercepting an action
 
-To define an action interceptor, action method must be marked with
-`@InterceptedBy` annotation. This annotation has only one element: an
-array of interceptor class references that are intercepting the action:
+To define an action interceptor, action method must be marked with `@InterceptedBy` annotation. This annotation has only one element: an array of interceptor class references that are intercepting the action:
 
 ~~~~~ java
     @MadvocAction
@@ -30,10 +22,7 @@ array of interceptor class references that are intercepting the action:
 
 This action is intercepted by single interceptor: `EchoInterceptor`.
 
-It is also possible to put `@InterceptedBy` annotation on action class,
-to set interceptors for all action methods that are not explicitly
-intercepted, i.e. that have no interceptor annotation. The previous
-example may be alternatively written in the following way:
+It is also possible to put `@InterceptedBy` annotation on action class, to set interceptors for all action methods that are not explicitly intercepted, i.e. that have no interceptor annotation. The previous example may be alternatively written in the following way:
 
 ~~~~~ java
     @MadvocAction
@@ -69,17 +58,9 @@ interceptors:
 Interceptors are executed in given order.
 {: .attn}
 
-Real-world application may have more than one interceptor, and
-constantly repeating the interceptor class references for each action
-class/method is not a good idea. *Madvoc* allows to group several
-interceptors into interceptor stacks. Not only that this reduces the
-amount of written code (and makes things more robust and more
-error-prone), but it also gives a possibility to group logically
-interceptors, depending on their functionality.
+Real-world application may have more than one interceptor, and constantly repeating the interceptor class references for each action class/method is not a good idea. *Madvoc* allows to group interceptors into interceptor stacks.
 
-Interceptor stack is simply a sublass of `ActionInterceptorStack` (which
-is in the end also `ActionInterceptor`) that defines an array of
-interceptors that belongs to the stack:
+Interceptor stack is simply a sublass of `ActionInterceptorStack` that defines an array of interceptors that belongs to the stack:
 
 ~~~~~ java
     public class MyInterceptorStack extends ActionInterceptorStack {
@@ -101,57 +82,9 @@ Now the previous action may be written as:
 
 Interceptor stack may refer other interceptor stacks.
 
-### Configurable interceptor stack
-
-Sometimes you need to be able to configure your interceptor stack from
-the outside, i.e. from `madvoc.props` file. In this case, just extend
-the `ActionInterceptorStack` using empty constructor, and list
-interceptor classes in `madvoc.props`.
-
-## Default interceptors stack
-
-Usually, most actions in web application will be intercepted by same
-interceptor stack. Therefore, *Madvoc* defines default interceptors
-stack: all actions that are not explicitly intercepted (i.e. have no
-`@InterceptedBy` neither on action method or action class) are
-intercepted by the default interceptor stack. In other words: if action
-method is not annotated with interceptor annotation, it is implicitly
-intercepted by default interceptor stack.
-
-Default interceptor stack is defined in the global *Madvoc*
-configuration:
-
-~~~~~ java
-    public class MyMadvocConfig extends MadvocConfig {
-
-    	public MyMadvocConfig() {
-    		defaultInterceptors = new Class[] {EchoInterceptor.class, MyInterceptorStack.class};
-    	}
-    }
-~~~~~
-
-In this example, default interceptor stack consist of 4 interceptors:
-`EchoInterceptor` and three from `MyInterceptorStack`.
-
-It is also possible to reference default interceptor stack using
-`DefaultWebAppInterceptors`. This is the dummy interceptor that simply
-replaces the default interceptor stack. Now it is very easy to enhance
-default interceptors without repeating the whole default stack:
-
-~~~~~ java
-	@Action
-	@InterceptedBy(LogInterceptor.class, DefaultWebAppInterceptors.class)
-	public void view() {
-	}
-~~~~~
-
-This action is intercepted with 5 interceptors and `LogInterceptor` will
-be invoked before all four from default stack.
-
 ## ServletConfigInterceptor
 
-This is the most important interceptor and contains part of the core
-*Madvoc* functionality. It does the following:
+This is the most important interceptor and contains part of the core *Madvoc* functionality. It does the following:
 
 1.  Sets character encoding for both request and response;
 2.  Detects and prepares multi-part post requests;
@@ -159,31 +92,8 @@ This is the most important interceptor and contains part of the core
 4.  Invokes the action method;
 5.  Perform the outjection from the action object.
 
-The most important thing here is injection/outjection.
-`ServletConfigInterceptor` doesn't do much by itself. Instead, it
-delegates injection/outjection to the **injectors** - independent
-*Madvoc* parts. This makes possible for developers to have different
-behavior of injection/outjection mechanisms, even to have their own.
+The most important thing here is injection/outjection. `ServletConfigInterceptor` doesn't do much by itself. Instead, it delegates injection/outjection to the **injectors** - independent *Madvoc* parts. This makes possible for developers to have different behavior of injection/outjection mechanisms, even to have their own.
 
-This interceptor can be configured by modifying its properties of its
-request scope injector:
-
-* `injectParameters` - inject request parameters, by default it is
-  `true`;
-* `injectAttributes` - inject request attributes, by default it is
-  `true`;
-* `copyParamsToAttributes` - if `true`, all request parameters will be
-  copied first to request attributes, so they becomes injected during
-  attributes injection. If set to `true`, `injectParameters` may be set
-  to `false`. By default it is `false`.
-* `trimParams` - if `true`, all request parameters will be trimmed
-  before further usage. By default it is `false`.
-* `ignoreEmptyRequestParams` - if `true` (default value), empty
-  parameters (with size 0) will be ignored as they do not exist.
-  Checking if params are empty happens before optional trimming.
-
-The easiest way to change the default behavior is to extend
-`ServletConfigInterceptor` and override `init()` method.
 
 ## EchoInterceptor
 
@@ -212,12 +122,9 @@ It is easy to create custom interceptor:
     }
 ~~~~~
 
-`ActionInterceptor` abstract class provides method: `init()` that will
-be invoked once by *Madvoc* after interceptor initialization to perform
-additional configuration.
+`ActionInterceptor` abstract class provides method: `init()` that will be invoked once by *Madvoc* after interceptor initialization to perform additional configuration.
 
-Similarly, it is possible to create custom version of default
-interceptors by extending them:
+Similarly, it is possible to create custom version of default interceptors by extending them:
 
 ~~~~~ java
     public class AppServletConfigInterceptor extends ServletConfigInterceptor {
