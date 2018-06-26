@@ -1,15 +1,10 @@
 # DbQuery
 
-`DbQuery` is an enhanced wrapper for prepared and regular JDBC
-statements. In the base scenario, it can be used anywhere where JDBC
-statements would be used. Nevertheless, `DbQuery` provides some
-additional very convenient features.
+`DbQuery` is an enhanced wrapper for prepared and regular JDBC statements. In the base scenario, it can be used anywhere where JDBC statements would be used. Nevertheless, `DbQuery` provides some additional very convenient features.
 
 ## Basic usage
 
-Basic way how `DbQuery` can be created is by providing database
-connection. Once created, it can be used similarly as JDBC statement is
-used:
+The basic way how `DbQuery` can be created is by providing database connection. Once created, it can be used similarly as JDBC statement is used:
 
 ~~~~~ java
     DbQuery query = new DbQuery(connection, "create table ...");
@@ -24,25 +19,13 @@ used:
     query.close();
 ~~~~~
 
-Method `autoClose()` enables 'auto-mode' when the very first next action
-closes the query. Besides displayed methods, there is method: `executeCount()`
-that is made for executing `select count` database queries, or any query
-that returns a `long` number in the first result row and column.
+Method `autoClose()` enables 'auto-mode' when the very first next action closes the query. Besides displayed methods, there is method: `executeCount()` that is made for executing `select count` database queries, or any query that returns a `long` number in the first result row and column.
 
-Closing queries is important. Fortunately, *Db* allows user to invoke
-`close()` method, and all the dirty work is done in the behind. When a
-query created some `ResultSet`, it is possible to explicitly close it
-using `closeResultSet()` method. However, this is not necessary any
-more! User may just simply close a query, and the `DbQuery` will close
-all results set that were created by it! As will be shown later,
-it is even possible to have automatic query closing:)
+Closing queries is important. Fortunately, *DbOom* allows user to invoke `close()` method, and all the dirty work is done in the behind. When a query created some `ResultSet`, it is possible to explicitly close it using `closeResultSet()` method. However, this is not mandatory! User may just simply close a query, and the `DbQuery` will close all results set that were created by it! As will be shown later, it is even possible to have automatic query closing:)
 
 ## Named parameters
 
-Prepared JDBC statement has only ordinal parameters. For long and
-dynamic SQL queries, setting ordinal parameters may be tricky, and user
-has to be unnecessary careful. Besides ordinal parameters, `DbQuery`
-offers named parameters as well.
+Prepared JDBC statement has only ordinal parameters. For long and dynamic SQL queries, setting ordinal parameters may be tricky, and user has to be unnecessary careful. Besides ordinal parameters, `DbQuery` offers named parameters as well.
 
 ~~~~~ java
     DbQuery query = new DbQuery(connection,
@@ -54,23 +37,16 @@ offers named parameters as well.
     query.close();
 ~~~~~
 
-Named and ordinal parameters may mix in one query, although that is is
-not a good practice.
+Named and ordinal parameters may mix in one query, although that is is not a good practice.
 
 ## Debug mode
 
-When printing JDBC prepared statements, all parameters are represented
-with a question mark, i.e. it is not possible to see the real values.
-This makes things difficult for debugging. `DbQuery` offers the debug
-mode that will return the same query string, but populated with real
-values. This query debug-view is just quick-and-dirty preview and it is
-not always 100% syntaxly correct (e.g. strings are not escaped, etc),
-but the result will be sufficient for debugging purposes.
+When printing JDBC prepared statements, all parameters are represented with a question mark and not real values. This makes things difficult for debugging. `DbQuery` offers the _debug mode_ that will return the same query string, but populated with real values. Such debug query is just a quick-and-dirty preview and not always 100% syntaxly correct (e.g. strings are not escaped, etc), but sufficient for debugging purposes.
 
 ~~~~~ java
     DbQuery query = new DbQuery(connection,
         "select * from FOO where id=:id and name=:name");
-    query.setDebugMode();               // must be called before setting parameters
+    query.setDebugMode();          // must be called before setting parameters
     query.setLong("id", id);
     query.setLong("name", "jodd");
 
@@ -86,25 +62,15 @@ Here is the difference that debug mode makes:
 
 ## Configuration & Lazy initialization
 
-`DbQuery` initializes lazy. Creating an object still doesn't do
-anything with the database, therefore it can be configured as needed.
-`DbQuery` initializes on first concrete database-related method.
-Therefore, setting the debug mode (and other config) must be done
-immediately after the `DbQuery `object creation.
+`DbQuery` initializes lazy. Creating an object still doesn't do anything with the database, therefore it can be configured as needed. `DbQuery` initializes on first concrete database-related method. Therefore, setting the debug mode (and other configuration) must be done immediately after the `DbQuery `object creation.
 
 ## Parameters setters
 
-All prepared statement setting methods are implemented in `DbQuery`. As
-said, each method now has two versions: one that works with ordinal
-parameters and one for named parameters. Moreover, during setting of a
-parameter, value will be checked, and if it is `null`, the `setNull`()
-method will be invoked instead.
+All prepared statement setting methods are implemented in `DbQuery`. As said, each method now has two versions: one that works with ordinal parameters and one for named parameters. Moreover, during setting of a parameter, value will be checked, and if it is `null`, the `setNull`() method will be invoked instead.
 
-There are some new methods for setting parameter values, such as:
-`setBean()`, `setMap()`, `setObject()`, `setObjects()`...
+There are some new methods for setting parameter values, such as: `setBean()`, `setMap()`, `setObject()`, `setObjects()`...
 
-With `setBean()` it is possible to populate query string where
-parameters are named as bean properties:
+With `setBean()` it is possible to populate query string where parameters are named as bean properties:
 
 ~~~~~ java
     DbQuery query = new DbQuery(connection,
@@ -114,26 +80,13 @@ parameters are named as bean properties:
 
 ## SqlTypeManager and setObject()
 
-`DbQuery` provides new method `setObject()` for setting objects of
-unknown type as parameters. For that purpose, `DbQuery` must resolve the
-way how to handle provided type and to invoke correct setter method.
+`DbQuery` provides new method `setObject()` for setting objects of unknown type as parameters. For that purpose, `DbQuery` must resolve the way how to handle provided type and to invoke correct setter method.
 
-*Db* has one central point for resolving sql types from object types:
-`SqlTypeManager`, manager for all kind of different `SqlType`s. Each
-`SqlType` defines how a type is set and get from the database. There is
-a large amount of already defined types, however, it is easy to add new
-and more complex ones.
-
-## Using factories
-
-It is a good practice to use factories (i.e. factory pattern) for
-creating various flavors of `DbQuery` objects, instead of direct
-instantiation. Moreover, when using factories it is possible to wrap the
-process of `DbQuery` creation, either manual or with aspects.
+*DbOom* has one central point for resolving SQL types from object types: `SqlTypeManager`, manager for all kind of different `SqlType`s. Each `SqlType` defines how a type is set and get from the database. There is a large amount of already defined types, however, it is easy to add new and more complex ones.
 
 ## Auto-generated columns
 
-`DbQuery` supports auto-generated columns. Usage is plain and simple:
+`DbQuery` supports auto-generated columns:
 
 ~~~~~ java
     // Example #1:
@@ -159,10 +112,7 @@ process of `DbQuery` creation, either manual or with aspects.
     q.close();
 ~~~~~
 
-You could also use `q.setGeneratedKey()` instead of
-`q.setGeneratedColumns()` in the first example, if that sounds better to
-you :) Please note that some old database drivers does not support this
-feature (like HSQLDB 1.x).
+You could also use `q.setGeneratedKey()` instead of `q.setGeneratedColumns()` in the first example, if that sounds better to you :) Please note that some old database drivers does not support this feature (like HSQLDB 1.x).
 
 ## Stored Procedures
 
@@ -173,7 +123,7 @@ feature (like HSQLDB 1.x).
     query.setDebugMode();
     query.setString("str", "some lowercase value");
     query.outString("upp");
-    
+
     DbCallResult callResult = query.executeCall();
     // now work with result from stored procedure via DbCallResult
     String str = callResult.getString("upp")

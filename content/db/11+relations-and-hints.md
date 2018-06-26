@@ -1,15 +1,10 @@
 # Relations & Hints
-We have already seen how to use *hints* to inject values into resulting
-objects. Lets analyze this topic more and see how to deal with the
-**one-to-one** and **one-to-many** relations efficiently.
+
+We have already seen how to use *hints* to inject values into resulting objects. Lets analyze this topic more and see how to deal with the **one-to-one** and **one-to-many** relations efficiently.
 
 ## Problem
 
-Here is the real-life problem. Lets say that we have a list of some
-telecommunication centers in database. Each center has one or more
-associated prefixes. Also, each center belongs to one country (i.e.
-region). We need to fetch all telecom data, as they do not change during
-the application runtime.
+Here is the real-life problem. Lets say that we have a list of some telecommunication centers in database. Each center has one or more associated prefixes. Also, each center belongs to one country (i.e. region). We need to fetch all telecom data, as they do not change during the application runtime.
 
 ## Model
 
