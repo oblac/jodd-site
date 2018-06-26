@@ -261,7 +261,7 @@ Above example can be converted to IMAP usage very easily:
 
 ~~~~~ java
     ImapServer imapServer = MailServer.create()
-        .host("pop.gmail.com")
+        .host("imap.gmail.com")
         .ssl(true)
         .auth("username", "password")
         .buildImapMailServer();

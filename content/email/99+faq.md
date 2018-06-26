@@ -1,6 +1,6 @@
 # FAQ
 
-Everything you always wanted to know about *Email* (but were afraid to ask).
+Everything you always wanted to know about *Jodd* Mail (but were afraid to ask).
 
 
 ## How to parse EML files?
@@ -17,6 +17,18 @@ Gmail does not support the Recent flags on messages. Since the
 will not (yet) find any such messages on Gmail servers
 (hence always returning value 0).
 
+
+## Can't access Gmail?
+
+Are you getting the following exception when accessing Gmail:
+
+~~~~~
+[ALERT] Please log in via your web browser:
+~~~~~
+
+Allow access for less secured apps:
+
+![](gmail-less.png)
 
 ## How to parse and validate an email address?
 
