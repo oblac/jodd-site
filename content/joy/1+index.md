@@ -47,8 +47,9 @@ Add dependency in Gradle on Tomcat or Jetty variant of Bootstrap:
 	apply plugin: 'application'
 
 	dependencies {
-	    compile project(":joy-boot-tomcat8")
-	//    compile project(":joy-boot-jetty9")
+	    compile "org.jodd:joy-boot-tomcat8:0.1.0"
+	    //compile "org.jodd:joy-boot-jetty9:0.1.0")
+    	compile "org.jodd:jodd-joy:5.0.3"
 	}
 
 	mainClassName = "...MyWebApp"
