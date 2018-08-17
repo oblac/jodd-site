@@ -163,7 +163,7 @@ But there is a solution for this. By enabling the alternative paths with `.useAl
 With alt paths enabled, you can reference any value in the map, too.
 
 
-### Class metadata name
+### Class meta-data name
 
 Sometimes JSON string does contain an information about the target type, stored in 'special' key like `class` or `__class`. If you have such JSON or if you have used this option with `JsonSerializer`, you can enable this feature with `JsonParser` as well:
 
@@ -176,10 +176,16 @@ Sometimes JSON string does contain an information about the target type, stored 
 
 Now every JSON map will be scanned for this special key `class` that holds the full class name of the target. But be careful:
 
-Using class metadata name with `JsonParser` has some performance penalty.
+Using class metadata name with `JsonParser` has some performance penalty and may introduce potential security risk.
 {: .attn}
 
 Every JSON map first must be converted to a `Map` so we can fetch the class name and then converted to a target class. Because of this double conversion expect performance penalties if using class metadata name.
+
+There are **security risks** using class meta-data. You may expose a security hole in case untrusted source manages to specify a class that is accessible through class loader and exposes set of methods and/or fields, access of which opens an actual security hole. Such classes are known as _deserialization gadgets_.
+
+Because of this, use of "default typing" is not encouraged in general, and in particular is recommended against if the source of content is not trusted. Conversely, default typing may be used for processing content in cases where both ends (sender and receiver) are controlled by same entity.
+
+For additional security control there is method to whitelist allowed class names wildcards: `allowClass()`. If class name does not match one of set wildcard patterns, `JsonParser` will throw an exception. To reset the whitelist, use `allowAllClasses()`.
 
 ## Type conversion
 
