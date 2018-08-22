@@ -1008,6 +1008,12 @@ footer {
 .badge.push {
 	 grid-column-start: 1;
 }
+.badges-small {
+	width: inherit;
+	margin: 0;
+	grid-auto-columns: 100%;
+	grid-template-areas: "a";
+}
 #pplane {
 	display: none;
 }
