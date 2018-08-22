@@ -930,8 +930,13 @@ footer {
 }
 .badges {
 	width: 610px;
-	grid-auto-columns: 30%;
+	grid-auto-columns: 33%;
 	grid-template-areas: "a a a";
+}
+.badges-small {
+	width: 610px;
+	grid-auto-columns: 25%;
+	grid-template-areas: "a a a a";
 }
 #top {
 	width: $width-page2;
@@ -1011,8 +1016,11 @@ footer {
 .badges-small {
 	width: inherit;
 	margin: 0;
-	grid-auto-columns: 100%;
-	grid-template-areas: "a";
+	grid-auto-columns: 50%;
+	grid-template-areas: "a a ";
+	.badge {
+		width: 80%;
+	}
 }
 #pplane {
 	display: none;
