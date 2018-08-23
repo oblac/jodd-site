@@ -24,7 +24,7 @@ license](/license.html).
 ### Gradle
 
 ~~~
-compile: 'org.jodd:jodd-xxx:<%=@config[:jodd][:version]%>'
+compile 'org.jodd:jodd-xxx:<%=@config[:jodd][:version]%>'
 ~~~
 
 ### SBT
