@@ -64,7 +64,7 @@ Multiple email addresses are specified using arrays or by calling methods `to()`
         .from("john@jodd.org")
         .to("adr1@jodd.org", "adr2@jodd.org")
         .cc("xxx@bar.com")
-        .cc(zzz@bar.com")
+        .cc("zzz@bar.com")
         .subject("Hello HTML!")
         .htmlMessage("<b>HTML</b> message");
 ~~~~~
