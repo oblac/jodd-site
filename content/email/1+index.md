@@ -169,22 +169,33 @@ Everything is the same, just different session provider is used.
 
 Receiving emails is similar to sending: there are classes that encapsulates POP3 and IMAP connections, i.e. servers. Both creates the same receiving session - `ReceiveMailSession` - that fetches emails and return them as an array of `ReceivedEmails`. This way you work with both POP3 and IMAP servers in the very same way.
 
-Even the instance of the same class `ReceiveMailSession` is created by both POP3 and IMAP servers implementations, **not all** methods work in the same way! This difference depends on server type. Commonly, POP3 has less features (e.g. not being able to fetch all folder names for GMail account), while IMAP server is richer (e.g. it supports server-side search).
+Even the instances of the same class `ReceiveMailSession` are created by POP3 and IMAP servers implementations, **not all** methods work in the same way! This difference depends on a server type. Commonly, POP3 has less features (e.g. not being able to fetch all folder names for GMail account), while IMAP server is richer (e.g. it supports server-side search).
 {: .attn}
 
 During receiving, all emails are fetched and returned as an array of `ReceivedEmail` objects. This is a POJO object, so its very easy to work with. It provides many helpful methods, too. Each `ReceivedEmail` also contains a list of all messages, attachments and attached messages (EMLs).
 
-There are several methods for fetching emails:
+### Receiving Builder
+
+The proposed method to fetch emails is to use the builder. It is simple, powerful and you can fine-tune the receiving process. For example, you can mark or unmark some flags, select folder and so on. Here is how:
+
+~~~~~ java
+    session
+        .receive()
+        .markSeen()
+        .fromFolder("work")
+        .filter(...)
+        .get();
+~~~~~
+
+### Convenient methods
+
+`ReceiveMailSession` contains some legacy but convenient methods for fetching emails:
 
 + `receiveEmail()` - returns all emails, but don't change the 'seen' flag.
 + `receiveEmailAndMarkSeen()` - returns all emails and marked all messages as 'seen'.
 + `receiveEmailAndDelete()` - returns all emails and mark them as 'seen' and 'deleted'.
 
 The first method does a little trick: since `javax.mail` always set a 'seen' flag when new message is downloaded, we do set it back on 'unseen' (if it was like that before fetching). This way `receiveEmail()` should not change the state of your inbox.
-
-Most likely you will use `receiveEmailAndMarkSeen()` or `receiveEmailAndDelete()`.
-{: .attn}
-
 
 ### POP3
 
@@ -285,22 +296,6 @@ As said above, when working with IMAP server, many methods of `ReceiveMailSessio
 There is an option to receive only email envelopes: the header information, like `from` and `subject` but not the content of the messages. Receiving only envelopes makes things faster and it make more sense in situations when not all messages have to be received.
 
 Each email has it's own ID that is fetched as well. Later on, you can use this ID to filter out just the messages with specific ID.
-
-## Receive builder
-
-`ReceiveMailSession` provides an builder for fine-tuning the received emails:
-
-~~~~~ java
-
-    session
-        .receive()
-        .markSeen()
-        .fromFolder("work")
-        .filter(...)
-        .get();
-
-~~~~~
-
 
 ## Filtering emails
 
