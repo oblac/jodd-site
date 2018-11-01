@@ -76,6 +76,7 @@ If database is not in use, or if you simply don't want to use *DbOom* - just rem
 There are multiple ways how to configure and use *Jodd* micro-frameworks. You can use properties file or annotations or just plain java.
 
 In *Joy*, you can simply use the same listener: `AppContextListener` as we shown above.
+
 ~~~~~java
     @WebListener
     public class AppContextListener extends JoyContextListener {
