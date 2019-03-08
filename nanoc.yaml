@@ -90,6 +90,6 @@ site:
   slogan: The Unbearable Lightness of Java
 
 jodd:
-  version: '5.0.9'
-  release_date: 'Feb 28th, 2019.'
+  version: '5.0.10'
+  release_date: 'Mar 8th, 2019.'
   size: '1.73'
