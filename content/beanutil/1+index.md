@@ -1,6 +1,6 @@
 # BeanUtil
 
-`BeanUtil` is bean manipulation library, that in a nutshell, allows
+`BeanUtil` is a bean manipulation library that, in a nutshell, allows
 setting and reading bean properties. Several features make `BeanUtil`
 distinct:
 

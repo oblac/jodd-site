@@ -1,10 +1,10 @@
 # Jodd.org Website
 
-This is source for [Jodd](http://jodd.org) web site built with [nanoc](http://nanoc.ws).
+This is the source for [Jodd](https://jodd.org)'s web site built with [nanoc](https://nanoc.ws).
 
 All submissions are welcome. To submit a change, fork this repo,
 commit your changes, and send us a
-[pull request](http://help.github.com/send-pull-requests/).
+[pull request](https://help.github.com/send-pull-requests/).
 
 ## Build the site
 
@@ -16,20 +16,20 @@ to build it using Docker, so you don't have to install anything.
 
 Ruby 2.x is required to build the site.
 
-Get the `nanoc` gem, plus [kramdown](http://kramdown.gettalong.org/)
-for [Markdown](http://daringfireball.net/projects/markdown/) parsing:
+Get the `nanoc` gem, plus [kramdown](https://kramdown.gettalong.org/)
+for [Markdown](https://daringfireball.net/projects/markdown/) parsing:
 
 ```sh
 $ bundle install
 ```
 
-You can see the available commands with nanoc:
+You can see available commands with nanoc:
 
 ```sh
 $ bundle exec nanoc -h
 ```
 
-Nanoc has [some nice documentation](http://nanoc.ws/docs/tutorial/) to get you
+Nanoc has [some nice documentation](https://nanoc.ws/docs/tutorial/) to get you
 started. Though if you're mainly concerned with editing or adding content, you
 won't need to know much about nanoc.
 

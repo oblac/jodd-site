@@ -3,7 +3,7 @@ toc: false
 ---
 # Who loves Jodd? ![heart](gfx/heart.png)
 
-**Awesome** people loves *Jodd* :) Share your success stories with the community!
+**Awesome** people love *Jodd* :) Share your success stories with the community!
 
 ## About...
 
@@ -26,18 +26,18 @@ or fail due to a side effect or misunderstanding of the underlying libraries.
 
 This is just a set of applications that use *Jodd* in same way.
 
-+ [Liferay Portal](http://liferay.com) - The best Java open-source enterprise portal, Liferay Portal, uses few *Jodd* tools and utilities in it's core: *BeanUtil*, *Paramo*, *Json* etc.
++ [Liferay Portal](https://liferay.com/) - The best Java open-source enterprise portal, Liferay Portal, uses a few *Jodd* tools and utilities in its core: *BeanUtil*, *Paramo*, *Json* etc.
 
-+ [Apache JMeter](http://jmeter.apache.org/) - Starting from version 2.9, this popular tool uses *Jerry* as one of the
++ [Apache JMeter](https://jmeter.apache.org/) - Starting from version 2.9, this popular tool uses *Jerry* as one of the
 extractors implementation.
 
-+ [BookWatchr](http://www.bookwatchr.com/) - The complete website made with Jodd and nothing else by Jodd :)
++ [BookWatchr](http://www.bookwatchr.com/) - A complete website made with Jodd and nothing else but Jodd :)
 
-+ [Chasse aux Livres](https://www.chasse-aux-livres.fr/) - The complete awesome website made in Jodd.
++ [Chasse aux Livres](https://www.chasse-aux-livres.fr/) - A complete awesome website made in Jodd.
 
-+ [Webit Script](http://zqq90.github.io/webit-script/) - Template-like script and engine, with grammar similar to JavaScript and JSP; and with great performances.
++ [Webit Script](https://zqq90.github.io/webit-script/) - Template-like script and engine, with grammar similar to JavaScript and JSP; and with great performances.
 
-+ **eComm** - Set of government intranet applications for electronic communication with citizens via email, SMS or phone; working in few European countries. Uses full *Jodd* stack.
++ **eComm** - Set of government intranet applications for electronic communication with citizens via email, SMS or phone; working in a few European countries. Uses full *Jodd* stack.
 
 + [Ihre Apotheke](http://www.ihre-apotheke.in) - Efficient pharmacy finder for Germany. Application uses *Madvoc*, *Joy*, the
 tag library, *Props* and finally the GZIP filter. Also, *Lagarto* was used for some back-end to fetch DBpedia data.
