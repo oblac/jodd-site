@@ -28,10 +28,9 @@ This is just a set of applications that use *Jodd* in same way.
 
 + [Liferay Portal](https://liferay.com/) - The best Java open-source enterprise portal, Liferay Portal, uses a few *Jodd* tools and utilities in its core: *BeanUtil*, *Paramo*, *Json* etc.
 
-+ [Apache JMeter](https://jmeter.apache.org/) - Starting from version 2.9, this popular tool uses *Jerry* as one of the
-extractors implementation.
++ [Gatling](https://gatling.io)
 
-+ [BookWatchr](http://www.bookwatchr.com/) - A complete website made with Jodd and nothing else but Jodd :)
++ [Apache JMeter](https://jmeter.apache.org/) - Starting from version 2.9, this popular tool uses *Jerry* as one of the extractors implementation.
 
 + [Chasse aux Livres](https://www.chasse-aux-livres.fr/) - A complete awesome website made in Jodd.
 
@@ -39,8 +38,7 @@ extractors implementation.
 
 + **eComm** - Set of government intranet applications for electronic communication with citizens via email, SMS or phone; working in a few European countries. Uses full *Jodd* stack.
 
-+ [Ihre Apotheke](http://www.ihre-apotheke.in) - Efficient pharmacy finder for Germany. Application uses *Madvoc*, *Joy*, the
-tag library, *Props* and finally the GZIP filter. Also, *Lagarto* was used for some back-end to fetch DBpedia data.
++ [Ihre Apotheke](http://www.apotheke-information.de) - Efficient pharmacy finder for Germany. Application uses *Madvoc*, *Joy*, the tag library, *Props* and finally the GZIP filter. Also, *Lagarto* was used for some back-end to fetch DBpedia data.
 
 ### Submit your project!
 
