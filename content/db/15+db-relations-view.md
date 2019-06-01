@@ -52,7 +52,7 @@ the following set and get methods pair:
 How to populate the country? One solution is to simply execute
 `AppDao#findById(Country.class, id)` when `Country` is needed. Other
 solution, for 1-1 relationships, is to fetch both `Question` and
-`Country` together, using [join hints](sqlgenerator.html) in template
+`Country` together, using _join hints_ in template
 sql:
 
 ~~~~~ sql
