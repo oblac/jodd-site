@@ -5,7 +5,7 @@ is disabled. To turn it on, set logger factory of implementation
 you want to use, for example:
 
 ~~~~~ java
-    LoggerFactory.setLoggerFactory(new Slf4jLoggerFactory());
+    LoggerFactory.setLoggerProvider(Slf4jLogger.PROVIDER);
 ~~~~~
 
 This way *Jodd* modules does not depend on logging implementation.
