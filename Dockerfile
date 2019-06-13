@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-alpine
+FROM ruby:2.4.1-alpine
 MAINTAINER Igor <igor@jodd.org>
 
 RUN apk update && \
@@ -13,8 +13,6 @@ COPY Gemfile Gemfile.lock* /site/dependencies/
 RUN echo "$(ruby -e 'puts RUBY_VERSION')" > /site/dependencies/.ruby-version
 
 # Install dependencies
-RUN gem update --system
-RUN gem install bundler
 RUN echo 'gem: --no-document' >> /etc/gemrc
 RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install
