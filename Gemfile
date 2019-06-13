@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'bundler'
 gem 'adsf'
 gem 'builder'
 gem 'kramdown'
@@ -13,7 +14,7 @@ gem 'json'
 gem 'rainpress'
 gem 'jsmin'
 gem 'htmlcompressor'
-gem 'nanoc', '~> 4.11'
+gem 'nanoc', '~> 4.11.5'
 gem 'nanoc-external'
 gem 'guard-nanoc'
 #gem 'typogruby',	'~> 1.0.18'
