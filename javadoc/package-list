@@ -4,7 +4,6 @@ jodd.asm
 jodd.asm7
 jodd.asm7.signature
 jodd.bean
-jodd.bridge
 jodd.buffer
 jodd.cache
 jodd.chalk
@@ -53,8 +52,6 @@ jodd.jtx.worker
 jodd.lagarto
 jodd.lagarto.adapter
 jodd.lagarto.dom
-jodd.lagarto.filter
-jodd.lagarto.form
 jodd.log
 jodd.log.impl
 jodd.madvoc
@@ -92,6 +89,8 @@ jodd.proxetta.impl
 jodd.proxetta.pointcuts
 jodd.servlet
 jodd.servlet.filter
+jodd.servlet.form
+jodd.servlet.lagarto
 jodd.servlet.tag
 jodd.servlet.upload
 jodd.servlet.wrapper
