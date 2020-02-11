@@ -10,68 +10,63 @@ and they are not immune to method name changes and typing errors.
 [*Proxetta*](/proxetta/), that provides strongly-typed
 references to method names. Here is how it works.
 
-## Strongly-typed method name references
-
-Here are two examples how *Methref* can be used:
+## Simple way
 
 ~~~~~ java
-    Methref<Str> m = Methref.on(Str.class);  // create Methref tool
-
-    // example #1
-    m.to().boo();
-    m.ref());                               // returns String: 'boo'
-
-    // example #2
-    m.ref(m.to().foo()));                   // returns String: 'foo'
+    Methref.of(Str.class).name(Str::boo);
+    // returns String: 'boo'
 ~~~~~
 
-In both cases, `Methref` object is created first for target class which
-method we are looking for. `Methref` objects are cached internally,
-so there will be no performance penalty on using it all over the code.
+First we create `Methref` object and call method `name` on method reference.
+Could it be simpler?:)
 
-In first example, method is called separately from place where it's name
-is returned. In second example, all that is done in one line. Anyway,
-calling `to()` returns proxified instance of target class (cached).
-Then, by simple target method invocation in combination with `m.ref()`,
-the method name is returned! And that is all - now, when target method name
-is changed (e.g. using refactoring in IDE), no other action regarding
-new method name is required.
+If a method has arguments, just pass whatever: usually `null` or zeros:
+
+~~~~~~ java
+    Methref.of(Str.class).name((str) -> str.hello(null, 0));
+    // returns 'hello'
+~~~~~~
 
 Two important things to remember:
 
 1.  Although there is a target method invocation, **method code is NOT
     executed**! Proxy just returns `null` or a method name
     if methods return type is a `String`.
-2.  *Methref* instances are not thread safe and should be not shared;
-    create new `Methref` where needed.
+2.  Create new `Methref` where needed. However, they can be stored and reused.
 
-## Methods that return String
+## Separate way
 
-When method returns a `String` there is even a shortcut!
-Such methods will return method name as a result. For example:
-
-~~~~~ java
-    Methref.on(Str.class).to().foo();			// returns 'foo'
-~~~~~
-
-Or even shorter:
-
-~~~~~ java
-    Methref.onto(Str.class).foo();              // returns 'foo'
-~~~~~
-
-## Methods with arguments
-
-Of course, *Methref* supports methods with arguments: since method code
-is not invoked, any method argument value may be used until syntax is
-correct:
+With _Methref_ you can actually do a lot of magic :) Previous, simple usage can
+be split into several steps:
 
 ~~~~~~ java
-    Methref.onto(Str.class).foo2(null, 0);
+    Methref m = Methref.of(Str.class);
+
+    // get proxy
+    Str str = m.proxy();
+
+    // invoke method
+    str.foo();
+
+    // get invoked method name
+    String name = m.lastName();
 ~~~~~~
 
-If method is overloaded, use some constants for your arguments to distinguish
-between methods.
+This approach is made for cases when method invocation happens in different
+place of your code, where you don't want to expose `Methref`.
+
+## Detect Methref
+
+Imagine that you are creating several `Methref` in one place of code. Then, user
+of your code will call method on one of those proxies, but you don't
+have control on which. There is a way to detect the `Methref` from the proxy by
+calling method `isMyProxy`. Furthermore, there is a `static` method `lastName(instance)`
+that works like the `Methref#lastName()`.
+
+## Where this can be used?
+
+Like I said, it can be used for magic :) Believe or not, with `Methref` you can
+create, for example, strongly typed SQL-alike syntax directly with your code.
 
 Enjoy!
 

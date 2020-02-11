@@ -41,38 +41,11 @@ libraryDependencies += "org.jodd" % "jodd-xxx" % "<%=@config[:jodd][:version]%>"
 
 ## Java 9
 
-*Jodd* can run on **Java 9**, too. However, you have to use the `jre9` version of `jodd-core` component. It is published as the same artifact, but with the _classifier_.
+Well. Sorry.
 
-If you use other *Jodd* components, you will need to exclude default dependency on `jodd-core` and use the `jre9` version. Here is how this can be done in _Gradle_:
-
-~~~groovy
-    compile ('org.jodd:jodd-core:<%=@config[:jodd][:version]%>:jre9') {
-        force = true
-    }
-    compile ('org.jodd:jodd-joy:<%=@config[:jodd][:version]%>') {
-        exclude group: 'org.jodd', module:'jodd-core'
-    }
-~~~
-
-With above code we force the usage of `jre9` classifier and exclude default transitive dependency on `jodd-core`.
 
 ## BOM (Bill Of Material)
 
 *Jodd* BOM is provided as `org.jodd:jodd-bom`.
-
-## All-in-One Bundle
-
-We also provide *Jodd* bundle: `jodd-all`. It is available on Maven central
-repository as well (`org.jodd:jodd-all`). You can download it from here:
-
-<div class="button"><a href="https://repo1.maven.org/maven2/org/jodd/jodd-all/<%=@config[:jodd][:version]%>/jodd-all-<%=@config[:jodd][:version]%>.jar">
-	jodd-all-<%=@config[:jodd][:version]%>.jar
-	<div class="sub">(<%=@config[:jodd][:size]%> MB)</div>
-</a></div>
-
-You can also download
-[source](https://repo1.maven.org/maven2/org/jodd/jodd-all/<%=@config[:jodd][:version]%>/jodd-all-<%=@config[:jodd][:version]%>-sources.jar)
-and [javadoc](https://repo1.maven.org/maven2/org/jodd/jodd-all/<%=@config[:jodd][:version]%>/jodd-all-<%=@config[:jodd][:version]%>-javadoc.jar)
-bundles.
 
 Enjoy!

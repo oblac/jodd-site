@@ -35,9 +35,9 @@ This order and values is fully configurable in *Petite* configuration. For examp
 
 Knowing this, in the previous example *Petite* lookups for the following bean names:
 
-1. `boo`
-2. `boo` (ignored as equals to #1)
-3. `org.jodd.Boo`
+1. `bar`
+2. `bar` (ignored as equals to #1)
+3. `org.jodd.Bar`
 
 The first bean found will be injected into the marked injection point.
 
