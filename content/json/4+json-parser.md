@@ -199,7 +199,7 @@ Sometimes data comes in different flavors. For example, `Date` may be specified 
 	final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 	Person person = new JsonParser()
-			.use("birthdate", new ValueConverter<String, Date>() {
+			.withValueConverter("birthdate", new ValueConverter<String, Date>() {
 				public Date convert(String data) {
 					try {
 						return dateFormat.parse(data);
