@@ -55,3 +55,8 @@ enable following the redirects:
 Besides sending requests, it also stores and resends cookies, maintaining
 the current user session. Moreover, the `HttpBrowser` uses new request on
 redirection following, allows common request headers for all the requests etc.
+
+
+## Server chose TLSv1.2, but that protocol version is not enabled?
+
+Just add the following property `-Dhttps.protocols=TLSv1.1,TLSv1.2` which configures the JVM to specify which TLS protocol version should be used during HTTPS connections.
