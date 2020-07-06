@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -213,26 +213,32 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/io/NetUtil.html#getMaskAsInt-java.lang.String-">getMaskAsInt</a></span>(java.lang.String&nbsp;mask)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/io/NetUtil.html#getRemoteFileSize-java.lang.String-">getRemoteFileSize</a></span>(java.lang.String&nbsp;url)</code>
+<div class="block">Get remote file size.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/io/NetUtil.html#isSocketAccessAllowed-int-int-int-">isSocketAccessAllowed</a></span>(int&nbsp;localIp,
                      int&nbsp;socketIp,
                      int&nbsp;mask)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/io/NetUtil.html#resolveHostName-byte:A-">resolveHostName</a></span>(byte[]&nbsp;ip)</code>
 <div class="block">Resolves host name from IP address bytes.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/io/NetUtil.html#resolveIpAddress-java.lang.String-">resolveIpAddress</a></span>(java.lang.String&nbsp;hostname)</code>
 <div class="block">Resolves IP address from a hostname.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/io/NetUtil.html#validateAgaintIPAdressV4Format-java.lang.String-">validateAgaintIPAdressV4Format</a></span>(java.lang.String&nbsp;input)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/io/NetUtil.html#validateIPv4-java.lang.String-">validateIPv4</a></span>(java.lang.String&nbsp;input)</code>
 <div class="block">Checks given string against IP address v4 format.</div>
 </td>
 </tr>
@@ -375,13 +381,13 @@ extends java.lang.Object</pre>
                                             int&nbsp;mask)</pre>
 </li>
 </ul>
-<a name="validateAgaintIPAdressV4Format-java.lang.String-">
+<a name="validateIPv4-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>validateAgaintIPAdressV4Format</h4>
-<pre>public static&nbsp;boolean&nbsp;validateAgaintIPAdressV4Format(java.lang.String&nbsp;input)</pre>
+<h4>validateIPv4</h4>
+<pre>public static&nbsp;boolean&nbsp;validateIPv4(java.lang.String&nbsp;input)</pre>
 <div class="block">Checks given string against IP address v4 format.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -452,7 +458,7 @@ extends java.lang.Object</pre>
 <a name="downloadFile-java.lang.String-java.io.File-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>downloadFile</h4>
 <pre>public static&nbsp;void&nbsp;downloadFile(java.lang.String&nbsp;url,
@@ -462,6 +468,25 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getRemoteFileSize-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getRemoteFileSize</h4>
+<pre>public static&nbsp;long&nbsp;getRemoteFileSize(java.lang.String&nbsp;url)
+                              throws java.io.IOException</pre>
+<div class="block">Get remote file size. Returns -1 if the content length is unknown</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>url</code> - remote file url</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>file size</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code> - JDK-IOException</dd>
 </dl>
 </li>
 </ul>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9};
+var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":9,"i6":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../jodd/methref/InterfaceImplementation.html" title="class in jodd.methref"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../jodd/methref/MethrefAdvice.html" title="class in jodd.methref"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -167,15 +167,43 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/methref/Methref.html#isMyProxy-java.lang.Object-">isMyProxy</a></span>(java.lang.Object&nbsp;instance)</code>
+<div class="block">Returns <code>true</code> if given object is proxified by this Methref.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/methref/Methref.html#lastName--">lastName</a></span>()</code>
+<div class="block">Returns name of last method invoked on proxy.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/methref/Methref.html#lastName-java.lang.Object-">lastName</a></span>(java.lang.Object&nbsp;instance)</code>
+<div class="block">Returns method name of last invoked method on a proxy.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/methref/Methref.html#lastName-java.lang.String-">lastName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/methref/Methref.html#name-java.util.function.Consumer-">name</a></span>(java.util.function.Consumer&lt;<a href="../../jodd/methref/Methref.html" title="type parameter in Methref">C</a>&gt;&nbsp;consumer)</code>
 <div class="block">Returns name of called method.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../jodd/methref/Methref.html" title="class in jodd.methref">Methref</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/methref/Methref.html#of-java.lang.Class-">of</a></span>(java.lang.Class&lt;T&gt;&nbsp;target)</code>
 <div class="block">Static factory, for convenient use.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../jodd/methref/Methref.html" title="type parameter in Methref">C</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/methref/Methref.html#proxy--">proxy</a></span>()</code>
+<div class="block">Returns proxy instance that is ready to collect the method name of invoked methods.</div>
 </td>
 </tr>
 </table>
@@ -250,11 +278,60 @@ extends java.lang.Object</pre>
 <a name="name-java.util.function.Consumer-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
 <pre>public&nbsp;java.lang.String&nbsp;name(java.util.function.Consumer&lt;<a href="../../jodd/methref/Methref.html" title="type parameter in Methref">C</a>&gt;&nbsp;consumer)</pre>
 <div class="block">Returns name of called method.</div>
+</li>
+</ul>
+<a name="proxy--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>proxy</h4>
+<pre>public&nbsp;<a href="../../jodd/methref/Methref.html" title="type parameter in Methref">C</a>&nbsp;proxy()</pre>
+<div class="block">Returns proxy instance that is ready to collect the method name of invoked methods.</div>
+</li>
+</ul>
+<a name="isMyProxy-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isMyProxy</h4>
+<pre>public&nbsp;boolean&nbsp;isMyProxy(java.lang.Object&nbsp;instance)</pre>
+<div class="block">Returns <code>true</code> if given object is proxified by this Methref.</div>
+</li>
+</ul>
+<a name="lastName-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastName</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;lastName(java.lang.Object&nbsp;instance)</pre>
+<div class="block">Returns method name of last invoked method on a proxy.</div>
+</li>
+</ul>
+<a name="lastName--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastName</h4>
+<pre>public&nbsp;&lt;T&gt;&nbsp;java.lang.String&nbsp;lastName()</pre>
+<div class="block">Returns name of last method invoked on proxy.</div>
+</li>
+</ul>
+<a name="lastName-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>lastName</h4>
+<pre>public&nbsp;void&nbsp;lastName(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
 </li>
@@ -284,7 +361,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../jodd/methref/InterfaceImplementation.html" title="class in jodd.methref"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../jodd/methref/MethrefAdvice.html" title="class in jodd.methref"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

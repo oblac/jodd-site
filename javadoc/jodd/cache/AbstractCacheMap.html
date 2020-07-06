@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":6,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":6,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -210,79 +210,85 @@ implements <a href="../../jodd/cache/Cache.html" title="interface in jodd.cache"
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected jodd.cache.AbstractCacheMap.CacheObject&lt;<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>,<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#createCacheObject-K-V-long-">createCacheObject</a></span>(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key,
+                 <a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&nbsp;object,
+                 long&nbsp;timeout)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#get-K-">get</a></span>(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key)</code>
 <div class="block">Retrieves an object from the cache.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#getHitCount--">getHitCount</a></span>()</code>
 <div class="block">Returns hit count.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#getMissCount--">getMissCount</a></span>()</code>
 <div class="block">Returns miss count.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#isEmpty--">isEmpty</a></span>()</code>
 <div class="block">Returns <code>true</code> if cache is empty.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#isFull--">isFull</a></span>()</code>
 <div class="block">Returns <code>true</code> if max cache capacity has been reached
  only if cache is size limited.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#isPruneExpiredActive--">isPruneExpiredActive</a></span>()</code>
 <div class="block">Returns <code>true</code> if prune of expired objects should be invoked.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#isReallyFull-K-">isReallyFull</a></span>(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#limit--">limit</a></span>()</code>
 <div class="block">Returns cache size or <code>0</code> if there is no size limit.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#onRemove-K-V-">onRemove</a></span>(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key,
         <a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&nbsp;cachedObject)</code>
 <div class="block">Callback called on item removal.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#prune--">prune</a></span>()</code>
 <div class="block">Prunes objects from cache and returns the number of removed objects.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected abstract int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#pruneCache--">pruneCache</a></span>()</code>
 <div class="block">Prune implementation.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#put-K-V-">put</a></span>(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key,
    <a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&nbsp;object)</code>
 <div class="block">Adds an object to the cache with default timeout.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#put-K-V-long-">put</a></span>(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key,
    <a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&nbsp;object,
@@ -290,26 +296,26 @@ implements <a href="../../jodd/cache/Cache.html" title="interface in jodd.cache"
 <div class="block">Adds an object to the cache with specified timeout after which it becomes expired.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#remove-K-">remove</a></span>(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key)</code>
 <div class="block">Removes an object from the cache and returns removed value of <code>null</code>
  if object was not in the cache or was expired.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#size--">size</a></span>()</code>
 <div class="block">Returns current cache size.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>,<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#snapshot-boolean-">snapshot</a></span>(boolean&nbsp;peek)</code>
 <div class="block">Creates a snapshot from current cache values.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/AbstractCacheMap.html#timeout--">timeout</a></span>()</code>
 <div class="block">Returns default cache timeout or <code>0</code> if it is not set.</div>
@@ -502,6 +508,19 @@ implements <a href="../../jodd/cache/Cache.html" title="interface in jodd.cache"
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../jodd/cache/Cache.html#put-K-V-long-">put</a></code>&nbsp;in interface&nbsp;<code><a href="../../jodd/cache/Cache.html" title="interface in jodd.cache">Cache</a>&lt;<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>,<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&gt;</code></dd>
 </dl>
+</li>
+</ul>
+<a name="createCacheObject-java.lang.Object-java.lang.Object-long-">
+<!--   -->
+</a><a name="createCacheObject-K-V-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createCacheObject</h4>
+<pre>protected&nbsp;jodd.cache.AbstractCacheMap.CacheObject&lt;<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>,<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&gt;&nbsp;createCacheObject(<a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">K</a>&nbsp;key,
+                                                                         <a href="../../jodd/cache/AbstractCacheMap.html" title="type parameter in AbstractCacheMap">V</a>&nbsp;object,
+                                                                         long&nbsp;timeout)</pre>
 </li>
 </ul>
 <a name="getHitCount--">

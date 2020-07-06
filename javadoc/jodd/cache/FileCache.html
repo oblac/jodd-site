@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -215,24 +215,32 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>protected jodd.cache.AbstractCacheMap.CacheObject&lt;java.io.File,byte[]&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/FileCache.html#createFileCacheObject-java.io.File-byte:A-long-">createFileCacheObject</a></span>(java.io.File&nbsp;fileKey,
+                     byte[]&nbsp;object,
+                     long&nbsp;timeout)</code>
+<div class="block">Creates CacheObject that updates last access time based on files last modification.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/FileCache.html#getFileBytes-java.io.File-">getFileBytes</a></span>(java.io.File&nbsp;file)</code>
 <div class="block">Returns cached file bytes.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/FileCache.html#maxFileSize--">maxFileSize</a></span>()</code>
 <div class="block">Returns maximum allowed file size that can be added to the cache.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/FileCache.html#maxSize--">maxSize</a></span>()</code>
 <div class="block">Returns max cache size in bytes.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../jodd/cache/FileCache.html#usedSize--">usedSize</a></span>()</code>
 <div class="block">Returns actually used size in bytes.</div>
@@ -347,6 +355,18 @@ extends java.lang.Object</pre>
 <h4>createCache</h4>
 <pre>protected abstract&nbsp;<a href="../../jodd/cache/Cache.html" title="interface in jodd.cache">Cache</a>&lt;java.io.File,byte[]&gt;&nbsp;createCache()</pre>
 <div class="block">Creates new cache instance for files content.</div>
+</li>
+</ul>
+<a name="createFileCacheObject-java.io.File-byte:A-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createFileCacheObject</h4>
+<pre>protected&nbsp;jodd.cache.AbstractCacheMap.CacheObject&lt;java.io.File,byte[]&gt;&nbsp;createFileCacheObject(java.io.File&nbsp;fileKey,
+                                                                                             byte[]&nbsp;object,
+                                                                                             long&nbsp;timeout)</pre>
+<div class="block">Creates CacheObject that updates last access time based on files last modification.</div>
 </li>
 </ul>
 <a name="maxSize--">
