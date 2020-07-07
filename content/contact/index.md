@@ -14,10 +14,6 @@ Commercial support is available in form of training, consulting and development 
 
 Feel free to contact us for any reason: **info \[at\] jodd&#46;org**
 
-## Follow us on Twitter
-
-Yeah, we are there too: [**jodd_org@Twitter**](https://twitter.com/jodd_org)
-
 ## Ask on StackOverflow
 
 Ask questions on StackOverflow, too: [**Jodd questions**](http://stackoverflow.com/questions/tagged/jodd)
