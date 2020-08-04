@@ -2,7 +2,7 @@
 
 **Jodd** is set of micro-frameworks and developer-friendly tools and utilities.
 
-Simple code. Small size. Good performances. Whatever.
+Simple code. Small size. Good performances.
 
 _Use what you like._
 
@@ -108,11 +108,11 @@ Validation framework.
 
 <%= doc_list_all(@item, '/vtor/') %>
 
-### Lagarto
+### ★ Lagarto
 
 HTML parser.
 
-<%= doc_list_all(@item, '/lagarto/') %>
+<a href="https://lagarto.jodd.org">HERE</a>
 
 ### HtmlStapler
 
@@ -126,17 +126,17 @@ Web decorator framework.
 
 <%= doc_list_all(@item, '/decora/') %>
 
-### CSSelly
+### ★ CSSelly
 
 CSS3 selectors parser.
 
-<%= doc_list_all(@item, '/csselly/') %>
+<a href="https://lagarto.jodd.org">HERE</a>
 
-### Jerry
+### ★ Jerry
 
 jQuery in Java.
 
-<%= doc_list_all(@item, '/jerry/') %>
+<a href="https://lagarto.jodd.org">HERE</a>
 
 ## Jodd Joy
 
