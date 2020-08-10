@@ -71,7 +71,7 @@ It is possible to add custom serializer for a type. We can:
 ~~~~~ java
 	final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	String json = new JsonSerializer()
-			.use("birthdate", new DateJsonSerializer() {
+			.withSerializer("birthdate", new DateJsonSerializer() {
 				@Override
 				public void serialize(JsonContext jsonContext, Date date) {
 					jsonContext.writeString(dateFormat.format(date));
