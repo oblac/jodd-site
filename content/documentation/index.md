@@ -14,13 +14,13 @@ _Use what you like._
 
 Super-fast and powerful bean-util library.
 
-<%= doc_list_all(@item, '/beanutil/') %>
+<a href="https://util.jodd.org">HERE</a>
 
 ### Email
 
 Developer-friendly sending and receiving emails.
 
-<%= doc_list_all(@item, '/email/') %>
+<a href="https://email.jodd.org">HERE</a>
 
 ### HTTP
 
@@ -51,7 +51,7 @@ Strongly-typed method and bean path references.
 
 Set of various every-day utilities.
 
-<%= doc_list_all(@item, '/util/') %>
+<a href="https://util.jodd.org">HERE</a>
 
 Some servlets utilities.
 
@@ -88,7 +88,7 @@ Efficient and thin layers that significantly simplifies writing of database code
 
 Poweful JSON serializer and parser.
 
-<%= doc_list_all(@item, '/json/') %>
+<a href="https://json.jodd.org">HERE</a>
 
 ### JTX
 
