@@ -6,4 +6,4 @@ layout: '/jodd.html'
 
 Code-things-done. Great performances. Zer0 dependencies.
 
-_Use what you like._
+_Use what you like!_

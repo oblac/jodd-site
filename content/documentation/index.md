@@ -10,13 +10,13 @@ _Use what you like._
 
 ## Jodd tools
 
-### BeanUtil
+### ★ BeanUtil ★
 
 Super-fast and powerful bean-util library.
 
 <a href="https://util.jodd.org">HERE</a>
 
-### Email
+### ★ Email ★
 
 Developer-friendly sending and receiving emails.
 
@@ -47,7 +47,7 @@ Strongly-typed method and bean path references.
 <%= doc_list_all(@item, '/ref/') %>
 
 
-## Jodd utilities
+## ★ Jodd utilities ★
 
 Set of various every-day utilities.
 
@@ -84,7 +84,7 @@ Efficient and thin layers that significantly simplifies writing of database code
 
 <%= doc_list_all(@item, '/db/') %>
 
-### Json
+### ★ Json ★
 
 Poweful JSON serializer and parser.
 
@@ -108,7 +108,7 @@ Validation framework.
 
 <%= doc_list_all(@item, '/vtor/') %>
 
-### ★ Lagarto
+### ★ Lagarto ★
 
 HTML parser.
 
