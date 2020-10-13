@@ -22,17 +22,17 @@ Developer-friendly sending and receiving emails.
 
 <a href="https://email.jodd.org">HERE</a>
 
-### HTTP
+### ★ HTTP ★
 
 Tiny, raw HTTP client.
 
-<%= doc_list_all(@item, '/http/') %>
+<a href="https://http.jodd.org">HERE</a>
 
-### Props
+### ★ Props ★
 
 Enhanced `Properties` replacement.
 
-<%= doc_list_all(@item, '/props/') %>
+<a href="https://props.jodd.org">HERE</a>
 
 ### Cli
 
