@@ -7,11 +7,11 @@
 The basic way how `DbQuery` can be created is by providing database connection. Once created, it can be used similarly as JDBC statement is used:
 
 ~~~~~ java
-    DbQuery query = new DbQuery(connection, "create table ...");
+    DbQuery query = DbQuery.query(connection, "create table ...");
     query.executeUpdate();
     query.close();              // or just: query.autoClose().executeUpdate();
     ...
-    query = new DbQuery(connection, "select * from ....");
+    query = DbQuery.query(connection, "select * from ....");
     query.setString(1, "param1");
     ResultSet rs = query.execute();
     ...
@@ -28,7 +28,7 @@ Closing queries is important. Fortunately, *DbOom* allows user to invoke `close(
 Prepared JDBC statement has only ordinal parameters. For long and dynamic SQL queries, setting ordinal parameters may be tricky, and user has to be unnecessary careful. Besides ordinal parameters, `DbQuery` offers named parameters as well.
 
 ~~~~~ java
-    DbQuery query = new DbQuery(connection,
+    DbQuery query = DbQuery.query(connection,
         "select * from FOO where id=:id and name=:name");
     query.setLong("id", id);
     query.setString("name", "john");
@@ -44,7 +44,7 @@ Named and ordinal parameters may mix in one query, although that is is not a goo
 When printing JDBC prepared statements, all parameters are represented with a question mark and not real values. This makes things difficult for debugging. `DbQuery` offers the _debug mode_ that will return the same query string, but populated with real values. Such debug query is just a quick-and-dirty preview and not always 100% syntaxly correct (e.g. strings are not escaped, etc), but sufficient for debugging purposes.
 
 ~~~~~ java
-    DbQuery query = new DbQuery(connection,
+    DbQuery query = DbQuery.query(connection,
         "select * from FOO where id=:id and name=:name");
     query.setDebugMode();          // must be called before setting parameters
     query.setLong("id", id);
@@ -73,7 +73,7 @@ There are some new methods for setting parameter values, such as: `setBean()`, `
 With `setBean()` it is possible to populate query string where parameters are named as bean properties:
 
 ~~~~~ java
-    DbQuery query = new DbQuery(connection,
+    DbQuery query = DbQuery.query(connection,
         "select * from FOO f where f.ID=:foo.id and f.NAME=:foo.names[0]");
     query.setBean("foo", Foo);
 ~~~~~
@@ -90,7 +90,7 @@ With `setBean()` it is possible to populate query string where parameters are na
 
 ~~~~~ java
     // Example #1:
-    DbOomQuery q = new DbOomQuery(connection,
+    DbOomQuery q = DbOomQuery.query(connection,
             "insert into FOO(Data) values('data')");
     q.setGeneratedColumns();            // indicate some auto-generated columns
     q.executeUpdate();
@@ -102,7 +102,7 @@ With `setBean()` it is possible to populate query string where parameters are na
 
 ~~~~~ java
     // Example #2:
-    DbOomQuery q = new DbOomQuery(connection,
+    DbOomQuery q = DbOomQuery.query(connection,
             "insert into FOO(Data) values('data')");
     q.setGeneratedColumns("ID");        // indicate auto-generated column
     q.executeUpdate();
@@ -119,7 +119,7 @@ You could also use `q.setGeneratedKey()` instead of `q.setGeneratedColumns()` in
 `DbQuery` supports calling stored procedures. The result of the stored procedure is encapsulated in `DbCallResult`.
 
 ~~~~~ java
-    DbQuery query = new DbQuery(connection, "{ :upp = call upper( :str ) }");
+    DbQuery query = DbQuery.query(connection, "{ :upp = call upper( :str ) }");
     query.setDebugMode();
     query.setString("str", "some lowercase value");
     query.outString("upp");
