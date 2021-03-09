@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes"/>
+  <meta name="author" content="{{ site.author.name }}"/>
+  <meta name="twitter:site" content="@oblac_rs" />
+  <meta name="twitter:card" content="{{ site.description }}" />
+
+  <title>{{ site.title }}</title>
+  <meta property="og:title" content="{{ site.title }}"/>
+  <meta name="twitter:title" content="{{ site.title }}" />
+  <meta property="og:type" content="website"/>
+  <meta name="description" content="{{ site.description }}"/>
+  <meta name="twitter:description" content="{{ site.description }}" />
+  <meta property="og:description" content="{{ site.description }}"/>
+
+  <meta property="og:locale" content="sr_RS"/>
+  <meta property="og:url" content="{{ link }}"/>
+  <meta property="og:site_name" content="Oblac"/>
+  <meta property="og:image" content="{{site.baseURL}}/o-wide.png"/>
+  <meta name="twitter:image" content="{{site.baseURL}}/o-wide.png" />
+
+	<link href="/css/style.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="/css/fonts.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="/css/font-awesome.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+
+  <link rel="icon" href="/favicon-16x16.png" sizes="16x16"/>
+  <link rel="icon" href="/favicon-32x32.png" sizes="32x32"/>
+  <link rel="icon" href="/favicon-96x96.png" sizes="96x96"/>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+
+  <meta name="msapplication-TileImage" content="ms-icon-310x310.png"/>
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/android-icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="/android-icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/android-icon-48x48.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="/android-icon-36x36.png">
+
+  <meta name="msapplication-square70x70logo" content="/ms-icon-70x70.png"/>
+  <meta name="msapplication-square150x150logo" content="/ms-icon-150x150.png"/>
+  <meta name="msapplication-square310x310logo" content="/ms-icon-310x310.png"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+</head>
+
+<body>
+<div class="container">
+  {% block main %}{% endblock %}
+
+</div>
+
+	<footer>
+		<div id="support">
+			<div class="inner">
+				<div class="text-center">
+					<h2>Need help?</h2>
+
+					Commercial support is available in form of <br>
+					training, consulting and development hours.<br>
+					Please <a href="mailto:igor@jodd.org">contact us</a> for further information.
+				</div>
+			</div>
+		</div>
+		<div id="overview">
+			<div class="inner">
+				© Igor Spasić and the Jodd Team, with &nbsp;❤️.<br>
+				<br>
+				<b>Jodd</b> is free software, released under the terms of the <a href="https://github.com/oblac/jodd/blob/master/LICENSE" target="_blank" style="color: #fff">BSD License</a>.<br>
+				<a href="https://github.com/oblac/jodd/blob/master/CODE_OF_CONDUCT.md" target="_blank" style="color: #eee">Code of conduct</a>
+			</div>
+		</div>
+	</footer>
+
+
+{% block footerfiles %}{% endblock %}
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-153514-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

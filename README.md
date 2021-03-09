@@ -1,91 +1,34 @@
-# Jodd.org Website
+# Oblac blog
 
-This is the source for [Jodd](https://jodd.org)'s web site built with [nanoc](https://nanoc.ws).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ba8ba248-cb24-4196-b030-e7950bb0ebde/deploy-status)](https://app.netlify.com/sites/oblac-rs/deploys)
 
-All submissions are welcome. To submit a change, fork this repo,
-commit your changes, and send us a
-[pull request](https://help.github.com/send-pull-requests/).
+[oblac.rs](https://oblac.rs)
 
-## Build the site
+## Misc
 
-You have **two** options. The first is to build and use it locally, so you
-should be prepared to do some environment configuration. The second option is
-to build it using Docker, so you don't have to install anything.
+highlight.js languages:
 
-### Local
++ .properties
++ Bash
++ CSS
++ HTML
++ HTTP
++ JSON
++ Java
++ JavaScript
++ Kotlin
++ Makefile
++ Markdown
++ Plain text
++ Rust
++ SCSS
++ SQL
++ Shell
++ TOML
++ TypeScript
++ YAML
 
-Ruby 2.x is required to build the site.
-
-Get the `nanoc` gem, plus [kramdown](https://kramdown.gettalong.org/)
-for [Markdown](https://daringfireball.net/projects/markdown/) parsing:
-
-```sh
-$ bundle install
-```
-
-You can see available commands with nanoc:
-
-```sh
-$ bundle exec nanoc -h
-```
-
-Nanoc has [some nice documentation](https://nanoc.ws/docs/tutorial/) to get you
-started. Though if you're mainly concerned with editing or adding content, you
-won't need to know much about nanoc.
-
-Nanoc compiles the site into static files living in `./output`.  It's
-smart enough not to try to compile unchanged files:
-
-```sh
-$ bundle exec nanoc compile
-```
-
-You can setup whatever you want to view the files. You can run the local server
-to see the site:
-
-```sh
-$ bundle exec nanoc view
-$ open http://localhost:3000
-```
-
-Compilation times got you down? Use guard (recommended) in separate terminal:
-
-```sh
-$ bundle exec guard
-```
-...or autocompile:
-
-```sh
-$ bundle exec nanoc autocompile
-```
-
-This starts a web server too, so there's no need to run `nanoc view`.
-
-### Docker
-
-Use `docker-run.sh` to run the build using the Docker. First you need to build
-an image:
-
-```sh
-$ docker-run.sh build
-```
-
-After the image is created, compilation is simple:
-
-```sh
-$ docker-run.sh compile
-```
-
-or if you want, you can run the guard instead:
-
-```sh
-$ docker-run.sh guard
-```
-
-You can run the web server, too:
-
-```sh
-$ docker-run.sh server
-```
-
-Enjoy!
+Other:
++ Dockerfile
++ OCaml
++ Scala

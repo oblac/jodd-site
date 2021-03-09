@@ -1,0 +1,14 @@
+# Browsers that we support
+
+last 3 versions
+ie >= 10
+edge >= 12
+firefox >= 28
+chrome >= 21
+safari >= 6.1
+opera >= 12.1
+ios >= 7
+android >= 4.4
+blackberry >= 10
+operamobile >= 12.1
+samsung >= 4

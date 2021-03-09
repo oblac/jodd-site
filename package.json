@@ -1,0 +1,21 @@
+{
+  "name": "jodd",
+  "version": "2.3.2",
+  "description": "jodd.org",
+  "scripts": {
+    "clean": "rm -rf out",
+    "dev": "node spig.js dev",
+    "build": "node spig.js"
+  },
+  "author": {
+    "name": "Igor Spasić",
+    "email": "igor.spasic@gmail.com",
+    "url": "https://igo.rs/"
+  },
+  "license": "MIT",
+  "homepage": "https://jodd.org",
+  "dependencies": {
+    "remove-markdown": "^0.3.0",
+    "spignite": "^2.3.2"
+  }
+}

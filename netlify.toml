@@ -1,0 +1,6 @@
+[build]
+publish = "out"
+command = "yarn build"
+
+[context.production.environment]
+SPIG_PRODUCTION = "true"
